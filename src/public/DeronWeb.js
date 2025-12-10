@@ -470,6 +470,48 @@ export default function DeronWeb({
         </div>
       </section>
 
+      {/* ===== NEWS ===== */}
+<section id="news" className="py-32 px-6">
+  <div className="max-w-5xl mx-auto">
+    <div className="text-center mb-16">
+      <div className="text-xs uppercase tracking-widest text-red-600 mb-4">
+        News
+      </div>
+      <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        Tin tức & Cập nhật từ Deron
+      </h2>
+    </div>
+
+    {newsList.length === 0 && (
+      <p className="text-center text-gray-500">Chưa có tin tức.</p>
+    )}
+
+    <div className="grid md:grid-cols-2 gap-8">
+      {newsList.map((item) => (
+        <div
+          key={item.id}
+          className="p-6 border rounded-lg shadow hover:shadow-md cursor-pointer transition"
+          onClick={() => {
+            if (item.external_url) window.open(item.external_url, "_blank");
+          }}
+        >
+          <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+          <p className="text-gray-500 text-sm">
+            {new Date(item.published_at).toLocaleDateString("vi-VN")}
+          </p>
+
+          {item.external_url && (
+            <p className="text-blue-600 underline mt-3 text-sm">
+              Mở bài viết
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
       {/* ===== FOOTER ===== */}
       <footer className="py-12 px-6 border-t border-gray-200">
         <div className="max-w-5xl mx-auto">
