@@ -15,6 +15,9 @@ jobs:
 
     env:
       CI: false
+      # Supabase env dùng cho quá trình build (CRA yêu cầu prefix REACT_APP_)
+      REACT_APP_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
     steps:
       - name: Checkout source
