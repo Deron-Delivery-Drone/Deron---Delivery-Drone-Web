@@ -326,40 +326,59 @@ function App() {
       </section>
 
       {/* NEWS từ Supabase */}
-      <section id="news" className="py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Tin tức & Cập nhật từ Deron
-          </h2>
+<section id="news" className="py-24 px-6 bg-white">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-bold mb-8">
+      Tin tức & Cập nhật từ Deron
+    </h2>
 
-          {loadingNews && <p>Đang tải tin tức...</p>}
-          {newsError && <p className="text-red-600">{newsError}</p>}
+    {loadingNews && <p>Đang tải tin tức...</p>}
+    {newsError && <p className="text-red-600">{newsError}</p>}
 
-          {!loadingNews && !newsError && news.length === 0 && (
-            <p>Hiện chưa có bài viết nào được xuất bản.</p>
-          )}
+    {!loadingNews && !newsError && news.length === 0 && (
+      <p>Hiện chưa có bài viết nào được xuất bản.</p>
+    )}
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {news.map((post) => (
-              <article
-                key={post.id}
-                className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
-              >
-                <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
-                {post.meta_description && (
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {post.meta_description}
-                  </p>
-                )}
-                <p className="text-sm text-gray-400">
-                  {post.published_at &&
-                    new Date(post.published_at).toLocaleDateString("vi-VN")}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+    <div className="grid md:grid-cols-3 gap-8 mt-8">
+      {news.map((post) => {
+        const clickable = !!post.external_url;
+
+        return (
+          <a
+            key={post.id}
+            href={clickable ? post.external_url : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`block border border-gray-200 rounded-lg p-6 transition-shadow
+              ${clickable ? "hover:shadow-lg hover:border-red-400 cursor-pointer" : "cursor-default"}`}
+            onClick={(e) => {
+              if (!clickable) e.preventDefault();
+            }}
+          >
+            <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
+
+            {post.meta_description && (
+              <p className="text-gray-600 mb-4 line-clamp-3">
+                {post.meta_description}
+              </p>
+            )}
+
+            <p className="text-sm text-gray-400">
+              {post.published_at &&
+                new Date(post.published_at).toLocaleDateString("vi-VN")}
+            </p>
+
+            {clickable && (
+              <p className="text-xs text-red-500 mt-3 underline">
+                Mở bài viết
+              </p>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* CONTACT */}
       <section id="contact" className="py-24 px-6">
