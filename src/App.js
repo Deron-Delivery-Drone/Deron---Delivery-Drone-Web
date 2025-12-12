@@ -1,17 +1,6 @@
 // src/App.js
-import React, { useState, useEffect, useMemo } from "react";
-import {
-  Mail,
-  Phone,
-  Globe,
-  Menu,
-  X,
-  ChevronRight,
-  Moon,
-  Sun,
-  Monitor,
-  Languages,
-} from "lucide-react";
+import React, { useEffect, useMemo, useState } from "react";
+import { Mail, Phone, Globe, Menu, X, ChevronRight, Languages } from "lucide-react";
 import { fetchPublishedContent } from "./lib/supabase";
 
 const translations = {
@@ -46,8 +35,7 @@ const translations = {
       items: [
         {
           title: "Hệ thống UAV tiên tiến",
-          description:
-            "Máy bay coaxial octocopter tải 7-15kg, tối ưu cho địa hình và đô thị Việt Nam.",
+          description: "Máy bay coaxial octocopter tải 7-15kg, tối ưu cho địa hình và đô thị Việt Nam.",
         },
         {
           title: "Định tuyến bằng AI",
@@ -94,8 +82,8 @@ const translations = {
       phone: "+84 363 045 747",
       button: "Liên hệ ngay",
     },
-    tickerTitle: "Con người của Deron",
   },
+
   en: {
     languageName: "English",
     nav: {
@@ -174,8 +162,8 @@ const translations = {
       phone: "+84 363 045 747",
       button: "Get in Touch",
     },
-    tickerTitle: "Deron people",
   },
+
   zh: {
     languageName: "中国",
     nav: {
@@ -253,77 +241,27 @@ const translations = {
       phone: "+84 363 045 747",
       button: "立即联系",
     },
-    tickerTitle: "Deron 团队",
   },
 };
 
-const teamMembers = [
-  {
-    name: "Nguyễn Phúc Huy",
-    altName: "Harry / 阿辉",
-    title: "Founder & CEO",
-    info: "Architecting Vietnam's aerial logistics future.",
-    phone: "+84 363 045 747",
-    email: "ceo.deron@gmail.com",
-  },
-  {
-    name: "Trần Minh Anh",
-    altName: "Alex",
-    title: "Head of Engineering",
-    info: "Autonomous flight, safety & performance.",
-    phone: null,
-    email: "engineering@deron.vn",
-  },
-  {
-    name: "Lê Gia Hân",
-    altName: "Hana",
-    title: "Partnerships",
-    info: "Connecting hospitals, NGOs and merchants across Vietnam.",
-    phone: "+84 90 000 0000",
-    email: null,
-  },
-];
-
 function App() {
-  const [language, setLanguage] = useState(
-    localStorage.getItem("deron-language") || "vi"
-  );
-  const [theme, setTheme] = useState(
-    localStorage.getItem("deron-theme") || "system"
-  );
+  const [language, setLanguage] = useState(localStorage.getItem("deron-language") || "vi");
+  const [theme, setTheme] = useState(localStorage.getItem("deron-theme") || "system");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // NEWS từ Supabase
+  // NEWS from Supabase
   const [news, setNews] = useState([]);
   const [loadingNews, setLoadingNews] = useState(true);
-  const [newsError, setNewsError] = useState(null);
+  const [newsError, setNewsError] = useState(false);
 
   const t = useMemo(() => translations[language] || translations.vi, [language]);
 
-  // Load news khi mở trang
-  useEffect(() => {
-    async function loadNews() {
-      try {
-        setLoadingNews(true);
-        // content_type bạn dùng bên Admin là gì thì thay ở đây: "post" hoặc "news"
-        const posts = await fetchPublishedContent("post", 6);
-        setNews(posts);
-        setNewsError(null);
-      } catch (err) {
-        console.error(err);
-        setNewsError(t.news.error);
-      } finally {
-        setLoadingNews(false);
-      }
-    }
-
-    loadNews();
-  }, [t.news.error]);
-
+  // Persist language
   useEffect(() => {
     localStorage.setItem("deron-language", language);
   }, [language]);
 
+  // Apply theme (UI switch removed, but behavior remains)
   useEffect(() => {
     localStorage.setItem("deron-theme", theme);
 
@@ -338,32 +276,41 @@ function App() {
     applyTheme();
 
     const handleChange = () => {
-      if (theme === "system") {
-        applyTheme();
-      }
+      if (theme === "system") applyTheme();
     };
 
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, [theme]);
 
+  // Load news once on mount
   useEffect(() => {
-    if (newsError) {
-      setNewsError(t.news.error);
-    }
-  }, [language, newsError, t.news.error]);
+    let mounted = true;
 
-  useEffect(() => {
-    if (newsError) {
-      setNewsError(t.news.error);
-    }
-  }, [language, newsError, t.news.error]);
+    async function loadNews() {
+      try {
+        setLoadingNews(true);
+        setNewsError(false);
 
-  useEffect(() => {
-    if (newsError) {
-      setNewsError(t.news.error);
+        // content_type bạn dùng bên Admin là gì thì thay ở đây: "post" hoặc "news"
+        const posts = await fetchPublishedContent("post", 6);
+        if (!mounted) return;
+
+        setNews(Array.isArray(posts) ? posts : []);
+      } catch (err) {
+        console.error(err);
+        if (!mounted) return;
+        setNewsError(true);
+      } finally {
+        if (mounted) setLoadingNews(false);
+      }
     }
-  }, [newsError, t.news.error]);
+
+    loadNews();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -371,19 +318,12 @@ function App() {
     setMobileMenuOpen(false);
   };
 
-  const themeOptions = [
-    { value: "light", label: "Light", icon: <Sun className="h-4 w-4" /> },
-    { value: "dark", label: "Dark", icon: <Moon className="h-4 w-4" /> },
-    { value: "system", label: "System", icon: <Monitor className="h-4 w-4" /> },
-  ];
-
   const localeDate = (date) => {
     if (!date) return "";
     const locale = language === "en" ? "en-US" : language === "zh" ? "zh-CN" : "vi-VN";
     return new Date(date).toLocaleDateString(locale);
   };
 
-  // ---------- PUBLIC VIEW ----------
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-white text-gray-900 dark:from-gray-950 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500">
       {/* NAVBAR */}
@@ -428,46 +368,40 @@ function App() {
               >
                 {t.nav.news}
               </button>
+
+              {/* Contact (only once) */}
               <button
                 onClick={() => scrollToSection("contact")}
                 className="px-4 py-2 bg-red-600 text-white rounded-full text-sm hover:bg-red-700 transition-colors shadow-sm"
               >
                 {t.nav.contact}
               </button>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="px-4 py-2 bg-red-600 text-white rounded-full text-sm hover:bg-red-700 transition-colors shadow-sm"
+
+              {/* Language (only here; ribbon removed) */}
+              <div className="flex items-center opacity-80 hover:opacity-100 transition-opacity">
+                <Languages className="h-5 w-5 text-gray-500 dark:text-gray-300" />
+                <select
+                  id="language-select"
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                  aria-label="Change language"
+                  className="ml-2 border border-gray-200/80 dark:border-gray-700/80 rounded-full pl-3 pr-6 py-2 text-sm bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
                 >
-                  {t.nav.contact}
-                </button>
-                <div className="flex items-center opacity-70 hover:opacity-100 transition-opacity">
-                  <Languages className="h-5 w-5 text-gray-500 dark:text-gray-300" />
-                  <select
-                    id="language-select"
-                    value={language}
-                    onChange={(e) => setLanguage(e.target.value)}
-                    aria-label="Change language"
-                    className="ml-2 border border-gray-200/80 dark:border-gray-700/80 rounded-full pl-3 pr-6 py-2 text-sm bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-                  >
-                    <option value="vi">🇻🇳 Việt Nam</option>
-                    <option value="en">🇺🇸 English</option>
-                    <option value="zh">🇨🇳 中国</option>
-                  </select>
-                </div>
+                  <option value="vi">🇻🇳 Việt Nam</option>
+                  <option value="en">🇺🇸 English</option>
+                  <option value="zh">🇨🇳 中国</option>
+                </select>
               </div>
             </div>
 
             {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-gray-800 dark:text-gray-200"
-            >
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-gray-800 dark:text-gray-200">
               {mobileMenuOpen ? <X /> : <Menu />}
             </button>
           </div>
         </div>
 
+        {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
             <div className="px-6 py-4 space-y-3">
@@ -480,58 +414,32 @@ function App() {
                   {t.nav[id]}
                 </button>
               ))}
+
+              {/* Mobile language */}
+              <div className="pt-3 border-t border-gray-200 dark:border-gray-800">
+                <label className="block text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-2">
+                  Language
+                </label>
+                <div className="flex items-center gap-2">
+                  <Languages className="h-5 w-5 text-gray-500 dark:text-gray-300" />
+                  <select
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                    className="w-full border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  >
+                    <option value="vi">🇻🇳 Việt Nam</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="zh">🇨🇳 中国</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         )}
       </nav>
 
-      {/* Preferences ribbon */}
-      <div className="fixed top-16 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">Theme</span>
-            <div className="flex items-center rounded-full border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-800/60 shadow-sm overflow-hidden">
-              {themeOptions.map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => setTheme(option.value)}
-                  className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors ${
-                    theme === option.value
-                      ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
-                      : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                  }`}
-                >
-                  {option.icon}
-                  <span>{option.label}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Languages className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-            <label
-              htmlFor="language-select"
-              className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400"
-            >
-              Language
-            </label>
-            <select
-              id="language-select"
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-              className="border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-            >
-              <option value="vi">Việt Nam</option>
-              <option value="en">English</option>
-              <option value="zh">中国</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
       {/* HERO */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-32 pb-16">
+      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20 pb-16">
         <div className="max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 border border-red-500/50 text-red-600 dark:text-red-300 text-xs uppercase tracking-[0.25em] rounded-full bg-white/70 dark:bg-gray-900/60 shadow-sm">
             {t.hero.badge}
@@ -569,9 +477,7 @@ function App() {
                 key={idx}
                 className="text-center p-10 bg-white dark:bg-gray-800 rounded-2xl shadow-lg shadow-black/5 dark:shadow-black/30 border border-gray-100 dark:border-gray-700"
               >
-                <div className="text-4xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {stat.value}
-                </div>
+                <div className="text-4xl font-semibold text-gray-900 dark:text-white mb-2">{stat.value}</div>
                 <div className="text-gray-600 dark:text-gray-300">{stat.label}</div>
               </div>
             ))}
@@ -636,19 +542,16 @@ function App() {
         </div>
       </section>
 
-      {/* NEWS từ Supabase */}
+      {/* NEWS */}
       <section id="news" className="py-24 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white">
-              {t.news.title}
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white">{t.news.title}</h2>
             <div className="h-0.5 flex-1 ml-4 bg-gradient-to-r from-red-500/70 to-transparent rounded-full" />
           </div>
 
           {loadingNews && <p className="text-gray-600 dark:text-gray-300">{t.news.loading}</p>}
-          {newsError && <p className="text-red-600 dark:text-red-400">{newsError}</p>}
-
+          {!loadingNews && newsError && <p className="text-red-600 dark:text-red-400">{t.news.error}</p>}
           {!loadingNews && !newsError && news.length === 0 && (
             <p className="text-gray-600 dark:text-gray-300">{t.news.empty}</p>
           )}
@@ -672,6 +575,7 @@ function App() {
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                   </div>
+
                   <div className="flex-1 flex flex-col p-6 gap-3">
                     <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em]">
                       {localeDate(post.published_at)}
@@ -721,9 +625,7 @@ function App() {
       {/* CONTACT */}
       <section id="contact" className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-gray-900 dark:text-white">
-            {t.contact.headline}
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-gray-900 dark:text-white">{t.contact.headline}</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">{t.contact.cta}</p>
 
           <div className="bg-gray-50 dark:bg-gray-900/70 rounded-3xl p-8 md:p-10 mb-10 border border-gray-100 dark:border-gray-800 shadow-xl shadow-black/5 dark:shadow-black/40">
@@ -757,44 +659,6 @@ function App() {
             {t.contact.button}
             <ChevronRight className="ml-2 h-5 w-5" />
           </button>
-        </div>
-      </section>
-
-      {/* TEAM TICKER */}
-      <section className="px-6 pb-16">
-        <div className="max-w-6xl mx-auto bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-3xl shadow-xl shadow-black/5 dark:shadow-black/30 p-6 space-y-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">{t.tickerTitle}</p>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Deron Crew</h3>
-            </div>
-            <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-600 font-semibold">∞</div>
-          </div>
-          <div className="relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
-            <div
-              className={`flex items-center gap-6 py-4 px-6 w-max ${
-                teamMembers.length > 1 ? "marquee-right" : ""
-              }`}
-            >
-              {(teamMembers.length > 1 ? [...teamMembers, ...teamMembers] : teamMembers).map((member, idx) => (
-                <div
-                  key={`${member.name}-${idx}`}
-                  className="min-w-[260px] bg-white dark:bg-gray-900 rounded-2xl px-5 py-4 shadow-md shadow-black/5 dark:shadow-black/30 border border-gray-100 dark:border-gray-800"
-                >
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white">{member.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">{member.altName}</p>
-                  <p className="text-sm text-red-600 dark:text-red-400 mt-2 font-medium">{member.title}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">{member.info}</p>
-                  {member.phone && (
-                    <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">{member.phone}</p>
-                  )}
-                  {member.email && (
-                    <p className="text-xs text-gray-600 dark:text-gray-300">{member.email}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
