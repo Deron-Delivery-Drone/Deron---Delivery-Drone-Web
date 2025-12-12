@@ -476,10 +476,14 @@ function App() {
 
           <div className="flex items-center gap-3">
             <Languages className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-            <label className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+            <label
+              htmlFor="language-select"
+              className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400"
+            >
               Language
             </label>
             <select
+              id="language-select"
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
               className="border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
