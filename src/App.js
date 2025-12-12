@@ -16,7 +16,7 @@ const translations = {
     },
     hero: {
       badge: "Tương lai logistics của Việt Nam",
-      title: "Điện Biên Phủ Trong Lĩnh Vực Logistics",
+      title: "Chiến Dịch Điện Biên Phủ Trong Lĩnh Vực Logistics",
       subtitle: "Không chỉ giao hàng. Chúng tôi trao gửi hy vọng, sự sống và tri thức.",
       cta: "Tham gia cùng Deron",
     },
