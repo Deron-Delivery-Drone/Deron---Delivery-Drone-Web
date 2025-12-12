@@ -2,33 +2,54 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/Deron-logo.png" />
+
+    <!-- Canonical / SEO -->
+    <title>DERON</title>
+    <link rel="canonical" href="https://deron.vn/" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
 
-    <title>DERON</title>
+    <!-- Basic SEO description (một số nền tảng có dùng) -->
+    <meta
+      name="description"
+      content="chiến dịch Điện Biên Phủ trong lĩnh vực logistics"
+    />
 
-    <!-- Basic SEO -->
-    <meta name="description" content="Điện Biên Phủ trong lĩnh vực logistics" />
-
-    <!-- Open Graph (Facebook, Zalo, Messenger, LinkedIn, etc.) -->
+    <!-- Open Graph (Facebook/Messenger/LinkedIn/...) -->
     <meta property="og:site_name" content="DERON" />
     <meta property="og:title" content="DERON" />
-    <meta property="og:description" content="Điện Biên Phủ trong lĩnh vực logistics" />
+    <meta
+      property="og:description"
+      content="chiến dịch Điện Biên Phủ trong lĩnh vực logistics"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://deron.vn/" />
+    <!-- Tạm dùng logo hiện tại; sau này bạn thay bằng og-image 1200x630 -->
     <meta property="og:image" content="https://deron.vn/Deron-logo.png" />
-    <!-- Khuyến nghị: 1200x630 cho og:image; nếu chưa có thì tạm dùng logo -->
     <meta property="og:image:alt" content="DERON" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="DERON" />
-    <meta name="twitter:description" content="Điện Biên Phủ trong lĩnh vực logistics" />
+    <meta
+      name="twitter:description"
+      content="chiến dịch Điện Biên Phủ trong lĩnh vực logistics"
+    />
     <meta name="twitter:image" content="https://deron.vn/Deron-logo.png" />
 
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- Icons (Safari / iOS / Google) -->
+    <!-- iOS Safari thumbnail / Add to Home Screen dùng apple-touch-icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <!-- Fallback favicon -->
+    <link rel="icon" href="%PUBLIC_URL%/Deron-logo.png" />
+
+    <!-- PWA manifest -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   </head>
 
