@@ -28,6 +28,23 @@
   color: #61dafb;
 }
 
+.marquee-right {
+  animation: marqueeRight 28s linear infinite reverse;
+}
+
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

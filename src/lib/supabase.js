@@ -7,10 +7,16 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.warn("Missing Supabase environment variables!");
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Only create the client when credentials are provided to prevent tests from crashing.
+export const supabase =
+  supabaseUrl && supabaseAnonKey
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : null;
 
 // Lấy bài viết đã publish
 export async function fetchPublishedContent(contentType = "post", limit = 6) {
+  if (!supabase) return [];
+
   const { data, error } = await supabase
     .from("content") // LƯU Ý: bảng là "content" số ít
     .select(
@@ -27,6 +33,8 @@ export async function fetchPublishedContent(contentType = "post", limit = 6) {
 
 // Lấy site_settings (lúc nãy đã mở SELECT cho public)
 export async function fetchSiteSettings() {
+  if (!supabase) return {};
+
   const { data, error } = await supabase.from("site_settings").select("*");
   if (error) throw error;
 
