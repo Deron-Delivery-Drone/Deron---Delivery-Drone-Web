@@ -33,9 +33,9 @@ test("renders hero copy and language selector", async () => {
     screen.getByText(/Điện Biên Phủ của ngành vận chuyển/i)
   ).toBeInTheDocument();
 
-  const languageSelect = screen.getByRole("combobox", { name: /Change language/i });
+  const languageSelect = screen.getByRole("combobox", { name: /Language/i });
   expect(languageSelect).toBeInTheDocument();
-  expect(screen.getByRole("option", { name: "🇻🇳 Việt Nam" })).toBeInTheDocument();
-  expect(screen.getByRole("option", { name: "🇺🇸 English" })).toBeInTheDocument();
-  expect(screen.getByRole("option", { name: "🇨🇳 中国" })).toBeInTheDocument();
+  expect(screen.getByRole("option", { name: "Việt Nam" })).toBeInTheDocument();
+  expect(screen.getByRole("option", { name: "English" })).toBeInTheDocument();
+  expect(screen.getByRole("option", { name: "中国" })).toBeInTheDocument();
 });

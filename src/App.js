@@ -7,6 +7,9 @@ import {
   Menu,
   X,
   ChevronRight,
+  Moon,
+  Sun,
+  Monitor,
   Languages,
 } from "lucide-react";
 import { fetchPublishedContent } from "./lib/supabase";
@@ -285,6 +288,9 @@ function App() {
   const [language, setLanguage] = useState(
     localStorage.getItem("deron-language") || "vi"
   );
+  const [theme, setTheme] = useState(
+    localStorage.getItem("deron-theme") || "system"
+  );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // NEWS từ Supabase
@@ -319,18 +325,33 @@ function App() {
   }, [language]);
 
   useEffect(() => {
+    localStorage.setItem("deron-theme", theme);
+
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     const applyTheme = () => {
-      const isDark = mediaQuery.matches;
+      const isDark = theme === "dark" || (theme === "system" && mediaQuery.matches);
       document.documentElement.classList.toggle("dark", isDark);
-      document.body.dataset.theme = "system";
+      document.body.dataset.theme = theme;
     };
 
     applyTheme();
-    mediaQuery.addEventListener("change", applyTheme);
-    return () => mediaQuery.removeEventListener("change", applyTheme);
-  }, []);
+
+    const handleChange = () => {
+      if (theme === "system") {
+        applyTheme();
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, [theme]);
+
+  useEffect(() => {
+    if (newsError) {
+      setNewsError(t.news.error);
+    }
+  }, [language, newsError, t.news.error]);
 
   useEffect(() => {
     if (newsError) {
@@ -343,6 +364,12 @@ function App() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
   };
+
+  const themeOptions = [
+    { value: "light", label: "Light", icon: <Sun className="h-4 w-4" /> },
+    { value: "dark", label: "Dark", icon: <Moon className="h-4 w-4" /> },
+    { value: "system", label: "System", icon: <Monitor className="h-4 w-4" /> },
+  ];
 
   const localeDate = (date) => {
     if (!date) return "";
@@ -395,6 +422,12 @@ function App() {
               >
                 {t.nav.news}
               </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="px-4 py-2 bg-red-600 text-white rounded-full text-sm hover:bg-red-700 transition-colors shadow-sm"
+              >
+                {t.nav.contact}
+              </button>
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => scrollToSection("contact")}
@@ -441,24 +474,55 @@ function App() {
                   {t.nav[id]}
                 </button>
               ))}
-              <div className="pt-3 border-t border-gray-200 dark:border-gray-800 flex items-center gap-3">
-                <Languages className="h-5 w-5 text-gray-500 dark:text-gray-300" />
-                <select
-                  id="language-select-mobile"
-                  value={language}
-                  onChange={(e) => setLanguage(e.target.value)}
-                  aria-label="Change language"
-                  className="flex-1 border border-gray-200/80 dark:border-gray-700/80 rounded-full px-3 py-2 text-sm bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-                >
-                  <option value="vi">🇻🇳 Việt Nam</option>
-                  <option value="en">🇺🇸 English</option>
-                  <option value="zh">🇨🇳 中国</option>
-                </select>
-              </div>
             </div>
           </div>
         )}
       </nav>
+
+      {/* Preferences ribbon */}
+      <div className="fixed top-16 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">Theme</span>
+            <div className="flex items-center rounded-full border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-800/60 shadow-sm overflow-hidden">
+              {themeOptions.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => setTheme(option.value)}
+                  className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors ${
+                    theme === option.value
+                      ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+                      : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  {option.icon}
+                  <span>{option.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Languages className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+            <label
+              htmlFor="language-select"
+              className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400"
+            >
+              Language
+            </label>
+            <select
+              id="language-select"
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+              className="border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+            >
+              <option value="vi">Việt Nam</option>
+              <option value="en">English</option>
+              <option value="zh">中国</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
       {/* HERO */}
       <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-32 pb-16">
