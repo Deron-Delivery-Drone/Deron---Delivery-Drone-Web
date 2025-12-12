@@ -404,13 +404,11 @@ function App() {
                 </button>
                 <div className="flex items-center opacity-70 hover:opacity-100 transition-opacity">
                   <Languages className="h-5 w-5 text-gray-500 dark:text-gray-300" />
-                  <label htmlFor="language-select" className="sr-only">
-                    Language
-                  </label>
                   <select
                     id="language-select"
                     value={language}
                     onChange={(e) => setLanguage(e.target.value)}
+                    aria-label="Change language"
                     className="ml-2 border border-gray-200/80 dark:border-gray-700/80 rounded-full pl-3 pr-6 py-2 text-sm bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
                   >
                     <option value="vi">🇻🇳 Việt Nam</option>
@@ -445,13 +443,11 @@ function App() {
               ))}
               <div className="pt-3 border-t border-gray-200 dark:border-gray-800 flex items-center gap-3">
                 <Languages className="h-5 w-5 text-gray-500 dark:text-gray-300" />
-                <label htmlFor="language-select-mobile" className="sr-only">
-                  Language
-                </label>
                 <select
                   id="language-select-mobile"
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
+                  aria-label="Change language"
                   className="flex-1 border border-gray-200/80 dark:border-gray-700/80 rounded-full px-3 py-2 text-sm bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
                 >
                   <option value="vi">🇻🇳 Việt Nam</option>
