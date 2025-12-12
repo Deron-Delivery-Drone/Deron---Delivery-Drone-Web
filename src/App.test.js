@@ -24,7 +24,7 @@ beforeAll(() => {
     };
 });
 
-test("renders hero copy", async () => {
+test("renders hero copy and language selector", async () => {
   render(<App />);
 
   await waitFor(() => expect(fetchPublishedContent).toHaveBeenCalled());
@@ -33,4 +33,9 @@ test("renders hero copy", async () => {
     screen.getByText(/Điện Biên Phủ của ngành vận chuyển/i)
   ).toBeInTheDocument();
 
+  const languageSelect = screen.getByRole("combobox", { name: /Language/i });
+  expect(languageSelect).toBeInTheDocument();
+  expect(screen.getByRole("option", { name: "Việt Nam" })).toBeInTheDocument();
+  expect(screen.getByRole("option", { name: "English" })).toBeInTheDocument();
+  expect(screen.getByRole("option", { name: "中国" })).toBeInTheDocument();
 });

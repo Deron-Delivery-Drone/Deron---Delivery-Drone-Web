@@ -1,6 +1,17 @@
 // src/App.js
 import React, { useState, useEffect, useMemo } from "react";
-import { Mail, Phone, Globe, Menu, X, ChevronRight } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  Globe,
+  Menu,
+  X,
+  ChevronRight,
+  Moon,
+  Sun,
+  Monitor,
+  Languages,
+} from "lucide-react";
 import { fetchPublishedContent } from "./lib/supabase";
 
 const translations = {
@@ -83,6 +94,7 @@ const translations = {
       phone: "+84 363 045 747",
       button: "Liên hệ ngay",
     },
+    tickerTitle: "Con người của Deron",
   },
   en: {
     languageName: "English",
@@ -162,6 +174,7 @@ const translations = {
       phone: "+84 363 045 747",
       button: "Get in Touch",
     },
+    tickerTitle: "Deron people",
   },
   zh: {
     languageName: "中国",
@@ -240,11 +253,44 @@ const translations = {
       phone: "+84 363 045 747",
       button: "立即联系",
     },
+    tickerTitle: "Deron 团队",
   },
 };
 
+const teamMembers = [
+  {
+    name: "Nguyễn Phúc Huy",
+    altName: "Harry / 阿辉",
+    title: "Founder & CEO",
+    info: "Architecting Vietnam's aerial logistics future.",
+    phone: "+84 363 045 747",
+    email: "ceo.deron@gmail.com",
+  },
+  {
+    name: "Trần Minh Anh",
+    altName: "Alex",
+    title: "Head of Engineering",
+    info: "Autonomous flight, safety & performance.",
+    phone: null,
+    email: "engineering@deron.vn",
+  },
+  {
+    name: "Lê Gia Hân",
+    altName: "Hana",
+    title: "Partnerships",
+    info: "Connecting hospitals, NGOs and merchants across Vietnam.",
+    phone: "+84 90 000 0000",
+    email: null,
+  },
+];
+
 function App() {
-  const [language] = useState("vi");
+  const [language, setLanguage] = useState(
+    localStorage.getItem("deron-language") || "vi"
+  );
+  const [theme, setTheme] = useState(
+    localStorage.getItem("deron-theme") || "system"
+  );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // NEWS từ Supabase
@@ -275,18 +321,43 @@ function App() {
   }, [t.news.error]);
 
   useEffect(() => {
+    localStorage.setItem("deron-language", language);
+  }, [language]);
+
+  useEffect(() => {
+    localStorage.setItem("deron-theme", theme);
+
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     const applyTheme = () => {
-      const isDark = mediaQuery.matches;
+      const isDark = theme === "dark" || (theme === "system" && mediaQuery.matches);
       document.documentElement.classList.toggle("dark", isDark);
-      document.body.dataset.theme = "system";
+      document.body.dataset.theme = theme;
     };
 
     applyTheme();
-    mediaQuery.addEventListener("change", applyTheme);
-    return () => mediaQuery.removeEventListener("change", applyTheme);
-  }, []);
+
+    const handleChange = () => {
+      if (theme === "system") {
+        applyTheme();
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, [theme]);
+
+  useEffect(() => {
+    if (newsError) {
+      setNewsError(t.news.error);
+    }
+  }, [language, newsError, t.news.error]);
+
+  useEffect(() => {
+    if (newsError) {
+      setNewsError(t.news.error);
+    }
+  }, [language, newsError, t.news.error]);
 
   useEffect(() => {
     if (newsError) {
@@ -299,6 +370,12 @@ function App() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
   };
+
+  const themeOptions = [
+    { value: "light", label: "Light", icon: <Sun className="h-4 w-4" /> },
+    { value: "dark", label: "Dark", icon: <Moon className="h-4 w-4" /> },
+    { value: "system", label: "System", icon: <Monitor className="h-4 w-4" /> },
+  ];
 
   const localeDate = (date) => {
     if (!date) return "";
@@ -357,6 +434,28 @@ function App() {
               >
                 {t.nav.contact}
               </button>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="px-4 py-2 bg-red-600 text-white rounded-full text-sm hover:bg-red-700 transition-colors shadow-sm"
+                >
+                  {t.nav.contact}
+                </button>
+                <div className="flex items-center opacity-70 hover:opacity-100 transition-opacity">
+                  <Languages className="h-5 w-5 text-gray-500 dark:text-gray-300" />
+                  <select
+                    id="language-select"
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                    aria-label="Change language"
+                    className="ml-2 border border-gray-200/80 dark:border-gray-700/80 rounded-full pl-3 pr-6 py-2 text-sm bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  >
+                    <option value="vi">🇻🇳 Việt Nam</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="zh">🇨🇳 中国</option>
+                  </select>
+                </div>
+              </div>
             </div>
 
             {/* Mobile menu button */}
@@ -385,6 +484,51 @@ function App() {
           </div>
         )}
       </nav>
+
+      {/* Preferences ribbon */}
+      <div className="fixed top-16 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">Theme</span>
+            <div className="flex items-center rounded-full border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-800/60 shadow-sm overflow-hidden">
+              {themeOptions.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => setTheme(option.value)}
+                  className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors ${
+                    theme === option.value
+                      ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+                      : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  {option.icon}
+                  <span>{option.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Languages className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+            <label
+              htmlFor="language-select"
+              className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400"
+            >
+              Language
+            </label>
+            <select
+              id="language-select"
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+              className="border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+            >
+              <option value="vi">Việt Nam</option>
+              <option value="en">English</option>
+              <option value="zh">中国</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
       {/* HERO */}
       <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-32 pb-16">
@@ -613,6 +757,44 @@ function App() {
             {t.contact.button}
             <ChevronRight className="ml-2 h-5 w-5" />
           </button>
+        </div>
+      </section>
+
+      {/* TEAM TICKER */}
+      <section className="px-6 pb-16">
+        <div className="max-w-6xl mx-auto bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-3xl shadow-xl shadow-black/5 dark:shadow-black/30 p-6 space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">{t.tickerTitle}</p>
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Deron Crew</h3>
+            </div>
+            <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-600 font-semibold">∞</div>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
+            <div
+              className={`flex items-center gap-6 py-4 px-6 w-max ${
+                teamMembers.length > 1 ? "marquee-right" : ""
+              }`}
+            >
+              {(teamMembers.length > 1 ? [...teamMembers, ...teamMembers] : teamMembers).map((member, idx) => (
+                <div
+                  key={`${member.name}-${idx}`}
+                  className="min-w-[260px] bg-white dark:bg-gray-900 rounded-2xl px-5 py-4 shadow-md shadow-black/5 dark:shadow-black/30 border border-gray-100 dark:border-gray-800"
+                >
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white">{member.name}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{member.altName}</p>
+                  <p className="text-sm text-red-600 dark:text-red-400 mt-2 font-medium">{member.title}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">{member.info}</p>
+                  {member.phone && (
+                    <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">{member.phone}</p>
+                  )}
+                  {member.email && (
+                    <p className="text-xs text-gray-600 dark:text-gray-300">{member.email}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
