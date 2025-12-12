@@ -236,7 +236,7 @@ const translations = {
     contact: {
       headline: "一起构建未来",
       cta: "加入我们，共同革新越南物流基础设施",
-      founder: "阮福辉 (Harry / 阿辉)",
+      founder: "Nguyễn Phúc Huy (Harry / 阿辉)",
       email: "ceo.deron@gmail.com",
       phone: "+84 363 045 747",
       button: "立即联系",
