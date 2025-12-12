@@ -359,6 +359,12 @@ function App() {
     }
   }, [language, newsError, t.news.error]);
 
+  useEffect(() => {
+    if (newsError) {
+      setNewsError(t.news.error);
+    }
+  }, [newsError, t.news.error]);
+
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
