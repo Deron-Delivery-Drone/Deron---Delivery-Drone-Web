@@ -1,6 +1,7 @@
 // src/App.js
 import React, { useEffect, useMemo, useState } from "react";
 import { Mail, Phone, Globe, Menu, X, ChevronRight, Languages } from "lucide-react";
+import MapWithCambayOverlay from "./MapWithCambayOverlay";
 import { fetchPublishedContent } from "./lib/supabase";
 
 const translations = {
@@ -10,6 +11,7 @@ const translations = {
       home: "Trang chủ",
       mission: "Sứ mệnh",
       technology: "Công nghệ",
+      airspace: "Cấm bay",
       roadmap: "Lộ trình",
       news: "Tin tức",
       contact: "Liên hệ",
@@ -46,6 +48,15 @@ const translations = {
           description: "Cấp cứu y tế, giao hàng thương mại, cứu trợ thiên tai, khảo sát bản đồ - tất cả trong một nền tảng.",
         },
       ],
+    },
+    airspace: {
+      title: "Lớp cấm bay từ cambay.mod.gov.vn",
+      description:
+        "Giữ nguyên nền Vietmap và chồng thêm lớp dữ liệu cấm bay quốc phòng. Dữ liệu được tải trực tiếp từ cambay.mod.gov.vn qua WMS.",
+      badge: "https://cambay.mod.gov.vn",
+      note: "Cần thiết lập REACT_APP_VIETMAP_API_KEY để nạp bản đồ nền Vietmap trước khi thêm lớp cấm bay.",
+      overlayDetail:
+        "Lớp cambay được thêm như raster WMS trong suốt để nền Vietmap gốc vẫn giữ nguyên. Các nút điều hướng mặc định của Vietmap vẫn được giữ lại.",
     },
     roadmap: {
       title: "Chiến lược 3 giai đoạn",
@@ -90,6 +101,7 @@ const translations = {
       home: "Home",
       mission: "Mission",
       technology: "Technology",
+      airspace: "Airspace",
       roadmap: "Roadmap",
       news: "News",
       contact: "Contact",
@@ -126,6 +138,15 @@ const translations = {
           description: "Medical response, commercial delivery, disaster relief, and mapping from one platform.",
         },
       ],
+    },
+    airspace: {
+      title: "Cambay defense overlay on Vietmap",
+      description:
+        "Keep your Vietmap base map intact while loading the no-fly layer from cambay.mod.gov.vn (WMS). Everything renders as a transparent raster overlay.",
+      badge: "https://cambay.mod.gov.vn",
+      note: "Set REACT_APP_VIETMAP_API_KEY so the Vietmap basemap loads before the defense layer is drawn.",
+      overlayDetail:
+        "The cambay layer is injected as a transparent WMS raster so the original Vietmap tiles and controls stay untouched.",
     },
     roadmap: {
       title: "Three-Phase Strategy",
@@ -170,6 +191,7 @@ const translations = {
       home: "首页",
       mission: "使命",
       technology: "技术",
+      airspace: "禁飞图层",
       roadmap: "路线图",
       news: "新闻",
       contact: "联系",
@@ -205,6 +227,14 @@ const translations = {
           description: "医疗急救、商业配送、灾害救援、测绘勘探，一站式平台。",
         },
       ],
+    },
+    airspace: {
+      title: "在 Vietmap 上叠加 cambay.mod.gov.vn 禁飞层",
+      description:
+        "保持 Vietmap 底图不变，并通过 WMS 透明叠加 cambay.mod.gov.vn 的国防禁飞数据。",
+      badge: "https://cambay.mod.gov.vn",
+      note: "请设置 REACT_APP_VIETMAP_API_KEY 以先加载 Vietmap 底图，再显示禁飞图层。",
+      overlayDetail: "cambay 图层以透明 WMS 栅格方式叠加，Vietmap 原始瓦片与控制按钮保持不变。",
     },
     roadmap: {
       title: "三阶段战略",
@@ -357,6 +387,12 @@ function App() {
                 {t.nav.technology}
               </button>
               <button
+                onClick={() => scrollToSection("airspace")}
+                className="text-sm text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+              >
+                {t.nav.airspace}
+              </button>
+              <button
                 onClick={() => scrollToSection("roadmap")}
                 className="text-sm text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-400 transition-colors"
               >
@@ -405,7 +441,7 @@ function App() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
             <div className="px-6 py-4 space-y-3">
-              {["home", "mission", "technology", "roadmap", "news", "contact"].map((id) => (
+              {["home", "mission", "technology", "airspace", "roadmap", "news", "contact"].map((id) => (
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
@@ -504,6 +540,27 @@ function App() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* AIRSPACE OVERLAY */}
+      <section id="airspace" className="py-24 px-6 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+          <div className="space-y-5">
+            <span className="inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-red-600 dark:text-red-300 bg-red-50 border border-red-200 rounded-full">
+              {t.airspace.badge}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white">
+              {t.airspace.title}
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">{t.airspace.description}</p>
+            <div className="p-4 rounded-2xl bg-gray-50 dark:bg-gray-900/70 border border-gray-200 dark:border-gray-800 text-sm text-gray-700 dark:text-gray-200 leading-relaxed">
+              <p className="font-semibold mb-1">{t.airspace.note}</p>
+              <p>{t.airspace.overlayDetail}</p>
+            </div>
+          </div>
+
+          <MapWithCambayOverlay />
         </div>
       </section>
 
