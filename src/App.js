@@ -655,7 +655,7 @@ function App() {
 
           <div className="grid md:grid-cols-3 gap-8 mt-8">
             {news.map((post) => {
-              const targetUrl = post.external_url || (post.slug ? `/news/${post.slug}` : null);
+              const targetUrl = post.external_url || null;
               const imageSrc = post.featured_image || "/Deron-logo.png";
               const isClickable = Boolean(targetUrl);
 

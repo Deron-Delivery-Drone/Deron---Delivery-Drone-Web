@@ -1,0 +1,71 @@
+name: Build & Deploy UTM Website to cPanel
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_code:
+        description: 'Nhập mã triển khai 6 số'
+        required: true
+        default: ''
+        type: string
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      CI: false
+      # Supabase env dùng cho quá trình build (CRA yêu cầu prefix REACT_APP_)
+      REACT_APP_SUPABASE_URL: ${{ secrets.UTM_SUPABASE_URL }}
+      REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.UTM_SUPABASE_ANON_KEY }}
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Build React project
+        run: npm run build
+
+      # 👇 Step này chỉ quyết định CÓ deploy hay KHÔNG
+      - name: Decide whether to deploy
+        id: guard
+        run: |
+          # Tên GitHub của bạn (sửa lại nếu khác)
+          OWNER="NpHarry-Tech"
+
+          if [ "${GITHUB_ACTOR}" = "$OWNER" ] && [ "${{ github.event.inputs.deploy_code }}" = "${{ secrets.UTM_DEPLOY_CODE }}" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+            echo "✅ Chủ repo + đúng mã. Cho phép deploy."
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            echo "ℹ️ Không phải chủ repo hoặc sai mã. Chỉ build, KHÔNG deploy."
+          fi
+
+      - name: Deploy build folder to cPanel via FTP
+        if: steps.guard.outputs.deploy == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.UTM_FTP_SERVER }}
+          username: ${{ secrets.UTM_FTP_USERNAME }}
+          password: ${{ secrets.UTM_FTP_PASSWORD }}
+          port: ${{ secrets.UTM_FTP_PORT }}
+          protocol: ftp
+          log-level: verbose
+          local-dir: ./build/
+          server-dir: ${{ secrets.UTM_REMOTE_DIR }}
+          exclude: |
+            **/.git*
+            **/node_modules/**
+            **/src/**
+            **/public/**
+            **/README.md
+            **/package*.json
+            **/tailwind.config.js
