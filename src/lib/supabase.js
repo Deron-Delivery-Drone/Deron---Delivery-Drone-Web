@@ -20,7 +20,7 @@ export async function fetchPublishedContent(contentType = "post", limit = 6) {
   const { data, error } = await supabase
     .from("content") // LƯU Ý: bảng là "content" số ít
     .select(
-      "id, title, slug, content, content_type, category, tags, featured_image, meta_title, meta_description, published_at, view_count"
+      "id, title, slug, content, content_type, category, tags, featured_image, meta_title, meta_description, published_at, view_count, external_url"
     )
     .eq("status", "published")
     .eq("content_type", contentType)
