@@ -909,6 +909,162 @@ p { max-width: 60ch; }
   .doc-block { padding: 36px 24px; }
   .doc-ctas { flex-direction: column; align-items: center; }
 }
+
+/* ============================================================ LIGHT MODE (auto from system) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-dark:       #EDEBE6;
+    --bg-mid:        #E4E2DD;
+    --bg-light:      #FDFCF9;
+    --bg-white:      #FFFFFF;
+    --bg-section:    #F7F6F2;
+
+    --text-inv:      #111111;
+    --text-inv-muted:#555555;
+
+    --border-dark:   #D4D1CC;
+  }
+  body { background: var(--bg-light); }
+
+  /* Nav */
+  #nav.scrolled { background: rgba(237,235,230,0.96); border-bottom-color: var(--border); }
+  .nav-logo { color: var(--text-primary) !important; }
+  .nav-link { color: var(--text-muted) !important; }
+  .nav-link:hover, .nav-link.active { color: var(--text-primary) !important; background: rgba(0,0,0,0.05); }
+  .nav-cta { color: #fff; /* keep white on red bg */ }
+  .nav-hamburger span { background: var(--text-primary) !important; }
+
+  /* Mobile menu */
+  .nav-mobile-menu { background: var(--bg-white) !important; }
+  .nav-mobile-link { color: var(--text-primary) !important; border-bottom-color: var(--border) !important; }
+  .nav-mobile-link:hover { color: var(--red) !important; }
+
+  /* Hero */
+  .hero-title { color: var(--text-primary) !important; }
+  .hero-title span { color: var(--red) !important; }
+  .hero-stat-value { color: var(--text-primary) !important; }
+  .hero-stats { border-top-color: var(--border) !important; }
+
+  /* Dark-section text overrides */
+  .text-inv, .text-inv h1, .text-inv h2, .text-inv h3, .text-inv h4, .text-inv p { color: var(--text-primary) !important; }
+  .label-inv { color: var(--text-muted) !important; }
+  .signal-cell h4 { color: var(--text-primary) !important; }
+  .signal-cell p { color: var(--text-muted) !important; }
+  .signal-icon { border-color: var(--border) !important; }
+  .safety-card h4 { color: var(--text-primary) !important; }
+  .safety-card p { color: var(--text-muted) !important; }
+  .safety-card-num { color: var(--red); }
+
+  /* Spec table */
+  .spec-table { border-color: var(--border) !important; }
+  .spec-row { border-bottom-color: var(--border) !important; }
+  .spec-key { color: var(--text-muted) !important; border-right-color: var(--border) !important; background: rgba(0,0,0,0.02) !important; }
+  .spec-val { color: var(--text-body) !important; }
+
+  /* Buttons on dark sections */
+  .btn-outline { border-color: var(--border) !important; color: var(--text-primary) !important; }
+  .btn-outline:hover { border-color: var(--text-primary) !important; background: rgba(0,0,0,0.03) !important; }
+
+  /* Footer */
+  .footer-logo { color: var(--text-primary) !important; }
+  .footer-brand-desc { color: var(--text-muted) !important; }
+  .footer-tagline { color: rgba(196,30,58,0.7) !important; }
+  .footer-col-title { color: var(--text-muted) !important; }
+  .footer-link { color: var(--text-muted) !important; }
+  .footer-link:hover { color: var(--text-primary) !important; }
+  .footer-copy { color: var(--text-muted) !important; }
+  .footer-location { color: var(--text-muted) !important; }
+  .footer-bottom { border-top-color: var(--border) !important; }
+
+  /* Keep strip readable (white on red) */
+  .strip-item { color: rgba(255,255,255,0.9); }
+
+  /* Reveal animations on light backgrounds */
+  .signal-cell:hover { background: #D9D7D2 !important; }
+
+  /* Hero glow toned down */
+  .hero-glow { background: radial-gradient(circle, rgba(196,30,58,0.06) 0%, transparent 70%) !important; }
+  .hero-glow-2 { background: radial-gradient(circle, rgba(46,90,63,0.04) 0%, transparent 70%) !important; }
+  .hero-grid-bg { opacity: 0.3 !important; }
+}
+
+/* ============================================================ ACCESSIBILITY */
+/* High contrast */
+@media (prefers-contrast: more) {
+  :root { --text-muted: #333; --text-inv-muted: #333; }
+  body { font-weight: 500; }
+  .border, .stat-block, .solution-pillars, .signal-grid, .value-grid,
+  .roadmap, .contact-flows, .spec-table { border-width: 2px !important; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto !important; }
+}
+
+/* Forced colors (Windows High Contrast) */
+@media (forced-colors: active) {
+  .btn-primary, .nav-cta { forced-color-adjust: none; background: ButtonFace; color: ButtonText; border: 2px solid ButtonText; }
+  .hero-badge { border: 2px solid LinkText; }
+  img { forced-color-adjust: none; }
+}
+
+/* Focus styles */
+*:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+
+/* ============================================================ LANGUAGE SELECTOR */
+.nav-lang { display: flex; align-items: center; margin-left: 12px; }
+.nav-lang select {
+  font-family: var(--font-label);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.nav-lang select:hover { background: rgba(255,255,255,0.14); color: #fff; }
+.nav-lang select option { background: var(--bg-dark); color: var(--text-inv); }
+@media (prefers-color-scheme: light) {
+  .nav-lang select {
+    color: var(--text-muted);
+    background: rgba(0,0,0,0.04);
+    border-color: var(--border);
+  }
+  .nav-lang select:hover { background: rgba(0,0,0,0.08); color: var(--text-primary); }
+  .nav-lang select option { background: #fff; color: var(--text-body); }
+}
+.mobile-lang { padding: 24px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.mobile-lang-btn {
+  font-family: var(--font-label);
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-dark);
+  color: var(--text-inv);
+  transition: all var(--transition);
+}
+.mobile-lang-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
+.mobile-lang-btn:hover { border-color: var(--red); }
+@media (prefers-color-scheme: light) {
+  .mobile-lang-btn { border-color: var(--border); color: var(--text-body); }
+}
+@media (max-width: 768px) {
+  .nav-lang { display: none; }
+}
 </style>
 </head>
 <body>
@@ -920,13 +1076,20 @@ p { max-width: 60ch; }
     DERON
   </div>
   <div class="nav-links">
-    <span class="nav-link" onclick="navigate('about')">Về chúng tôi</span>
-    <span class="nav-link" onclick="navigate('technology')">Công nghệ</span>
-    <span class="nav-link" onclick="navigate('usecases')">Ứng dụng</span>
-    <span class="nav-link" onclick="navigate('investor')">Nhà đầu tư</span>
-    <span class="nav-link" onclick="navigate('contact')">Liên hệ</span>
+    <span class="nav-link" data-i18n="nav.about" onclick="navigate('about')">Về chúng tôi</span>
+    <span class="nav-link" data-i18n="nav.technology" onclick="navigate('technology')">Công nghệ</span>
+    <span class="nav-link" data-i18n="nav.usecases" onclick="navigate('usecases')">Ứng dụng</span>
+    <span class="nav-link" data-i18n="nav.investor" onclick="navigate('investor')">Nhà đầu tư</span>
+    <span class="nav-link" data-i18n="nav.contact" onclick="navigate('contact')">Liên hệ</span>
   </div>
-  <span class="nav-cta" onclick="navigate('investor')">Dành cho NĐT</span>
+  <div class="nav-lang">
+    <select id="langSelect" onchange="setLanguage(this.value)" aria-label="Language">
+      <option value="vi">🇻🇳 VN</option>
+      <option value="en">🇺🇸 EN</option>
+      <option value="zh">🇨🇳 中文</option>
+    </select>
+  </div>
+  <span class="nav-cta" data-i18n="nav.cta" onclick="navigate('investor')">Dành cho NĐT</span>
   <div class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger">
     <span></span><span></span><span></span>
   </div>
@@ -934,12 +1097,17 @@ p { max-width: 60ch; }
 
 <!-- Mobile Menu -->
 <div class="nav-mobile-menu" id="mobileMenu">
-  <span class="nav-mobile-link" onclick="navigate('home'); closeMobileNav()">Trang chủ</span>
-  <span class="nav-mobile-link" onclick="navigate('about'); closeMobileNav()">Về chúng tôi</span>
-  <span class="nav-mobile-link" onclick="navigate('technology'); closeMobileNav()">Công nghệ</span>
-  <span class="nav-mobile-link" onclick="navigate('usecases'); closeMobileNav()">Ứng dụng</span>
-  <span class="nav-mobile-link" onclick="navigate('investor'); closeMobileNav()">Nhà đầu tư</span>
-  <span class="nav-mobile-link" onclick="navigate('contact'); closeMobileNav()">Liên hệ</span>
+  <span class="nav-mobile-link" data-i18n="nav.home" onclick="navigate('home'); closeMobileNav()">Trang chủ</span>
+  <span class="nav-mobile-link" data-i18n="nav.about" onclick="navigate('about'); closeMobileNav()">Về chúng tôi</span>
+  <span class="nav-mobile-link" data-i18n="nav.technology" onclick="navigate('technology'); closeMobileNav()">Công nghệ</span>
+  <span class="nav-mobile-link" data-i18n="nav.usecases" onclick="navigate('usecases'); closeMobileNav()">Ứng dụng</span>
+  <span class="nav-mobile-link" data-i18n="nav.investor" onclick="navigate('investor'); closeMobileNav()">Nhà đầu tư</span>
+  <span class="nav-mobile-link" data-i18n="nav.contact" onclick="navigate('contact'); closeMobileNav()">Liên hệ</span>
+  <div class="mobile-lang" id="mobileLang">
+    <button class="mobile-lang-btn active" onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
+    <button class="mobile-lang-btn" onclick="setLanguage('en')">🇺🇸 English</button>
+    <button class="mobile-lang-btn" onclick="setLanguage('zh')">🇨🇳 中文</button>
+  </div>
 </div>
 
 <!-- ============================================================ HOME PAGE -->
@@ -966,30 +1134,30 @@ p { max-width: 60ch; }
     <div class="hero-content">
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
-        DERON · Chiến Dịch Điện Biên Phủ Trong Logistics
+        <span data-i18n="hero.badge">DERON · Chiến Dịch Điện Biên Phủ Trong Logistics</span>
       </div>
-      <h1 class="hero-title">
+      <h1 class="hero-title" data-i18n-html="hero.title">
         Khi đường bộ<br>không tới được,<br><span>chúng tôi bay.</span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub" data-i18n="hero.sub">
         Hệ thống drone giao hàng tự hành — được xây dựng cho y tế khẩn cấp, cứu trợ thiên tai, và tương lai logistics tầm thấp của Việt Nam.
       </p>
       <div class="hero-ctas">
-        <button class="btn btn-primary btn-arrow" onclick="navigate('about')">Khám phá sứ mệnh</button>
-        <button class="btn btn-outline" onclick="navigate('investor')">Dành cho nhà đầu tư</button>
+        <button class="btn btn-primary btn-arrow" data-i18n="hero.cta1" onclick="navigate('about')">Khám phá sứ mệnh</button>
+        <button class="btn btn-outline" data-i18n="hero.cta2" onclick="navigate('investor')">Dành cho nhà đầu tư</button>
       </div>
       <div class="hero-stats">
         <div>
           <div class="hero-stat-value" data-count="16">0</div>
-          <div class="hero-stat-label">% GDP — Chi phí logistics VN<br><span style="font-size:9px;opacity:0.6">Nguồn: World Bank</span></div>
+          <div class="hero-stat-label" data-i18n-html="hero.stat1">% GDP — Chi phí logistics VN<br><span style="font-size:9px;opacity:0.6">Nguồn: World Bank</span></div>
         </div>
         <div>
           <div class="hero-stat-value" data-count="3000" data-suffix="+">0</div>
-          <div class="hero-stat-label">Xã thiếu đường ô tô ổn định<br><span style="font-size:9px;opacity:0.6">Nguồn: GSO / Bộ GTVT</span></div>
+          <div class="hero-stat-label" data-i18n-html="hero.stat2">Xã thiếu đường ô tô ổn định<br><span style="font-size:9px;opacity:0.6">Nguồn: GSO / Bộ GTVT</span></div>
         </div>
         <div>
           <div class="hero-stat-value" data-prefix="$" data-count="10" data-suffix="B">0</div>
-          <div class="hero-stat-label">Thị trường LAE ước tính VN<br><span style="font-size:9px;opacity:0.6">Ước tính — chưa xác minh chính thức</span></div>
+          <div class="hero-stat-label" data-i18n-html="hero.stat3">Thị trường LAE ước tính VN<br><span style="font-size:9px;opacity:0.6">Ước tính — chưa xác minh chính thức</span></div>
         </div>
       </div>
     </div>
@@ -998,16 +1166,16 @@ p { max-width: 60ch; }
   <!-- HIGHLIGHT STRIP -->
   <div class="highlight-strip">
     <div class="strip-inner" id="strip">
-      <div class="strip-item">Y tế khẩn cấp</div>
-      <div class="strip-item">Cứu trợ thiên tai</div>
-      <div class="strip-item">Logistics vùng xa</div>
-      <div class="strip-item">Tự cường công nghệ Việt</div>
+      <div class="strip-item" data-i18n="strip.1">Y tế khẩn cấp</div>
+      <div class="strip-item" data-i18n="strip.2">Cứu trợ thiên tai</div>
+      <div class="strip-item" data-i18n="strip.3">Logistics vùng xa</div>
+      <div class="strip-item" data-i18n="strip.4">Tự cường công nghệ Việt</div>
       <div class="strip-item">Nghị quyết 57-NQ/TW</div>
       <div class="strip-item">Deep-Tech · Made in Vietnam</div>
-      <div class="strip-item">Y tế khẩn cấp</div>
-      <div class="strip-item">Cứu trợ thiên tai</div>
-      <div class="strip-item">Logistics vùng xa</div>
-      <div class="strip-item">Tự cường công nghệ Việt</div>
+      <div class="strip-item" data-i18n="strip.1">Y tế khẩn cấp</div>
+      <div class="strip-item" data-i18n="strip.2">Cứu trợ thiên tai</div>
+      <div class="strip-item" data-i18n="strip.3">Logistics vùng xa</div>
+      <div class="strip-item" data-i18n="strip.4">Tự cường công nghệ Việt</div>
       <div class="strip-item">Nghị quyết 57-NQ/TW</div>
       <div class="strip-item">Deep-Tech · Made in Vietnam</div>
     </div>
@@ -1017,27 +1185,27 @@ p { max-width: 60ch; }
   <section class="problem-section">
     <div class="container">
       <div class="reveal">
-        <div class="label label-red">The Problem</div>
-        <h2 style="margin-top:16px; max-width:700px;">Logistics Việt Nam đang trả giá bằng sinh mạng.</h2>
-        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;">
+        <div class="label label-red" data-i18n="problem.label">The Problem</div>
+        <h2 style="margin-top:16px; max-width:700px;" data-i18n="problem.title">Logistics Việt Nam đang trả giá bằng sinh mạng.</h2>
+        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;" data-i18n="problem.desc">
           Hạ tầng mặt đất đã đến giới hạn. Mỗi giờ trì hoãn trong y tế khẩn cấp — mỗi con đường bị cô lập sau bão — là một vấn đề chưa được giải quyết.
         </p>
       </div>
       <div class="stat-block reveal reveal-delay-2">
         <div class="stat-cell">
           <div class="stat-num"><span>16</span>–20<span>%</span></div>
-          <div class="stat-desc">Chi phí logistics so với GDP — gần gấp đôi các nước phát triển</div>
-          <div class="stat-source">World Bank / Bộ Công Thương</div>
+          <div class="stat-desc" data-i18n="problem.stat1">Chi phí logistics so với GDP — gần gấp đôi các nước phát triển</div>
+          <div class="stat-source" data-i18n="problem.src1">World Bank / Bộ Công Thương</div>
         </div>
         <div class="stat-cell">
           <div class="stat-num">3.000<span>+</span></div>
-          <div class="stat-desc">Xã vùng núi không có đường ô tô ổn định quanh năm</div>
-          <div class="stat-source">GSO / Bộ GTVT — chưa xác minh chính xác</div>
+          <div class="stat-desc" data-i18n="problem.stat2">Xã vùng núi không có đường ô tô ổn định quanh năm</div>
+          <div class="stat-source" data-i18n="problem.src2">GSO / Bộ GTVT — chưa xác minh chính xác</div>
         </div>
         <div class="stat-cell">
           <div class="stat-num">4–6<span>h</span></div>
-          <div class="stat-desc">Thời gian vận chuyển khẩn cấp đến vùng xa trong điều kiện thường</div>
-          <div class="stat-source">Ước tính vận hành</div>
+          <div class="stat-desc" data-i18n="problem.stat3">Thời gian vận chuyển khẩn cấp đến vùng xa trong điều kiện thường</div>
+          <div class="stat-source" data-i18n="problem.src3">Ước tính vận hành</div>
         </div>
       </div>
     </div>
@@ -1047,27 +1215,27 @@ p { max-width: 60ch; }
   <section class="solution-section">
     <div class="container">
       <div class="reveal">
-        <div class="label label-red">The Answer</div>
-        <h2 style="margin-top:16px; max-width:700px;">Một lớp hạ tầng mới cho Việt Nam.</h2>
-        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;">
+        <div class="label label-red" data-i18n="solution.label">The Answer</div>
+        <h2 style="margin-top:16px; max-width:700px;" data-i18n="solution.title">Một lớp hạ tầng mới cho Việt Nam.</h2>
+        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;" data-i18n="solution.desc">
           Deron không thay thế logistics truyền thống. Deron lấp đầy những khoảng trắng mà hạ tầng cũ không với tới — bằng drone tự hành, bằng AI, bằng hệ thống được xây cho người Việt.
         </p>
       </div>
       <div class="solution-pillars">
         <div class="pillar reveal reveal-delay-1">
           <div class="pillar-num">01</div>
-          <h4>Bay tự hành</h4>
-          <p>Không cần pilot, không cần đường bộ, không bị địa hình cản trở. Hệ thống điều hành từ trung tâm.</p>
+          <h4 data-i18n="solution.p1t">Bay tự hành</h4>
+          <p data-i18n="solution.p1d">Không cần pilot, không cần đường bộ, không bị địa hình cản trở. Hệ thống điều hành từ trung tâm.</p>
         </div>
         <div class="pillar reveal reveal-delay-2">
           <div class="pillar-num">02</div>
-          <h4>Thiết kế cho Việt Nam</h4>
-          <p>Địa hình nhiệt đới, quy định pháp lý, ngôn ngữ, cộng đồng — không adapt, chúng tôi là native.</p>
+          <h4 data-i18n="solution.p2t">Thiết kế cho Việt Nam</h4>
+          <p data-i18n="solution.p2d">Địa hình nhiệt đới, quy định pháp lý, ngôn ngữ, cộng đồng — không adapt, chúng tôi là native.</p>
         </div>
         <div class="pillar reveal reveal-delay-3">
           <div class="pillar-num">03</div>
-          <h4>Đa nhiệm vụ</h4>
-          <p>Y tế, cứu trợ, thương mại — cùng một nền tảng, khác container. Một đội drone, nhiều ứng dụng.</p>
+          <h4 data-i18n="solution.p3t">Đa nhiệm vụ</h4>
+          <p data-i18n="solution.p3d">Y tế, cứu trợ, thương mại — cùng một nền tảng, khác container. Một đội drone, nhiều ứng dụng.</p>
         </div>
       </div>
     </div>
@@ -1077,32 +1245,32 @@ p { max-width: 60ch; }
   <section class="why-now-section">
     <div class="container">
       <div class="reveal">
-        <div class="label label-inv">Why Now</div>
-        <h2 class="text-inv" style="margin-top:16px; max-width:700px;">2025 là thời điểm. Không phải sớm. Không phải muộn.</h2>
-        <p style="margin-top:24px; color:var(--text-inv-muted); font-size:18px; max-width:600px;">
+        <div class="label label-inv" data-i18n="whynow.label">Why Now</div>
+        <h2 class="text-inv" style="margin-top:16px; max-width:700px;" data-i18n="whynow.title">2025 là thời điểm. Không phải sớm. Không phải muộn.</h2>
+        <p style="margin-top:24px; color:var(--text-inv-muted); font-size:18px; max-width:600px;" data-i18n="whynow.desc">
           Bốn yếu tố đang hội tụ đồng thời — một cửa sổ cơ hội hiếm có để xây dựng hạ tầng logistics tầm thấp đầu tiên của Việt Nam.
         </p>
       </div>
       <div class="signal-grid">
         <div class="signal-cell reveal reveal-delay-1">
           <div class="signal-icon">⚖️</div>
-          <h4>Chính sách quốc gia</h4>
-          <p>Nghị quyết 57-NQ/TW (2024) chỉ đạo phát triển kinh tế tầm thấp. LAE Alliance thành lập tháng 10/2025.</p>
+          <h4 data-i18n="whynow.s1t">Chính sách quốc gia</h4>
+          <p data-i18n="whynow.s1d">Nghị quyết 57-NQ/TW (2024) chỉ đạo phát triển kinh tế tầm thấp. LAE Alliance thành lập tháng 10/2025.</p>
         </div>
         <div class="signal-cell reveal reveal-delay-2">
           <div class="signal-icon">🔬</div>
-          <h4>Công nghệ đủ trưởng thành</h4>
-          <p>AI, avionics, và hệ thống định vị đã đủ mature để triển khai ứng dụng dân sự thực tế — không còn chỉ là lab.</p>
+          <h4 data-i18n="whynow.s2t">Công nghệ đủ trưởng thành</h4>
+          <p data-i18n="whynow.s2d">AI, avionics, và hệ thống định vị đã đủ mature để triển khai ứng dụng dân sự thực tế — không còn chỉ là lab.</p>
         </div>
         <div class="signal-cell reveal reveal-delay-3">
           <div class="signal-icon">📡</div>
-          <h4>Hạ tầng 4G/5G phủ rộng</h4>
-          <p>Mạng viễn thông đủ để vận hành hệ thống command & control cho drone trên địa bàn rộng.</p>
+          <h4 data-i18n="whynow.s3t">Hạ tầng 4G/5G phủ rộng</h4>
+          <p data-i18n="whynow.s3d">Mạng viễn thông đủ để vận hành hệ thống command & control cho drone trên địa bàn rộng.</p>
         </div>
         <div class="signal-cell reveal reveal-delay-4">
           <div class="signal-icon">🎯</div>
-          <h4>Thị trường chưa có đối thủ local</h4>
-          <p>Chưa có đơn vị Việt Nam nào xây được nền tảng drone logistics đầy đủ. Cửa sổ đang mở.</p>
+          <h4 data-i18n="whynow.s4t">Thị trường chưa có đối thủ local</h4>
+          <p data-i18n="whynow.s4d">Chưa có đơn vị Việt Nam nào xây được nền tảng drone logistics đầy đủ. Cửa sổ đang mở.</p>
         </div>
       </div>
     </div>
@@ -1112,9 +1280,9 @@ p { max-width: 60ch; }
   <section class="values-section">
     <div class="container">
       <div class="reveal">
-        <div class="label label-red">Core Values</div>
-        <h2 style="margin-top:16px; max-width:700px;">Bốn giá trị. Không thỏa hiệp.</h2>
-        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;">
+        <div class="label label-red" data-i18n="values.label">Core Values</div>
+        <h2 style="margin-top:16px; max-width:700px;" data-i18n="values.title">Bốn giá trị. Không thỏa hiệp.</h2>
+        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;" data-i18n="values.desc">
           Mọi quyết định kỹ thuật, chiến lược và vận hành của Deron đều bắt đầu từ đây.
         </p>
       </div>
@@ -1123,25 +1291,25 @@ p { max-width: 60ch; }
           <div class="value-icon">🎯</div>
           <div class="value-name">Authenticity</div>
           <div class="value-vn">Chân thực</div>
-          <p>Chỉ công bố điều đã kiểm chứng. Không inflate số liệu. Không hứa hẹn vượt khả năng thực tế.</p>
+          <p data-i18n="values.v1d">Chỉ công bố điều đã kiểm chứng. Không inflate số liệu. Không hứa hẹn vượt khả năng thực tế.</p>
         </div>
         <div class="value-card reveal reveal-delay-2">
           <div class="value-icon">❤️</div>
           <div class="value-name">Compassion</div>
-          <div class="value-vn">Lòng trắc ẩn</div>
-          <p>Mọi thiết kế kỹ thuật bắt đầu từ câu hỏi: người dùng cuối là ai và họ thực sự cần gì nhất?</p>
+          <div class="value-vn" data-i18n="values.v2vn">Lòng trắc ẩn</div>
+          <p data-i18n="values.v2d">Mọi thiết kế kỹ thuật bắt đầu từ câu hỏi: người dùng cuối là ai và họ thực sự cần gì nhất?</p>
         </div>
         <div class="value-card reveal reveal-delay-3">
           <div class="value-icon">⚙️</div>
           <div class="value-name">Improvement</div>
-          <div class="value-vn">Cải tiến liên tục</div>
-          <p>Mỗi nguyên mẫu là một bài học. Mỗi sự cố là dữ liệu. Không bảo vệ cái sai khi có cách tốt hơn.</p>
+          <div class="value-vn" data-i18n="values.v3vn">Cải tiến liên tục</div>
+          <p data-i18n="values.v3d">Mỗi nguyên mẫu là một bài học. Mỗi sự cố là dữ liệu. Không bảo vệ cái sai khi có cách tốt hơn.</p>
         </div>
         <div class="value-card reveal reveal-delay-4">
           <div class="value-icon">🤝</div>
           <div class="value-name">Hospitality</div>
-          <div class="value-vn">Tinh thần phụng sự</div>
-          <p>Phục vụ cộng đồng như phục vụ người thân — không bỏ lại ai vì lý do kinh tế hay địa hình.</p>
+          <div class="value-vn" data-i18n="values.v4vn">Tinh thần phụng sự</div>
+          <p data-i18n="values.v4d">Phục vụ cộng đồng như phục vụ người thân — không bỏ lại ai vì lý do kinh tế hay địa hình.</p>
         </div>
       </div>
     </div>
@@ -1151,14 +1319,14 @@ p { max-width: 60ch; }
   <section class="cta-section">
     <div class="container">
       <div class="reveal" style="text-align:center;">
-        <div class="label label-inv" style="margin-bottom:24px;">Bạn đứng ở đâu?</div>
-        <h2 class="text-inv" style="margin: 0 auto 24px; max-width:600px;">Tham gia hành trình xây dựng hạ tầng logistics Việt Nam.</h2>
-        <p style="color:var(--text-inv-muted); margin: 0 auto 48px; font-size:18px;">
+        <div class="label label-inv" style="margin-bottom:24px;" data-i18n="cta.label">Bạn đứng ở đâu?</div>
+        <h2 class="text-inv" style="margin: 0 auto 24px; max-width:600px;" data-i18n="cta.title">Tham gia hành trình xây dựng hạ tầng logistics Việt Nam.</h2>
+        <p style="color:var(--text-inv-muted); margin: 0 auto 48px; font-size:18px;" data-i18n="cta.desc">
           Cho dù bạn là nhà đầu tư, kỹ sư, đối tác chiến lược hay người ủng hộ sứ mệnh — chúng tôi muốn nghe từ bạn.
         </p>
         <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-          <button class="btn btn-primary btn-arrow" onclick="navigate('investor')">Tôi là nhà đầu tư</button>
-          <button class="btn btn-outline" onclick="navigate('contact')">Liên hệ với chúng tôi</button>
+          <button class="btn btn-primary btn-arrow" data-i18n="cta.btn1" onclick="navigate('investor')">Tôi là nhà đầu tư</button>
+          <button class="btn btn-outline" data-i18n="cta.btn2" onclick="navigate('contact')">Liên hệ với chúng tôi</button>
         </div>
       </div>
     </div>
@@ -1170,35 +1338,35 @@ p { max-width: 60ch; }
       <div class="footer-top">
         <div class="footer-brand">
           <div class="footer-logo"><span style="color:var(--red)">●</span> DERON</div>
-          <p class="footer-brand-desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
+          <p class="footer-brand-desc" data-i18n="footer.desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
           <div class="footer-tagline">Made in Vietnam · Built for Vietnam</div>
         </div>
         <div>
-          <div class="footer-col-title">Sứ mệnh</div>
+          <div class="footer-col-title" data-i18n="footer.col1">Sứ mệnh</div>
           <div class="footer-links">
-            <span class="footer-link" onclick="navigate('about')">Về chúng tôi</span>
-            <span class="footer-link" onclick="navigate('about')">Giá trị cốt lõi</span>
-            <span class="footer-link" onclick="navigate('about')">Lộ trình</span>
+            <span class="footer-link" data-i18n="footer.l1" onclick="navigate('about')">Về chúng tôi</span>
+            <span class="footer-link" data-i18n="footer.l2" onclick="navigate('about')">Giá trị cốt lõi</span>
+            <span class="footer-link" data-i18n="footer.l3" onclick="navigate('about')">Lộ trình</span>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Sản phẩm</div>
+          <div class="footer-col-title" data-i18n="footer.col2">Sản phẩm</div>
           <div class="footer-links">
-            <span class="footer-link" onclick="navigate('technology')">Công nghệ DMA</span>
-            <span class="footer-link" onclick="navigate('usecases')">Ứng dụng</span>
-            <span class="footer-link" onclick="navigate('technology')">Triết lý an toàn</span>
+            <span class="footer-link" data-i18n="footer.l4" onclick="navigate('technology')">Công nghệ DMA</span>
+            <span class="footer-link" data-i18n="footer.l5" onclick="navigate('usecases')">Ứng dụng</span>
+            <span class="footer-link" data-i18n="footer.l6" onclick="navigate('technology')">Triết lý an toàn</span>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Đầu tư</div>
+          <div class="footer-col-title" data-i18n="footer.col3">Đầu tư</div>
           <div class="footer-links">
-            <span class="footer-link" onclick="navigate('investor')">Nhà đầu tư</span>
-            <span class="footer-link" onclick="navigate('investor')">Tải Pitch Deck</span>
-            <span class="footer-link" onclick="navigate('investor')">Lộ trình vốn</span>
+            <span class="footer-link" data-i18n="footer.l7" onclick="navigate('investor')">Nhà đầu tư</span>
+            <span class="footer-link" data-i18n="footer.l8" onclick="navigate('investor')">Tải Pitch Deck</span>
+            <span class="footer-link" data-i18n="footer.l9" onclick="navigate('investor')">Lộ trình vốn</span>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Liên hệ</div>
+          <div class="footer-col-title" data-i18n="footer.col4">Liên hệ</div>
           <div class="footer-links">
             <a class="footer-link" href="mailto:ceo.deron@gmail.com">ceo.deron@gmail.com</a>
             <a class="footer-link" href="tel:0363045747">0363 045 747</a>
@@ -1221,9 +1389,9 @@ p { max-width: 60ch; }
     <div style="background: var(--bg-dark); position:relative; overflow:hidden;">
       <div class="hero-grid-bg" style="opacity:0.3;"></div>
       <div class="container" style="padding-top:140px; padding-bottom:80px; position:relative; z-index:2;">
-        <div class="label label-inv" style="margin-bottom:20px;">About Deron</div>
-        <h1 class="text-inv" style="max-width:760px;">Không bắt đầu từ<br>cơ hội thị trường.</h1>
-        <p style="color:var(--text-inv-muted); font-size:20px; margin-top:24px; max-width:560px; line-height:1.65;">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="about.label">About Deron</div>
+        <h1 class="text-inv" style="max-width:760px;" data-i18n-html="about.title">Không bắt đầu từ<br>cơ hội thị trường.</h1>
+        <p style="color:var(--text-inv-muted); font-size:20px; margin-top:24px; max-width:560px; line-height:1.65;" data-i18n="about.sub">
           Deron bắt đầu từ một câu hỏi — và quyết tâm không để nó không có câu trả lời.
         </p>
       </div>
@@ -1234,8 +1402,8 @@ p { max-width: 60ch; }
     <div class="container">
       <div class="grid-2" style="gap:80px; align-items:start;">
         <div class="reveal">
-          <div class="label label-red" style="margin-bottom:20px;">Nguồn gốc</div>
-          <h3 style="margin-bottom:24px; line-height:1.15;">Tại sao Deron<br>tồn tại?</h3>
+          <div class="label label-red" style="margin-bottom:20px;" data-i18n="about.origin">Nguồn gốc</div>
+          <h3 style="margin-bottom:24px; line-height:1.15;" data-i18n-html="about.whyTitle">Tại sao Deron<br>tồn tại?</h3>
           <p style="color:var(--text-body); margin-bottom:16px; max-width:100%;">
             Tại sao cứ mỗi mùa mưa, những vùng đất không còn bị cô lập với thế giới — mà lại bị cô lập với hệ thống cứu trợ?
           </p>
@@ -1338,7 +1506,7 @@ p { max-width: 60ch; }
   <footer id="footer-about" style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
     <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div class="footer-copy" style="color:rgba(255,255,255,0.3);">© 2025–2026 Deron. Made in Vietnam.</div>
-      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')">← Trang chủ</button>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
     </div>
   </footer>
 </div>
@@ -1349,9 +1517,9 @@ p { max-width: 60ch; }
     <div style="position:relative; overflow:hidden; background:var(--bg-dark);">
       <div class="hero-grid-bg" style="opacity:0.25;"></div>
       <div class="container" style="padding-top:140px; padding-bottom:80px; position:relative; z-index:2;">
-        <div class="label label-inv" style="margin-bottom:20px;">Technology</div>
-        <h1 class="text-inv" style="max-width:800px;">Chúng tôi không<br>mua công nghệ.<br>Chúng tôi <span style="color:var(--red)">xây</span> nó.</h1>
-        <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.label">Technology</div>
+        <h1 class="text-inv" style="max-width:800px;" data-i18n-html="tech.title">Chúng tôi không<br>mua công nghệ.<br>Chúng tôi <span style="color:var(--red)">xây</span> nó.</h1>
+        <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;" data-i18n="tech.sub">
           Bởi vì không có hệ thống nào được thiết kế cho địa hình Việt Nam, quy định Việt Nam, và cộng đồng Việt Nam — trước khi Deron bắt đầu làm.
         </p>
       </div>
@@ -1449,7 +1617,7 @@ p { max-width: 60ch; }
   <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
     <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div class="footer-copy" style="color:rgba(255,255,255,0.3);">© 2025–2026 Deron. Made in Vietnam.</div>
-      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')">← Trang chủ</button>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
     </div>
   </footer>
 </div>
@@ -1459,9 +1627,9 @@ p { max-width: 60ch; }
   <div style="background:var(--bg-dark); padding:140px 0 80px; position:relative; overflow:hidden;">
     <div class="hero-grid-bg" style="opacity:0.25;"></div>
     <div class="container" style="position:relative; z-index:2;">
-      <div class="label label-inv" style="margin-bottom:20px;">Applications</div>
-      <h1 class="text-inv" style="max-width:760px;">Mỗi chuyến bay<br>là một nhiệm vụ<br><span style="color:var(--red)">thực sự.</span></h1>
-      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:520px;">
+      <div class="label label-inv" style="margin-bottom:20px;" data-i18n="usecase.label">Applications</div>
+      <h1 class="text-inv" style="max-width:760px;" data-i18n-html="usecase.title">Mỗi chuyến bay<br>là một nhiệm vụ<br><span style="color:var(--red)">thực sự.</span></h1>
+      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:520px;" data-i18n="usecase.sub">
         Không phải demo. Không phải concept. Những kịch bản Deron đang thiết kế và chuẩn bị để triển khai.
       </p>
     </div>
@@ -1470,10 +1638,10 @@ p { max-width: 60ch; }
   <section class="usecase-section">
     <div class="container">
       <div class="usecase-tabs">
-        <span class="usecase-tab active" onclick="switchTab(0)">Y tế khẩn cấp</span>
-        <span class="usecase-tab" onclick="switchTab(1)">Cứu trợ thiên tai</span>
-        <span class="usecase-tab" onclick="switchTab(2)">Vùng xa / cao nguyên</span>
-        <span class="usecase-tab" onclick="switchTab(3)">Đảo / vùng nước</span>
+        <span class="usecase-tab active" data-i18n="usecase.tab1" onclick="switchTab(0)">Y tế khẩn cấp</span>
+        <span class="usecase-tab" data-i18n="usecase.tab2" onclick="switchTab(1)">Cứu trợ thiên tai</span>
+        <span class="usecase-tab" data-i18n="usecase.tab3" onclick="switchTab(2)">Vùng xa / cao nguyên</span>
+        <span class="usecase-tab" data-i18n="usecase.tab4" onclick="switchTab(3)">Đảo / vùng nước</span>
       </div>
 
       <!-- Tab 0: Y tế -->
@@ -1613,7 +1781,7 @@ p { max-width: 60ch; }
   <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
     <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div class="footer-copy" style="color:rgba(255,255,255,0.3);">© 2025–2026 Deron. Made in Vietnam.</div>
-      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')">← Trang chủ</button>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
     </div>
   </footer>
 </div>
@@ -1623,9 +1791,9 @@ p { max-width: 60ch; }
   <div style="background:var(--bg-dark); padding:140px 0 80px; position:relative; overflow:hidden;">
     <div class="hero-grid-bg" style="opacity:0.25;"></div>
     <div class="container" style="position:relative; z-index:2;">
-      <div class="label label-inv" style="margin-bottom:20px;">For Investors</div>
-      <h1 class="text-inv" style="max-width:800px;">Đây không phải<br>startup drone nữa.<br>Đây là <span style="color:var(--red)">hạ tầng</span><br>của Việt Nam.</h1>
-      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;">
+      <div class="label label-inv" style="margin-bottom:20px;" data-i18n="investor.label">For Investors</div>
+      <h1 class="text-inv" style="max-width:800px;" data-i18n-html="investor.title">Đây không phải<br>startup drone nữa.<br>Đây là <span style="color:var(--red)">hạ tầng</span><br>của Việt Nam.</h1>
+      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;" data-i18n="investor.sub">
         Giống như đường cao tốc năm 1990 hay cáp quang năm 2000 — mạng lưới logistics tầm thấp là tầng hạ tầng kế tiếp. Và Deron đang xây từ nền.
       </p>
       <div style="display:flex; gap:16px; margin-top:40px; flex-wrap:wrap;">
@@ -1773,7 +1941,7 @@ p { max-width: 60ch; }
   <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
     <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div class="footer-copy" style="color:rgba(255,255,255,0.3);">© 2025–2026 Deron. Made in Vietnam.</div>
-      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')">← Trang chủ</button>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
     </div>
   </footer>
 </div>
@@ -1783,9 +1951,9 @@ p { max-width: 60ch; }
   <div style="background:var(--bg-dark); padding:140px 0 80px; position:relative; overflow:hidden;">
     <div class="hero-grid-bg" style="opacity:0.25;"></div>
     <div class="container" style="position:relative; z-index:2;">
-      <div class="label label-inv" style="margin-bottom:20px;">Contact</div>
-      <h1 class="text-inv" style="max-width:760px;">Mọi hành trình lớn<br>bắt đầu bằng<br>một cuộc trò chuyện.</h1>
-      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:520px;">
+      <div class="label label-inv" style="margin-bottom:20px;" data-i18n="contact.label">Contact</div>
+      <h1 class="text-inv" style="max-width:760px;" data-i18n-html="contact.title">Mọi hành trình lớn<br>bắt đầu bằng<br>một cuộc trò chuyện.</h1>
+      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:520px;" data-i18n="contact.sub">
         Tìm đúng kênh liên hệ bên dưới. Chúng tôi phản hồi trong vòng 24 giờ.
       </p>
     </div>
@@ -1852,14 +2020,16 @@ p { max-width: 60ch; }
   <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
     <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div class="footer-copy" style="color:rgba(255,255,255,0.3);">© 2025–2026 Deron. Made in Vietnam.</div>
-      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')">← Trang chủ</button>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
     </div>
   </footer>
 </div>
 
 <!-- ============================================================ JAVASCRIPT -->
 <script>
-// ---- NAVIGATION ----
+// ============================================================
+// NAVIGATION
+// ============================================================
 const pages = ['home','about','technology','usecases','investor','contact'];
 
 function navigate(page) {
@@ -1872,13 +2042,10 @@ function navigate(page) {
     target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
-  // Update nav active state
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  // Trigger reveal animations
   setTimeout(initReveal, 50);
 }
 
-// ---- MOBILE NAV ----
 function toggleMobileNav() {
   document.getElementById('mobileMenu').classList.toggle('open');
 }
@@ -1886,14 +2053,15 @@ function closeMobileNav() {
   document.getElementById('mobileMenu').classList.remove('open');
 }
 
-// ---- SCROLL NAV ----
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('nav');
   if (window.scrollY > 30) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 }, { passive: true });
 
-// ---- REVEAL ANIMATIONS ----
+// ============================================================
+// REVEAL ANIMATIONS
+// ============================================================
 function initReveal() {
   const reveals = document.querySelectorAll('.page.active .reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -1909,7 +2077,9 @@ function initReveal() {
   });
 }
 
-// ---- COUNTER ANIMATIONS ----
+// ============================================================
+// COUNTER ANIMATIONS
+// ============================================================
 function animateCounters() {
   document.querySelectorAll('[data-count]').forEach(el => {
     const target = parseInt(el.dataset.count);
@@ -1928,37 +2098,456 @@ function animateCounters() {
     requestAnimationFrame(update);
   });
 }
-
-// Observe hero stats
 const heroObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounters();
-      heroObserver.disconnect();
-    }
+    if (entry.isIntersecting) { animateCounters(); heroObserver.disconnect(); }
   });
 }, { threshold: 0.5 });
 const heroStats = document.querySelector('.hero-stats');
 if (heroStats) heroObserver.observe(heroStats);
 
-// ---- USE CASE TABS ----
+// ============================================================
+// USE CASE TABS
+// ============================================================
 function switchTab(index) {
-  document.querySelectorAll('.usecase-tab').forEach((t, i) => {
-    t.classList.toggle('active', i === index);
+  document.querySelectorAll('.usecase-tab').forEach((t, i) => t.classList.toggle('active', i === index));
+  document.querySelectorAll('.usecase-panel').forEach((p, i) => p.classList.toggle('active', i === index));
+}
+
+// ============================================================
+// MULTILANGUAGE SYSTEM
+// ============================================================
+const TRANSLATIONS = {
+  vi: {
+    // Nav
+    'nav.home': 'Trang chủ',
+    'nav.about': 'Về chúng tôi',
+    'nav.technology': 'Công nghệ',
+    'nav.usecases': 'Ứng dụng',
+    'nav.investor': 'Nhà đầu tư',
+    'nav.contact': 'Liên hệ',
+    'nav.cta': 'Dành cho NĐT',
+    'nav.backHome': '← Trang chủ',
+
+    // Hero
+    'hero.badge': 'DERON · Chiến Dịch Điện Biên Phủ Trong Logistics',
+    'hero.title': 'Khi đường bộ<br>không tới được,<br><span>chúng tôi bay.</span>',
+    'hero.sub': 'Hệ thống drone giao hàng tự hành — được xây dựng cho y tế khẩn cấp, cứu trợ thiên tai, và tương lai logistics tầm thấp của Việt Nam.',
+    'hero.cta1': 'Khám phá sứ mệnh',
+    'hero.cta2': 'Dành cho nhà đầu tư',
+    'hero.stat1': '% GDP — Chi phí logistics VN<br><span style="font-size:9px;opacity:0.6">Nguồn: World Bank</span>',
+    'hero.stat2': 'Xã thiếu đường ô tô ổn định<br><span style="font-size:9px;opacity:0.6">Nguồn: GSO / Bộ GTVT</span>',
+    'hero.stat3': 'Thị trường LAE ước tính VN<br><span style="font-size:9px;opacity:0.6">Ước tính — chưa xác minh chính thức</span>',
+
+    // Strip
+    'strip.1': 'Y tế khẩn cấp',
+    'strip.2': 'Cứu trợ thiên tai',
+    'strip.3': 'Logistics vùng xa',
+    'strip.4': 'Tự cường công nghệ Việt',
+
+    // Problem
+    'problem.label': 'The Problem',
+    'problem.title': 'Logistics Việt Nam đang trả giá bằng sinh mạng.',
+    'problem.desc': 'Hạ tầng mặt đất đã đến giới hạn. Mỗi giờ trì hoãn trong y tế khẩn cấp — mỗi con đường bị cô lập sau bão — là một vấn đề chưa được giải quyết.',
+    'problem.stat1': 'Chi phí logistics so với GDP — gần gấp đôi các nước phát triển',
+    'problem.src1': 'World Bank / Bộ Công Thương',
+    'problem.stat2': 'Xã vùng núi không có đường ô tô ổn định quanh năm',
+    'problem.src2': 'GSO / Bộ GTVT — chưa xác minh chính xác',
+    'problem.stat3': 'Thời gian vận chuyển khẩn cấp đến vùng xa trong điều kiện thường',
+    'problem.src3': 'Ước tính vận hành',
+
+    // Solution
+    'solution.label': 'The Answer',
+    'solution.title': 'Một lớp hạ tầng mới cho Việt Nam.',
+    'solution.desc': 'Deron không thay thế logistics truyền thống. Deron lấp đầy những khoảng trắng mà hạ tầng cũ không với tới — bằng drone tự hành, bằng AI, bằng hệ thống được xây cho người Việt.',
+    'solution.p1t': 'Bay tự hành',
+    'solution.p1d': 'Không cần pilot, không cần đường bộ, không bị địa hình cản trở. Hệ thống điều hành từ trung tâm.',
+    'solution.p2t': 'Thiết kế cho Việt Nam',
+    'solution.p2d': 'Địa hình nhiệt đới, quy định pháp lý, ngôn ngữ, cộng đồng — không adapt, chúng tôi là native.',
+    'solution.p3t': 'Đa nhiệm vụ',
+    'solution.p3d': 'Y tế, cứu trợ, thương mại — cùng một nền tảng, khác container. Một đội drone, nhiều ứng dụng.',
+
+    // Why Now
+    'whynow.label': 'Why Now',
+    'whynow.title': '2025 là thời điểm. Không phải sớm. Không phải muộn.',
+    'whynow.desc': 'Bốn yếu tố đang hội tụ đồng thời — một cửa sổ cơ hội hiếm có để xây dựng hạ tầng logistics tầm thấp đầu tiên của Việt Nam.',
+    'whynow.s1t': 'Chính sách quốc gia',
+    'whynow.s1d': 'Nghị quyết 57-NQ/TW (2024) chỉ đạo phát triển kinh tế tầm thấp. LAE Alliance thành lập tháng 10/2025.',
+    'whynow.s2t': 'Công nghệ đủ trưởng thành',
+    'whynow.s2d': 'AI, avionics, và hệ thống định vị đã đủ mature để triển khai ứng dụng dân sự thực tế — không còn chỉ là lab.',
+    'whynow.s3t': 'Hạ tầng 4G/5G phủ rộng',
+    'whynow.s3d': 'Mạng viễn thông đủ để vận hành hệ thống command & control cho drone trên địa bàn rộng.',
+    'whynow.s4t': 'Thị trường chưa có đối thủ local',
+    'whynow.s4d': 'Chưa có đơn vị Việt Nam nào xây được nền tảng drone logistics đầy đủ. Cửa sổ đang mở.',
+
+    // Values
+    'values.label': 'Core Values',
+    'values.title': 'Bốn giá trị. Không thỏa hiệp.',
+    'values.desc': 'Mọi quyết định kỹ thuật, chiến lược và vận hành của Deron đều bắt đầu từ đây.',
+    'values.v1d': 'Chỉ công bố điều đã kiểm chứng. Không inflate số liệu. Không hứa hẹn vượt khả năng thực tế.',
+    'values.v2vn': 'Lòng trắc ẩn',
+    'values.v2d': 'Mọi thiết kế kỹ thuật bắt đầu từ câu hỏi: người dùng cuối là ai và họ thực sự cần gì nhất?',
+    'values.v3vn': 'Cải tiến liên tục',
+    'values.v3d': 'Mỗi nguyên mẫu là một bài học. Mỗi sự cố là dữ liệu. Không bảo vệ cái sai khi có cách tốt hơn.',
+    'values.v4vn': 'Tinh thần phụng sự',
+    'values.v4d': 'Phục vụ cộng đồng như phục vụ người thân — không bỏ lại ai vì lý do kinh tế hay địa hình.',
+
+    // CTA
+    'cta.label': 'Bạn đứng ở đâu?',
+    'cta.title': 'Tham gia hành trình xây dựng hạ tầng logistics Việt Nam.',
+    'cta.desc': 'Cho dù bạn là nhà đầu tư, kỹ sư, đối tác chiến lược hay người ủng hộ sứ mệnh — chúng tôi muốn nghe từ bạn.',
+    'cta.btn1': 'Tôi là nhà đầu tư',
+    'cta.btn2': 'Liên hệ với chúng tôi',
+
+    // Footer
+    'footer.desc': 'Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.',
+    'footer.col1': 'Sứ mệnh',
+    'footer.col2': 'Sản phẩm',
+    'footer.col3': 'Đầu tư',
+    'footer.col4': 'Liên hệ',
+    'footer.l1': 'Về chúng tôi',
+    'footer.l2': 'Giá trị cốt lõi',
+    'footer.l3': 'Lộ trình',
+    'footer.l4': 'Công nghệ DMA',
+    'footer.l5': 'Ứng dụng',
+    'footer.l6': 'Triết lý an toàn',
+    'footer.l7': 'Nhà đầu tư',
+    'footer.l8': 'Tải Pitch Deck',
+    'footer.l9': 'Lộ trình vốn',
+
+    // About page
+    'about.label': 'About Deron',
+    'about.title': 'Không bắt đầu từ<br>cơ hội thị trường.',
+    'about.sub': 'Deron bắt đầu từ một câu hỏi — và quyết tâm không để nó không có câu trả lời.',
+    'about.origin': 'Nguồn gốc',
+    'about.whyTitle': 'Tại sao Deron<br>tồn tại?',
+
+    // Tech page
+    'tech.label': 'Technology',
+    'tech.title': 'Chúng tôi không<br>mua công nghệ.<br>Chúng tôi <span style="color:var(--red)">xây</span> nó.',
+    'tech.sub': 'Bởi vì không có hệ thống nào được thiết kế cho địa hình Việt Nam, quy định Việt Nam, và cộng đồng Việt Nam — trước khi Deron bắt đầu làm.',
+
+    // Use cases page
+    'usecase.label': 'Applications',
+    'usecase.title': 'Mỗi chuyến bay<br>là một nhiệm vụ<br><span style="color:var(--red)">thực sự.</span>',
+    'usecase.sub': 'Không phải demo. Không phải concept. Những kịch bản Deron đang thiết kế và chuẩn bị để triển khai.',
+    'usecase.tab1': 'Y tế khẩn cấp',
+    'usecase.tab2': 'Cứu trợ thiên tai',
+    'usecase.tab3': 'Vùng xa / cao nguyên',
+    'usecase.tab4': 'Đảo / vùng nước',
+
+    // Investor page
+    'investor.label': 'For Investors',
+    'investor.title': 'Đây không phải<br>startup drone nữa.<br>Đây là <span style="color:var(--red)">hạ tầng</span><br>của Việt Nam.',
+    'investor.sub': 'Giống như đường cao tốc năm 1990 hay cáp quang năm 2000 — mạng lưới logistics tầm thấp là tầng hạ tầng kế tiếp. Và Deron đang xây từ nền.',
+
+    // Contact page
+    'contact.label': 'Contact',
+    'contact.title': 'Mọi hành trình lớn<br>bắt đầu bằng<br>một cuộc trò chuyện.',
+    'contact.sub': 'Tìm đúng kênh liên hệ bên dưới. Chúng tôi phản hồi trong vòng 24 giờ.',
+  },
+
+  en: {
+    'nav.home': 'Home',
+    'nav.about': 'About Us',
+    'nav.technology': 'Technology',
+    'nav.usecases': 'Applications',
+    'nav.investor': 'Investors',
+    'nav.contact': 'Contact',
+    'nav.cta': 'For Investors',
+    'nav.backHome': '← Home',
+
+    'hero.badge': 'DERON · The Điện Biên Phủ of Logistics',
+    'hero.title': 'When roads<br>can\'t reach,<br><span>we fly.</span>',
+    'hero.sub': 'Autonomous drone delivery system — built for medical emergencies, disaster relief, and Vietnam\'s low-altitude logistics future.',
+    'hero.cta1': 'Explore our mission',
+    'hero.cta2': 'For investors',
+    'hero.stat1': '% GDP — Vietnam logistics cost<br><span style="font-size:9px;opacity:0.6">Source: World Bank</span>',
+    'hero.stat2': 'Communes without year-round roads<br><span style="font-size:9px;opacity:0.6">Source: GSO / Ministry of Transport</span>',
+    'hero.stat3': 'Estimated LAE market in Vietnam<br><span style="font-size:9px;opacity:0.6">Estimate — not officially verified</span>',
+
+    'strip.1': 'Emergency Medical',
+    'strip.2': 'Disaster Relief',
+    'strip.3': 'Remote Logistics',
+    'strip.4': 'Vietnamese Tech Sovereignty',
+
+    'problem.label': 'The Problem',
+    'problem.title': 'Vietnam\'s logistics costs lives.',
+    'problem.desc': 'Ground infrastructure has reached its limits. Every hour of delay in medical emergencies — every road cut off after a storm — is an unsolved problem.',
+    'problem.stat1': 'Logistics cost as % of GDP — nearly double developed countries',
+    'problem.src1': 'World Bank / Ministry of Industry & Trade',
+    'problem.stat2': 'Mountain communes without year-round stable roads',
+    'problem.src2': 'GSO / Ministry of Transport — not yet precisely verified',
+    'problem.stat3': 'Emergency transport time to remote areas under normal conditions',
+    'problem.src3': 'Operational estimate',
+
+    'solution.label': 'The Answer',
+    'solution.title': 'A new infrastructure layer for Vietnam.',
+    'solution.desc': 'Deron doesn\'t replace traditional logistics. Deron fills the gaps that old infrastructure can\'t reach — with autonomous drones, AI, and a system built for Vietnamese people.',
+    'solution.p1t': 'Autonomous Flight',
+    'solution.p1d': 'No pilot needed, no roads required, no terrain obstacles. Operated from a central command system.',
+    'solution.p2t': 'Designed for Vietnam',
+    'solution.p2d': 'Tropical terrain, legal regulations, language, community — we don\'t adapt, we are native.',
+    'solution.p3t': 'Multi-Mission',
+    'solution.p3d': 'Medical, relief, commercial — same platform, different containers. One drone fleet, many applications.',
+
+    'whynow.label': 'Why Now',
+    'whynow.title': '2025 is the moment. Not too early. Not too late.',
+    'whynow.desc': 'Four factors are converging simultaneously — a rare window of opportunity to build Vietnam\'s first low-altitude logistics infrastructure.',
+    'whynow.s1t': 'National Policy',
+    'whynow.s1d': 'Resolution 57-NQ/TW (2024) directs low-altitude economy development. LAE Alliance established October 2025.',
+    'whynow.s2t': 'Mature Technology',
+    'whynow.s2d': 'AI, avionics, and positioning systems are now mature enough for real civilian applications — no longer just in the lab.',
+    'whynow.s3t': '4G/5G Coverage',
+    'whynow.s3d': 'Telecom infrastructure is sufficient to operate drone command & control systems over wide areas.',
+    'whynow.s4t': 'No Local Competitors',
+    'whynow.s4d': 'No Vietnamese company has built a complete drone logistics platform yet. The window is open.',
+
+    'values.label': 'Core Values',
+    'values.title': 'Four values. Non-negotiable.',
+    'values.desc': 'Every technical, strategic, and operational decision at Deron starts here.',
+    'values.v1d': 'Only publish what\'s verified. No inflated numbers. No promises beyond actual capability.',
+    'values.v2vn': 'Compassion',
+    'values.v2d': 'Every technical design starts with the question: who is the end user and what do they truly need most?',
+    'values.v3vn': 'Continuous Improvement',
+    'values.v3d': 'Every prototype is a lesson. Every incident is data. Don\'t defend the wrong approach when there\'s a better one.',
+    'values.v4vn': 'Service Spirit',
+    'values.v4d': 'Serve the community like serving family — leave no one behind for economic or geographic reasons.',
+
+    'cta.label': 'Where do you stand?',
+    'cta.title': 'Join the journey to build Vietnam\'s logistics infrastructure.',
+    'cta.desc': 'Whether you\'re an investor, engineer, strategic partner, or mission supporter — we want to hear from you.',
+    'cta.btn1': 'I\'m an investor',
+    'cta.btn2': 'Contact us',
+
+    'footer.desc': 'Building Vietnam\'s first low-altitude logistics infrastructure — for healthcare, relief, and the future.',
+    'footer.col1': 'Mission',
+    'footer.col2': 'Products',
+    'footer.col3': 'Investment',
+    'footer.col4': 'Contact',
+    'footer.l1': 'About Us',
+    'footer.l2': 'Core Values',
+    'footer.l3': 'Roadmap',
+    'footer.l4': 'DMA Technology',
+    'footer.l5': 'Applications',
+    'footer.l6': 'Safety Philosophy',
+    'footer.l7': 'Investors',
+    'footer.l8': 'Download Pitch Deck',
+    'footer.l9': 'Capital Roadmap',
+
+    'about.label': 'About Deron',
+    'about.title': 'Not starting from<br>a market opportunity.',
+    'about.sub': 'Deron started from a question — and the determination to not leave it unanswered.',
+    'about.origin': 'Origin',
+    'about.whyTitle': 'Why does Deron<br>exist?',
+
+    'tech.label': 'Technology',
+    'tech.title': 'We don\'t<br>buy technology.<br>We <span style="color:var(--red)">build</span> it.',
+    'tech.sub': 'Because no system was designed for Vietnam\'s terrain, Vietnam\'s regulations, and Vietnam\'s communities — before Deron started building.',
+
+    'usecase.label': 'Applications',
+    'usecase.title': 'Every flight<br>is a real<br><span style="color:var(--red)">mission.</span>',
+    'usecase.sub': 'Not a demo. Not a concept. Real scenarios Deron is designing and preparing to deploy.',
+    'usecase.tab1': 'Emergency Medical',
+    'usecase.tab2': 'Disaster Relief',
+    'usecase.tab3': 'Remote / Highland',
+    'usecase.tab4': 'Island / Coastal',
+
+    'investor.label': 'For Investors',
+    'investor.title': 'This is no longer<br>a drone startup.<br>This is Vietnam\'s<br><span style="color:var(--red)">infrastructure.</span>',
+    'investor.sub': 'Like highways in 1990 or fiber optics in 2000 — low-altitude logistics is the next infrastructure layer. And Deron is building from the ground up.',
+
+    'contact.label': 'Contact',
+    'contact.title': 'Every great journey<br>begins with<br>a conversation.',
+    'contact.sub': 'Find the right contact channel below. We respond within 24 hours.',
+  },
+
+  zh: {
+    'nav.home': '首页',
+    'nav.about': '关于我们',
+    'nav.technology': '技术',
+    'nav.usecases': '应用',
+    'nav.investor': '投资者',
+    'nav.contact': '联系',
+    'nav.cta': '投资者专区',
+    'nav.backHome': '← 首页',
+
+    'hero.badge': 'DERON · 物流的奠边府时刻',
+    'hero.title': '当公路<br>无法到达，<br><span>我们飞翔。</span>',
+    'hero.sub': '自主无人机配送系统——为紧急医疗、灾难救援和越南低空物流未来而建。',
+    'hero.cta1': '探索我们的使命',
+    'hero.cta2': '投资者专区',
+    'hero.stat1': '% GDP — 越南物流成本<br><span style="font-size:9px;opacity:0.6">来源: 世界银行</span>',
+    'hero.stat2': '缺乏全年通行道路的乡镇<br><span style="font-size:9px;opacity:0.6">来源: GSO / 交通运输部</span>',
+    'hero.stat3': '越南 LAE 市场估值<br><span style="font-size:9px;opacity:0.6">估算 — 尚未正式验证</span>',
+
+    'strip.1': '紧急医疗',
+    'strip.2': '灾难救援',
+    'strip.3': '偏远物流',
+    'strip.4': '越南科技自主',
+
+    'problem.label': '问题所在',
+    'problem.title': '越南的物流正在付出生命的代价。',
+    'problem.desc': '地面基础设施已达极限。每一小时的医疗延误——每一条暴风雨后被切断的道路——都是一个未解决的问题。',
+    'problem.stat1': '物流成本占GDP比例——近乎发达国家的两倍',
+    'problem.src1': '世界银行 / 工贸部',
+    'problem.stat2': '全年没有稳定公路的山区乡镇',
+    'problem.src2': 'GSO / 交通运输部 — 尚未精确验证',
+    'problem.stat3': '正常条件下向偏远地区紧急运输的时间',
+    'problem.src3': '运营估算',
+
+    'solution.label': '解决方案',
+    'solution.title': '为越南打造全新基础设施层。',
+    'solution.desc': 'Deron 不取代传统物流。Deron 填补旧基础设施无法触及的空白——通过自主无人机、AI 和专为越南人民打造的系统。',
+    'solution.p1t': '自主飞行',
+    'solution.p1d': '无需飞行员、无需道路、不受地形限制。从中央指挥系统远程操控。',
+    'solution.p2t': '为越南而设计',
+    'solution.p2d': '热带地形、法规、语言、社区——我们不是适应者，我们是原生者。',
+    'solution.p3t': '多任务平台',
+    'solution.p3d': '医疗、救援、商业——同一平台，不同载体。一支无人机队，多种应用。',
+
+    'whynow.label': '为什么是现在',
+    'whynow.title': '2025年是关键时刻。不早也不晚。',
+    'whynow.desc': '四大因素正在同时汇聚——一个构建越南首个低空物流基础设施的罕见机遇窗口。',
+    'whynow.s1t': '国家政策',
+    'whynow.s1d': '第57-NQ/TW号决议（2024）指导发展低空经济。LAE联盟于2025年10月成立。',
+    'whynow.s2t': '技术成熟',
+    'whynow.s2d': 'AI、航电和定位系统已足够成熟，可以部署实际的民用应用——不再只是实验室阶段。',
+    'whynow.s3t': '4G/5G 广覆盖',
+    'whynow.s3d': '电信基础设施足以在大范围内运行无人机指挥控制系统。',
+    'whynow.s4t': '无本地竞争对手',
+    'whynow.s4d': '目前还没有越南公司建成完整的无人机物流平台。机遇之窗正在开放。',
+
+    'values.label': '核心价值观',
+    'values.title': '四大价值观。不容妥协。',
+    'values.desc': 'Deron 的每一个技术、战略和运营决策都从这里开始。',
+    'values.v1d': '只发布经过验证的信息。不夸大数据。不做超出实际能力的承诺。',
+    'values.v2vn': '同理心',
+    'values.v2d': '每一项技术设计都从这个问题开始：最终用户是谁，他们最需要什么？',
+    'values.v3vn': '持续改进',
+    'values.v3d': '每个原型都是一堂课。每个事故都是数据。有更好的方法时不固守错误。',
+    'values.v4vn': '服务精神',
+    'values.v4d': '服务社区如同服务家人——不因经济或地理原因而抛下任何人。',
+
+    'cta.label': '你站在哪里？',
+    'cta.title': '加入构建越南物流基础设施的旅程。',
+    'cta.desc': '无论你是投资者、工程师、战略合作伙伴还是使命支持者——我们都希望听到你的声音。',
+    'cta.btn1': '我是投资者',
+    'cta.btn2': '联系我们',
+
+    'footer.desc': '构建越南首个低空物流基础设施——服务医疗、救援和未来。',
+    'footer.col1': '使命',
+    'footer.col2': '产品',
+    'footer.col3': '投资',
+    'footer.col4': '联系',
+    'footer.l1': '关于我们',
+    'footer.l2': '核心价值观',
+    'footer.l3': '路线图',
+    'footer.l4': 'DMA 技术',
+    'footer.l5': '应用',
+    'footer.l6': '安全理念',
+    'footer.l7': '投资者',
+    'footer.l8': '下载 Pitch Deck',
+    'footer.l9': '资本路线图',
+
+    'about.label': '关于 Deron',
+    'about.title': '不是从<br>市场机会开始。',
+    'about.sub': 'Deron 始于一个问题——以及不让它没有答案的决心。',
+    'about.origin': '起源',
+    'about.whyTitle': '为什么 Deron<br>存在？',
+
+    'tech.label': '技术',
+    'tech.title': '我们不<br>购买技术。<br>我们<span style="color:var(--red)">自主研发</span>。',
+    'tech.sub': '因为在 Deron 开始之前，没有任何系统是为越南的地形、越南的法规和越南的社区设计的。',
+
+    'usecase.label': '应用场景',
+    'usecase.title': '每一次飞行<br>都是一个<br><span style="color:var(--red)">真正的任务。</span>',
+    'usecase.sub': '不是演示，不是概念。是 Deron 正在设计和准备部署的真实场景。',
+    'usecase.tab1': '紧急医疗',
+    'usecase.tab2': '灾难救援',
+    'usecase.tab3': '偏远/高原',
+    'usecase.tab4': '岛屿/沿海',
+
+    'investor.label': '投资者专区',
+    'investor.title': '这已不再是<br>一个无人机创业公司。<br>这是越南的<br><span style="color:var(--red)">基础设施。</span>',
+    'investor.sub': '就像1990年的高速公路或2000年的光纤——低空物流网络是下一个基础设施层。而 Deron 正在从零开始建设。',
+
+    'contact.label': '联系我们',
+    'contact.title': '每一段伟大的旅程<br>都始于<br>一次对话。',
+    'contact.sub': '在下方找到合适的联系渠道。我们将在24小时内回复。',
+  }
+};
+
+// Detect system language
+function detectSystemLanguage() {
+  const langs = navigator.languages || [navigator.language || 'vi'];
+  for (const lang of langs) {
+    const code = lang.toLowerCase();
+    if (code.startsWith('zh')) return 'zh';
+    if (code.startsWith('en')) return 'en';
+    if (code.startsWith('vi')) return 'vi';
+  }
+  return 'vi';
+}
+
+// Current language
+let currentLang = localStorage.getItem('deron-language') || detectSystemLanguage();
+
+// Apply translations to DOM
+function applyTranslations(lang) {
+  const t = TRANSLATIONS[lang] || TRANSLATIONS.vi;
+
+  // data-i18n: textContent replacement
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
   });
-  document.querySelectorAll('.usecase-panel').forEach((p, i) => {
-    p.classList.toggle('active', i === index);
+
+  // data-i18n-html: innerHTML replacement (for content with <br>, <span>, etc.)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Update <html lang>
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+
+  // Update select
+  const sel = document.getElementById('langSelect');
+  if (sel) sel.value = lang;
+
+  // Update mobile lang buttons
+  document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.onclick.toString().includes("'" + lang + "'"));
   });
 }
 
-// ---- NAV SCROLLED on load ----
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.scrollY > 30) document.getElementById('nav').classList.add('scrolled');
-  else document.getElementById('nav').classList.add('scrolled'); // always visible
-  initReveal();
+// Set language (called from UI)
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('deron-language', lang);
+  applyTranslations(lang);
+  closeMobileNav();
+}
+
+// Listen for system language changes
+window.addEventListener('languagechange', () => {
+  if (!localStorage.getItem('deron-language')) {
+    currentLang = detectSystemLanguage();
+    applyTranslations(currentLang);
+  }
 });
 
-// Initial reveal
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.scrollY > 30) document.getElementById('nav').classList.add('scrolled');
+  else document.getElementById('nav').classList.add('scrolled');
+  initReveal();
+  applyTranslations(currentLang);
+});
+
 setTimeout(initReveal, 100);
 setTimeout(initReveal, 400);
 </script>
