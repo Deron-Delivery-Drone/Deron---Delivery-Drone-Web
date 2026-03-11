@@ -1,7 +1,22 @@
 // src/App.js
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { Mail, Phone, Globe, Menu, X, ChevronRight, Languages } from "lucide-react";
 import { fetchPublishedContent } from "./lib/supabase";
+
+/**
+ * Detect system language from browser settings.
+ * Maps to supported languages: vi, en, zh. Defaults to vi.
+ */
+function detectSystemLanguage() {
+  const langs = navigator.languages || [navigator.language || "vi"];
+  for (const lang of langs) {
+    const code = lang.toLowerCase();
+    if (code.startsWith("zh")) return "zh";
+    if (code.startsWith("en")) return "en";
+    if (code.startsWith("vi")) return "vi";
+  }
+  return "vi";
+}
 
 const translations = {
   vi: {
@@ -81,6 +96,14 @@ const translations = {
       email: "ceo.deron@gmail.com",
       phone: "+84 363 045 747",
       button: "Liên hệ ngay",
+    },
+    footer: {
+      copyright: "© 2025 Deron. Kiến tạo tương lai Việt Nam.",
+      location: "TP. Hồ Chí Minh, Việt Nam",
+    },
+    accessibility: {
+      langLabel: "Thay đổi ngôn ngữ",
+      langAuto: "Tự động",
     },
   },
 
@@ -162,6 +185,14 @@ const translations = {
       phone: "+84 363 045 747",
       button: "Get in Touch",
     },
+    footer: {
+      copyright: "© 2025 Deron. Delivering Vietnam's future.",
+      location: "Ho Chi Minh City, Vietnam",
+    },
+    accessibility: {
+      langLabel: "Change language",
+      langAuto: "Auto",
+    },
   },
 
   zh: {
@@ -241,12 +272,22 @@ const translations = {
       phone: "+84 363 045 747",
       button: "立即联系",
     },
+    footer: {
+      copyright: "© 2025 Deron. 构建越南的未来。",
+      location: "胡志明市，越南",
+    },
+    accessibility: {
+      langLabel: "切换语言",
+      langAuto: "自动",
+    },
   },
 };
 
 function App() {
-  const [language, setLanguage] = useState(localStorage.getItem("deron-language") || "vi");
-  const [theme, setTheme] = useState(localStorage.getItem("deron-theme") || "system");
+  // Language: check localStorage first, then auto-detect from system
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("deron-language") || detectSystemLanguage();
+  });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // NEWS from Supabase
@@ -256,32 +297,46 @@ function App() {
 
   const t = useMemo(() => translations[language] || translations.vi, [language]);
 
-  // Persist language
-  useEffect(() => {
-    localStorage.setItem("deron-language", language);
-  }, [language]);
+  // Handle language change and persist
+  const changeLanguage = useCallback((lang) => {
+    setLanguage(lang);
+    localStorage.setItem("deron-language", lang);
+  }, []);
 
-  // Apply theme (UI switch removed, but behavior remains)
+  // Theme: always follow system (light/dark). No manual toggle.
   useEffect(() => {
-    localStorage.setItem("deron-theme", theme);
-
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const contrastQuery = window.matchMedia("(prefers-contrast: more)");
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const applyTheme = () => {
-      const isDark = theme === "dark" || (theme === "system" && mediaQuery.matches);
-      document.documentElement.classList.toggle("dark", isDark);
-      document.body.dataset.theme = theme;
+      document.documentElement.classList.toggle("dark", darkQuery.matches);
+      document.documentElement.classList.toggle("high-contrast", contrastQuery.matches);
+      document.documentElement.classList.toggle("reduce-motion", motionQuery.matches);
     };
 
     applyTheme();
 
-    const handleChange = () => {
-      if (theme === "system") applyTheme();
+    darkQuery.addEventListener("change", applyTheme);
+    contrastQuery.addEventListener("change", applyTheme);
+    motionQuery.addEventListener("change", applyTheme);
+    return () => {
+      darkQuery.removeEventListener("change", applyTheme);
+      contrastQuery.removeEventListener("change", applyTheme);
+      motionQuery.removeEventListener("change", applyTheme);
     };
+  }, []);
 
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [theme]);
+  // Listen for system language changes (e.g. user changes OS language)
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      if (!localStorage.getItem("deron-language")) {
+        setLanguage(detectSystemLanguage());
+      }
+    };
+    window.addEventListener("languagechange", handleLanguageChange);
+    return () => window.removeEventListener("languagechange", handleLanguageChange);
+  }, []);
 
   // Load news once on mount
   useEffect(() => {
@@ -383,8 +438,8 @@ function App() {
                 <select
                   id="language-select"
                   value={language}
-                  onChange={(e) => setLanguage(e.target.value)}
-                  aria-label="Change language"
+                  onChange={(e) => changeLanguage(e.target.value)}
+                  aria-label={t.accessibility.langLabel}
                   className="ml-2 border border-gray-200/80 dark:border-gray-700/80 rounded-full pl-3 pr-6 py-2 text-sm bg-white/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
                 >
                   <option value="vi">🇻🇳 Việt Nam</option>
@@ -418,13 +473,13 @@ function App() {
               {/* Mobile language */}
               <div className="pt-3 border-t border-gray-200 dark:border-gray-800">
                 <label className="block text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-2">
-                  Language
+                  {t.accessibility.langLabel}
                 </label>
                 <div className="flex items-center gap-2">
                   <Languages className="h-5 w-5 text-gray-500 dark:text-gray-300" />
                   <select
                     value={language}
-                    onChange={(e) => setLanguage(e.target.value)}
+                    onChange={(e) => changeLanguage(e.target.value)}
                     className="w-full border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
                   >
                     <option value="vi">🇻🇳 Việt Nam</option>
@@ -665,8 +720,8 @@ function App() {
       {/* FOOTER */}
       <footer className="py-12 px-6 border-t border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/80">
         <div className="max-w-6xl mx-auto text-center text-gray-600 dark:text-gray-300">
-          <p className="mb-2">© 2025 Deron. Delivering Vietnam&apos;s future.</p>
-          <p className="text-sm">Ho Chi Minh City, Vietnam</p>
+          <p className="mb-2">{t.footer.copyright}</p>
+          <p className="text-sm">{t.footer.location}</p>
         </div>
       </footer>
     </div>
