@@ -116,10 +116,23 @@ p { max-width: 60ch; }
   font-size: 18px; letter-spacing: 0.04em;
   color: #fff; cursor: pointer;
 }
-.nav-logo-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--red);
+.nav-logo img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
   flex-shrink: 0;
+}
+.logo-light {
+  display: none;
+}
+@media (prefers-color-scheme: light) {
+  .logo-dark {
+    display: none;
+  }
+
+  .logo-light {
+    display: block;
+  }
 }
 .nav-links {
   display: flex; align-items: center; gap: 6px;
@@ -877,8 +890,9 @@ p { max-width: 60ch; }
 <!-- ============================================================ NAVIGATION -->
 <nav id="nav">
   <div class="nav-logo" onclick="navigate('home')">
-    <span class="nav-logo-dot"></span>
-    DERON
+    <img src="Deron-logo-dark.png" class="logo-dark" alt="Deron logo">
+    <img src="Deron-logo-light.PNG" class="logo-light" alt="Deron logo">
+    <span>DERON</span>
   </div>
   <div class="nav-links">
     <span class="nav-link" onclick="navigate('about')">Về chúng tôi</span>
