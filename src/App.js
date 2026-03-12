@@ -31,8 +31,8 @@ const translations = {
     },
     hero: {
       badge: "Tương lai logistics của Việt Nam",
-      title: "Chiến Dịch Điện Biên Phủ Trong Lĩnh Vực Logistics",
-      subtitle: "Không chỉ giao hàng. Chúng tôi trao gửi hy vọng, sự sống và tri thức.",
+      title: "Kỷ nguyên vươn mình của dân tộc",
+      subtitle: "Deron xây dựng nền tảng công nghệ drone của người Việt — mở ra một lớp hạ tầng mới trên bầu trời cho logistics, nông nghiệp, giám sát, cứu hộ và nhiều ứng dụng UAV trong tương lai.",
       cta: "Tham gia cùng Deron",
     },
     mission: {
@@ -119,8 +119,8 @@ const translations = {
     },
     hero: {
       badge: "Vietnam's Future of Logistics",
-      title: "The Điện Biên Phủ of Logistics",
-      subtitle: "We don't just deliver goods. We deliver hope, life, and knowledge.",
+      title: "An Era of National Rise",
+      subtitle: "Deron is building a Vietnamese drone technology platform — opening a new layer of sky infrastructure for logistics, agriculture, inspection, emergency response, and many future UAV applications.",
       cta: "Join Our Mission",
     },
     mission: {
@@ -207,8 +207,8 @@ const translations = {
     },
     hero: {
       badge: "越南物流的未来",
-      title: "物流的奠边府时刻",
-      subtitle: "我们递送的不只是货物，更是希望、生命与知识。",
+      title: "民族腾飞的新纪元",
+      subtitle: "Deron 正在打造属于越南人的无人机技术平台——为物流、农业、巡检、救援以及未来更多无人机应用，开启一层全新的空中基础设施。",
       cta: "加入 Deron",
     },
     mission: {
