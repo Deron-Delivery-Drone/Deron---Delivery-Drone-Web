@@ -10,8 +10,8 @@ vi: {
 
 // Hero
 "hero.badge": "DERON · Chiến Dịch Điện Biên Phủ Trong Logistics",
-"hero.title": "Khi đường bộ<br>không tới được,<br><span>chúng tôi bay.</span>",
-"hero.sub": "Hệ thống drone giao hàng tự hành — được xây dựng cho y tế khẩn cấp, cứu trợ thiên tai, và tương lai logistics tầm thấp của Việt Nam.",
+"hero.title": "Kỷ nguyên<br>vươn mình của<br><span>dân tộc</span>",
+"hero.sub": "Deron xây dựng nền tảng công nghệ drone của người Việt — mở ra một lớp hạ tầng mới trên bầu trời cho logistics, nông nghiệp, giám sát, cứu hộ và nhiều ứng dụng UAV trong tương lai.",
 "hero.cta1": "Khám phá sứ mệnh","hero.cta2": "Dành cho nhà đầu tư",
 "hero.stat1": "% GDP — Chi phí logistics VN<br><span style=\"font-size:9px;opacity:.6\">Nguồn: World Bank</span>",
 "hero.stat2": "Xã thiếu đường ô tô ổn định<br><span style=\"font-size:9px;opacity:.6\">Nguồn: GSO / Bộ GTVT</span>",
@@ -217,8 +217,8 @@ en: {
 "nav.home": "Home","nav.about": "About Us","nav.technology": "Technology","nav.usecases": "Applications","nav.investor": "Investors","nav.contact": "Contact","nav.cta": "For Investors","nav.backHome": "← Home",
 
 "hero.badge": "DERON · The Điện Biên Phủ of Logistics",
-"hero.title": "When roads<br>can't reach,<br><span>we fly.</span>",
-"hero.sub": "Autonomous drone delivery system — built for medical emergencies, disaster relief, and Vietnam's low-altitude logistics future.",
+"hero.title": "An Era<br>of National<br><span>Rise</span>",
+"hero.sub": "Deron is building a Vietnamese drone technology platform — opening a new layer of sky infrastructure for logistics, agriculture, inspection, emergency response, and many future UAV applications.",
 "hero.cta1": "Explore our mission","hero.cta2": "For investors",
 "hero.stat1": "% GDP — Vietnam logistics cost<br><span style=\"font-size:9px;opacity:.6\">Source: World Bank</span>",
 "hero.stat2": "Communes without year-round roads<br><span style=\"font-size:9px;opacity:.6\">Source: GSO / Ministry of Transport</span>",
@@ -412,8 +412,8 @@ zh: {
 "nav.home": "首页","nav.about": "关于我们","nav.technology": "技术","nav.usecases": "应用","nav.investor": "投资者","nav.contact": "联系","nav.cta": "投资者专区","nav.backHome": "← 首页",
 
 "hero.badge": "DERON · 物流的奠边府时刻",
-"hero.title": "当公路<br>无法到达，<br><span>我们飞翔。</span>",
-"hero.sub": "自主无人机配送系统——为紧急医疗、灾难救援和越南低空物流未来而建。",
+"hero.title": "民族腾飞的<span>新纪元</span>",
+"hero.sub": "Deron 正在打造属于越南人的无人机技术平台——为物流、农业、巡检、救援以及未来更多无人机应用，开启一层全新的空中基础设施。",
 "hero.cta1": "探索我们的使命","hero.cta2": "投资者专区",
 "hero.stat1": "% GDP — 越南物流成本<br><span style=\"font-size:9px;opacity:.6\">来源: 世界银行</span>",
 "hero.stat2": "缺乏全年通行道路的乡镇<br><span style=\"font-size:9px;opacity:.6\">来源: GSO / 交通运输部</span>",
