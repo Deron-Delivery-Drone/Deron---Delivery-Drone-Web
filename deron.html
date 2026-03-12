@@ -117,8 +117,9 @@ p { max-width: 60ch; }
   color: #fff; cursor: pointer;
 }
 .nav-logo img {
-  width: 22px;
-  height: 22px;
+  height: 1.5em;
+  width: auto;
+  max-width: none;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -856,12 +857,30 @@ p { max-width: 60ch; }
   margin: 0 32px;
 }
 
+/* ============================================================ INVESTOR ADVANTAGES */
+#page-investor .reveal > div[style*="display:grid"][style*="repeat(3,1fr)"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+#page-investor .reveal > div[style*="display:grid"][style*="repeat(3,1fr)"] > div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* ============================================================ RESPONSIVE */
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .value-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .hero-drone-svg { display: none; }
+
+  #page-investor .reveal > div[style*="display:grid"][style*="repeat(3,1fr)"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 @media (max-width: 768px) {
   .container, .container-narrow { padding: 0 20px; }
@@ -882,6 +901,10 @@ p { max-width: 60ch; }
   .hero-stats { gap: 32px; }
   .doc-block { padding: 36px 24px; }
   .doc-ctas { flex-direction: column; align-items: center; }
+
+  #page-investor .reveal > div[style*="display:grid"][style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
 }
 </style>
 </head>
