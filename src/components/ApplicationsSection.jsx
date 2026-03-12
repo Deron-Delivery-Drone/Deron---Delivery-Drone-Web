@@ -298,7 +298,7 @@ const applicationsContent = {
       body: "无人机正在为运输、医疗、救援、基础设施与现场数据创造新的方式。Deron 正在为越南建设这套系统。",
       primaryCta: "探索我们的使命",
       secondaryCta: "投资者入口"
-    }
+    },
   }
 };
 
