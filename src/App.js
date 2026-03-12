@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { Mail, Phone, Globe, Menu, X, ChevronRight, Languages } from "lucide-react";
 import { fetchPublishedContent } from "./lib/supabase";
+import ApplicationsSection from "./components/ApplicationsSection";
 
 /**
  * Detect system language from browser settings.
@@ -24,6 +25,7 @@ const translations = {
     nav: {
       home: "Trang chủ",
       mission: "Sứ mệnh",
+      applications: "Ứng dụng",
       technology: "Công nghệ",
       roadmap: "Lộ trình",
       news: "Tin tức",
@@ -112,6 +114,7 @@ const translations = {
     nav: {
       home: "Home",
       mission: "Mission",
+      applications: "Applications",
       technology: "Technology",
       roadmap: "Roadmap",
       news: "News",
@@ -200,6 +203,7 @@ const translations = {
     nav: {
       home: "首页",
       mission: "使命",
+      applications: "应用",
       technology: "技术",
       roadmap: "路线图",
       news: "新闻",
@@ -406,6 +410,12 @@ function App() {
                 {t.nav.mission}
               </button>
               <button
+                onClick={() => scrollToSection("applications")}
+                className="text-sm text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+              >
+                {t.nav.applications}
+              </button>
+              <button
                 onClick={() => scrollToSection("technology")}
                 className="text-sm text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-400 transition-colors"
               >
@@ -460,7 +470,7 @@ function App() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
             <div className="px-6 py-4 space-y-3">
-              {["home", "mission", "technology", "roadmap", "news", "contact"].map((id) => (
+              {["home", "mission", "applications", "technology", "roadmap", "news", "contact"].map((id) => (
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
@@ -539,6 +549,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <ApplicationsSection language={language} />
 
       {/* TECHNOLOGY */}
       <section id="technology" className="py-24 px-6">
