@@ -85,9 +85,9 @@ vi: {
 "footer.l7": "Nhà đầu tư","footer.l8": "Tải Pitch Deck","footer.l9": "Lộ trình vốn",
 
 // About page
-"about.label": "About Deron",
-"about.title": "Không bắt đầu từ<br>cơ hội thị trường.",
-"about.sub": "Deron bắt đầu từ một câu hỏi — và quyết tâm không để nó không có câu trả lời.",
+"about.label": "ABOUT DERON",
+"about.title": "Không bắt đầu từ cơ hội thị trường.",
+"about.sub": "Deron không bắt đầu từ cơ hội thị trường. Deron bắt đầu từ một điều không đổi — giải những bài toán con người thật sự cần được giải.",
 "about.origin": "Nguồn gốc",
 "about.whyTitle": "Tại sao Deron<br>tồn tại?",
 "about.why.p1": "Tại sao cứ mỗi mùa mưa, những vùng đất không còn bị cô lập với thế giới — mà lại bị cô lập với hệ thống cứu trợ?",
@@ -282,9 +282,9 @@ en: {
 "footer.l4": "DMA Technology","footer.l5": "Applications","footer.l6": "Safety Philosophy",
 "footer.l7": "Investors","footer.l8": "Download Pitch Deck","footer.l9": "Capital Roadmap",
 
-"about.label": "About Deron",
-"about.title": "Not starting from<br>a market opportunity.",
-"about.sub": "Deron started from a question — and the determination to not leave it unanswered.",
+"about.label": "ABOUT DERON",
+"about.title": "Not born from market opportunity.",
+"about.sub": "Deron did not begin with market opportunity. It began with something constant — solving the problems people truly need solved.",
 "about.origin": "Origin",
 "about.whyTitle": "Why does Deron<br>exist?",
 "about.why.p1": "Why is it that every rainy season, communities are not isolated from the world — but isolated from the relief system?",
@@ -476,9 +476,9 @@ zh: {
 "footer.l4": "DMA 技术","footer.l5": "应用","footer.l6": "安全理念",
 "footer.l7": "投资者","footer.l8": "下载 Pitch Deck","footer.l9": "资本路线图",
 
-"about.label": "关于 Deron",
-"about.title": "不是从<br>市场机会开始。",
-"about.sub": "Deron 始于一个问题——以及不让它没有答案的决心。",
+"about.label": "ABOUT DERON",
+"about.title": "Deron 的起点，不是市场机会。",
+"about.sub": "Deron 并非起步于市场机会。它起步于一个不变的核心——解决人们真正需要被解决的问题。",
 "about.origin": "起源",
 "about.whyTitle": "为什么 Deron<br>存在？",
 "about.why.p1": "为什么每到雨季，一些地区不是与世隔绝——而是与救援系统隔绝？",
