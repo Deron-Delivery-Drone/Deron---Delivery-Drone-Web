@@ -22,6 +22,12 @@
 @media(forced-colors:active){.btn-primary,.nav-cta{forced-color-adjust:none;background:ButtonFace;color:ButtonText;border:2px solid ButtonText}}
 *:focus-visible{outline:3px solid var(--red);outline-offset:2px}
 </style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
 </head>
 <body>
 <nav id="nav"><div class="nav-logo" onclick="navigate('home')"><img src="Deron-logo-dark.png" class="logo-dark" alt="Deron logo"><img src="Deron-logo-light.png" class="logo-light" alt="Deron logo"><span>DERON</span></div><div class="nav-links"><span class="nav-link" data-i18n="nav.about" onclick="navigate('about')">Về chúng tôi</span><span class="nav-link" data-i18n="nav.technology" onclick="navigate('technology')">Công nghệ</span><span class="nav-link" data-i18n="nav.usecases" onclick="navigate('usecases')">Ứng dụng</span><span class="nav-link" data-i18n="nav.investor" onclick="navigate('investor')">Nhà đầu tư</span><span class="nav-link" data-i18n="nav.contact" onclick="navigate('contact')">Liên hệ</span></div><div class="nav-lang"><select id="langSelect" onchange="setLanguage(this.value)" aria-label="Language"><option value="vi">🇻🇳 VN</option><option value="en">🇺🇸 EN</option><option value="zh">🇨🇳 中文</option></select></div><span class="nav-cta" data-i18n="nav.cta" onclick="navigate('investor')">Dành cho NĐT</span><div class="nav-hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div></nav>
