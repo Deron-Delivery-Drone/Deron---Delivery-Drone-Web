@@ -1,0 +1,13 @@
+[package]
+name = "datcs-backend"
+version = "0.1.0"
+
+[dependencies]
+actix-web = ""   
+tokio = { version = "", features = ["full"] }
+serde = { version = "", features = ["derive"] }
+sqlite = ""
+uuid = { version = "", features = ["v4"] }
+
+[[bin]]
+name = "datcs-backend"
