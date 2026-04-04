@@ -1,60 +1,73 @@
-# DATCS — Deron Air Traffic Control Station
+# DACTS — Deron Autonomous Command & Traffic System
 
-DATCS is Deron's **internal-only desktop command platform** for low-altitude fleet operations. It is the ground-layer command brain for mission planning, supervision, dispatch, safety oversight, replay, and engineering visibility.
+DACTS is Deron's internal mission operating system, integrating GCS, UTM, mission planning/execution, realtime telemetry, legal airspace enforcement, and engineering diagnostics.
 
-## Constitutional definition
+## Product architecture (v1 foundation)
 
-DATCS is **not** an e-commerce product and **not** a customer delivery app.
+```text
+A) Public Web Layer (apps/public-web)
+   - Platform information
+   - Auth entry points (login/signup/forgot)
+   - Desktop download distribution section
 
-It is a command-center-grade platform that combines:
-- Airspace supervision (corridors, geofences, hazards, conflict awareness)
-- Fleet command + mission orchestration
-- Safety and authority-aware operator workflows
-- Diagnostics, logs, and maintenance visibility
-- Versioned and auditable operational state
+B) DACTS Application Layer (apps/desktop)
+   - Desktop-first mission control shell
+   - GCS + UTM + mission + fleet + safety + logs domains
+   - Explicit MOCK telemetry mode for development
 
-## Authority boundaries (DMA-aligned)
+C) Backend/Data/Realtime Layer (apps/backend)
+   - Typed API domains (auth/profile/mission/vehicle/telemetry/legal/release)
+   - WebSocket realtime channel
+   - Legal zone + mission validation baseline
+```
 
-- IO MCU: sole actuator authority
-- Safety MCU: sole kill authority
-- FMU-A / FMU-B: compute + proposal domains
-- Companion/Pi: advisory domain
-- DATCS: mission/supervision/coordination layer only
-
-DATCS never assumes raw motor authority.
-
-## Product family strategy
-
-- **Desktop app (supreme internal interface):** full workflows and all trust levels.
-- **Tablet app:** operationally strong but constrained authority.
-- **Mobile app:** monitor/alert/approve-first for on-the-move usage.
-- **Tablet/phone web:** derivative surfaces, lower authority than desktop.
-
-## Repository map (DATCS scope)
+## Repository structure
 
 ```text
 datcs/
-├── README.md
-├── overview.md
-├── docs/
-│   ├── 01-product-definition.md
-│   ├── 02-information-architecture.md
-│   ├── 03-system-architecture.md
-│   ├── 04-design-system.md
-│   ├── 05-repo-structure.md
-│   ├── 06-local-run-plan.md
-│   └── 12-roadmap-backlog.md
 ├── apps/
-│   └── desktop/                     # Tauri + React desktop app shell
-└── src-backend/                     # Rust runtime foundation (health, state, sqlite scaffolding)
+│   ├── backend/          # Fastify + TypeScript API and WebSocket mock telemetry
+│   ├── desktop/          # Tauri + React desktop shell (serious mission UX)
+│   └── public-web/       # Public site + auth entry + download wiring
+├── packages/
+│   ├── map-core/         # map/legal engine package placeholder
+│   └── shared-types/     # shared mission/zone/domain model package placeholder
+├── docs/
+│   ├── 07-setup-guide.md
+│   ├── 08-deployment-guide.md
+│   ├── 09-release-guide-desktop.md
+│   ├── 10-api-docs.md
+│   ├── 11-placeholder-subsystems.md
+│   └── 13-dma-communication-credential-api-architecture.md
+└── .env.example
 ```
 
-## Current implementation status
+## Safety + legal invariants
 
-Implemented in this revision:
-- Real Tauri desktop shell with native app window and React module navigation.
-- Rust desktop command layer exposing health signal to frontend.
-- SQLite bootstrap during desktop startup for local persistence foundation.
-- Reusable backend crate + standalone backend HTTP health server.
+1. Human safety > legal compliance > system safety > mission success.
+2. Legal airspace layer is top operational gate.
+3. BLOCKED mission validation status disables default arm/launch controls.
+4. DACTS never bypasses DMA onboard authority boundaries.
+5. MOCK telemetry mode is explicitly labeled as MOCK.
 
-See `datcs/docs/06-local-run-plan.md` for exact local commands.
+## Quick start
+
+See:
+- `docs/07-setup-guide.md`
+- `docs/06-local-run-plan.md`
+- `docs/10-api-docs.md`
+
+## Security notes
+
+- Do **not** place service-role secrets in frontend code.
+- Use `.env.example` as template; real secrets must stay local or in secret managers.
+- Backend routes use schema validation and bounded request handling patterns.
+
+## Current status
+
+This branch delivers a production-minded v1 foundation, including:
+- legal zone model + route legality engine,
+- desktop mission control shell with map layering and safety overlays,
+- backend typed API skeleton + realtime channel,
+- public-web download/auth entry and i18n/theme baseline,
+- release/deployment/placeholder documentation.
