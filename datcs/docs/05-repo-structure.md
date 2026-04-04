@@ -8,17 +8,22 @@ datcs/
 ├── apps/
 │   └── desktop/
 │       ├── package.json
-│       ├── index.html
 │       ├── src/
 │       │   ├── app/
-│       │   ├── components/
 │       │   ├── modules/
+│       │   ├── services/
 │       │   └── styles/
+│       └── src-tauri/
+│           ├── Cargo.toml
+│           ├── tauri.conf.json
+│           ├── capabilities/
+│           └── src/main.rs
 └── src-backend/
     ├── Cargo.toml
     ├── sql/
     │   └── 001_init.sql
     └── src/
+        ├── lib.rs
         ├── main.rs
         ├── api/
         ├── db/
@@ -29,10 +34,10 @@ datcs/
 ```
 
 ## Ownership boundaries
-- `apps/desktop`: operator-facing desktop UI.
-- `src-backend`: local runtime, service scaffolding, persistence.
+- `apps/desktop`: operator-facing desktop UI and Tauri shell.
+- `src-backend`: reusable Rust runtime foundation (health + sqlite bootstrap) and standalone local service binary.
 - `docs`: architecture, doctrine alignment, execution plans.
 
 ## Evolution path
-- Add `apps/desktop/src-tauri` for native packaging.
-- Add shared model crate under `src-backend` workspace when contracts stabilize.
+- Promote `src-backend` into a dedicated workspace crate set when command contracts stabilize.
+- Add flight-gateway adapters behind bounded Rust traits, keeping DATCS outside raw actuator authority.

@@ -19,7 +19,9 @@ body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--b
 nav { display: grid; gap: 8px; margin-top: 16px; }
 nav a { color: var(--muted); text-decoration: none; padding: 10px; border-radius: 8px; background: var(--panel-2); }
 nav a.active { color: var(--text); outline: 1px solid var(--accent); }
-.top-bar { display: flex; gap: 14px; font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+.top-bar { display: flex; gap: 14px; font-size: 13px; color: var(--muted); margin-bottom: 14px; flex-wrap: wrap; }
+.status-strip { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.status-strip span { background: var(--panel); border: 1px solid #273246; border-radius: 8px; padding: 8px 10px; font-size: 12px; color: var(--muted); }
 .panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .panel { background: var(--panel); border: 1px solid #273246; border-radius: 10px; padding: 14px; }
 .module h2 { margin-top: 0; }

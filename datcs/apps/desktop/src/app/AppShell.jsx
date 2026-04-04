@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { OverviewModule } from '../modules/overview/OverviewModule';
 import { FleetModule } from '../modules/fleet/FleetModule';
@@ -5,6 +6,7 @@ import { MissionModule } from '../modules/mission/MissionModule';
 import { SafetyModule } from '../modules/safety/SafetyModule';
 import { EngineeringModule } from '../modules/engineering/EngineeringModule';
 import { LogsModule } from '../modules/logs/LogsModule';
+import { loadDesktopHealth } from '../services/desktopHealth';
 
 const navItems = [
   ['/', 'Overview'],
@@ -16,6 +18,12 @@ const navItems = [
 ];
 
 export function AppShell() {
+  const [health, setHealth] = useState(null);
+
+  useEffect(() => {
+    loadDesktopHealth().then(setHealth);
+  }, []);
+
   return (
     <div className="layout">
       <aside className="left-rail">
@@ -31,10 +39,15 @@ export function AppShell() {
       </aside>
       <main className="work-canvas">
         <header className="top-bar">
-          <span>Authority: Level 1 • Trusted Desktop</span>
-          <span>Sync: Local Saved</span>
-          <span>Safety: Advisory</span>
+          <span>Authority: Mission supervision only (no motor authority)</span>
+          <span>Sync: Local persistence enabled</span>
+          <span>Safety: Human-in-the-loop required</span>
         </header>
+        <section className="status-strip">
+          <span>Shell: {health?.shell ?? 'loading'}</span>
+          <span>Backend: {health?.backend?.status ?? 'loading'}</span>
+          <span>DB: {health?.backend?.db ?? 'resolving'}</span>
+        </section>
         <Routes>
           <Route path="/" element={<OverviewModule />} />
           <Route path="/fleet" element={<FleetModule />} />
@@ -46,9 +59,9 @@ export function AppShell() {
       </main>
       <aside className="inspector">
         <h2>Inspector</h2>
-        <p>Object: Mission DRAFT-2026-041</p>
-        <p>Lock: Held by Operator-HN-04</p>
-        <p>Last change: 2026-04-04T09:00:00Z</p>
+        <p>Authority Boundary: DMA supervised mission layer</p>
+        <p>Current lock: Mission draft template</p>
+        <p>Health timestamp: {health?.backend?.time_utc ?? 'loading...'}</p>
       </aside>
     </div>
   );
