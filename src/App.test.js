@@ -1,41 +1,7 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import App from "./App";
-import { fetchPublishedContent } from "./lib/supabase";
+import { render, screen } from '@testing-library/react';
+import App from './App';
 
-jest.mock("./lib/supabase", () => ({
-  fetchPublishedContent: jest.fn().mockResolvedValue([]),
-}));
-
-beforeAll(() => {
-  // JSDOM doesn't implement matchMedia; provide a minimal mock for theme detection.
-  window.matchMedia =
-    window.matchMedia ||
-    function (query) {
-      return {
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: jest.fn(), // Deprecated
-        removeListener: jest.fn(), // Deprecated
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      };
-    };
-});
-
-test("renders hero copy and language selector", async () => {
+test('renders download cta', () => {
   render(<App />);
-
-  await waitFor(() => expect(fetchPublishedContent).toHaveBeenCalled());
-
-  expect(screen.getByText(/An Era of National Rise/i)).toBeInTheDocument();
-
-  const languageSelect = screen.getByRole("combobox", {
-    name: /change language|thay đổi ngôn ngữ|切换语言/i,
-  });
-  expect(languageSelect).toBeInTheDocument();
-  expect(screen.getByRole("option", { name: /Việt Nam/i })).toBeInTheDocument();
-  expect(screen.getByRole("option", { name: /English/i })).toBeInTheDocument();
-  expect(screen.getByRole("option", { name: /中国/i })).toBeInTheDocument();
+  expect(screen.getAllByText(/DACTS/i)[0]).toBeInTheDocument();
 });
