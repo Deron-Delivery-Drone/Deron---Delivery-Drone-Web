@@ -17,3 +17,8 @@ uuid = { version = "1.8", features = ["v4", "serde"] }
 [[bin]]
 name = "datcs-backend"
 path = "src/main.rs"
+
+[lib]
+name = "datcs_backend"
+path = "src/lib.rs"
+

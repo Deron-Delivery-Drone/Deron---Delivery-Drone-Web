@@ -1,15 +1,36 @@
 # 06 — Local Run Plan (Truthful)
 
 ## Scope
-This run plan covers the current DATCS foundation implemented under `/datcs`.
+This run plan covers the current DATCS desktop implementation under `/datcs`.
 
 ## Prerequisites
 - Node.js 20+
 - npm 10+
 - Rust stable toolchain (rustup)
-- Cargo
+- Linux desktop dependencies required by Tauri (WebKitGTK and related libraries)
 
-## 1) Run backend (Rust)
+## 1) Install desktop dependencies
+
+```bash
+cd datcs/apps/desktop
+npm install
+```
+
+## 2) Run DATCS as a desktop app (Tauri)
+
+```bash
+cd datcs/apps/desktop
+npm run tauri:dev
+```
+
+Expected behavior:
+- Tauri compiles the Rust desktop shell in `src-tauri`.
+- DATCS opens as a native desktop window.
+- UI shows core sections: Overview, Fleet, Mission, Safety, Engineering, Logs.
+- Rust side initializes local SQLite database in the app data directory.
+- Health strip shows shell/backend/db status from Rust command `health_signal_cmd`.
+
+## 3) Optional: run backend service standalone
 
 ```bash
 cd datcs/src-backend
@@ -18,41 +39,22 @@ cargo run
 
 Expected behavior:
 - Creates/opens local SQLite database at `datcs/src-backend/datcs.db`.
-- Applies bootstrap schema from `sql/001_init.sql` if needed.
-- Starts HTTP server on `127.0.0.1:8080`.
+- Applies bootstrap schema from `sql/001_init.sql`.
+- Starts HTTP server on `127.0.0.1:8080` with `/health` endpoint.
 
-Health check:
-```bash
-curl http://127.0.0.1:8080/health
-```
-
-Expected JSON includes service name (`datcs-backend`) and status (`ok`).
-
-## 2) Run desktop UI shell (React)
-
-```bash
-cd datcs/apps/desktop
-npm install
-npm run dev
-```
-
-Expected behavior:
-- Vite dev server starts on `http://127.0.0.1:5173` (or next available port).
-- Desktop IA modules render: Overview, Fleet, Mission, Safety, Engineering, Logs.
-
-## 3) Current real vs mock status
+## 4) Current real vs scaffolded status
 
 Real now:
-- Backend process and health endpoint
-- SQLite initialization and core table scaffolding
-- Desktop module layout and command-center information architecture
+- Native Tauri desktop shell with React navigation
+- Rust startup path with local SQLite bootstrap
+- Rust-to-frontend health signal invoke path
+- Standalone backend binary with HTTP health endpoint
 
-Mock/scaffold now:
-- Live telemetry streams
-- Real vehicle gateway integration
-- Bidirectional command acknowledgement pipeline with external systems
+Scaffolded now:
+- Live telemetry transport and remote gateway adapters
+- Mission command acknowledgements from real vehicles
+- Safety policy engine enforcement beyond baseline guardrails
 
 ## Troubleshooting
-- If `cargo run` fails due to missing toolchain, run `rustup update stable`.
-- If port `8080` is occupied, set `DATCS_BIND=127.0.0.1:8090`.
-- If Vite chooses another port, use the URL printed in terminal.
+- If `npm run tauri:dev` fails with missing system libs, install Tauri Linux prerequisites and rerun.
+- If Rust build fails, run `rustup update stable` and retry.

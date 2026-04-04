@@ -25,12 +25,13 @@ DATCS (Deron Air Traffic Control Station) is Deron's internal mission-control la
 - Engineering
 - Logs
 
-## Runtime model (v1 foundation)
-- Desktop UI (React) for operators and engineers.
-- Rust backend for local runtime foundation and future gateway integration.
+## Runtime model (current foundation)
+- Tauri desktop shell + React UI for operators and engineers.
+- Rust desktop runtime command layer with health command.
+- Shared Rust backend foundation crate for SQLite bootstrapping.
 - SQLite for local-first persistence and resumability.
 
 ## Next evolution
-- Tauri shell integration for native desktop packaging.
 - Stream transport channels (WS + telemetry gateway adapters).
 - Policy-driven trust and capability gating.
+- Gradual progression from local-first supervision to multi-node coordination.

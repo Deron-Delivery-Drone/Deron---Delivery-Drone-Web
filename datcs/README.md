@@ -1,6 +1,6 @@
 # DATCS — Deron Air Traffic Control Station
 
-DATCS is Deron's **internal-only command platform** for low-altitude fleet operations. It is the ground-layer command brain for mission planning, supervision, dispatch, safety oversight, replay, and engineering visibility.
+DATCS is Deron's **internal-only desktop command platform** for low-altitude fleet operations. It is the ground-layer command brain for mission planning, supervision, dispatch, safety oversight, replay, and engineering visibility.
 
 ## Constitutional definition
 
@@ -45,19 +45,16 @@ datcs/
 │   ├── 06-local-run-plan.md
 │   └── 12-roadmap-backlog.md
 ├── apps/
-│   └── desktop/                     # desktop-first UI shell and module foundations
+│   └── desktop/                     # Tauri + React desktop app shell
 └── src-backend/                     # Rust runtime foundation (health, state, sqlite scaffolding)
 ```
 
 ## Current implementation status
 
 Implemented in this revision:
-- Desktop-first React shell with command-center IA and module routes.
-- Rust backend foundation with:
-  - health endpoint
-  - SQLite bootstrap
-  - core service scaffolds (telemetry, command, mission, safety, audit, device/session)
-  - draft vs active model placeholders
-- Initial schema for versioning, audit, devices, sessions, missions, safety events.
+- Real Tauri desktop shell with native app window and React module navigation.
+- Rust desktop command layer exposing health signal to frontend.
+- SQLite bootstrap during desktop startup for local persistence foundation.
+- Reusable backend crate + standalone backend HTTP health server.
 
 See `datcs/docs/06-local-run-plan.md` for exact local commands.
