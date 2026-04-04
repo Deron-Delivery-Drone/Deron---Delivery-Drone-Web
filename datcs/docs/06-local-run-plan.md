@@ -1,67 +1,58 @@
-# DATCS Local Run Plan
+# 06 — Local Run Plan (Truthful)
+
+## Scope
+This run plan covers the current DATCS foundation implemented under `/datcs`.
 
 ## Prerequisites
-- Node.js (version X.X.X)  
-- npm (version X.X.X)  
-- Git  
-- Docker (optional)  
+- Node.js 20+
+- npm 10+
+- Rust stable toolchain (rustup)
+- Cargo
 
-## Environment Setup
-1. Clone the repository:  
-   ```bash  
-   git clone https://github.com/NpHarry-Tech/Deron---Delivery-Drone-Web.git  
-   cd Deron---Delivery-Drone-Web  
-   ```  
-2. Install dependencies:  
-   ```bash  
-   npm install  
-   ```  
-3. Set up environment variables:  
-   Create a `.env` file in the root directory and configure the necessary variables according to the `.env.example`.
+## 1) Run backend (Rust)
 
-## Build Commands
-- Build the project:  
-  ```bash  
-  npm run build  
-  ```
-- Run unit tests:  
-  ```bash  
-  npm test  
-  ```
+```bash
+cd datcs/src-backend
+cargo run
+```
 
-## Local Service Bootstrap
-- Start the local server:  
-  ```bash  
-  npm start  
-  ```
-- If using Docker, run:  
-  ```bash  
-  docker-compose up  
-  ```
+Expected behavior:
+- Creates/opens local SQLite database at `datcs/src-backend/datcs.db`.
+- Applies bootstrap schema from `sql/001_init.sql` if needed.
+- Starts HTTP server on `127.0.0.1:8080`.
 
-## Development Workflow
-1. Create a new feature branch:  
-   ```bash  
-   git checkout -b feature/my-feature  
-   ```  
-2. Make changes and commit:  
-   ```bash  
-   git add .  
-   git commit -m "Description of changes"  
-   ```  
-3. Push the branch:  
-   ```bash  
-   git push origin feature/my-feature  
-   ```  
-4. Create a pull request for review.
+Health check:
+```bash
+curl http://127.0.0.1:8080/health
+```
 
-## Troubleshooting Guide
-- **Common Issues:**  
-  - If the server doesn’t start, check the terminal for error messages.  
-  - Ensure all dependencies are properly installed.  
-- **Docker Issues:**  
-  - Check if Docker is running.  
-  - Review Docker logs for errors.
+Expected JSON includes service name (`datcs-backend`) and status (`ok`).
 
----  
-_last updated: 2026-04-03 10:22:17 UTC_  
+## 2) Run desktop UI shell (React)
+
+```bash
+cd datcs/apps/desktop
+npm install
+npm run dev
+```
+
+Expected behavior:
+- Vite dev server starts on `http://127.0.0.1:5173` (or next available port).
+- Desktop IA modules render: Overview, Fleet, Mission, Safety, Engineering, Logs.
+
+## 3) Current real vs mock status
+
+Real now:
+- Backend process and health endpoint
+- SQLite initialization and core table scaffolding
+- Desktop module layout and command-center information architecture
+
+Mock/scaffold now:
+- Live telemetry streams
+- Real vehicle gateway integration
+- Bidirectional command acknowledgement pipeline with external systems
+
+## Troubleshooting
+- If `cargo run` fails due to missing toolchain, run `rustup update stable`.
+- If port `8080` is occupied, set `DATCS_BIND=127.0.0.1:8090`.
+- If Vite chooses another port, use the URL printed in terminal.
