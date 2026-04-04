@@ -1,30 +1,48 @@
-# DATCS Product Definition Document
+# 01 — Product Definition (Corrected)
 
-## Product Mission
-The mission of the DATCS project is to develop a reliable, efficient, and user-friendly delivery drone system that enhances the logistics and e-commerce sectors by providing fast and cost-effective delivery solutions. The goal is to reduce delivery times, increase customer satisfaction, and streamline operational processes.
+## Product identity
+DATCS is an internal Deron command platform for airspace supervision, fleet command, mission execution oversight, and safety governance.
 
-## Design Principles
-1. **User-Centric Design**: The interface and functionalities must prioritize ease of use for customers, delivery personnel, and operators alike.
-2. **Scalability**: The system should be capable of scaling operations to accommodate increased demand without compromising service quality.
-3. **Reliability and Safety**: High safety standards should be maintained, and the system must be reliable in terms of delivery performance.
-4. **Environmental Sustainability**: The design should focus on minimizing environmental impact, using energy-efficient technologies and materials.
-5. **Interoperability**: The system must easily integrate with existing logistics and e-commerce platforms.
+It is explicitly **not**:
+- a customer-facing delivery app
+- an e-commerce workflow
+- a generic logistics SaaS dashboard
 
-## Use Cases
-1. **E-commerce Deliveries**: Automating the delivery of goods purchased online within urban and suburban areas.
-2. **Emergency Supplies**: Providing rapid delivery of critical supplies during emergencies (e.g., medical supplies, food).
-3. **Retail Logistics**: Enhancing store replenishment processes through quick restocking deliveries.
+## Constitutional priorities
+1. Human safety
+2. System safety
+3. Mission success
+4. Asset protection
+5. Convenience
+6. Performance
 
-## Constraints
-1. **Regulatory Compliance**: Adherence to aviation regulations and local laws regarding drone operation.
-2. **Technical Limitations**: Battery life, distance range, payload capacity, and weather conditions affecting performance.
-3. **Cost Management**: Ensuring development and operational costs remain within budget constraints to achieve profitability.
-4. **Public Acceptance**: Managing community concerns regarding privacy, safety, and noise.
+## Primary users
+- Duty Operator (Level 1)
+- Safety Supervisor (Level 1/2)
+- Maintainer (Level 2)
+- Systems Engineer / Architect (Level 3)
+- Observer roles (Level 0)
 
-## Success Criteria for Phases 0-3
-- **Phase 0**: Completion of initial market research and identification of key stakeholders.
-- **Phase 1**: Development of a prototype that meets identified user needs and passes safety regulations.
-- **Phase 2**: Successful field tests demonstrating efficiency and reliability in real-world conditions.
-- **Phase 3**: Launch of a pilot program with selected partners, achieving positive user feedback and operational goals.
+## Capability levels
+- Level 0 Observer: monitor, replay, alerts.
+- Level 1 Operator: dispatch, checklists, mission control actions.
+- Level 2 Maintainer: diagnostics, calibration workflows, service operations.
+- Level 3 Engineer/Architect: deep diagnostics, profile/version management, analysis.
 
----
+## Operational domains
+- Airspace / ATC / UTM
+- Fleet management
+- Mission lifecycle
+- Vehicle health and avionics visibility
+- Safety and authority state
+- Engineering diagnostics
+- Identity / sync / audit
+
+## Safety constraints
+DATCS must never bypass DMA authority boundaries. Mission commands are high-level intents with acknowledgement semantics; no direct raw motor authority is granted from UI clients.
+
+## Vietnam-first operating context
+- Compliance-aware workflow structure
+- Conservative safety defaults in dense urban environments
+- Community impact awareness (noise, risk, contingency)
+- Operational realism for local infrastructure constraints

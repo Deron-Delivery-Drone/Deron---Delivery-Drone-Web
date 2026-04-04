@@ -1,4 +1,36 @@
-# Overview
-Date Created: 2026-04-03 10:15:32 UTC
+# DATCS Overview
 
-This document provides an overview of the DATCS (Deron Air Traffic Control Station) architecture.
+## Purpose
+DATCS (Deron Air Traffic Control Station) is Deron's internal mission-control layer for low-altitude drone operations. It provides a coherent control-tower view of airspace, fleet state, mission state, authority constraints, and safety posture.
+
+## What DATCS solves
+- Operator uncertainty during live operations
+- Fragmented mission lifecycle management
+- Weak traceability of who changed what and why
+- Lack of draft/active separation for safety-sensitive edits
+- Missing command acknowledgement and replay architecture
+
+## Core operating principles
+1. Human safety first.
+2. Authority boundaries are explicit and enforced.
+3. Desktop is the supreme operator surface.
+4. Every meaningful object is draftable, versioned, and auditable.
+5. Real-time state must degrade gracefully under link loss.
+
+## Core modules
+- Overview
+- Fleet
+- Mission
+- Safety
+- Engineering
+- Logs
+
+## Runtime model (v1 foundation)
+- Desktop UI (React) for operators and engineers.
+- Rust backend for local runtime foundation and future gateway integration.
+- SQLite for local-first persistence and resumability.
+
+## Next evolution
+- Tauri shell integration for native desktop packaging.
+- Stream transport channels (WS + telemetry gateway adapters).
+- Policy-driven trust and capability gating.
