@@ -46,9 +46,7 @@ function App() {
               <option value="dark">Dark</option>
             </select>
 
-            <button onClick={() => setDownloadOpen(true)} className="rounded-full px-5 py-2 bg-[#0f172a] text-white dark:bg-white dark:text-black font-medium">
-              {t.nav.download}
-            </button>
+            <button onClick={() => setDownloadOpen(true)} className="text-sm">{t.nav.download}</button>
           </div>
 
           <button className="md:hidden" onClick={() => setMobileOpen((prev) => !prev)}>{mobileOpen ? <X /> : <Menu />}</button>
@@ -59,9 +57,7 @@ function App() {
             <a href="#home">{t.nav.home}</a>
             <a href="#mission">{t.nav.mission}</a>
             <a href="#contact">{t.nav.contact}</a>
-            <button onClick={() => setDownloadOpen(true)} className="rounded-full px-5 py-2 bg-[#0f172a] text-white dark:bg-white dark:text-black font-medium">
-              {t.nav.download}
-            </button>
+            <button onClick={() => setDownloadOpen(true)} className="text-sm">{t.nav.download}</button>
           </div>
         )}
       </nav>
