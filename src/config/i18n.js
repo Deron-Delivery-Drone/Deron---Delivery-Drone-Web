@@ -28,11 +28,11 @@ export const translations = {
         "Phục vụ logistics, y tế, cứu trợ và nhiệm vụ đặc thù",
       ],
       subnav: {
-        overview: "Overview",
-        features: "Features",
-        platforms: "Platforms",
-        security: "Security",
-        install: "Install",
+        overview: "Tổng quan",
+        features: "Tính năng",
+        platforms: "Nền tảng",
+        security: "Bảo mật",
+        install: "Cài đặt",
       },
       featuresTitle: "Năng lực chính",
       featureCards: [
@@ -76,7 +76,10 @@ export const translations = {
       finalCtaTitle: "Sẵn sàng triển khai DACTS cho hạ tầng UAV của bạn?",
       finalCtaBody:
         "Bắt đầu bằng yêu cầu cài đặt chính thức để Deron gửi đúng bản phân phối và đồng hành theo bối cảnh vận hành thực tế.",
-      mobileStickyInstall: "Install DACTS",
+      stickyLabel: "Cài đặt DACTS",
+      stickyTitle: "Sẵn sàng nhận bản phân phối phù hợp?",
+      stickyBody: "Yêu cầu cài đặt để Deron gửi đúng phiên bản cho nền tảng vận hành của bạn.",
+      mobileStickyInstall: "Cài đặt DACTS",
     },
     form: {
       fullName: "Họ và tên",
@@ -165,6 +168,9 @@ export const translations = {
       finalCtaTitle: "Ready to deploy DACTS in your UAV operations stack?",
       finalCtaBody:
         "Submit an installation request so Deron can provide the right build and support your operational context.",
+      stickyLabel: "Install DACTS",
+      stickyTitle: "Get the right build for your operations",
+      stickyBody: "Use the install request flow to receive the correct DACTS distribution for your target platform.",
       mobileStickyInstall: "Install DACTS",
     },
     form: {
@@ -252,6 +258,9 @@ export const translations = {
       ],
       finalCtaTitle: "准备好部署 DACTS 吗？",
       finalCtaBody: "提交安装请求，Deron 将按你的运营场景提供对应版本。",
+      stickyLabel: "安装 DACTS",
+      stickyTitle: "获取匹配你场景的版本",
+      stickyBody: "通过安装申请流程获取与你的目标平台匹配的 DACTS 分发版本。",
       mobileStickyInstall: "安装 DACTS",
     },
     form: {
