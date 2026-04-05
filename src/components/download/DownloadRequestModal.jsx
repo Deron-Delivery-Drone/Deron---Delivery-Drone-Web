@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { PLATFORM_OPTIONS } from "../../constants/platforms";
 import { validateDownloadRequest } from "../../utils/validation";
 import { submitDownloadRequest } from "../../lib/downloadRequests";
@@ -15,7 +15,7 @@ const INITIAL = {
   message: "",
 };
 
-export default function DownloadRequestModal({ open, onClose, language, t, detectedPlatform }) {
+export default function DownloadRequestModal({ open, onClose, language, t, detectedPlatform, preselectedPlatform }) {
   const [form, setForm] = useState(INITIAL);
   const [selectedPlatform, setSelectedPlatform] = useState(detectedPlatform === "unknown" ? "" : detectedPlatform);
   const [errors, setErrors] = useState({});
@@ -27,6 +27,13 @@ export default function DownloadRequestModal({ open, onClose, language, t, detec
     () => PLATFORM_OPTIONS.map((p) => ({ ...p, available: DOWNLOAD_BUILDS[p.key]?.available })),
     []
   );
+
+  useEffect(() => {
+    if (!open) return;
+    setSelectedPlatform(preselectedPlatform || (detectedPlatform === "unknown" ? "" : detectedPlatform));
+    setErrors({});
+    setServerError("");
+  }, [open, preselectedPlatform, detectedPlatform]);
 
   if (!open) return null;
 
@@ -60,23 +67,24 @@ export default function DownloadRequestModal({ open, onClose, language, t, detec
   };
 
   return (
-    <div className="fixed inset-0 z-[70] bg-black/60 p-4 flex items-center justify-center">
-      <div className="w-full max-w-3xl rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-6 shadow-2xl max-h-[92vh] overflow-y-auto">
-        <div className="flex items-start justify-between gap-4">
+    <div className="fixed inset-0 z-[70] bg-black/60 p-2 sm:p-4 flex items-center justify-center">
+      <div className="w-full max-w-3xl rounded-xl sm:rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 sm:p-6 shadow-2xl max-h-[92vh] overflow-y-auto">
+        <div className="flex items-start justify-between gap-3 sm:gap-4 pb-3 border-b border-gray-200 dark:border-gray-700">
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{t.requestTitle}</h2>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{t.requestSubtitle}</p>
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">{t.requestTitle}</h2>
+            <p className="mt-1.5 text-sm text-gray-600 dark:text-gray-300">{t.requestSubtitle}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">{t.success2}</p>
           </div>
-          <button onClick={onClose} className="text-sm text-gray-500">Close</button>
+          <button onClick={onClose} className="text-sm text-gray-500 shrink-0">{t.form.close}</button>
         </div>
 
         {success ? (
-          <div className="mt-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-300 dark:border-emerald-700 p-4">
+          <div className="mt-6 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-300 dark:border-emerald-700 p-4">
             <p className="font-medium text-emerald-900 dark:text-emerald-200">{t.success1}</p>
             <p className="mt-1 text-sm text-emerald-800 dark:text-emerald-300">{t.success2}</p>
           </div>
         ) : (
-          <form onSubmit={onSubmit} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form onSubmit={onSubmit} className="mt-4 sm:mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             {[
               ["full_name", t.form.fullName],
               ["email", t.form.email],
@@ -86,14 +94,14 @@ export default function DownloadRequestModal({ open, onClose, language, t, detec
               ["industry", t.form.industry],
               ["country", t.form.country],
             ].map(([key, label]) => (
-              <label key={key} className="text-sm text-gray-700 dark:text-gray-200">
+              <label key={key} className="text-sm text-gray-700 dark:text-gray-200 min-w-0">
                 {label}
                 <input
                   value={form[key]}
                   onChange={(e) => setForm((prev) => ({ ...prev, [key]: e.target.value }))}
                   className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2.5"
                 />
-                {errors[key] && <span className="text-xs text-red-500">{errors[key]}</span>}
+                {errors[key] && <span className="text-xs text-red-500 break-words">{errors[key]}</span>}
               </label>
             ))}
 
@@ -132,7 +140,7 @@ export default function DownloadRequestModal({ open, onClose, language, t, detec
               <p className="text-xs mt-1 text-gray-500 dark:text-gray-300">{t.form.manual}</p>
             </div>
 
-            {serverError && <p className="md:col-span-2 text-sm text-red-500">{serverError}</p>}
+            {serverError && <p className="md:col-span-2 text-sm text-red-500 break-words">{serverError}</p>}
 
             <button
               type="submit"
