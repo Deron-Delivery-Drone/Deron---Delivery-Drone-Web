@@ -29,13 +29,13 @@ const CAPABILITIES = [
 
 export default function DACTSFeatures() {
   return (
-    <section id="dacts-capabilities" className="scroll-mt-36">
-      <h3 className="text-2xl font-semibold">Capabilities</h3>
-      <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <section id="dacts-capabilities" className="scroll-mt-36 landscape-dacts-section">
+      <h3 className="text-2xl font-semibold landscape-dacts-section-title">Capabilities</h3>
+      <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3 landscape-feature-grid">
         {CAPABILITIES.map((card) => (
-          <article key={card.title} className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5">
-            <h4 className="font-semibold">{card.title}</h4>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{card.body}</p>
+          <article key={card.title} className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5 landscape-feature-card">
+            <h4 className="font-semibold landscape-card-title">{card.title}</h4>
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 landscape-card-copy">{card.body}</p>
           </article>
         ))}
       </div>
