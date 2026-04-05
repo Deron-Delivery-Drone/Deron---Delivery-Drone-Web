@@ -13,7 +13,7 @@ Deno.serve(async (req) => {
 
   try {
     const payload = await req.json();
-    if (!payload?.email || !payload?.full_name || !payload?.selected_platform) {
+    if (!payload?.email || !payload?.full_name || !payload?.selected_platform || !payload?.company_name || !payload?.job_title || !payload?.industry || !payload?.country) {
       return Response.json({ error: "Missing required fields" }, { status: 400 });
     }
 
@@ -26,9 +26,11 @@ Deno.serve(async (req) => {
       email: payload.email,
       phone: payload.phone,
       company_name: payload.company_name,
+      job_title: payload.job_title,
       industry: payload.industry,
-      purpose_of_use: payload.purpose_of_use,
-      role_category: payload.role_category,
+      country: payload.country,
+      purpose_of_use: payload.message || null,
+      role_category: payload.role_category || "other",
       detected_platform: payload.detected_platform,
       selected_platform: payload.selected_platform,
       user_agent: payload.user_agent,

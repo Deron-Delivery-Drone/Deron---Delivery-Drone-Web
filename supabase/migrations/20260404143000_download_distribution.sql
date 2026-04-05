@@ -6,9 +6,11 @@ create table if not exists public.download_requests (
   email text not null,
   phone text not null,
   company_name text not null,
+  job_title text not null,
   industry text not null,
-  purpose_of_use text not null,
-  role_category text not null check (role_category in ('investor','partner','engineer','operator','researcher','other')),
+  country text not null,
+  purpose_of_use text,
+  role_category text not null default 'other' check (role_category in ('investor','partner','engineer','operator','researcher','other')),
   detected_platform text not null,
   selected_platform text not null,
   user_agent text,
@@ -20,6 +22,9 @@ create table if not exists public.download_requests (
   email_sent_at timestamptz,
   notes text
 );
+
+alter table public.download_requests add column if not exists job_title text;
+alter table public.download_requests add column if not exists country text;
 
 create table if not exists public.download_tokens (
   id uuid primary key default gen_random_uuid(),
