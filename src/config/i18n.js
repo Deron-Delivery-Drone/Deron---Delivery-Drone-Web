@@ -27,6 +27,12 @@ export const translations = {
         "Tích hợp phân phối ứng dụng theo nền tảng",
         "Phục vụ logistics, y tế, cứu trợ và nhiệm vụ đặc thù",
       ],
+      valueTitle: "Giá trị cốt lõi",
+      valueBody:
+        "Rút ngắn thời gian ra quyết định tác chiến, tăng độ tin cậy vận hành, và chuẩn hoá quy trình triển khai UAV trong bối cảnh nhiệm vụ thực tế.",
+      missionFitTitle: "Phù hợp nhiệm vụ tại Việt Nam",
+      missionFitBody:
+        "DACTS được thiết kế cho mission profile thực địa: từ vận chuyển y tế, logistics tầm thấp, đến ứng phó khẩn cấp và điều phối đa đội bay.",
       subnav: {
         overview: "Tổng quan",
         features: "Tính năng",
@@ -119,6 +125,12 @@ export const translations = {
         "Platform-aware app distribution",
         "Supports logistics, healthcare, relief, and special missions",
       ],
+      valueTitle: "Core value",
+      valueBody:
+        "Reduce mission decision latency, improve operational reliability, and standardize UAV deployment workflows for production environments.",
+      missionFitTitle: "Mission fit for Vietnam",
+      missionFitBody:
+        "DACTS is tailored for real mission profiles in Vietnam, from emergency healthcare transport and low-altitude logistics to multi-team critical response coordination.",
       subnav: {
         overview: "Overview",
         features: "Features",
@@ -210,6 +222,11 @@ export const translations = {
         "按平台分发应用",
         "服务物流、医疗、救援与特种任务",
       ],
+      valueTitle: "核心价值",
+      valueBody: "缩短任务决策链路、提升运营可靠性，并将 UAV 部署流程标准化到可规模化执行。",
+      missionFitTitle: "贴合越南任务场景",
+      missionFitBody:
+        "DACTS 面向越南现实任务环境设计，可覆盖医疗运输、低空物流、应急响应及多机队协同调度。",
       subnav: {
         overview: "Overview",
         features: "Features",
