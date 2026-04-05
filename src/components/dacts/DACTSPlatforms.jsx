@@ -13,16 +13,16 @@ export default function DACTSPlatforms({ language, detectedPlatform, preferredPl
   const recommendation = preferredPlatform || (supportedDetected ? detectedPlatform : "windows");
 
   return (
-    <section id="dacts-platforms" className="scroll-mt-36">
-      <h3 className="text-2xl font-semibold">Platforms</h3>
-      <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+    <section id="dacts-platforms" className="scroll-mt-36 landscape-dacts-section">
+      <h3 className="text-2xl font-semibold landscape-dacts-section-title">Platforms</h3>
+      <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 landscape-dacts-meta">
         Detected platform: <strong>{detectedPlatform}</strong>
       </p>
-      <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+      <p className="mt-1 text-sm text-slate-600 dark:text-slate-300 landscape-dacts-meta">
         Recommended install target: <strong>{recommendation}</strong>
       </p>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3 landscape-platform-grid">
         {PLATFORM_CARDS.map((platform) => {
           const isDetected = platform.key === detectedPlatform;
           const isRecommended = platform.key === recommendation;
@@ -31,7 +31,7 @@ export default function DACTSPlatforms({ language, detectedPlatform, preferredPl
           return (
             <article
               key={platform.key}
-              className={`rounded-2xl border p-5 bg-[var(--surface)] transition ${
+              className={`rounded-2xl border p-5 bg-[var(--surface)] transition landscape-platform-card ${
                 isRecommended || isSelected ? "border-[#c41e3a]" : "border-[var(--line)]"
               }`}
             >
@@ -50,10 +50,10 @@ export default function DACTSPlatforms({ language, detectedPlatform, preferredPl
                 {isSelected && <span className="rounded-full border border-[#c41e3a]/50 px-2 py-1">Selected</span>}
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2 landscape-platform-actions">
                 <button
                   onClick={() => onSelectPlatform(platform.key)}
-                  className="rounded-full border border-[var(--line)] px-3 py-1.5 text-sm"
+                  className="rounded-full border border-[var(--line)] px-3 py-1.5 text-sm landscape-secondary-cta"
                 >
                   Chọn nền tảng
                 </button>
@@ -62,7 +62,7 @@ export default function DACTSPlatforms({ language, detectedPlatform, preferredPl
                     onSelectPlatform(platform.key);
                     onInstallClick();
                   }}
-                  className="rounded-full bg-[#c41e3a] text-white px-3 py-1.5 text-sm"
+                  className="rounded-full bg-[#c41e3a] text-white px-3 py-1.5 text-sm landscape-primary-cta"
                 >
                   Install
                 </button>

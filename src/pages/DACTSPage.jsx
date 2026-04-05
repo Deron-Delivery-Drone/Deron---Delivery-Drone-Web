@@ -19,12 +19,15 @@ export default function DACTSPage({
   const recommendation = preferredPlatform || (detectedPlatform !== "unknown" ? detectedPlatform : "windows");
 
   return (
-    <section id="dacts-page" className="relative border-y border-[var(--line)] bg-[var(--surface-elevated)]/60 pb-24 md:pb-10">
+    <section
+      id="dacts-page"
+      className="relative border-y border-[var(--line)] bg-[var(--surface-elevated)]/60 pb-24 md:pb-10 landscape-dacts-page"
+    >
       <DACTSHero detectedPlatform={detectedPlatform} onInstallClick={onInstallClick} />
       <DACTSSubnav />
 
-      <div className="max-w-7xl mx-auto px-6 py-14">
-        <div className="space-y-14">
+      <div className="max-w-7xl mx-auto px-6 py-14 landscape-dacts-content-wrap">
+        <div className="space-y-14 landscape-dacts-stack">
           <DACTSOverview />
           <DACTSFeatures />
           <DACTSPlatforms
