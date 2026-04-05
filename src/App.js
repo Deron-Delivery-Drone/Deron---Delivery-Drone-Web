@@ -43,6 +43,16 @@ function App() {
     setMobileOpen(false);
     document.getElementById("dacts-intro")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  
+  const handleDesktopDactsNavClick = (event) => {
+    event.preventDefault();
+    navigateToDactsIntro();
+  };
+
+  const handleMobileDactsNavClick = (event) => {
+    event.preventDefault();
+    navigateToDactsIntro();
+  };
 
   const scrollToDactsSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -79,7 +89,7 @@ function App() {
               <option value="dark">Dark</option>
             </select>
 
-            <a href="#dacts-intro" onClick={navigateToDactsIntro} className="text-sm">{t.nav.download}</a>
+            <a href="#dacts-intro" onClick={handleDesktopDactsNavClick} className="text-sm">{t.nav.download}</a>
           </div>
 
           <button className="md:hidden" onClick={() => setMobileOpen((prev) => !prev)}>{mobileOpen ? <X /> : <Menu />}</button>
@@ -90,7 +100,7 @@ function App() {
             <a href="#home">{t.nav.home}</a>
             <a href="#mission">{t.nav.mission}</a>
             <a href="#contact">{t.nav.contact}</a>
-            <a href="#dacts-intro" onClick={navigateToDactsIntro} className="text-left text-sm">{t.nav.download}</a>
+            <a href="#dacts-intro" onClick={handleMobileDactsNavClick} className="text-left text-sm">{t.nav.download}</a>
           </div>
         )}
       </nav>
@@ -132,6 +142,16 @@ function App() {
                   <li key={item} className="rounded-2xl border border-[var(--line)] px-4 py-3 text-sm md:text-base bg-[var(--surface)]">{item}</li>
                 ))}
               </ul>
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                <article className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5">
+                  <h4 className="font-semibold">{t.dacts.valueTitle}</h4>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{t.dacts.valueBody}</p>
+                </article>
+                <article className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5">
+                  <h4 className="font-semibold">{t.dacts.missionFitTitle}</h4>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{t.dacts.missionFitBody}</p>
+                </article>
+              </div>
             </section>
 
             <section id="dacts-features" className="scroll-mt-36">
