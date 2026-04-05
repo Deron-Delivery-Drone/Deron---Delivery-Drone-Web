@@ -50,6 +50,7 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
+            {/* DACTS must be opened as a dedicated view, not modal-first */}
             <button onClick={() => navigateToView("home")} className="text-sm">
               {t.nav.home}
             </button>

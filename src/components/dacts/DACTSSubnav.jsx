@@ -5,9 +5,10 @@ const ITEMS = [
   { id: "dacts-capabilities", label: "Capabilities" },
   { id: "dacts-platforms", label: "Platforms" },
   { id: "dacts-security", label: "Security" },
+  { id: "dacts-install", label: "Install" },
 ];
 
-export default function DACTSSubnav({ onInstallClick }) {
+export default function DACTSSubnav() {
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -24,12 +25,6 @@ export default function DACTSSubnav({ onInstallClick }) {
             {item.label}
           </button>
         ))}
-        <button
-          onClick={onInstallClick}
-          className="ml-auto shrink-0 text-sm px-4 py-1.5 rounded-full bg-[#c41e3a] text-white font-medium"
-        >
-          Install
-        </button>
       </div>
     </div>
   );
