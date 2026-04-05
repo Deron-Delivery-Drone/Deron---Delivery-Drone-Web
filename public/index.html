@@ -3,7 +3,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Deron — Chiến Dịch Điện Biên Phủ Trong Logistics</title>
 <meta name="description" content="Deron xây dựng hệ thống drone giao hàng tự hành cho y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó khăn tại Việt Nam.">
 <meta property="og:title" content="Deron – Drone Giao Hàng Tự Hành Việt Nam">
@@ -21,6 +21,37 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1!important;transform:none!important}}
 @media(forced-colors:active){.btn-primary,.nav-cta{forced-color-adjust:none;background:ButtonFace;color:ButtonText;border:2px solid ButtonText}}
 *:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+
+/* mobile safari landscape fixes */
+:root{--app-height:100vh;--safe-top:env(safe-area-inset-top,0px);--safe-right:env(safe-area-inset-right,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px)}
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body.menu-open{position:fixed;inset:0;overflow:hidden;width:100%;touch-action:none}
+#hero{min-height:var(--app-height);min-height:100dvh}
+.nav-mobile-menu{height:var(--app-height);height:100dvh;max-height:var(--app-height);overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:calc(96px + var(--safe-top));padding-right:max(20px,var(--safe-right));padding-bottom:calc(24px + var(--safe-bottom));padding-left:max(20px,var(--safe-left))}
+.nav-mobile-link{word-break:break-word}
+#nav{padding-left:max(20px,var(--safe-left));padding-right:max(20px,var(--safe-right));padding-top:var(--safe-top)}
+@media(max-width:768px){
+  .container,.container-narrow,#footer{padding-left:max(20px,var(--safe-left));padding-right:max(20px,var(--safe-right))}
+}
+@media(max-width:932px) and (orientation:landscape){
+  .container,.container-narrow,#footer{max-width:none;margin:0;padding-left:max(14px,var(--safe-left));padding-right:max(14px,var(--safe-right))}
+  .section{padding:44px 0}
+  #nav{height:56px;padding-left:max(14px,var(--safe-left));padding-right:max(14px,var(--safe-right))}
+  .nav-mobile-menu{padding-top:calc(72px + var(--safe-top));padding-right:max(14px,var(--safe-right));padding-left:max(14px,var(--safe-left));padding-bottom:calc(18px + var(--safe-bottom))}
+  .nav-mobile-link{font-size:clamp(20px,4vw,28px);padding:10px 0}
+  .mobile-lang{padding:12px 0 4px}
+  #hero{align-items:flex-start;min-height:auto}
+  .hero-content{max-width:none;padding:90px 0 34px}
+  .hero-title{font-size:clamp(34px,5.4vw,54px);max-width:100%;line-height:1.02}
+  .hero-sub{font-size:15px;line-height:1.55;margin-bottom:22px;max-width:100%}
+  .hero-badge{margin-bottom:16px}
+  .hero-ctas{margin-bottom:26px;gap:10px}
+  .hero-stats{gap:16px;padding-top:18px}
+  .btn{padding:11px 18px}
+  .hero-drone-svg{display:none}
+  [style*="padding:140px 0 80px"]{padding:96px 0 48px!important}
+}
+
 </style>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -71,7 +102,7 @@ TP.HCM đã tổ chức khảo sát và điều khiển thử nghiệm UAV cho m
 <div id="dactsModal" style="position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:120;display:none;align-items:center;justify-content:center;padding:24px"><div style="width:min(720px,100%);max-height:88vh;overflow:auto;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px"><div style="display:flex;justify-content:space-between;align-items:center;gap:16px"><h3 data-i18n="dacts.title">Yêu cầu tải DACTS</h3><button class="btn btn-outline-dark" style="padding:8px 14px" onclick="closeDactsModal()">Close</button></div><p style="margin-top:8px;color:var(--text-muted)" data-i18n="dacts.subtitle">Chúng tôi sẽ gửi link tải qua email. Liên kết có hiệu lực trong 72 giờ.</p><form id="dactsForm" style="margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px"><input required name="full_name" placeholder="Full name" style="padding:10px;border:1px solid var(--border);border-radius:var(--radius)"><input required type="email" name="email" placeholder="Email" style="padding:10px;border:1px solid var(--border);border-radius:var(--radius)"><input required name="phone" placeholder="Phone" style="padding:10px;border:1px solid var(--border);border-radius:var(--radius)"><input required name="company_name" placeholder="Company" style="padding:10px;border:1px solid var(--border);border-radius:var(--radius)"><input required name="job_title" placeholder="Job title" style="padding:10px;border:1px solid var(--border);border-radius:var(--radius)"><input required name="industry" placeholder="Industry" style="padding:10px;border:1px solid var(--border);border-radius:var(--radius)"><input required name="country" placeholder="Country" style="padding:10px;border:1px solid var(--border);border-radius:var(--radius)"><select required name="selected_platform" id="dactsPlatform" style="padding:10px;border:1px solid var(--border);border-radius:var(--radius)"><option value="">Platform</option><option value="windows">Windows</option><option value="macos">macOS</option><option value="linux">Linux</option><option value="iphone">iPhone</option><option value="ipad">iPad / tablet</option><option value="android_phone">Android phone</option><option value="android_tablet">Android tablet</option></select><textarea name="message" placeholder="Optional message / use case" style="grid-column:1/-1;padding:10px;border:1px solid var(--border);border-radius:var(--radius);min-height:88px"></textarea><div id="dactsStatus" style="grid-column:1/-1;color:var(--red);font-size:14px"></div><button class="btn btn-primary" type="submit" style="grid-column:1/-1;justify-content:center">Submit request</button></form></div></div>
 <script src="translations.js"></script>
 <script>
-const pages=['home','about','technology','usecases','investor','contact'];function navigate(p){pages.forEach(x=>{const e=document.getElementById('page-'+x);if(e)e.classList.remove('active')});const t=document.getElementById('page-'+p);if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'instant'})}document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));setTimeout(initReveal,50)}function toggleMobileNav(){document.getElementById('mobileMenu').classList.toggle('open')}function closeMobileNav(){document.getElementById('mobileMenu').classList.remove('open')}window.addEventListener('scroll',()=>{const n=document.getElementById('nav');if(window.scrollY>30)n.classList.add('scrolled');else n.classList.remove('scrolled')},{passive:true});function initReveal(){const r=document.querySelectorAll('.page.active .reveal');const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});r.forEach(el=>{if(!el.classList.contains('visible'))o.observe(el)})}function animateCounters(){document.querySelectorAll('[data-count]').forEach(el=>{const t=parseInt(el.dataset.count),p=el.dataset.prefix||'',s=el.dataset.suffix||'',d=1400,st=performance.now();function u(n){const e=n-st,pr=Math.min(e/d,1),ea=1-Math.pow(1-pr,3),c=Math.round(ea*t);el.textContent=p+(t>=1000?c.toLocaleString('vi-VN'):c)+s;if(pr<1)requestAnimationFrame(u)}requestAnimationFrame(u)})}const ho=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){animateCounters();ho.disconnect()}})},{threshold:.5});const hs=document.querySelector('.hero-stats');if(hs)ho.observe(hs);function switchTab(i){document.querySelectorAll('.usecase-tab').forEach((t,j)=>t.classList.toggle('active',j===i));document.querySelectorAll('.usecase-panel').forEach((p,j)=>p.classList.toggle('active',j===i))}
+const pages=['home','about','technology','usecases','investor','contact'];let lockedScrollY=0;function setAppHeight(){const h=window.innerHeight||document.documentElement.clientHeight;document.documentElement.style.setProperty('--app-height',`${h}px`)}function lockBodyScroll(){lockedScrollY=window.scrollY||window.pageYOffset||0;document.body.classList.add('menu-open');document.body.style.top=`-${lockedScrollY}px`;document.body.style.left='0';document.body.style.right='0'}function unlockBodyScroll(){if(!document.body.classList.contains('menu-open'))return;document.body.classList.remove('menu-open');document.body.style.top='';document.body.style.left='';document.body.style.right='';window.scrollTo(0,lockedScrollY)}function navigate(p){pages.forEach(x=>{const e=document.getElementById('page-'+x);if(e)e.classList.remove('active')});const t=document.getElementById('page-'+p);if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'instant'})}closeMobileNav();document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));setTimeout(initReveal,50)}function toggleMobileNav(){const menu=document.getElementById('mobileMenu');if(!menu)return;const isOpen=menu.classList.toggle('open');if(isOpen){lockBodyScroll()}else{unlockBodyScroll()}setAppHeight()}function closeMobileNav(){const menu=document.getElementById('mobileMenu');if(!menu)return;menu.classList.remove('open');unlockBodyScroll()}window.addEventListener('scroll',()=>{const n=document.getElementById('nav');if(window.scrollY>30)n.classList.add('scrolled');else n.classList.remove('scrolled')},{passive:true});window.addEventListener('resize',setAppHeight,{passive:true});window.addEventListener('orientationchange',()=>{setTimeout(setAppHeight,60);if(!document.getElementById('mobileMenu')?.classList.contains('open'))unlockBodyScroll()});function initReveal(){const r=document.querySelectorAll('.page.active .reveal');const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});r.forEach(el=>{if(!el.classList.contains('visible'))o.observe(el)})}function animateCounters(){document.querySelectorAll('[data-count]').forEach(el=>{const t=parseInt(el.dataset.count),p=el.dataset.prefix||'',s=el.dataset.suffix||'',d=1400,st=performance.now();function u(n){const e=n-st,pr=Math.min(e/d,1),ea=1-Math.pow(1-pr,3),c=Math.round(ea*t);el.textContent=p+(t>=1000?c.toLocaleString('vi-VN'):c)+s;if(pr<1)requestAnimationFrame(u)}requestAnimationFrame(u)})}const ho=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){animateCounters();ho.disconnect()}})},{threshold:.5});const hs=document.querySelector('.hero-stats');if(hs)ho.observe(hs);function switchTab(i){document.querySelectorAll('.usecase-tab').forEach((t,j)=>t.classList.toggle('active',j===i));document.querySelectorAll('.usecase-panel').forEach((p,j)=>p.classList.toggle('active',j===i))}
 const SUPPORTED_LANGS=['vi','en','zh'];
 const STORAGE_KEY='deron-lang';
 let currentLang='vi';
@@ -181,7 +212,7 @@ function initializeI18n(){
 
   const nav=document.getElementById('nav');
   if(nav)nav.classList.add('scrolled');
-  initReveal();
+  setAppHeight();initReveal();
 
   window.addEventListener('languagechange',()=>{
     if(getStoredLanguage())return;
