@@ -39,9 +39,9 @@ function App() {
     setLanguagePreference(value);
   };
 
-  const openDactsExperience = () => {
+  const navigateToDactsIntro = () => {
     setMobileOpen(false);
-    document.getElementById("dacts-overview")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("dacts-intro")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const scrollToDactsSection = (sectionId) => {
@@ -79,7 +79,7 @@ function App() {
               <option value="dark">Dark</option>
             </select>
 
-            <button onClick={openDactsExperience} className="text-sm">{t.nav.download}</button>
+            <a href="#dacts-intro" onClick={navigateToDactsIntro} className="text-sm">{t.nav.download}</a>
           </div>
 
           <button className="md:hidden" onClick={() => setMobileOpen((prev) => !prev)}>{mobileOpen ? <X /> : <Menu />}</button>
@@ -90,7 +90,7 @@ function App() {
             <a href="#home">{t.nav.home}</a>
             <a href="#mission">{t.nav.mission}</a>
             <a href="#contact">{t.nav.contact}</a>
-            <button onClick={openDactsExperience} className="text-left text-sm">{t.nav.download}</button>
+            <a href="#dacts-intro" onClick={navigateToDactsIntro} className="text-left text-sm">{t.nav.download}</a>
           </div>
         )}
       </nav>
@@ -100,7 +100,7 @@ function App() {
           <p className="text-xs uppercase tracking-[0.2em] text-slate-500">DACTS Entry Flow</p>
           <h1 className="mt-4 text-4xl md:text-6xl font-semibold max-w-4xl leading-tight">{t.heroTitle}</h1>
           <p className="mt-6 max-w-3xl text-lg text-slate-600 dark:text-slate-300">{t.heroBody}</p>
-          <button onClick={openDactsExperience} className="mt-10 rounded-full px-6 py-3 bg-[#c41e3a] text-white font-medium">{t.nav.download}</button>
+          <button onClick={navigateToDactsIntro} className="mt-10 rounded-full px-6 py-3 bg-[#c41e3a] text-white font-medium">{t.nav.download}</button>
         </section>
 
         <section id="mission" className="max-w-7xl mx-auto px-6 pb-24">
@@ -121,7 +121,8 @@ function App() {
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 py-14 space-y-14">
+          <div className="max-w-7xl mx-auto px-6 py-14 md:grid md:grid-cols-[minmax(0,1fr)_300px] md:gap-8">
+            <div className="space-y-14">
             <section id="dacts-overview" className="scroll-mt-36">
               <p className="text-xs uppercase tracking-[0.2em] text-slate-500">DACTS</p>
               <h2 className="mt-3 text-3xl md:text-5xl font-semibold max-w-4xl leading-tight">{t.dacts.title}</h2>
@@ -171,11 +172,22 @@ function App() {
               </ul>
             </section>
 
-            <section className="rounded-3xl border border-[var(--line)] bg-[var(--surface)] p-6 md:p-10">
+            <section id="dacts-install" className="scroll-mt-36 rounded-3xl border border-[var(--line)] bg-[var(--surface)] p-6 md:p-10">
               <h3 className="text-2xl font-semibold">{t.dacts.finalCtaTitle}</h3>
               <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">{t.dacts.finalCtaBody}</p>
               <button onClick={openInstallModal} className="mt-6 rounded-full px-6 py-3 bg-[#c41e3a] text-white font-medium">{t.dacts.subnav.install}</button>
             </section>
+            </div>
+            <aside className="hidden md:block">
+              <div className="sticky top-32 rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{t.dacts.stickyLabel}</p>
+                <h4 className="mt-2 font-semibold">{t.dacts.stickyTitle}</h4>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{t.dacts.stickyBody}</p>
+                <button onClick={openInstallModal} className="mt-5 w-full rounded-full px-5 py-2.5 bg-[#c41e3a] text-white font-medium">
+                  {t.dacts.subnav.install}
+                </button>
+              </div>
+            </aside>
           </div>
         </section>
 
@@ -186,12 +198,6 @@ function App() {
 
       {dactsActive && (
         <>
-          <button
-            onClick={openInstallModal}
-            className="hidden md:flex fixed right-6 bottom-8 z-[60] rounded-full px-5 py-3 bg-[#c41e3a] text-white shadow-lg font-medium"
-          >
-            {t.dacts.subnav.install}
-          </button>
           <div className="md:hidden fixed inset-x-0 bottom-0 z-[60] p-3 bg-gradient-to-t from-[var(--surface)] to-transparent">
             <button onClick={openInstallModal} className="w-full rounded-full px-5 py-3 bg-[#c41e3a] text-white shadow-lg font-medium">
               {t.dacts.mobileStickyInstall}
