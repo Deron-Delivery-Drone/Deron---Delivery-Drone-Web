@@ -157,7 +157,52 @@ function updateLanguageUI(lang){
 
 function applyTranslations(lang){
   const safeLang=SUPPORTED_LANGS.includes(lang)?lang:'vi';
-  const dictionary=Object.assign({},(window.T&&window.T[safeLang])||{}, {
+  const fallbackTranslations={
+    vi:{
+      'nav.home':'Trang chủ',
+      'nav.about':'Về chúng tôi',
+      'nav.technology':'Công nghệ',
+      'nav.usecases':'Ứng dụng',
+      'nav.investor':'Nhà đầu tư',
+      'nav.contact':'Liên hệ',
+      'nav.cta':'Dành cho NĐT',
+      'hero.badge':'DERON · Chiến Dịch Điện Biên Phủ Trong Logistics',
+      'hero.title':'Kỷ nguyên<br>vươn mình của<br><span>dân tộc</span>',
+      'hero.sub':'Deron xây dựng nền tảng công nghệ drone của người Việt — mở ra một lớp hạ tầng mới trên bầu trời cho logistics, nông nghiệp, giám sát, cứu hộ và nhiều ứng dụng UAV trong tương lai.',
+      'hero.cta1':'Khám phá sứ mệnh',
+      'hero.cta2':'Dành cho nhà đầu tư'
+    },
+    en:{
+      'nav.home':'Home',
+      'nav.about':'About us',
+      'nav.technology':'Technology',
+      'nav.usecases':'Applications',
+      'nav.investor':'Investors',
+      'nav.contact':'Contact',
+      'nav.cta':'For investors',
+      'hero.badge':'DERON · A Dien Bien Phu Campaign in Logistics',
+      'hero.title':'An era of<br>Vietnam rising<br><span>with strength</span>',
+      'hero.sub':'Deron builds a Vietnamese drone technology platform—unlocking a new layer of sky infrastructure for logistics, agriculture, monitoring, emergency response, and future UAV missions.',
+      'hero.cta1':'Explore our mission',
+      'hero.cta2':'For investors'
+    },
+    zh:{
+      'nav.home':'首页',
+      'nav.about':'关于我们',
+      'nav.technology':'技术',
+      'nav.usecases':'应用场景',
+      'nav.investor':'投资者',
+      'nav.contact':'联系',
+      'nav.cta':'投资者入口',
+      'hero.badge':'DERON · 物流领域的“奠边府战役”',
+      'hero.title':'民族崛起的<br>智慧时代<br><span>正在开启</span>',
+      'hero.sub':'Deron 正在打造由越南团队构建的无人机技术平台，为物流、农业、巡检、救援及未来更多 UAV 场景开启全新的空中基础设施层。',
+      'hero.cta1':'了解我们的使命',
+      'hero.cta2':'投资者入口'
+    }
+  };
+
+  const dictionary=Object.assign({},fallbackTranslations[safeLang]||{},(window.T&&window.T[safeLang])||{}, {
     'nav.dacts': DACTS_COPY[safeLang].nav,
     'dacts.title': DACTS_COPY[safeLang].title,
     'dacts.subtitle': DACTS_COPY[safeLang].subtitle
