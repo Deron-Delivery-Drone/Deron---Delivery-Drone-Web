@@ -7,7 +7,7 @@ export const translations = {
       home: "Trang chủ",
       mission: "Sứ mệnh",
       contact: "Liên hệ",
-      download: "Tải DACTS",
+      dacts: "Tải DACTS",
     },
     heroTitle: "Hạ tầng drone nghiêm túc cho Việt Nam",
     heroBody:
@@ -106,7 +106,7 @@ export const translations = {
     footer: "© 2026 Deron",
   },
   en: {
-    nav: { home: "Home", mission: "Mission", contact: "Contact", download: "Download DACTS" },
+    nav: { home: "Home", mission: "Mission", contact: "Contact", dacts: "Download DACTS" },
     heroTitle: "Mission-grade drone infrastructure",
     heroBody:
       "Deron builds UAV operations and DACTS coordination software for logistics, emergency healthcare, and critical response missions.",
@@ -204,7 +204,7 @@ export const translations = {
     footer: "© 2026 Deron",
   },
   zh: {
-    nav: { home: "首页", mission: "使命", contact: "联系", download: "下载 DACTS" },
+    nav: { home: "首页", mission: "使命", contact: "联系", dacts: "下载 DACTS" },
     heroTitle: "任务级无人机基础设施",
     heroBody: "Deron 正在构建用于物流、医疗应急和关键任务响应的 UAV 运营平台与 DACTS 调度系统。",
     requestTitle: "申请安装 DACTS",

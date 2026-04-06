@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
-import DownloadRequestModal from "./components/download/DownloadRequestModal";
 import { detectInitialLanguage, setLanguagePreference, translations } from "./config/i18n";
 import { useTheme } from "./hooks/useTheme";
 import { detectPlatform } from "./utils/platform";
@@ -9,9 +8,7 @@ import DACTSPage from "./pages/DACTSPage";
 function App() {
   const [language, setLanguage] = useState(detectInitialLanguage);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [downloadOpen, setDownloadOpen] = useState(false);
   const detectedPlatform = useMemo(() => detectPlatform(), []);
-  const [preferredPlatform, setPreferredPlatform] = useState(detectedPlatform === "unknown" ? "" : detectedPlatform);
   const [activeView, setActiveView] = useState("home");
   const { theme, setTheme } = useTheme();
 
@@ -26,10 +23,6 @@ function App() {
     setMobileOpen(false);
     setActiveView(view);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const openInstallModal = () => {
-    setDownloadOpen(true);
   };
 
   const contactFromDacts = () => {
@@ -50,7 +43,6 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center gap-4 landscape-desktop-nav">
-            {/* DACTS must be opened as a dedicated view, not modal-first */}
             <button onClick={() => navigateToView("home")} className="text-sm">
               {t.nav.home}
             </button>
@@ -82,7 +74,7 @@ function App() {
             </select>
 
             <button onClick={() => navigateToView("dacts")} className="text-sm">
-              {t.nav.download}
+              {t.nav.dacts}
             </button>
           </div>
 
@@ -119,7 +111,7 @@ function App() {
               {t.nav.contact}
             </a>
             <button onClick={() => navigateToView("dacts")} className="text-left text-sm">
-              {t.nav.download}
+              {t.nav.dacts}
             </button>
           </div>
         )}
@@ -129,52 +121,35 @@ function App() {
         {activeView === "home" ? (
           <>
             <section id="home" className="max-w-7xl mx-auto px-6 py-24 landscape-home-hero">
-              <p className="text-xs uppercase tracking-[0.2em] text-slate-500">DACTS Entry Flow</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-slate-500">DACTS Product Overview</p>
               <h1 className="mt-4 text-4xl md:text-6xl font-semibold max-w-4xl leading-tight landscape-home-title">{t.heroTitle}</h1>
               <p className="mt-6 max-w-3xl text-lg text-slate-600 dark:text-slate-300 landscape-home-body">{t.heroBody}</p>
               <button
                 onClick={() => navigateToView("dacts")}
                 className="mt-10 rounded-full px-6 py-3 bg-[#c41e3a] text-white font-medium landscape-primary-cta"
               >
-                {t.nav.download}
+                {t.nav.dacts}
               </button>
             </section>
 
             <section id="mission" className="max-w-7xl mx-auto px-6 pb-24 landscape-home-section">
               <div className="rounded-3xl border border-[var(--line)] bg-[var(--surface-elevated)] p-8 md:p-12 landscape-home-card">
-                <h2 className="text-2xl font-semibold landscape-home-section-title">Platform-aware secure distribution</h2>
+                <h2 className="text-2xl font-semibold landscape-home-section-title">Mission-ready low-altitude operations</h2>
                 <p className="mt-3 text-slate-600 dark:text-slate-300 landscape-home-section-copy">
-                  Detected platform: <strong>{detectedPlatform}</strong>. The request flow stores lead information,
-                  generates 72-hour temporary tokens, and sends transactional download email via Supabase Edge
-                  Functions.
+                  Detected platform: <strong>{detectedPlatform}</strong>. Deron builds public-facing UAV product and
+                  infrastructure narratives for logistics, emergency healthcare, and disaster response in Vietnam.
                 </p>
               </div>
             </section>
           </>
         ) : (
-          <DACTSPage
-            language={language}
-            detectedPlatform={detectedPlatform}
-            preferredPlatform={preferredPlatform}
-            onSelectPlatform={setPreferredPlatform}
-            onInstallClick={openInstallModal}
-            onContactClick={contactFromDacts}
-          />
+          <DACTSPage detectedPlatform={detectedPlatform} onContactClick={contactFromDacts} />
         )}
 
         <section id="contact" className="max-w-7xl mx-auto px-6 pt-16 pb-32 md:pb-20">
           <p className="text-sm text-slate-500">{t.footer}</p>
         </section>
       </main>
-
-      <DownloadRequestModal
-        open={downloadOpen}
-        onClose={() => setDownloadOpen(false)}
-        language={language}
-        t={t}
-        detectedPlatform={detectedPlatform}
-        preselectedPlatform={preferredPlatform}
-      />
     </div>
   );
 }

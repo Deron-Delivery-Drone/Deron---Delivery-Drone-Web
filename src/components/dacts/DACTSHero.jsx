@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function DACTSHero({ detectedPlatform, onInstallClick }) {
+export default function DACTSHero({ detectedPlatform, onContactClick }) {
   const scrollToOverview = () => {
     document.getElementById("dacts-overview")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <section className="max-w-7xl mx-auto px-6 pt-16 pb-14 md:pt-20 md:pb-20 landscape-dacts-hero">
-      <p className="text-xs uppercase tracking-[0.2em] text-slate-500">DACTS ENTRY FLOW</p>
+      <p className="text-xs uppercase tracking-[0.2em] text-slate-500">DACTS PUBLIC OVERVIEW</p>
       <h1 className="mt-4 text-4xl md:text-6xl font-semibold max-w-5xl leading-tight landscape-dacts-hero-title">
         DACTS: Nền tảng vận hành GCS + UTM cho điều phối UAV tại Việt Nam
       </h1>
@@ -17,7 +17,7 @@ export default function DACTSHero({ detectedPlatform, onInstallClick }) {
         product-grade cho Ground Control Station kết hợp năng lực UTM phù hợp bối cảnh triển khai tại Việt Nam.
       </p>
       <p className="mt-5 inline-flex rounded-full border border-[var(--line)] px-4 py-2 text-sm text-slate-600 dark:text-slate-300 landscape-dacts-platform-chip">
-        Detected platform: <strong className="ml-1 text-[var(--text)]">{detectedPlatform}</strong>
+        Platform context: <strong className="ml-1 text-[var(--text)]">{detectedPlatform}</strong>
       </p>
       <div className="mt-8 flex flex-wrap gap-3 landscape-dacts-hero-actions">
         <button
@@ -26,8 +26,8 @@ export default function DACTSHero({ detectedPlatform, onInstallClick }) {
         >
           Xem tổng quan
         </button>
-        <button onClick={onInstallClick} className="rounded-full px-6 py-3 bg-[#c41e3a] text-white font-medium landscape-primary-cta">
-          Install DACTS
+        <button onClick={onContactClick} className="rounded-full px-6 py-3 bg-[#c41e3a] text-white font-medium landscape-primary-cta">
+          Liên hệ Deron
         </button>
       </div>
     </section>
