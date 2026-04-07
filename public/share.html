@@ -38,7 +38,32 @@
   </head>
   <body>
     <h1>DERON</h1>
-    <p>chiến dịch Điện Biên Phủ trong lĩnh vực logistics</p>
-    <p><a href="/">Mở website</a></p>
+    <p id="share-desc"></p>
+    <p><a id="share-link" href="/"></a></p>
+
+    <script>
+      (function(){
+        var T={
+          vi:{desc:'chiến dịch Điện Biên Phủ trong lĩnh vực logistics',link:'Mở website'},
+          en:{desc:'A Dien Bien Phu campaign in the logistics sector',link:'Open website'},
+          zh:{desc:'物流领域的奠边府战役',link:'打开网站'}
+        };
+        function detect(){
+          var langs=(navigator.languages||[]).concat(navigator.language||'');
+          for(var i=0;i<langs.length;i++){
+            var l=(langs[i]||'').toLowerCase();
+            if(l.indexOf('zh')===0) return 'zh';
+            if(l.indexOf('en')===0) return 'en';
+            if(l.indexOf('vi')===0) return 'vi';
+          }
+          return 'vi';
+        }
+        var lang=detect();
+        var t=T[lang]||T.vi;
+        document.getElementById('share-desc').textContent=t.desc;
+        document.getElementById('share-link').textContent=t.link;
+        document.documentElement.lang=lang==='zh'?'zh-CN':lang;
+      })();
+    </script>
   </body>
 </html>
