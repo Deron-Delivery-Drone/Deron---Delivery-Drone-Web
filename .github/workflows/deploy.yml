@@ -15,7 +15,7 @@ jobs:
 
     env:
       CI: false
-      # Supabase env dùng cho quá trình build (CRA yêu cầu prefix REACT_APP_)
+      # Giữ nguyên env để không ảnh hưởng phần khác
       REACT_APP_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
@@ -31,14 +31,70 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
 
-      - name: Build React project
-        run: npm run build
+      - name: Prepare multi-page static package
+        run: |
+          set -e
 
-      # 👇 Step này chỉ quyết định CÓ deploy hay KHÔNG
+          echo "Cleaning old build folder..."
+          rm -rf build
+          mkdir -p build
+
+          echo "Copying root HTML pages and SEO files..."
+          ROOT_FILES=(
+            "index.html"
+            "gioi-thieu.html"
+            "cong-nghe.html"
+            "ung-dung.html"
+            "press.html"
+            "nhat-ky.html"
+            "phap-ly.html"
+            "nguon-tham-khao.html"
+            "lien-he.html"
+            "san-pham.html"
+            "robots.txt"
+            "sitemap.xml"
+          )
+
+          for file in "${ROOT_FILES[@]}"; do
+            if [ -f "$file" ]; then
+              cp "$file" build/
+              echo "Copied: $file"
+            else
+              echo "Skipped missing file: $file"
+            fi
+          done
+
+          echo "Copying required folders..."
+          REQUIRED_DIRS=(
+            "assets"
+            "ung-dung"
+          )
+
+          for dir in "${REQUIRED_DIRS[@]}"; do
+            if [ -d "$dir" ]; then
+              cp -R "$dir" build/
+              echo "Copied directory: $dir"
+            else
+              echo "Skipped missing directory: $dir"
+            fi
+          done
+
+          echo "Copying common static assets in repo root..."
+          find . -maxdepth 1 -type f \( \
+            -iname "*.png" -o \
+            -iname "*.jpg" -o \
+            -iname "*.jpeg" -o \
+            -iname "*.webp" -o \
+            -iname "*.svg" -o \
+            -iname "*.ico" \
+          \) -exec cp {} build/ \;
+
+          echo "Final build content:"
+          find build -maxdepth 4 -type f | sort
+
       - name: Decide whether to deploy
         id: guard
         run: |
-          # Tên GitHub của bạn (sửa lại nếu khác)
           OWNER="NpHarry-Tech"
 
           if [ "${GITHUB_ACTOR}" = "$OWNER" ] && [ "${{ github.event.inputs.deploy_code }}" = "${{ secrets.DEPLOY_CODE }}" ]; then
@@ -69,3 +125,5 @@ jobs:
             **/README.md
             **/package*.json
             **/tailwind.config.js
+            **/.env*
+            **/.github/**
