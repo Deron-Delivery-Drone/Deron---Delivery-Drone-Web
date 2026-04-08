@@ -320,9 +320,23 @@ p { max-width: 60ch; }
   gap: 48px; margin-bottom: 56px;
 }
 .footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display); font-weight: 900;
   font-size: 20px; letter-spacing: 0.02em;
   color: #fff; margin-bottom: 14px;
+}
+.footer-logo-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.footer-logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .footer-logo-light { display: none; }
+  .footer-logo-dark { display: block; }
 }
 .footer-brand-desc {
   font-size: 13px; color: var(--text-inv-muted);
