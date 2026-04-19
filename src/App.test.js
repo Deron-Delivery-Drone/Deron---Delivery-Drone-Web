@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders download cta', () => {
+test('renders deron overview content', () => {
   render(<App />);
-  expect(screen.getAllByText(/DACTS/i)[0]).toBeInTheDocument();
+  expect(screen.getByText(/Mission-grade drone infrastructure/i)).toBeInTheDocument();
 });
