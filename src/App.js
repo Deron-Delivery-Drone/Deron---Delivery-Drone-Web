@@ -3,33 +3,43 @@ import { Menu, X } from "lucide-react";
 import { detectInitialLanguage, setLanguagePreference, translations } from "./config/i18n";
 import { useTheme } from "./hooks/useTheme";
 import { detectPlatform } from "./utils/platform";
-import DACTSPage from "./pages/DACTSPage";
+
+const HERO_COPY = {
+  vi: "Deron xây dựng hạ tầng vận hành UAV cho logistics, y tế và ứng phó khẩn cấp tại Việt Nam.",
+  en: "Deron builds UAV operations infrastructure for logistics, emergency healthcare, and critical response missions.",
+  zh: "Deron 正在构建面向物流、医疗应急和关键任务响应的 UAV 运营基础设施。",
+};
+
+const EYEBROW_COPY = {
+  vi: "Tổng quan Deron",
+  en: "Deron Overview",
+  zh: "Deron 概览",
+};
 
 function App() {
   const [language, setLanguage] = useState(detectInitialLanguage);
   const [mobileOpen, setMobileOpen] = useState(false);
   const detectedPlatform = useMemo(() => detectPlatform(), []);
-  const [activeView, setActiveView] = useState("home");
   const { theme, setTheme } = useTheme();
 
   const t = translations[language] || translations.en;
+  const heroBody = HERO_COPY[language] || HERO_COPY.en;
+  const eyebrow = EYEBROW_COPY[language] || EYEBROW_COPY.en;
 
   const updateLanguage = (value) => {
     setLanguage(value);
     setLanguagePreference(value);
   };
 
-  const navigateToView = (view) => {
+  const scrollToSection = (sectionId) => {
     setMobileOpen(false);
-    setActiveView(view);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
-  const contactFromDacts = () => {
-    setActiveView("home");
-    setTimeout(() => {
-      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 0);
+    if (sectionId === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -43,15 +53,15 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center gap-4 landscape-desktop-nav">
-            <button onClick={() => navigateToView("home")} className="text-sm">
+            <button onClick={() => scrollToSection("home")} className="text-sm">
               {t.nav.home}
             </button>
-            <a href="#mission" className="text-sm">
+            <button onClick={() => scrollToSection("mission")} className="text-sm">
               {t.nav.mission}
-            </a>
-            <a href="#contact" className="text-sm">
+            </button>
+            <button onClick={() => scrollToSection("contact")} className="text-sm">
               {t.nav.contact}
-            </a>
+            </button>
 
             <select
               value={language}
@@ -72,10 +82,6 @@ function App() {
               <option value="light">Light</option>
               <option value="dark">Dark</option>
             </select>
-
-            <button onClick={() => navigateToView("dacts")} className="text-sm">
-              {t.nav.dacts}
-            </button>
           </div>
 
           <div className="flex items-center gap-2 md:hidden landscape-mobile-actions">
@@ -101,50 +107,41 @@ function App() {
 
         {mobileOpen && (
           <div className="md:hidden landscape-mobile-menu border-t border-[var(--line)] p-4 flex flex-col gap-2.5 bg-[var(--surface-elevated)]">
-            <button onClick={() => navigateToView("home")} className="text-left">
+            <button onClick={() => scrollToSection("home")} className="text-left">
               {t.nav.home}
             </button>
-            <a href="#mission" onClick={() => setMobileOpen(false)}>
+            <button onClick={() => scrollToSection("mission")} className="text-left">
               {t.nav.mission}
-            </a>
-            <a href="#contact" onClick={() => setMobileOpen(false)}>
+            </button>
+            <button onClick={() => scrollToSection("contact")} className="text-left">
               {t.nav.contact}
-            </a>
-            <button onClick={() => navigateToView("dacts")} className="text-left text-sm">
-              {t.nav.dacts}
             </button>
           </div>
         )}
       </nav>
 
       <main className="pt-20">
-        {activeView === "home" ? (
-          <>
-            <section id="home" className="max-w-7xl mx-auto px-6 py-24 landscape-home-hero">
-              <p className="text-xs uppercase tracking-[0.2em] text-slate-500">DACTS Product Overview</p>
-              <h1 className="mt-4 text-4xl md:text-6xl font-semibold max-w-4xl leading-tight landscape-home-title">{t.heroTitle}</h1>
-              <p className="mt-6 max-w-3xl text-lg text-slate-600 dark:text-slate-300 landscape-home-body">{t.heroBody}</p>
-              <button
-                onClick={() => navigateToView("dacts")}
-                className="mt-10 rounded-full px-6 py-3 bg-[#c41e3a] text-white font-medium landscape-primary-cta"
-              >
-                {t.nav.dacts}
-              </button>
-            </section>
+        <section id="home" className="max-w-7xl mx-auto px-6 py-24 landscape-home-hero">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{eyebrow}</p>
+          <h1 className="mt-4 text-4xl md:text-6xl font-semibold max-w-4xl leading-tight landscape-home-title">{t.heroTitle}</h1>
+          <p className="mt-6 max-w-3xl text-lg text-slate-600 dark:text-slate-300 landscape-home-body">{heroBody}</p>
+          <button
+            onClick={() => scrollToSection("mission")}
+            className="mt-10 rounded-full px-6 py-3 bg-[#c41e3a] text-white font-medium landscape-primary-cta"
+          >
+            {t.nav.mission}
+          </button>
+        </section>
 
-            <section id="mission" className="max-w-7xl mx-auto px-6 pb-24 landscape-home-section">
-              <div className="rounded-3xl border border-[var(--line)] bg-[var(--surface-elevated)] p-8 md:p-12 landscape-home-card">
-                <h2 className="text-2xl font-semibold landscape-home-section-title">Mission-ready low-altitude operations</h2>
-                <p className="mt-3 text-slate-600 dark:text-slate-300 landscape-home-section-copy">
-                  Detected platform: <strong>{detectedPlatform}</strong>. Deron builds public-facing UAV product and
-                  infrastructure narratives for logistics, emergency healthcare, and disaster response in Vietnam.
-                </p>
-              </div>
-            </section>
-          </>
-        ) : (
-          <DACTSPage detectedPlatform={detectedPlatform} onContactClick={contactFromDacts} />
-        )}
+        <section id="mission" className="max-w-7xl mx-auto px-6 pb-24 landscape-home-section">
+          <div className="rounded-3xl border border-[var(--line)] bg-[var(--surface-elevated)] p-8 md:p-12 landscape-home-card">
+            <h2 className="text-2xl font-semibold landscape-home-section-title">Mission-ready low-altitude operations</h2>
+            <p className="mt-3 text-slate-600 dark:text-slate-300 landscape-home-section-copy">
+              Detected platform: <strong>{detectedPlatform}</strong>. Deron builds public-facing UAV product and
+              infrastructure narratives for logistics, emergency healthcare, and disaster response in Vietnam.
+            </p>
+          </div>
+        </section>
 
         <section id="contact" className="max-w-7xl mx-auto px-6 pt-16 pb-32 md:pb-20">
           <p className="text-sm text-slate-500">{t.footer}</p>
