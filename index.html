@@ -1,169 +1,3129 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deron — Drone Giao Hàng Tự Hành | UAV Logistics Việt Nam</title>
-<meta name="description" content="Deron xây dựng hệ thống UAV giao hàng tự hành phục vụ y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó tiếp cận. Được thiết kế từ gốc rễ Việt Nam.">
-<link rel="canonical" href="https://deron.vn/">
-<meta property="og:title" content="Deron — Drone Giao Hàng Tự Hành | UAV Logistics Việt Nam">
-<meta property="og:description" content="Deron xây dựng hệ thống UAV giao hàng tự hành phục vụ y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó tiếp cận. Được thiết kế từ gốc rễ Việt Nam.">
-<meta property="og:url" content="https://deron.vn/">
-<meta property="og:image" content="https://deron.vn/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Deron">
-<meta property="og:locale" content="vi_VN">
+<link rel="icon" type="image/png" href="public/Deron-logo-dark.png">
+<link rel="shortcut icon" href="public/Deron-logo-dark.png">
+<title>Deron — Chiến Dịch Điện Biên Phủ Trong Logistics</title>
+<meta name="description" content="Deron xây dựng hệ thống drone giao hàng tự hành cho y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó khăn tại Việt Nam.">
+<meta property="og:title" content="Deron – Drone Giao Hàng Tự Hành Việt Nam">
+<meta property="og:description" content="Kỷ nguyên vươn mình của dân tộc. Deron xây dựng nền tảng công nghệ drone của người Việt — mở ra một lớp hạ tầng mới trên bầu trời cho logistics, nông nghiệp, giám sát, cứu hộ và nhiều ứng dụng UAV trong tương lai.">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Deron — Drone Giao Hàng Tự Hành | UAV Logistics Việt Nam">
-<meta name="twitter:description" content="Deron xây dựng hệ thống UAV giao hàng tự hành phục vụ y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó tiếp cận. Được thiết kế từ gốc rễ Việt Nam.">
-<meta name="twitter:image" content="https://deron.vn/og-image.jpg">
-<link rel="alternate" hreflang="vi" href="https://deron.vn/">
-<link rel="alternate" hreflang="x-default" href="https://deron.vn/">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DATCS — Deron Air Traffic Control System",
+    "alternateName": ["Deron GCS", "Phần mềm quản lý drone Việt Nam", "UAV Ground Control Station Vietnam"],
+    "description": "DATCS là phần mềm GCS (Ground Control Station) và UTM (Unmanned Traffic Management) đầu tiên được phát triển bởi người Việt, tối ưu cho pháp lý và hạ tầng Việt Nam. Thay thế QGroundControl, Mission Planner cho thị trường drone thương mại Việt Nam.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "VND", "availability": "https://schema.org/PreOrder" },
+    "creator": { "@type": "Organization", "name": "Deron", "url": "https://deron.vn" },
+    "keywords": "GCS drone Vietnam, QGroundControl alternative, phần mềm điều khiển drone, UTM Vietnam, drone management software, phần mềm quản lý UAV, Mission Planner Vietnam, Betaflight alternative"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "DATCS là gì và khác gì so với QGroundControl?",
+        "acceptedAnswer": { "@type": "Answer", "text": "DATCS (Deron Air Traffic Control System) là phần mềm GCS và UTM được Deron phát triển dành riêng cho thị trường Việt Nam. Khác với QGroundControl — GCS mã nguồn mở hỗ trợ MAVLink — DATCS tích hợp pháp lý Việt Nam (Nghị định 288/2025/NĐ-CP), vận hành qua 4G/5G và kết hợp với DMA flight controller do Deron tự phát triển." }
+      },
+      {
+        "@type": "Question",
+        "name": "Phần mềm quản lý drone nào tốt nhất cho Việt Nam?",
+        "acceptedAnswer": { "@type": "Answer", "text": "DATCS là phần mềm GCS + UTM đầu tiên được phát triển bởi người Việt, tối ưu cho điều kiện và yêu cầu pháp lý tại Việt Nam. Các giải pháp ngoại như QGroundControl hay Mission Planner chưa tích hợp với hệ thống pháp lý và hạ tầng drone của Việt Nam." }
+      },
+      {
+        "@type": "Question",
+        "name": "DATCS có hỗ trợ UTM không?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Có. UTM là module cốt lõi của DATCS, hỗ trợ airspace visualization, tích hợp quy trình cấp phép bay theo Nghị định 288/2025/NĐ-CP và NOTAM awareness cho drone logistics thương mại tại Việt Nam." }
+      }
+    ]
+  }
+]
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/styles.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://deron.vn/#organization","name":"Deron","alternateName":["Deron Vietnam","Deron Delivery Drone"],"url":"https://deron.vn","logo":{"@type":"ImageObject","url":"https://deron.vn/Deron-logo.png","width":512,"height":512},"description":"Deron xây dựng hệ thống drone giao hàng tự hành phục vụ y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó tiếp cận tại Việt Nam.","founder":{"@type":"Person","@id":"https://deron.vn/gioi-thieu#founder","name":"Nguyễn Phúc Huy","jobTitle":"Founder & Project Leader","email":"ceo.deron@gmail.com"},"foundingDate":"2025","foundingLocation":{"@type":"Place","name":"Ho Chi Minh City, Vietnam"},"contactPoint":{"@type":"ContactPoint","email":"ceo.deron@gmail.com","telephone":"+84363045747","contactType":"general"},"address":{"@type":"PostalAddress","addressLocality":"Ho Chi Minh City","addressCountry":"VN"},"sameAs":["https://linkedin.com/company/deron-vietnam","https://github.com/deron-vietnam","https://x.com/deron_vietnam"],"knowsAbout":["Drone logistics","UAV delivery","Emergency medical logistics","Low-altitude economy"],"areaServed":{"@type":"Country","name":"Vietnam"}},{"@type":"WebSite","@id":"https://deron.vn/#website","url":"https://deron.vn","name":"Deron","description":"Deron – Delivery Drone | Chiến Dịch Điện Biên Phủ Trong Lĩnh Vực Logistics","publisher":{"@id":"https://deron.vn/#organization"},"inLanguage":["vi","en","zh"]}]}
-</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
 
+<style>
+/* ============================================================
+   DESIGN SYSTEM — DERON "PRECISION MISSION"
+   ============================================================ */
+:root {
+  --bg-light:      #F7F6F2;
+  --bg-white:      #FDFCF9;
+  --bg-dark:       #0B0E13;
+  --bg-mid:        #111720;
+  --bg-section:    #F2F0EB;
+
+  --text-primary:  #111111;
+  --text-body:     #2A2A2A;
+  --text-muted:    #6B6660;
+  --text-inv:      #EDE9E3;
+  --text-inv-muted:#8A9BAE;
+
+  --red:           #C41E3A;
+  --red-hover:     #A3172F;
+  --red-light:     #E8302A;
+  --green:         #2E5A3F;
+  --gold:          #B8901A;
+
+  --border:        #E0DDD6;
+  --border-dark:   #232D3F;
+
+  --font-display:  'Be Vietnam Pro', sans-serif;
+  --font-body:     'Be Vietnam Pro', sans-serif;
+  --font-label:    'Barlow Condensed', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+
+  --radius:        4px;
+  --radius-lg:     8px;
+  --transition:    200ms ease;
+}
+
+/* ============================================================ RESET */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-light);
+  color: var(--text-body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ============================================================ TYPOGRAPHY */
+.label {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.label-red { color: var(--red); }
+.label-inv { color: var(--text-inv-muted); }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; }
+h1 { font-size: clamp(42px, 6vw, 76px); }
+h2 { font-size: clamp(32px, 4vw, 56px); }
+h3 { font-size: clamp(22px, 2.5vw, 32px); }
+h4 { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+p { max-width: 60ch; }
+
+.text-inv { color: var(--text-inv); }
+.text-inv p, .text-inv h1, .text-inv h2, .text-inv h3, .text-inv h4 { color: var(--text-inv); }
+
+/* ============================================================ LAYOUT */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+.section { padding: 96px 0; }
+.section-lg { padding: 120px 0; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+/* ============================================================ NAV */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 32px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 400ms ease, border-color 400ms ease;
+  border-bottom: 1px solid transparent;
+}
+#nav.scrolled {
+  background: rgba(11, 14, 19, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--border-dark);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 18px; letter-spacing: 0.04em;
+  color: #fff; cursor: pointer;
+}
+.nav-logo img {
+  height: 1.5em;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.logo-light {
+  display: none;
+}
+@media (prefers-color-scheme: light) {
+  .logo-dark {
+    display: none;
+  }
+
+  .logo-light {
+    display: block;
+  }
+}
+.nav-links {
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-link {
+  font-family: var(--font-label);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  transition: color var(--transition), background var(--transition);
+  cursor: pointer;
+}
+.nav-link:hover, .nav-link.active { color: #fff; background: rgba(255,255,255,0.08); }
+.nav-cta {
+  font-family: var(--font-label);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: #fff;
+  background: var(--red);
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  transition: background var(--transition);
+  cursor: pointer;
+}
+.nav-cta:hover { background: var(--red-hover); }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+
+/* Mobile nav */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  padding: 8px; cursor: pointer;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: #fff; border-radius: 2px;
+  transition: all 0.3s;
+}
+.nav-mobile-menu {
+  display: none;
+  position: fixed; inset: 0; z-index: 99;
+  background: var(--bg-dark);
+  padding: 96px 32px 48px;
+  flex-direction: column; gap: 8px;
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-link {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 28px; letter-spacing: -0.02em;
+  color: var(--text-inv);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-dark);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.nav-mobile-link:hover { color: var(--red); }
+
+/* ============================================================ BUTTONS */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-label);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.btn-primary { background: var(--red); color: #fff; }
+.btn-primary:hover { background: var(--red-hover); transform: translateY(-1px); }
+.btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; }
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.07); }
+.btn-outline-dark { border: 1.5px solid var(--border); color: var(--text-primary); }
+.btn-outline-dark:hover { border-color: var(--text-primary); }
+.btn-ghost { color: var(--text-primary); padding: 14px 0; }
+.btn-ghost:hover { color: var(--red); }
+.btn-arrow::after { content: '→'; margin-left: 4px; transition: transform var(--transition); }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+/* ============================================================ HERO */
+#hero {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(196,30,58,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,30,58,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.6;
+}
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,30,58,0.12) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+.hero-glow-2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(46,90,63,0.1) 0%, transparent 70%);
+  bottom: 0; left: 200px;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 140px 32px 100px;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--red);
+  border: 1px solid rgba(196,30,58,0.35);
+  padding: 6px 12px; border-radius: 2px;
+  margin-bottom: 32px;
+}
+.hero-badge-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--red);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+.hero-title {
+  color: #fff;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  max-width: 800px;
+}
+.hero-title span { color: var(--red); }
+.hero-sub {
+  font-size: 18px; font-weight: 400;
+  color: var(--text-inv-muted);
+  line-height: 1.7;
+  margin-bottom: 48px;
+  max-width: 520px;
+}
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 80px; }
+.hero-stats {
+  display: flex; gap: 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border-dark);
+  flex-wrap: wrap;
+}
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 900;
+  color: #fff; letter-spacing: -0.03em;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-inv-muted);
+  margin-top: 6px;
+}
+.hero-drone-svg {
+  position: absolute; right: 80px; top: 50%;
+  transform: translateY(-50%);
+  width: 420px; height: 420px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* ============================================================ PROBLEM SECTION */
+.problem-section {
+  background: var(--bg-white);
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+}
+.problem-number {
+  font-family: var(--font-mono);
+  font-size: 11px; color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.stat-block {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden; margin-top: 64px;
+}
+.stat-cell {
+  background: var(--bg-white);
+  padding: 40px 32px;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 52px; font-weight: 900;
+  color: var(--text-primary); letter-spacing: -0.04em;
+  line-height: 1;
+}
+.stat-num span { color: var(--red); }
+.stat-desc {
+  font-size: 14px; color: var(--text-muted);
+  margin-top: 10px; line-height: 1.5;
+  max-width: 180px;
+}
+.stat-source {
+  font-family: var(--font-mono);
+  font-size: 10px; color: var(--text-muted);
+  margin-top: 8px; opacity: 0.6;
+}
+
+/* ============================================================ SOLUTION */
+.solution-section { background: var(--bg-light); padding: 96px 0; }
+.solution-pillars {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 64px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.pillar {
+  background: var(--bg-light);
+  padding: 48px 36px;
+  transition: background var(--transition);
+}
+.pillar:hover { background: var(--bg-white); }
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: 11px; color: var(--red);
+  margin-bottom: 20px;
+}
+.pillar h4 { margin-bottom: 12px; letter-spacing: -0.015em; }
+.pillar p { font-size: 15px; color: var(--text-muted); max-width: 240px; line-height: 1.6; }
+
+/* ============================================================ WHY NOW */
+.why-now-section {
+  background: var(--bg-dark); padding: 96px 0;
+  border-top: 1px solid var(--border-dark);
+}
+.signal-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 2px; margin-top: 56px;
+  background: var(--border-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.signal-cell {
+  background: var(--bg-mid);
+  padding: 40px 36px;
+  transition: background var(--transition);
+}
+.signal-cell:hover { background: #1E2A3A; }
+.signal-icon {
+  width: 40px; height: 40px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  color: var(--red);
+  font-size: 18px;
+}
+.signal-cell h4 { color: var(--text-inv); margin-bottom: 10px; }
+.signal-cell p { color: var(--text-inv-muted); font-size: 15px; line-height: 1.6; max-width: 280px; }
+
+/* ============================================================ USE CASES */
+.usecase-section { background: var(--bg-white); padding: 96px 0; }
+.usecase-tabs {
+  display: flex; gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 56px; flex-wrap: wrap;
+}
+.usecase-tab {
+  font-family: var(--font-label);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 12px 20px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px; cursor: pointer;
+  transition: color var(--transition), border-color var(--transition);
+}
+.usecase-tab.active { color: var(--text-primary); border-bottom-color: var(--red); }
+.usecase-tab:hover { color: var(--text-primary); }
+.usecase-panel { display: none; }
+.usecase-panel.active { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
+.usecase-scenario {
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  margin-bottom: 32px;
+}
+.usecase-scenario-label {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 14px;
+}
+.usecase-scenario p { font-size: 15px; color: var(--text-body); line-height: 1.7; max-width: 100%; }
+.usecase-visual {
+  background: var(--bg-dark);
+  border-radius: var(--radius-lg);
+  height: 300px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  border: 1px solid var(--border-dark);
+}
+.usecase-visual-inner { text-align: center; padding: 32px; }
+.usecase-visual-icon { font-size: 64px; margin-bottom: 16px; opacity: 0.7; }
+.usecase-visual-text {
+  font-family: var(--font-label);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-inv-muted);
+}
+.usecase-meta {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.usecase-meta-row {
+  display: flex; gap: 16px;
+  padding: 20px;
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.usecase-meta-icon { font-size: 20px; flex-shrink: 0; }
+.usecase-meta-row strong { font-size: 13px; font-weight: 700; display: block; margin-bottom: 3px; }
+.usecase-meta-row p { font-size: 13px; color: var(--text-muted); max-width: 100%; margin: 0; }
+
+/* ============================================================ VALUES */
+.values-section { background: var(--bg-light); padding: 96px 0; }
+.value-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; margin-top: 56px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.value-card {
+  background: var(--bg-light);
+  padding: 48px 32px;
+  transition: background var(--transition);
+  cursor: default;
+}
+.value-card:hover { background: var(--bg-white); }
+.value-icon {
+  width: 44px; height: 44px;
+  background: rgba(196,30,58,0.07);
+  border: 1px solid rgba(196,30,58,0.15);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 24px;
+}
+.value-name {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 20px; letter-spacing: -0.015em;
+  color: var(--text-primary); margin-bottom: 6px;
+}
+.value-vn {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 16px;
+}
+.value-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; max-width: 100%; }
+
+/* ============================================================ TECHNOLOGY PAGE */
+.tech-hero {
+  background: var(--bg-dark); padding: 140px 0 80px;
+  border-bottom: 1px solid var(--border-dark);
+}
+.tech-specs {
+  background: var(--bg-mid); padding: 80px 0;
+}
+.spec-table {
+  width: 100%;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg); overflow: hidden;
+  margin-top: 48px;
+}
+.spec-row {
+  display: grid; grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid var(--border-dark);
+}
+.spec-row:last-child { border-bottom: none; }
+.spec-key {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-inv-muted);
+  padding: 18px 24px;
+  border-right: 1px solid var(--border-dark);
+  background: rgba(255,255,255,0.02);
+}
+.spec-val {
+  font-family: var(--font-mono);
+  font-size: 13px; color: var(--text-inv);
+  padding: 18px 24px;
+}
+.spec-tag {
+  display: inline-block;
+  font-family: var(--font-label);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  margin-left: 8px;
+  background: rgba(196,30,58,0.15);
+  color: var(--red);
+}
+.safety-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 48px;
+  background: var(--border-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.safety-card {
+  background: var(--bg-mid);
+  padding: 40px 32px;
+}
+.safety-card-num {
+  font-family: var(--font-mono);
+  font-size: 10px; color: var(--red); margin-bottom: 16px;
+}
+.safety-card h4 { color: var(--text-inv); margin-bottom: 12px; }
+.safety-card p { color: var(--text-inv-muted); font-size: 14px; line-height: 1.65; max-width: 100%; }
+
+/* ============================================================ INVESTOR PAGE */
+.investor-hero {
+  background: var(--bg-dark); padding: 140px 0 80px;
+}
+.investor-body { background: var(--bg-white); padding: 80px 0; }
+.roadmap {
+  margin-top: 48px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.roadmap-row {
+  display: grid; grid-template-columns: 160px 120px 1fr 160px;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.roadmap-row:last-child { border-bottom: none; }
+.roadmap-row.header { background: var(--bg-section); }
+.roadmap-cell {
+  padding: 18px 24px;
+  border-right: 1px solid var(--border);
+  font-size: 14px;
+}
+.roadmap-cell:last-child { border-right: none; }
+.roadmap-cell.header-cell {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.roadmap-cell .phase {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 15px; letter-spacing: -0.01em;
+}
+.roadmap-cell .timeline { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+.roadmap-cell ul { list-style: none; }
+.roadmap-cell ul li {
+  font-size: 13px; color: var(--text-muted);
+  padding: 3px 0;
+  display: flex; align-items: baseline; gap: 8px;
+}
+.roadmap-cell ul li::before { content: '—'; color: var(--red); flex-shrink: 0; font-size: 10px; }
+.roadmap-cell .funding {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 22px; letter-spacing: -0.02em; color: var(--text-primary);
+}
+.revenue-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 48px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.revenue-card {
+  background: var(--bg-white); padding: 36px 28px;
+  transition: background var(--transition);
+}
+.revenue-card:hover { background: var(--bg-light); }
+.revenue-card h4 { font-size: 16px; margin-bottom: 10px; }
+.revenue-card p { font-size: 14px; color: var(--text-muted); max-width: 100%; line-height: 1.6; }
+.doc-block {
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 56px;
+  margin-top: 64px;
+  text-align: center;
+}
+.doc-block h3 { margin-bottom: 16px; }
+.doc-block p { color: var(--text-muted); margin: 0 auto 40px; }
+.doc-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ============================================================ ABOUT PAGE */
+.about-hero { background: var(--bg-dark); padding: 140px 0 80px; }
+.about-body { background: var(--bg-white); padding: 80px 0; }
+.founder-card {
+  display: grid; grid-template-columns: 220px 1fr;
+  gap: 48px; align-items: start;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px; margin-top: 64px;
+}
+.founder-avatar {
+  width: 220px; height: 260px;
+  background: var(--bg-section);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 72px;
+}
+.founder-role {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 8px;
+}
+.founder-name {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 32px; letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.founder-bio p { color: var(--text-body); margin-bottom: 16px; max-width: 100%; }
+.timeline-section { background: var(--bg-light); padding: 80px 0; }
+.timeline {
+  margin-top: 48px;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 32px; top: 0; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.timeline-item {
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 32px; margin-bottom: 48px; position: relative;
+}
+.timeline-marker {
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 4px; position: relative; z-index: 1;
+}
+.timeline-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--red);
+  border: 3px solid var(--bg-light);
+  box-shadow: 0 0 0 1px var(--red);
+  flex-shrink: 0;
+}
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 11px; color: var(--red);
+  font-weight: 500; margin-bottom: 8px;
+}
+.timeline-content h4 { margin-bottom: 8px; }
+.timeline-content p { color: var(--text-muted); font-size: 14px; max-width: 480px; }
+
+/* ============================================================ CONTACT PAGE */
+.contact-hero { background: var(--bg-dark); padding: 140px 0 80px; }
+.contact-body { background: var(--bg-white); padding: 80px 0; }
+.contact-flows {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 2px; margin-top: 56px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.contact-flow {
+  background: var(--bg-white);
+  padding: 48px 40px;
+  transition: background var(--transition);
+}
+.contact-flow:hover { background: var(--bg-light); }
+.contact-flow-icon {
+  width: 48px; height: 48px;
+  background: rgba(196,30,58,0.07);
+  border: 1px solid rgba(196,30,58,0.15);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 24px;
+}
+.contact-flow h4 { margin-bottom: 10px; }
+.contact-flow .desc { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; max-width: 100%; }
+.contact-flow .contact-link {
+  font-family: var(--font-label);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--red);
+  display: inline-flex; align-items: center; gap: 6px;
+  cursor: pointer; transition: gap var(--transition);
+}
+.contact-flow .contact-link:hover { gap: 10px; }
+
+/* ============================================================ FOOTER */
+#footer {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+  padding: 64px 32px 40px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+}
+.footer-top {
+  display: grid; grid-template-columns: 280px repeat(4, 1fr);
+  gap: 48px; margin-bottom: 56px;
+}
+.footer-brand {}
+.footer-logo {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 20px; letter-spacing: 0.02em;
+  color: #fff; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.footer-brand-desc {
+  font-size: 13px; color: var(--text-inv-muted);
+  line-height: 1.6; max-width: 220px;
+  margin-bottom: 24px;
+}
+.footer-tagline {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(196,30,58,0.7);
+}
+.footer-col-title {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-inv-muted);
+  margin-bottom: 20px;
+}
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-link {
+  font-size: 14px; color: rgba(255,255,255,0.5);
+  cursor: pointer; transition: color var(--transition);
+}
+.footer-link:hover { color: #fff; }
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid var(--border-dark);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-location {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ============================================================ PAGE SYSTEM */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ============================================================ REVEAL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+
+/* ============================================================ HIGHLIGHT STRIP */
+.highlight-strip {
+  background: var(--red);
+  padding: 14px 32px;
+  overflow: hidden;
+}
+.strip-inner {
+  display: flex; gap: 64px;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+.strip-item {
+  font-family: var(--font-label);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  display: flex; align-items: center; gap: 24px;
+  flex-shrink: 0;
+}
+.strip-item::after { content: '·'; color: rgba(255,255,255,0.4); }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ============================================================ CTA SECTION */
+.cta-section {
+  background: var(--bg-dark); padding: 96px 0;
+  text-align: center;
+}
+
+/* ============================================================ PRODUCTS PAGE */
+.products-hero { background: var(--bg-dark); padding: 140px 0 80px; }
+.product-categories {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 56px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.product-cat {
+  background: var(--bg-white);
+  padding: 44px 32px;
+  transition: background var(--transition);
+}
+.product-cat:hover { background: var(--bg-light); }
+.product-cat-num {
+  font-family: var(--font-mono);
+  font-size: 10px; color: var(--red);
+  margin-bottom: 16px;
+}
+.product-cat h4 { margin-bottom: 10px; }
+.product-cat p { font-size: 14px; color: var(--text-muted); max-width: 100%; line-height: 1.65; }
+.product-cat-tag {
+  display: inline-block; margin-top: 16px;
+  font-family: var(--font-label);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 2px;
+  background: rgba(196,30,58,0.1); color: var(--red);
+}
+.customer-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 48px;
+  background: var(--border-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.customer-cell {
+  background: var(--bg-mid);
+  padding: 36px 28px;
+  transition: background var(--transition);
+}
+.customer-cell:hover { background: #1E2A3A; }
+.customer-cell-icon {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px; font-size: 16px;
+}
+.customer-cell h4 { color: var(--text-inv); font-size: 16px; margin-bottom: 8px; }
+.customer-cell p { color: var(--text-inv-muted); font-size: 13px; line-height: 1.6; max-width: 100%; }
+
+.procurement-flow {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; margin-top: 48px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.procurement-step {
+  background: var(--bg-white);
+  padding: 36px 28px;
+  position: relative;
+}
+.procurement-step-num {
+  font-family: var(--font-mono);
+  font-size: 11px; color: var(--red); margin-bottom: 14px;
+}
+.procurement-step h4 { font-size: 16px; margin-bottom: 8px; }
+.procurement-step p { font-size: 13px; color: var(--text-muted); max-width: 100%; line-height: 1.6; }
+
+/* ============================================================ USE CASES REDESIGNED */
+.app-overview-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 56px;
+  background: var(--border-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.app-overview-card {
+  background: var(--bg-mid);
+  padding: 40px 32px;
+  transition: background var(--transition);
+  cursor: default;
+}
+.app-overview-card:hover { background: #1E2A3A; }
+.app-overview-icon {
+  width: 44px; height: 44px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 20px;
+}
+.app-overview-card h4 { color: var(--text-inv); margin-bottom: 10px; font-size: 17px; }
+.app-overview-card p { color: var(--text-inv-muted); font-size: 14px; line-height: 1.6; max-width: 100%; }
+
+.op-usecase {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+}
+.op-usecase:last-child { border-bottom: none; }
+.op-usecase-header {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 40px;
+}
+.op-usecase-num {
+  font-family: var(--font-mono);
+  font-size: 11px; color: var(--red);
+  width: 40px; height: 40px;
+  border: 1px solid rgba(196,30,58,0.3);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.op-usecase-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.op-field {
+  background: var(--bg-white);
+  padding: 28px 24px;
+}
+.op-field-label {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 10px;
+}
+.op-field p { font-size: 14px; color: var(--text-body); max-width: 100%; line-height: 1.6; }
+.op-field-full { grid-column: 1 / -1; }
+
+/* ============================================================ SECTION DIVIDER */
+.section-divider {
+  height: 1px; background: var(--border);
+  margin: 0 32px;
+}
+
+/* ============================================================ INVESTOR ADVANTAGES */
+#page-investor .reveal > div[style*="display:grid"][style*="repeat(3,1fr)"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+#page-investor .reveal > div[style*="display:grid"][style*="repeat(3,1fr)"] > div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ============================================================ RESPONSIVE */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .value-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .hero-drone-svg { display: none; }
+  .product-categories { grid-template-columns: repeat(2, 1fr); }
+  .customer-grid { grid-template-columns: repeat(2, 1fr); }
+  .procurement-flow { grid-template-columns: repeat(2, 1fr); }
+  .app-overview-grid { grid-template-columns: repeat(2, 1fr); }
+
+  #page-investor .reveal > div[style*="display:grid"][style*="repeat(3,1fr)"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 768px) {
+  .container, .container-narrow { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .stat-block, .solution-pillars, .signal-grid { grid-template-columns: 1fr; }
+  .usecase-panel.active { grid-template-columns: 1fr; }
+  .contact-flows { grid-template-columns: 1fr; }
+  .revenue-grid, .safety-cards { grid-template-columns: 1fr; }
+  .value-grid { grid-template-columns: 1fr; }
+  .roadmap-row { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .founder-card { grid-template-columns: 1fr; }
+  .founder-avatar { width: 100%; height: 200px; }
+  .nav-links, .nav-right { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero-ctas { flex-direction: column; }
+  .hero-stats { gap: 32px; }
+  .doc-block { padding: 36px 24px; }
+  .doc-ctas { flex-direction: column; align-items: center; }
+  .product-categories { grid-template-columns: 1fr; }
+  .customer-grid { grid-template-columns: 1fr; }
+  .procurement-flow { grid-template-columns: 1fr; }
+  .app-overview-grid { grid-template-columns: 1fr; }
+  .op-usecase-grid { grid-template-columns: 1fr; }
+  .op-usecase { padding: 56px 0; }
+
+  #page-investor .reveal > div[style*="display:grid"][style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================================ LANG DROPDOWN */
+.lang-dropdown { position: relative; margin: 0 10px; }
+.lang-dropdown-toggle {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--font-label); font-size: 11px; font-weight: 600;
+  letter-spacing: .06em; text-transform: none;
+  color: rgba(255,255,255,.7);
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13);
+  border-radius: var(--radius); padding: 7px 12px 7px 10px;
+  cursor: pointer; transition: all var(--transition); white-space: nowrap;
+}
+.lang-dropdown-toggle:hover {
+  color: #fff; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.22);
+}
+.lang-dropdown-toggle .lang-flag { width: 16px; border-radius: 2px; flex-shrink: 0; }
+.lang-arrow {
+  width: 8px; height: 5px; flex-shrink: 0; opacity: .5;
+  transition: transform var(--transition);
+}
+.lang-dropdown.open .lang-arrow { transform: rotate(180deg); opacity: .9; }
+.lang-dropdown-menu {
+  position: absolute; top: calc(100% + 8px); right: 0; min-width: 152px;
+  background: #0d1119; border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,.55);
+  opacity: 0; transform: translateY(-8px); pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease; z-index: 200;
+}
+.lang-dropdown.open .lang-dropdown-menu {
+  opacity: 1; transform: translateY(0); pointer-events: auto;
+}
+.lang-dropdown-item {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  font-family: var(--font-label); font-size: 12px; font-weight: 600;
+  letter-spacing: .04em; color: rgba(255,255,255,.5);
+  background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.05);
+  padding: 13px 16px; cursor: pointer; transition: all 150ms ease; text-align: left;
+}
+.lang-dropdown-item:last-child { border-bottom: none; }
+.lang-dropdown-item:hover { background: rgba(255,255,255,.05); color: #fff; }
+.lang-dropdown-item.active {
+  color: #fff; background: rgba(196,30,58,.1);
+  border-left: 2px solid var(--red);
+  padding-left: 14px;
+}
+.lang-dropdown-item .item-flag { width: 18px; border-radius: 2px; flex-shrink: 0; }
+
+@media (prefers-color-scheme: light) {
+  .lang-dropdown-toggle { color: var(--text-muted); background: rgba(0,0,0,.04); border-color: var(--border); }
+  .lang-dropdown-toggle:hover { color: var(--text-primary); background: rgba(0,0,0,.07); border-color: rgba(0,0,0,.2); }
+  .lang-dropdown-menu { background: #fff; border-color: var(--border); box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+  .lang-dropdown-item { color: var(--text-muted); border-bottom-color: var(--border); }
+  .lang-dropdown-item:hover { background: var(--bg-section); color: var(--text-primary); }
+  .lang-dropdown-item.active { background: rgba(196,30,58,.05); color: var(--red); }
+}
+</style>
 </head>
 <body>
-<nav class="nav" role="navigation" aria-label="Main">
-  <a href="/" class="nav-logo"><img src="/Deron-logo-dark.png" alt="Deron logo" class="logo-dark" loading="lazy" decoding="async"><img src="/Deron-logo-light.png" alt="Deron logo" class="logo-light" loading="lazy" decoding="async">DERON</a>
-  <div class="nav-links"><a href="/" class="nav-link active">Trang chủ</a><a href="/gioi-thieu.html" class="nav-link">Về chúng tôi</a><a href="/cong-nghe.html" class="nav-link">Công nghệ</a><a href="/ung-dung.html" class="nav-link">Ứng dụng</a><a href="/san-pham.html" class="nav-link">Sản phẩm</a><a href="/lien-he.html" class="nav-link">Liên hệ</a></div>
-  <a href="/lien-he.html" class="nav-cta">Liên hệ</a>
-  <div class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
+
+<!-- ============================================================ NAVIGATION -->
+<nav id="nav">
+  <div class="nav-logo" onclick="navigate('home')">
+    <img src="public/Deron-logo-dark.png" class="logo-dark" alt="Deron logo">
+    <img src="public/Deron-logo-light.png" class="logo-light" alt="Deron logo">
+    <span>DERON</span>
+  </div>
+  <div class="nav-links">
+    <span class="nav-link" data-i18n="nav.about" onclick="navigate('about')">Về chúng tôi</span>
+    <span class="nav-link" data-i18n="nav.technology" onclick="navigate('technology')">Công nghệ</span>
+    <span class="nav-link" data-i18n="nav.usecases" onclick="navigate('usecases')">Ứng dụng</span>
+    <span class="nav-link" data-i18n="nav.contact" onclick="navigate('contact')">Liên hệ</span>
+    <span class="nav-link" data-i18n="nav.info" onclick="navigate('info')">Thông tin</span>
+    <span class="nav-link" data-i18n="nav.datcs" onclick="navigate('datcs')">DATCS</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-dropdown nav-lang" id="langDropdown">
+      <button class="lang-dropdown-toggle" onclick="toggleLangDropdown()" aria-haspopup="true" aria-expanded="false" aria-label="Chọn ngôn ngữ">
+        <span class="fi fi-vn fis lang-flag" id="langFlag"></span>
+        <span id="langLabel">VI</span>
+        <svg class="lang-arrow" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu">
+        <button class="lang-dropdown-item active" data-lang="vi" data-flag-class="fi-vn" data-label="VI" onclick="setLanguage('vi')" role="menuitem">
+          <span class="fi fi-vn fis item-flag"></span> Tiếng Việt
+        </button>
+        <button class="lang-dropdown-item" data-lang="en" data-flag-class="fi-us" data-label="EN" onclick="setLanguage('en')" role="menuitem">
+          <span class="fi fi-us fis item-flag"></span> English
+        </button>
+        <button class="lang-dropdown-item" data-lang="zh" data-flag-class="fi-cn" data-label="ZH" onclick="setLanguage('zh')" role="menuitem">
+          <span class="fi fi-cn fis item-flag"></span> 中文
+        </button>
+      </div>
+    </div>
+    <span class="nav-cta" data-i18n="nav.cta" onclick="navigate('investor')">Dành cho nhà đầu tư</span>
+  </div>
+  <div class="nav-hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
-<header class="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><div class="hero-badge-dot"></div>DERON · Chiến Dịch Điện Biên Phủ Trong Logistics</div>
-    <h1 class="hero-title">Kỷ nguyên<br>vươn mình của<br><span>dân tộc</span></h1>
-    <p class="hero-sub">Deron xây dựng nền tảng công nghệ drone của người Việt — mở ra một lớp hạ tầng mới trên bầu trời cho logistics, y tế khẩn cấp, cứu trợ thiên tai và nhiều ứng dụng UAV trong tương lai.</p>
-    <div class="hero-ctas">
-      <a href="/gioi-thieu.html" class="btn btn-primary btn-arrow">Khám phá sứ mệnh</a>
-      <a href="/ung-dung.html" class="btn btn-outline">Xem ứng dụng</a>
-    </div>
+<!-- Mobile Menu -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <span class="nav-mobile-link" data-i18n="nav.home" onclick="navigate('home');closeMobileNav()">Trang chủ</span>
+  <span class="nav-mobile-link" data-i18n="nav.about" onclick="navigate('about');closeMobileNav()">Về chúng tôi</span>
+  <span class="nav-mobile-link" data-i18n="nav.technology" onclick="navigate('technology');closeMobileNav()">Công nghệ</span>
+  <span class="nav-mobile-link" data-i18n="nav.usecases" onclick="navigate('usecases');closeMobileNav()">Ứng dụng</span>
+  <span class="nav-mobile-link" data-i18n="nav.investor" onclick="navigate('investor');closeMobileNav()">Nhà đầu tư</span>
+  <span class="nav-mobile-link" data-i18n="nav.contact" onclick="navigate('contact');closeMobileNav()">Liên hệ</span>
+  <span class="nav-mobile-link" data-i18n="nav.info" onclick="navigate('info');closeMobileNav()">Thông tin</span>
+  <span class="nav-mobile-link" data-i18n="nav.datcs" onclick="navigate('datcs');closeMobileNav()">DATCS</span>
+  <div class="mobile-lang">
+    <button class="mobile-lang-btn active" data-lang="vi" onclick="setLanguage('vi')"><span class="fi fi-vn fis"></span> Tiếng Việt</button>
+    <button class="mobile-lang-btn" data-lang="en" onclick="setLanguage('en')"><span class="fi fi-us fis"></span> English</button>
+    <button class="mobile-lang-btn" data-lang="zh" onclick="setLanguage('zh')"><span class="fi fi-cn fis"></span> 中文</button>
   </div>
-</header>
+</div>
 
-<section class="section" style="background:var(--bg-white);border-bottom:1px solid var(--border)">
-  <div class="container">
-    <div class="reveal">
-      <div class="label label-red">The Problem</div>
-      <h2 class="mt-16 max-w-720">Logistics Việt Nam đang trả giá bằng sinh mạng.</h2>
-      <p class="mt-24 text-muted text-18 max-w-600">Hạ tầng mặt đất đã đến giới hạn. Mỗi giờ trì hoãn trong y tế khẩn cấp — mỗi con đường bị cô lập sau bão — là một vấn đề chưa được giải quyết.</p>
-    </div>
-    <div class="tile-grid cols-3 mt-64 reveal">
-      <div class="cell"><h3 style="font-size:52px;font-weight:900;letter-spacing:-0.04em"><span style="color:var(--red)">16</span>–20<span style="color:var(--red)">%'</span></h3><p style="font-size:14px;color:var(--text-muted);margin-top:10px">Chi phí logistics so với GDP — gần gấp đôi các nước phát triển</p><p style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-top:8px;opacity:0.6">World Bank / Bộ Công Thương</p></div>
-      <div class="cell"><h3 style="font-size:52px;font-weight:900;letter-spacing:-0.04em">3.000<span style="color:var(--red)">+</span></h3><p style="font-size:14px;color:var(--text-muted);margin-top:10px">Xã vùng núi không có đường ô tô ổn định quanh năm</p><p style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-top:8px;opacity:0.6">GSO / Bộ GTVT</p></div>
-      <div class="cell"><h3 style="font-size:52px;font-weight:900;letter-spacing:-0.04em">4–6<span style="color:var(--red)">h</span></h3><p style="font-size:14px;color:var(--text-muted);margin-top:10px">Thời gian vận chuyển khẩn cấp đến vùng xa</p><p style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-top:8px;opacity:0.6">Ước tính vận hành</p></div>
-    </div>
-  </div>
-</section>
+<!-- ============================================================ HOME PAGE -->
+<div id="page-home" class="page active">
 
-<section class="section" style="background:var(--bg-light)">
-  <div class="container">
-    <div class="reveal">
-      <div class="label label-red">The Answer</div>
-      <h2 class="mt-16 max-w-720">Một lớp hạ tầng mới cho Việt Nam.</h2>
-      <p class="mt-24 text-muted text-18 max-w-600">Deron lấp đầy khoảng trắng mà hạ tầng cũ không với tới — bằng drone tự hành, bằng hệ thống được xây cho người Việt.</p>
-    </div>
-    <div class="tile-grid cols-3 mt-64">
-      <div class="cell reveal"><div class="mono-sm mb-16">01</div><h4 class="mb-8">Bay tự hành</h4><p style="font-size:15px;color:var(--text-muted)">Không cần pilot, không cần đường bộ. Hệ thống điều hành từ trung tâm.</p></div>
-      <div class="cell reveal reveal-delay-1"><div class="mono-sm mb-16">02</div><h4 class="mb-8">Thiết kế cho Việt Nam</h4><p style="font-size:15px;color:var(--text-muted)">Địa hình nhiệt đới, pháp lý, cộng đồng — chúng tôi là native.</p></div>
-      <div class="cell reveal reveal-delay-2"><div class="mono-sm mb-16">03</div><h4 class="mb-8">Đa nhiệm vụ</h4><p style="font-size:15px;color:var(--text-muted)">Y tế, cứu trợ, thương mại — cùng nền tảng, khác payload.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:var(--bg-dark)">
-  <div class="container">
-    <div class="reveal">
-      <div class="label label-inv">Ứng dụng</div>
-      <h2 class="text-inv mt-16 max-w-720">Drone cho nhiệm vụ thực.</h2>
-    </div>
-    <div class="tile-grid dark cols-3 mt-48">
-      <a href="/ung-dung/y-te-khan-cap.html" class="cell reveal" style="transition:background var(--transition)"><div style="font-size:28px;margin-bottom:16px">🏥</div><h4>Y tế khẩn cấp</h4><p style="font-size:14px;margin-top:8px">Vận chuyển thuốc, máu, vaccine đến trạm y tế vùng xa.</p></a>
-      <a href="/ung-dung/cuu-tro-thien-tai.html" class="cell reveal reveal-delay-1" style="transition:background var(--transition)"><div style="font-size:28px;margin-bottom:16px">🌊</div><h4>Cứu trợ thiên tai</h4><p style="font-size:14px;margin-top:8px">Hàng cứu trợ vào vùng cô lập khi đường bộ đã mất.</p></a>
-      <div class="cell reveal reveal-delay-2"><div style="font-size:28px;margin-bottom:16px">🏔️</div><h4>Logistics vùng xa</h4><p style="font-size:14px;margin-top:8px">Kết nối kho huyện với điểm giao cuối tại xã vùng cao.</p></div>
-    </div>
-    <div style="text-align:center;margin-top:48px" class="reveal"><a href="/ung-dung.html" class="btn btn-outline btn-arrow">Tất cả ứng dụng</a></div>
-  </div>
-</section>
-
-<section class="section" style="background:var(--bg-white)">
-  <div class="container">
-    <div class="reveal">
-      <div class="label label-red">Công nghệ</div>
-      <h2 class="mt-16 max-w-720">DMA — Flight controller thuần Việt.</h2>
-      <p class="mt-24 text-muted text-18 max-w-600">Deron tự phát triển hệ thống avionics DMA — không phụ thuộc platform nước ngoài. STM32F765, Raspberry Pi 5, PX4, dual redundancy.</p>
-      <div class="status-badge mt-24"><div class="dot"></div><span>In Development</span></div>
-    </div>
-    <div style="text-align:left;margin-top:40px" class="reveal"><a href="/cong-nghe.html" class="btn btn-outline-dark btn-arrow">Chi tiết công nghệ</a></div>
-  </div>
-</section>
-
-<section class="section" style="background:var(--bg-dark);text-align:center">
-  <div class="container">
-    <div class="reveal">
-      <div class="label label-inv mb-24">Bạn đứng ở đâu?</div>
-      <h2 class="text-inv" style="margin:0 auto 24px;max-width:600px">Tham gia hành trình xây dựng hạ tầng logistics Việt Nam.</h2>
-      <p style="color:var(--text-inv-muted);margin:0 auto 48px;font-size:18px">Cho dù bạn là đối tác, kỹ sư, hay người ủng hộ sứ mệnh — chúng tôi muốn nghe từ bạn.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        <a href="/san-pham.html" class="btn btn-primary btn-arrow">Xem sản phẩm</a>
-        <a href="/lien-he.html" class="btn btn-outline">Liên hệ với chúng tôi</a>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <svg class="hero-drone-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="160" stroke="white" stroke-width="1"/>
+      <circle cx="200" cy="200" r="100" stroke="white" stroke-width="1"/>
+      <circle cx="200" cy="200" r="40" stroke="white" stroke-width="2"/>
+      <line x1="200" y1="40" x2="200" y2="360" stroke="white" stroke-width="0.5"/>
+      <line x1="40" y1="200" x2="360" y2="200" stroke="white" stroke-width="0.5"/>
+      <circle cx="200" cy="40" r="8" fill="white"/>
+      <circle cx="360" cy="200" r="8" fill="white"/>
+      <circle cx="200" cy="360" r="8" fill="white"/>
+      <circle cx="40" cy="200" r="8" fill="white"/>
+      <circle cx="200" cy="200" r="6" fill="#C41E3A"/>
+      <path d="M200 160 L240 200 L200 240 L160 200 Z" stroke="white" stroke-width="1.5" fill="none"/>
+    </svg>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span data-i18n="hero.badge">DERON · Chiến Dịch Điện Biên Phủ Trong Logistics</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo"><img src="/Deron-logo-light.png" alt="Deron" class="footer-logo-img footer-logo-light" loading="lazy" decoding="async"><img src="/Deron-logo-dark.png" alt="Deron" class="footer-logo-img footer-logo-dark" loading="lazy" decoding="async"><span>DERON</span></div>
-        <p class="footer-brand-desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
-        <div class="footer-tagline">Made in Vietnam · Built for Vietnam</div>
+      <h1 class="hero-title" data-i18n-html="hero.title">
+        Kỷ nguyên<br>vươn mình của<br><span>dân tộc</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero.sub">
+        Deron xây dựng nền tảng công nghệ drone của người Việt — mở ra một lớp hạ tầng mới trên bầu trời cho logistics, nông nghiệp, giám sát, cứu hộ và nhiều ứng dụng UAV trong tương lai.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary btn-arrow" data-i18n="hero.cta1" onclick="navigate('about')">Khám phá sứ mệnh</button>
+        <button class="btn btn-outline" data-i18n="hero.cta2" onclick="navigate('investor')">Dành cho nhà đầu tư</button>
       </div>
-      <div>
-        <div class="footer-col-title">Sứ mệnh</div>
-        <div class="footer-links">
-          <a href="/gioi-thieu.html" class="footer-link">Về chúng tôi</a>
-          <a href="/cong-nghe.html" class="footer-link">Công nghệ DMA</a>
-          <a href="/ung-dung.html" class="footer-link">Ứng dụng</a>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value" data-count="16">0</div>
+          <div class="hero-stat-label" data-i18n-html="hero.stat1">% GDP — Chi phí logistics VN<br><span style="font-size:9px;opacity:0.6">Nguồn: World Bank</span></div>
         </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Tài nguyên</div>
-        <div class="footer-links">
-          <a href="/press.html" class="footer-link">Báo chí</a>
-          <a href="/nhat-ky.html" class="footer-link">Nhật ký phát triển</a>
-          <a href="/nguon-tham-khao.html" class="footer-link">Nguồn tham khảo</a>
-          <a href="/phap-ly.html" class="footer-link">Chính sách bảo mật</a>
+        <div>
+          <div class="hero-stat-value" data-count="3000" data-suffix="+">0</div>
+          <div class="hero-stat-label" data-i18n-html="hero.stat2">Xã thiếu đường ô tô ổn định<br><span style="font-size:9px;opacity:0.6">Nguồn: GSO / Bộ GTVT</span></div>
         </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Liên hệ</div>
-        <div class="footer-links">
-          <a href="mailto:ceo.deron@gmail.com" class="footer-link">ceo.deron@gmail.com</a>
-          <a href="tel:0363045747" class="footer-link">0363 045 747</a>
-          <span class="footer-link">deron.vn</span>
+        <div>
+          <div class="hero-stat-value" data-prefix="$" data-count="10" data-suffix="B">0</div>
+          <div class="hero-stat-label" data-i18n-html="hero.stat3">Thị trường LAE ước tính VN<br><span style="font-size:9px;opacity:0.6">Ước tính — chưa xác minh chính thức</span></div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
-      <div class="footer-copy">Founder: <span data-i18n="about.founder.name">Nguyễn Phúc Huy</span></div>
-      <div class="footer-location">Ho Chi Minh City · Vietnam</div>
+  </section>
+
+  <!-- HIGHLIGHT STRIP -->
+  <div class="highlight-strip">
+    <div class="strip-inner" id="strip">
+      <div class="strip-item" data-i18n="strip.1">Y tế khẩn cấp</div>
+      <div class="strip-item" data-i18n="strip.2">Cứu trợ thiên tai</div>
+      <div class="strip-item" data-i18n="strip.3">Logistics vùng xa</div>
+      <div class="strip-item" data-i18n="strip.4">Tự cường công nghệ Việt</div>
+      <div class="strip-item">Nghị quyết 57-NQ/TW</div>
+      <div class="strip-item">Deep-Tech · Made in Vietnam</div>
+      <div class="strip-item" data-i18n="strip.1">Y tế khẩn cấp</div>
+      <div class="strip-item" data-i18n="strip.2">Cứu trợ thiên tai</div>
+      <div class="strip-item" data-i18n="strip.3">Logistics vùng xa</div>
+      <div class="strip-item" data-i18n="strip.4">Tự cường công nghệ Việt</div>
+      <div class="strip-item">Nghị quyết 57-NQ/TW</div>
+      <div class="strip-item">Deep-Tech · Made in Vietnam</div>
     </div>
   </div>
-</footer>
 
-<script src="/assets/js/main.js"></script>
+  <!-- PROBLEM -->
+  <section class="problem-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" data-i18n="problem.label">The Problem</div>
+        <h2 style="margin-top:16px; max-width:700px;" data-i18n="problem.title">Logistics Việt Nam đang trả giá bằng sinh mạng.</h2>
+        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;" data-i18n="problem.desc">
+          Hạ tầng mặt đất đã đến giới hạn. Mỗi giờ trì hoãn trong y tế khẩn cấp — mỗi con đường bị cô lập sau bão — là một vấn đề chưa được giải quyết.
+        </p>
+      </div>
+      <div class="stat-block reveal reveal-delay-2">
+        <div class="stat-cell">
+          <div class="stat-num"><span>16</span>–20<span>%</span></div>
+          <div class="stat-desc" data-i18n="problem.stat1">Chi phí logistics so với GDP — gần gấp đôi các nước phát triển</div>
+          <div class="stat-source" data-i18n="problem.src1">World Bank / Bộ Công Thương</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">3.000<span>+</span></div>
+          <div class="stat-desc" data-i18n="problem.stat2">Xã vùng núi không có đường ô tô ổn định quanh năm</div>
+          <div class="stat-source" data-i18n="problem.src2">GSO / Bộ GTVT — chưa xác minh chính xác</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">4–6<span>h</span></div>
+          <div class="stat-desc" data-i18n="problem.stat3">Thời gian vận chuyển khẩn cấp đến vùng xa trong điều kiện thường</div>
+          <div class="stat-source" data-i18n="problem.src3">Ước tính vận hành</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" data-i18n="solution.label">The Answer</div>
+        <h2 style="margin-top:16px; max-width:700px;" data-i18n="solution.title">Một lớp hạ tầng mới cho Việt Nam.</h2>
+        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;" data-i18n="solution.desc">
+          Deron không thay thế logistics truyền thống. Deron lấp đầy những khoảng trắng mà hạ tầng cũ không với tới — bằng drone tự hành, bằng AI, bằng hệ thống được xây cho người Việt.
+        </p>
+      </div>
+      <div class="solution-pillars">
+        <div class="pillar reveal reveal-delay-1">
+          <div class="pillar-num">01</div>
+          <h4 data-i18n="solution.p1t">Bay tự hành</h4>
+          <p data-i18n="solution.p1d">Không cần pilot, không cần đường bộ, không bị địa hình cản trở. Hệ thống điều hành từ trung tâm.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-2">
+          <div class="pillar-num">02</div>
+          <h4 data-i18n="solution.p2t">Thiết kế cho Việt Nam</h4>
+          <p data-i18n="solution.p2d">Địa hình nhiệt đới, quy định pháp lý, ngôn ngữ, cộng đồng — không adapt, chúng tôi là native.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-3">
+          <div class="pillar-num">03</div>
+          <h4 data-i18n="solution.p3t">Đa nhiệm vụ</h4>
+          <p data-i18n="solution.p3d">Y tế, cứu trợ, thương mại — cùng một nền tảng, khác container. Một đội drone, nhiều ứng dụng.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NOW -->
+  <section class="why-now-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" data-i18n="whynow.label">WHY NOW</div>
+        <h2 class="text-inv" style="margin-top:16px; max-width:760px;" data-i18n="whynow.title">2025–2026 là thời điểm bản lề của UAV dân sự tại Việt Nam.</h2>
+        <p style="margin-top:24px; color:var(--text-inv-muted); font-size:18px; max-width:640px;" data-i18n="whynow.desc">
+          Khung quản lý đang rõ hơn. Chính sách công nghệ đang mở hơn. Các thử nghiệm ứng dụng thực tế đã bắt đầu xuất hiện. Và yêu cầu an toàn đang buộc thị trường phải bước sang giai đoạn chuyên nghiệp hơn.
+        </p>
+      </div>
+      <div class="signal-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="signal-cell reveal reveal-delay-1" onclick="window.open('https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/11/288nd.signed.pdf', '_blank')" style="cursor: pointer;">
+          <div class="signal-icon">⚖️</div>
+          <h4 data-i18n="whynow.s1t">Pháp lý đã tiến thêm một bước</h4>
+          <p data-i18n="whynow.s1d">Nghị định 288/2025/NĐ-CP được ban hành ngày 05/11/2025, bổ sung khung quản lý cho UAV từ đăng ký, khai thác sử dụng đến đào tạo và cấp giấy phép điều khiển.</p>
+          <span style="display:inline-block;font-family:var(--font-mono);font-size:9px;color:var(--text-inv-muted);opacity:.5;margin-top:12px">NĐ 288/2025/NĐ-CP</span>
+        </div>
+        <div class="signal-cell reveal reveal-delay-2">
+          <div class="signal-icon">📋</div>
+          <h4 data-i18n="whynow.s2t">Thủ tục đã có kênh trực tuyến</h4>
+          <p data-i18n="whynow.s2d">Hồ sơ cấp phép bay có thể nộp trực tuyến qua Cổng Dịch vụ công; nộp chậm nhất 07 ngày làm việc trước chuyến bay dự kiến, thời gian giải quyết là 5 ngày làm việc.</p>
+          <span style="display:inline-block;font-family:var(--font-mono);font-size:9px;color:var(--text-inv-muted);opacity:.5;margin-top:12px">Cổng Dịch vụ công quốc gia</span>
+        </div>
+        <div class="signal-cell reveal reveal-delay-3">
+          <div class="signal-icon">🏛️</div>
+          <h4 data-i18n="whynow.s3t">UAV đã vào chương trình công nghệ chiến lược</h4>
+          <p data-i18n="whynow.s3d">Nghị quyết 57-NQ/TW đặt KH&CN vào vai trò đột phá. Quyết định 1131/QĐ-TTg ban hành Danh mục công nghệ chiến lược. Bộ KH&CN đã công bố danh mục TCVN liên quan đến UAV.</p>
+          <span style="display:inline-block;font-family:var(--font-mono);font-size:9px;color:var(--text-inv-muted);opacity:.5;margin-top:12px">NQ 57-NQ/TW · QĐ 1131/QĐ-TTg</span>
+        </div>
+        <div class="signal-cell reveal reveal-delay-4">
+          <div class="signal-icon">🚀</div>
+          <h4 data-i18n="whynow.s4t">Thị trường đã có triển khai thực tế</h4>
+          <p data-i18n="whynow.s4d">Vietnam Post thí điểm UAV vận chuyển y tế tại Hà Nội. Sở KH&CN TP.HCM phối hợp Vietnam Post và CT UAV công bố tuyến giao hàng bưu chính UAV kết nối Cần Giờ – Vũng Tàu.</p>
+          <span style="display:inline-block;font-family:var(--font-mono);font-size:9px;color:var(--text-inv-muted);opacity:.5;margin-top:12px">Vietnam Post · Sở KH&CN TP.HCM · 2025–2026</span>
+        </div>
+        <div class="signal-cell reveal reveal-delay-5">
+          <div class="signal-icon">🛡️</div>
+          <h4 data-i18n="whynow.s5t">An toàn bay trở thành tiêu chuẩn bắt buộc</h4>
+          <p data-i18n="whynow.s5d">Các sự cố UAV trái phép gần sân bay trong tháng 2/2026 cho thấy thị trường không chỉ cần công nghệ, mà cần cả năng lực tuân thủ, kiểm soát rủi ro và vận hành an toàn.</p>
+          <span style="display:inline-block;font-family:var(--font-mono);font-size:9px;color:var(--text-inv-muted);opacity:.5;margin-top:12px">Cục Hàng không Việt Nam · 02/2026</span>
+        </div>
+        <div class="signal-cell" style="display:flex;align-items:center;justify-content:center;opacity:.3">
+          <div style="text-align:center">
+            <div style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--text-inv);letter-spacing:-.04em;line-height:1">2026</div>
+            <div style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-inv-muted);margin-top:8px" data-i18n="whynow.yearLabel">Năm bản lề</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES PREVIEW -->
+  <section class="values-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" data-i18n="values.label">Core Values</div>
+        <h2 style="margin-top:16px; max-width:700px;" data-i18n="values.title">Bốn giá trị. Không thỏa hiệp.</h2>
+        <p style="margin-top:24px; color:var(--text-muted); font-size:18px; max-width:600px;" data-i18n="values.desc">
+          Mọi quyết định kỹ thuật, chiến lược và vận hành của Deron đều bắt đầu từ đây.
+        </p>
+      </div>
+      <div class="value-grid">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🎯</div>
+          <div class="value-name">Authenticity</div>
+          <div class="value-vn" data-i18n="values.v1vn">Chân thực</div>
+          <p data-i18n="values.v1d">Chỉ công bố điều đã kiểm chứng. Không inflate số liệu. Không hứa hẹn vượt khả năng thực tế.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">❤️</div>
+          <div class="value-name">Compassion</div>
+          <div class="value-vn" data-i18n="values.v2vn">Lòng trắc ẩn</div>
+          <p data-i18n="values.v2d">Mọi thiết kế kỹ thuật bắt đầu từ câu hỏi: người dùng cuối là ai và họ thực sự cần gì nhất?</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">⚙️</div>
+          <div class="value-name">Improvement</div>
+          <div class="value-vn" data-i18n="values.v3vn">Cải tiến liên tục</div>
+          <p data-i18n="values.v3d">Mỗi nguyên mẫu là một bài học. Mỗi sự cố là dữ liệu. Không bảo vệ cái sai khi có cách tốt hơn.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-4">
+          <div class="value-icon">🤝</div>
+          <div class="value-name">Hospitality</div>
+          <div class="value-vn" data-i18n="values.v4vn">Tinh thần phụng sự</div>
+          <p data-i18n="values.v4d">Phục vụ cộng đồng như phục vụ người thân — không bỏ lại ai vì lý do kinh tế hay địa hình.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="label label-inv" style="margin-bottom:24px;" data-i18n="cta.label">Bạn đứng ở đâu?</div>
+        <h2 class="text-inv" style="margin: 0 auto 24px; max-width:600px;" data-i18n="cta.title">Tham gia hành trình xây dựng hạ tầng logistics Việt Nam.</h2>
+        <p style="color:var(--text-inv-muted); margin: 0 auto 48px; font-size:18px;" data-i18n="cta.desc">
+          Cho dù bạn là nhà đầu tư, kỹ sư, đối tác chiến lược hay người ủng hộ sứ mệnh — chúng tôi muốn nghe từ bạn.
+        </p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-arrow" data-i18n="cta.btn1" onclick="navigate('investor')">Tôi là nhà đầu tư</button>
+          <button class="btn btn-outline" data-i18n="cta.btn2" onclick="navigate('contact')">Liên hệ với chúng tôi</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (on home) -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo"><span style="color:var(--red)">●</span> DERON</div>
+          <p class="footer-brand-desc" data-i18n="footer.desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
+          <div class="footer-tagline" data-i18n="footer.tagline">Made in Vietnam · Built for Vietnam</div>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="footer.col1">Sứ mệnh</div>
+          <div class="footer-links">
+            <span class="footer-link" data-i18n="footer.l1" onclick="navigate('about')">Về chúng tôi</span>
+            <span class="footer-link" data-i18n="footer.l2" onclick="navigate('about')">Giá trị cốt lõi</span>
+            <span class="footer-link" data-i18n="footer.l3" onclick="navigate('about')">Lộ trình</span>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="footer.col2">Sản phẩm</div>
+          <div class="footer-links">
+            <span class="footer-link" data-i18n="footer.l4" onclick="navigate('technology')">Công nghệ DMA</span>
+            <span class="footer-link" data-i18n="footer.l5" onclick="navigate('usecases')">Ứng dụng</span>
+            <span class="footer-link" data-i18n="footer.l6" onclick="navigate('technology')">Triết lý an toàn</span>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="footer.col3">Đầu tư</div>
+          <div class="footer-links">
+            <span class="footer-link" data-i18n="footer.l7" onclick="navigate('investor')">Nhà đầu tư</span>
+            <span class="footer-link" data-i18n="footer.l8" onclick="navigate('investor')">Tải Pitch Deck</span>
+            <span class="footer-link" data-i18n="footer.l9" onclick="navigate('investor')">Lộ trình vốn</span>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="footer.col4">Liên hệ</div>
+          <div class="footer-links">
+            <a class="footer-link" href="mailto:ceo.deron@gmail.com">ceo.deron@gmail.com</a>
+            <a class="footer-link" href="tel:0363045747">0363 045 747</a>
+            <span class="footer-link">deron.vn</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy" data-i18n="footer.copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
+        <div class="footer-copy">Founder: <span data-i18n="about.founder.name">Nguyễn Phúc Huy</span></div>
+        <div class="footer-location" data-i18n="footer.location">Ho Chi Minh City · Vietnam</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ ABOUT PAGE -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div style="background: var(--bg-dark); position:relative; overflow:hidden;">
+      <div class="hero-grid-bg" style="opacity:0.3;"></div>
+      <div class="container" style="padding-top:140px; padding-bottom:80px; position:relative; z-index:2;">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="about.label">About Deron</div>
+        <h1 class="text-inv" style="max-width:760px;" data-i18n="about.title">Không bắt đầu từ<br>cơ hội thị trường.</h1>
+        <p style="color:var(--text-inv-muted); font-size:20px; margin-top:24px; max-width:560px; line-height:1.65;" data-i18n="about.sub">
+          Deron bắt đầu từ một câu hỏi — và quyết tâm không để nó không có câu trả lời.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-body">
+    <div class="container">
+      <div class="grid-2" style="gap:80px; align-items:start;">
+        <div class="reveal">
+          <div class="label label-red" style="margin-bottom:20px;" data-i18n="about.origin">Nguồn gốc</div>
+          <h3 style="margin-bottom:24px; line-height:1.15;" data-i18n-html="about.whyTitle">Tại sao Deron<br>tồn tại?</h3>
+          <p style="color:var(--text-body); margin-bottom:16px; max-width:100%;" data-i18n="about.why.p1">
+            Tại sao cứ mỗi mùa mưa, những vùng đất không còn bị cô lập với thế giới — mà lại bị cô lập với hệ thống cứu trợ?
+          </p>
+          <p style="color:var(--text-muted); margin-bottom:16px; max-width:100%;" data-i18n="about.why.p2">
+            Tại sao trực thăng quân sự là giải pháp duy nhất — không phải vì không có công nghệ thay thế, mà vì không ai chịu xây nó?
+          </p>
+          <p style="color:var(--text-muted); max-width:100%;" data-i18n="about.why.p3">
+            Deron được xây để trả lời những câu hỏi đó. Bằng kỹ thuật. Bằng cam kết. Bằng gốc rễ Việt Nam.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="label label-red" style="margin-bottom:20px;" data-i18n="about.dbp.label">Điện Biên Phủ</div>
+          <h3 style="margin-bottom:24px; line-height:1.15;" data-i18n-html="about.dbp.title">Cảm hứng từ<br>tinh thần dân tộc</h3>
+          <p style="color:var(--text-body); margin-bottom:16px; max-width:100%;" data-i18n="about.dbp.p1">
+            Lấy cảm hứng từ lời của cố Đại tướng Võ Nguyên Giáp: "Đã đến lúc có những trận Điện Biên Phủ mới" — không phải về chiến tranh, mà về ý chí tự cường.
+          </p>
+          <p style="color:var(--text-muted); max-width:100%;" data-i18n="about.dbp.p2">
+            Chiến dịch Điện Biên Phủ là bằng chứng rằng người Việt có thể chiến thắng bằng trí tuệ, bằng sáng tạo, bằng ý chí — kể cả khi đối mặt với những thách thức tưởng như bất khả thi.
+          </p>
+        </div>
+      </div>
+
+      <!-- Founder -->
+      <div class="founder-card reveal">
+        <div class="founder-avatar"><img src="public/Nguyenphuchuy.JPG" alt="Nguyễn Phúc Huy" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:var(--radius-lg); display:block;"></div>
+        <div>
+          <div class="founder-role" data-i18n="about.founder.role">Founder & Project Leader</div>
+          <div class="founder-name" data-i18n="about.founder.name">Nguyễn Phúc Huy</div>
+          <div class="founder-bio">
+            <p data-i18n="about.founder.p1">Người sáng lập Deron, sinh ra và lớn lên tại Đăk Lắk — một trong những tỉnh có địa hình phức tạp và nhiều vùng khó tiếp cận nhất Tây Nguyên.</p>
+            <p data-i18n="about.founder.p2">Hiện đặt tại TP. Hồ Chí Minh, Harry đang xây dựng Deron với tầm nhìn dài hạn về hạ tầng logistics tầm thấp — xuất phát từ nhu cầu thực tế, không phải từ trend công nghệ.</p>
+            <p data-i18n="about.founder.p3">Deron là một trong số ít startup Việt Nam đang tự phát triển flight controller riêng (DMA) thay vì phụ thuộc hoàn toàn vào platform nước ngoài.</p>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
+            <a href="mailto:ceo.deron@gmail.com" class="btn btn-outline-dark" style="font-size:11px; padding:10px 20px;">ceo.deron@gmail.com</a>
+            <a href="tel:0363045747" class="btn btn-ghost" style="font-size:11px;">0363 045 747</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" style="margin-bottom:20px;" data-i18n="about.roadmap.label">Roadmap</div>
+        <h2 style="margin-bottom:48px;" data-i18n-html="about.roadmap.title">Lộ trình từ nguyên mẫu<br>đến hạ tầng quốc gia.</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"><div class="timeline-dot"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-i18n="about.tl1.year">2025 — Q2/2026 · Pre-Seed</div>
+            <h4 data-i18n="about.tl1.title">Xây nền tảng kỹ thuật</h4>
+            <p data-i18n="about.tl1.desc">Hoàn thiện DMA flight controller, thiết kế VTOL hybrid, xin phép thử nghiệm, gọi vốn $500K. Đây là giai đoạn chứng minh khả năng kỹ thuật.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-marker"><div class="timeline-dot"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-i18n="about.tl2.year">2026 — 2027 · Seed</div>
+            <h4 data-i18n="about.tl2.title">Thương mại hóa ứng dụng đầu tiên</h4>
+            <p data-i18n="about.tl2.desc">Chuyến bay thương mại đầu tiên. Hợp tác với bệnh viện / đơn vị y tế tại tỉnh thí điểm. Xây đội bay nhỏ, chuẩn hóa vận hành.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-marker"><div class="timeline-dot"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-i18n="about.tl3.year">2027 — 2028 · Series A</div>
+            <h4 data-i18n="about.tl3.title">Mở rộng mạng lưới</h4>
+            <p data-i18n="about.tl3.desc">Triển khai đội bay tại 3+ tỉnh/thành. Mở rộng sang logistics thương mại chặng cuối. Xây nền tảng Airspace-as-a-Service.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-3">
+          <div class="timeline-marker"><div class="timeline-dot" style="background:var(--text-muted); box-shadow: 0 0 0 1px var(--text-muted);"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-i18n="about.tl4.year">2028+ · Scale</div>
+            <h4 data-i18n="about.tl4.title">Hạ tầng logistics tầm thấp quốc gia</h4>
+            <p data-i18n="about.tl4.desc">Mạng lưới drone logistics phủ các vùng chiến lược. Platform kết nối đơn vị vận chuyển, bệnh viện, chính quyền địa phương. Xuất khẩu mô hình.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer-about" style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026 Deron. Made in Vietnam.</div>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ TECHNOLOGY PAGE -->
+<div id="page-technology" class="page">
+  <div class="tech-hero">
+    <div style="position:relative; overflow:hidden; background:var(--bg-dark);">
+      <div class="hero-grid-bg" style="opacity:0.25;"></div>
+      <div class="container" style="padding-top:140px; padding-bottom:80px; position:relative; z-index:2;">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.label">Technology</div>
+        <h1 class="text-inv" style="max-width:800px;" data-i18n-html="tech.title">Chúng tôi không<br>mua công nghệ.<br>Chúng tôi <span style="color:var(--red)">xây</span> nó.</h1>
+        <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;" data-i18n="tech.sub">
+          Bởi vì không có hệ thống nào được thiết kế cho địa hình Việt Nam, quy định Việt Nam, và cộng đồng Việt Nam — trước khi Deron bắt đầu làm.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-specs">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.dma.label">DMA — Deron Main Avionics</div>
+        <h2 class="text-inv" style="margin-bottom:8px;" data-i18n-html="tech.dma.title">Flight controller<br>thuần Việt.</h2>
+        <p style="color:var(--text-inv-muted); font-size:16px; max-width:540px; margin-bottom:8px;" data-i18n="tech.dma.desc">
+          DMA là hệ thống avionics tự phát triển — không phụ thuộc platform nước ngoài.
+          Đang trong giai đoạn phát triển, mục tiêu hoàn thiện Q2/2026.
+        </p>
+        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(196,30,58,0.15); border:1px solid rgba(196,30,58,0.3); border-radius:4px; padding:6px 12px; margin-bottom:36px;">
+          <div style="width:6px; height:6px; border-radius:50%; background:var(--red); animation:pulse 2s infinite;"></div>
+          <span style="font-family:var(--font-label); font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--red);" data-i18n="tech.dma.status">In Development</span>
+        </div>
+      </div>
+      <div class="spec-table reveal">
+        <div class="spec-row">
+          <div class="spec-key">FMU</div>
+          <div class="spec-val" data-i18n="tech.spec.fmu">STM32F765 — Flight Management Unit chính</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">IO Processor</div>
+          <div class="spec-val" data-i18n="tech.spec.io">STM32F103 — Input/Output dedicated processor</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">Companion</div>
+          <div class="spec-val">Raspberry Pi 5 — AI routing, mission logic, telemetry</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">IMU</div>
+          <div class="spec-val" data-i18n-html="tech.spec.imu">Dual IMU — redundant inertial measurement <span class="spec-tag">Redundant</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">Barometer</div>
+          <div class="spec-val" data-i18n-html="tech.spec.baro">Dual Barometer — altitude sensing redundancy <span class="spec-tag">Redundant</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">GNSS</div>
+          <div class="spec-val">GNSS / RTK — high-precision positioning</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">Watchdog</div>
+          <div class="spec-val" data-i18n-html="tech.spec.watchdog">Hardware Watchdog — independent fail detection <span class="spec-tag">Safety-Critical</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">Power</div>
+          <div class="spec-val">INA226 current sensing · TPS54560 dual buck · LM74700 ideal diode</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">Autopilot</div>
+          <div class="spec-val">PX4 — open standard, certified autopilot base</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">EDA</div>
+          <div class="spec-val" data-i18n="tech.spec.eda">KiCad — PCB layout & schematic (in progress)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:var(--bg-dark); padding:80px 0;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.safety.label">Safety Philosophy</div>
+        <h2 class="text-inv" style="margin-bottom:24px; max-width:600px;" data-i18n="tech.safety.title">An toàn không phải tính năng. An toàn là kiến trúc.</h2>
+        <p style="color:var(--text-inv-muted); font-size:18px; max-width:560px; margin-bottom:56px;" data-i18n="tech.safety.desc">
+          Mọi component của Deron được thiết kế với giả định nó sẽ fail — và fail một cách an toàn.
+        </p>
+      </div>
+      <div class="safety-cards">
+        <div class="safety-card reveal reveal-delay-1">
+          <div class="safety-card-num">01 / SENSOR</div>
+          <h4 data-i18n="tech.s1.title">Dual Sensor Redundancy</h4>
+          <p data-i18n="tech.s1.desc">Hai bộ IMU và barometer hoàn toàn độc lập. Nếu một cảm biến fail, hệ thống tự chuyển sang nguồn dự phòng mà không gián đoạn chuyến bay.</p>
+        </div>
+        <div class="safety-card reveal reveal-delay-2">
+          <div class="safety-card-num">02 / WATCHDOG</div>
+          <h4 data-i18n="tech.s2.title">Hardware Watchdog</h4>
+          <p data-i18n="tech.s2.desc">Mạch giám sát vật lý độc lập với flight controller chính. Phát hiện và xử lý sự cố phần cứng trước khi firmware có thể phản ứng.</p>
+        </div>
+        <div class="safety-card reveal reveal-delay-3">
+          <div class="safety-card-num">03 / FAILSAFE</div>
+          <h4 data-i18n="tech.s3.title">Automatic Return-to-Home</h4>
+          <p data-i18n="tech.s3.desc">Trong mọi tình huống mất kết nối, pin thấp, hoặc sensor anomaly — drone tự động về điểm xuất phát. Không phụ thuộc quyết định của operator.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026 Deron. Made in Vietnam.</div>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ USE CASES PAGE (REDESIGNED) -->
+<div id="page-usecases" class="page">
+  <!-- HERO -->
+  <div style="background:var(--bg-dark); padding:140px 0 80px; position:relative; overflow:hidden;">
+    <div class="hero-grid-bg" style="opacity:0.25;"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="label label-inv" style="margin-bottom:20px;" data-i18n="uc.hero.badge">Ứng dụng thực tế</div>
+      <h1 class="text-inv" style="max-width:760px;" data-i18n-html="uc.hero.title">Drone vận hành<br>cho nhiệm vụ <span style="color:var(--red)">thực.</span></h1>
+      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;" data-i18n="uc.hero.p">
+        Mỗi ứng dụng của Deron được thiết kế từ bài toán vận hành cụ thể — rõ đối tượng, rõ quy trình, rõ vai trò của drone trong chuỗi vận hành.
+      </p>
+    </div>
+  </div>
+
+  <!-- APPLICATION OVERVIEW GRID -->
+  <section style="background:var(--bg-dark); padding:0 0 80px; border-bottom:1px solid var(--border-dark);">
+    <div class="container">
+      <div class="app-overview-grid">
+        <div class="app-overview-card reveal">
+          <div class="app-overview-icon">🏥</div>
+          <h4 data-i18n="uc.ov1.title">Y tế khẩn cấp</h4>
+          <p data-i18n="uc.ov1.p">Vận chuyển thuốc, máu, vaccine đến trạm y tế vùng xa — nơi xe cứu thương không thể đến kịp.</p>
+        </div>
+        <div class="app-overview-card reveal reveal-delay-1">
+          <div class="app-overview-icon">🌊</div>
+          <h4 data-i18n="uc.ov2.title">Cứu trợ thiên tai</h4>
+          <p data-i18n="uc.ov2.p">Đưa hàng cứu trợ vào vùng bị cô lập sau bão, lũ — khi đường bộ và cầu đã bị phá hủy.</p>
+        </div>
+        <div class="app-overview-card reveal reveal-delay-2">
+          <div class="app-overview-icon">🏔️</div>
+          <h4 data-i18n="uc.ov3.title">Logistics vùng xa</h4>
+          <p data-i18n="uc.ov3.p">Kết nối kho trung chuyển huyện với điểm giao cuối tại các xã vùng cao, vùng sâu.</p>
+        </div>
+        <div class="app-overview-card reveal reveal-delay-1">
+          <div class="app-overview-icon">🏭</div>
+          <h4 data-i18n="uc.ov4.title">Giao vận khu công nghiệp</h4>
+          <p data-i18n="uc.ov4.p">Vận chuyển linh kiện, mẫu thử, tài liệu giữa các tòa nhà và nhà máy trong khu vực khép kín.</p>
+        </div>
+        <div class="app-overview-card reveal reveal-delay-2">
+          <div class="app-overview-icon">🏝️</div>
+          <h4 data-i18n="uc.ov5.title">Hậu cần đảo & ven biển</h4>
+          <p data-i18n="uc.ov5.p">Giao hàng ra đảo bằng VTOL hybrid — không phụ thuộc phà, giảm thời gian chờ.</p>
+        </div>
+        <div class="app-overview-card reveal reveal-delay-3">
+          <div class="app-overview-icon">🎯</div>
+          <h4 data-i18n="uc.ov6.title">Nhiệm vụ đặc thù</h4>
+          <p data-i18n="uc.ov6.p">Giám sát, khảo sát, đo đạc — nền tảng UAV đa nhiệm, thay đổi payload theo yêu cầu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATIONAL USE CASES — DETAIL -->
+  <section style="background:var(--bg-white);">
+    <div class="container">
+
+      <!-- UC 01: Y tế khẩn cấp -->
+      <div class="op-usecase reveal">
+        <div class="op-usecase-header">
+          <div class="op-usecase-num">01</div>
+          <div>
+            <div class="label label-red" style="margin-bottom:6px;" data-i18n="uc.op1.cat">Y tế khẩn cấp</div>
+            <h3 style="line-height:1.15;" data-i18n="uc.op1.h3">Thuốc cấp cứu đến trạm y tế — không qua đường bộ.</h3>
+          </div>
+        </div>
+        <div class="op-usecase-grid">
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.baito">Bài toán</div>
+            <p data-i18n="uc.op1.baito">Bệnh nhân cấp cứu tại xã vùng xa cần thuốc chuyên biệt (thuốc tiêu huyết khối, huyết tương, vaccine). Đường đến bệnh viện huyện xa, xe cứu thương không có sẵn hoặc không thể tiếp cận do địa hình.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.doituong">Đối tượng</div>
+            <p data-i18n="uc.op1.doituong">Bệnh viện huyện, trạm y tế xã, Sở Y tế tỉnh, các chương trình y tế dự phòng, tổ chức y tế quốc tế hoạt động tại Việt Nam.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.cantiep">Deron can thiệp ở đâu</div>
+            <p data-i18n="uc.op1.cantiep">Drone cất cánh từ kho thuốc trung chuyển tại huyện, mang container y tế bảo quản nhiệt độ kiểm soát, hạ cánh tại bãi đáp được chỉ định tại trạm y tế xã. Toàn bộ hành trình tự hành, giám sát từ GCS.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.ketqua">Kết quả kỳ vọng</div>
+            <p data-i18n="uc.op1.ketqua">Rút ngắn đáng kể thời gian vận chuyển thuốc cấp cứu so với đường bộ. Đảm bảo chuỗi lạnh cho dược phẩm nhạy cảm. Giảm phụ thuộc vào phương tiện trực thăng chi phí cao.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.payload">Payload</div>
+            <p data-i18n="uc.op1.payload">Container y tế bảo quản nhiệt độ — thuốc, máu, vaccine, thiết bị y tế nhỏ (dưới 5kg).</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.dkien">Điều kiện triển khai</div>
+            <p data-i18n="uc.op1.dkien">Bãi đáp tại trạm y tế xã, phủ sóng 4G/5G trên hành trình, phê duyệt bay từ cơ quan quản lý, nhân sự tiếp nhận tại điểm đến.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UC 02: Cứu trợ thiên tai -->
+      <div class="op-usecase reveal">
+        <div class="op-usecase-header">
+          <div class="op-usecase-num">02</div>
+          <div>
+            <div class="label label-red" style="margin-bottom:6px;" data-i18n="uc.op2.cat">Cứu trợ thiên tai</div>
+            <h3 style="line-height:1.15;" data-i18n="uc.op2.h3">Hàng cứu trợ vào vùng cô lập — khi đường bộ đã mất.</h3>
+          </div>
+        </div>
+        <div class="op-usecase-grid">
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.baito">Bài toán</div>
+            <p data-i18n="uc.op2.baito">Sau bão, lũ quét, sạt lở — nhiều xã bị cô lập hoàn toàn. Đường bộ sạt lở, cầu tạm bị cuốn. Trực thăng quân sự ưu tiên sơ tán người. Hàng cứu trợ không vào được trong những giờ đầu tiên.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.doituong">Đối tượng</div>
+            <p data-i18n="uc.op2.doituong">Ban Chỉ huy Phòng chống thiên tai, Hội Chữ thập đỏ, chính quyền địa phương, tổ chức cứu trợ, lực lượng quân đội/công an hỗ trợ.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.cantiep">Deron can thiệp ở đâu</div>
+            <p data-i18n="uc.op2.cantiep">Fleet drone cất cánh từ điểm tập kết an toàn, bay theo hành trình tính toán trước (tránh vùng gió xoáy), thả hàng tại tọa độ GPS được chỉ định bởi đội cứu trợ mặt đất.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.ketqua">Kết quả kỳ vọng</div>
+            <p data-i18n="uc.op2.ketqua">Đưa nhu yếu phẩm vào vùng cô lập trong giờ đầu tiên sau thiên tai. Giảm phụ thuộc vào trực thăng chi phí cao. Vận hành liên tục, đa drone, đa chuyến.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.payload">Payload</div>
+            <p data-i18n="uc.op2.payload">Thực phẩm khô, nước lọc, thuốc cơ bản, pin sạc dự phòng, bộ sơ cứu (dưới 5kg/chuyến).</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.dkien">Điều kiện triển khai</div>
+            <p data-i18n="uc.op2.dkien">Điểm cất cánh an toàn ngoài vùng ảnh hưởng, dữ liệu GPS vùng thiên tai, liên lạc với đội cứu trợ mặt đất, điều kiện thời tiết cho phép bay.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UC 03: Logistics vùng xa -->
+      <div class="op-usecase reveal">
+        <div class="op-usecase-header">
+          <div class="op-usecase-num">03</div>
+          <div>
+            <div class="label label-red" style="margin-bottom:6px;" data-i18n="uc.op3.cat">Logistics vùng xa</div>
+            <h3 style="line-height:1.15;" data-i18n="uc.op3.h3">Chặng cuối từ huyện đến xã — bằng drone.</h3>
+          </div>
+        </div>
+        <div class="op-usecase-grid">
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.baito">Bài toán</div>
+            <p data-i18n="uc.op3.baito">Hàng hóa từ kho huyện đến xã vùng cao mất nhiều ngày do địa hình hiểm trở, thiếu tài xế, đường xấu mùa mưa. Chi phí giao hàng chặng cuối cao, tần suất thấp.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.doituong">Đối tượng</div>
+            <p data-i18n="uc.op3.doituong">Sàn thương mại điện tử, đơn vị logistics chặng cuối, hộ kinh doanh vùng cao, bưu cục/bưu điện huyện.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.cantiep">Deron can thiệp ở đâu</div>
+            <p data-i18n="uc.op3.cantiep">Kết nối kho trung chuyển tại trung tâm huyện với điểm giao hàng cuối. Drone bay theo hành trình định sẵn, người nhận nhận thông báo trước khi drone hạ cánh.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.ketqua">Kết quả kỳ vọng</div>
+            <p data-i18n="uc.op3.ketqua">Rút ngắn đáng kể thời gian giao hàng chặng cuối. Tăng tần suất giao — không phụ thuộc điều kiện đường bộ. Mở rộng khả năng tiếp cận thương mại cho cộng đồng vùng xa.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.payload">Payload</div>
+            <p data-i18n="uc.op3.payload">Hàng hóa tiêu dùng, thuốc không kê đơn, vật tư nông nghiệp nhỏ (dưới 5kg).</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.dkien">Điều kiện triển khai</div>
+            <p data-i18n="uc.op3.dkien">Kho trung chuyển tại huyện, bãi đáp tại điểm nhận, phủ sóng viễn thông trên hành trình, hợp đồng với đơn vị logistics.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UC 04: KCN & Campus -->
+      <div class="op-usecase reveal">
+        <div class="op-usecase-header">
+          <div class="op-usecase-num">04</div>
+          <div>
+            <div class="label label-red" style="margin-bottom:6px;" data-i18n="uc.op4.cat">Giao vận khu công nghiệp</div>
+            <h3 style="line-height:1.15;" data-i18n="uc.op4.h3">Vận chuyển nội bộ tự hành — nhanh, chính xác.</h3>
+          </div>
+        </div>
+        <div class="op-usecase-grid">
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.baito">Bài toán</div>
+            <p data-i18n="uc.op4.baito">Khu công nghiệp, bệnh viện lớn, campus rộng cần vận chuyển linh kiện, mẫu xét nghiệm, tài liệu giữa các tòa nhà/nhà máy — tốn thời gian và nhân lực nếu đi đường bộ nội bộ.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.doituong">Đối tượng</div>
+            <p data-i18n="uc.op4.doituong">Ban quản lý KCN, bệnh viện lớn, campus đại học, trung tâm R&D, nhà máy sản xuất.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.cantiep">Deron can thiệp ở đâu</div>
+            <p data-i18n="uc.op4.cantiep">Drone giao hàng nội bộ tự hành — bay theo lịch trình hoặc theo yêu cầu, hạ cánh tại bãi đáp cố định giữa các tòa nhà.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.ketqua">Kết quả kỳ vọng</div>
+            <p data-i18n="uc.op4.ketqua">Giảm thời gian vận chuyển nội bộ. Giải phóng nhân lực khỏi công việc giao nhận thủ công. Tăng hiệu suất chuỗi cung ứng nội bộ.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.payload">Payload</div>
+            <p data-i18n="uc.op4.payload">Linh kiện điện tử, mẫu xét nghiệm, tài liệu, phụ tùng nhỏ (dưới 5kg).</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.dkien">Điều kiện triển khai</div>
+            <p data-i18n="uc.op4.dkien">Không phận nội bộ được phê duyệt, bãi đáp cố định tại các điểm giao/nhận, hệ thống quản lý đơn hàng tích hợp.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UC 05: Đảo & ven biển -->
+      <div class="op-usecase reveal">
+        <div class="op-usecase-header">
+          <div class="op-usecase-num">05</div>
+          <div>
+            <div class="label label-red" style="margin-bottom:6px;" data-i18n="uc.op5.cat">Hậu cần đảo & ven biển</div>
+            <h3 style="line-height:1.15;" data-i18n="uc.op5.h3">Giao hàng qua biển — không chờ phà.</h3>
+          </div>
+        </div>
+        <div class="op-usecase-grid">
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.baito">Bài toán</div>
+            <p data-i18n="uc.op5.baito">Cư dân đảo phụ thuộc phà — tần suất thấp, thời gian di chuyển dài. Hàng khẩn cấp (thuốc, phụ tùng tàu thuyền) không có trên đảo, phải chờ chuyến phà tiếp theo.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.doituong">Đối tượng</div>
+            <p data-i18n="uc.op5.doituong">Cộng đồng dân cư đảo, đơn vị quân sự trên đảo, ngư dân, giàn khoan ven bờ, trạm hải đăng.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.cantiep">Deron can thiệp ở đâu</div>
+            <p data-i18n="uc.op5.cantiep">VTOL hybrid bay từ đất liền ra đảo, giao hàng tại điểm hạ cánh chỉ định. Không phụ thuộc lịch phà hay điều kiện sóng biển (trong giới hạn gió cho phép).</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.ketqua">Kết quả kỳ vọng</div>
+            <p data-i18n="uc.op5.ketqua">Giảm thời gian chờ hàng từ chu kỳ phà (nửa ngày hoặc hơn) xuống còn trong giờ. Đảm bảo hàng khẩn cấp đến đảo khi cần — không chờ lịch tàu.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.payload">Payload</div>
+            <p data-i18n="uc.op5.payload">Phụ tùng tàu thuyền, thuốc, hàng khẩn cấp, vật tư nhỏ (dưới 5kg).</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.dkien">Điều kiện triển khai</div>
+            <p data-i18n="uc.op5.dkien">Điểm cất/hạ cánh trên đảo, dữ liệu thời tiết biển real-time, phê duyệt hành lang bay qua mặt nước, VTOL hybrid với tầm bay phù hợp.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UC 06: Đặc thù -->
+      <div class="op-usecase reveal">
+        <div class="op-usecase-header">
+          <div class="op-usecase-num">06</div>
+          <div>
+            <div class="label label-red" style="margin-bottom:6px;" data-i18n="uc.op6.cat">Nhiệm vụ đặc thù</div>
+            <h3 style="line-height:1.15;" data-i18n="uc.op6.h3">Nền tảng đa nhiệm — thay payload, đổi ứng dụng.</h3>
+          </div>
+        </div>
+        <div class="op-usecase-grid">
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.baito">Bài toán</div>
+            <p data-i18n="uc.op6.baito">Các nhiệm vụ giám sát, khảo sát, đo đạc địa hình, hỗ trợ nông nghiệp chính xác — đòi hỏi thiết bị bay linh hoạt, có thể thay đổi sensor/payload theo yêu cầu.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.doituong">Đối tượng</div>
+            <p data-i18n="uc.op6.doituong">Đơn vị khảo sát/đo đạc, nông trại quy mô lớn, cơ quan quản lý đất đai/tài nguyên, đơn vị giám sát hạ tầng.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.cantiep">Deron can thiệp ở đâu</div>
+            <p data-i18n="uc.op6.cantiep">Cung cấp nền tảng UAV đa nhiệm — khung bay + avionics giữ nguyên, thay đổi payload module (camera, cảm biến đa phổ, thiết bị đo đạc) theo nhiệm vụ.</p>
+          </div>
+          <div class="op-field">
+            <div class="op-field-label" data-i18n="uc.fl.ketqua">Kết quả kỳ vọng</div>
+            <p data-i18n="uc.op6.ketqua">Một nền tảng phục vụ nhiều loại nhiệm vụ — giảm chi phí đầu tư thiết bị. Dữ liệu thu thập từ trên cao với độ chính xác và tần suất cao hơn phương pháp truyền thống.</p>
+          </div>
+          <div class="op-field op-field-full">
+            <div class="op-field-label" data-i18n="uc.fl.payloaddkien">Payload & Điều kiện</div>
+            <p data-i18n="uc.op6.payloaddkien">Camera quang học, cảm biến đa phổ, LiDAR nhỏ, thiết bị đo đạc. Yêu cầu: xác định rõ nhiệm vụ, payload phù hợp, phê duyệt bay cho khu vực hoạt động.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--bg-dark); padding:80px 0; text-align:center;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="uc.cta.badge">Bài toán của bạn là gì?</div>
+        <h2 class="text-inv" style="margin:0 auto 24px; max-width:640px;" data-i18n="uc.cta.h2">Liên hệ để thảo luận giải pháp drone phù hợp với vận hành của bạn.</h2>
+        <p style="color:var(--text-inv-muted); margin:0 auto 40px; max-width:480px;" data-i18n="uc.cta.p">
+          Deron làm việc trực tiếp với đơn vị vận hành để thiết kế giải pháp — từ đánh giá bài toán đến triển khai thực tế.
+        </p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-arrow" onclick="navigate('contact')" data-i18n="uc.cta.btn1">Liên hệ tư vấn</button>
+          <button class="btn btn-outline" onclick="navigate('products')" data-i18n="uc.cta.btn2">Xem sản phẩm</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026 Deron. Made in Vietnam.</div>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ PRODUCTS PAGE -->
+<div id="page-products" class="page">
+  <!-- HERO -->
+  <div style="background:var(--bg-dark); padding:140px 0 80px; position:relative; overflow:hidden;">
+    <div class="hero-grid-bg" style="opacity:0.25;"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="label label-inv" style="margin-bottom:20px;">Sản phẩm & Giải pháp</div>
+      <h1 class="text-inv" style="max-width:760px;">Công nghệ drone<br>từ phòng thí nghiệm<br>đến <span style="color:var(--red)">hiện trường.</span></h1>
+      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;">
+        Deron cung cấp nền tảng phần cứng, avionics và module nhiệm vụ cho các đơn vị vận hành, tích hợp và triển khai hệ thống UAV tại Việt Nam.
+      </p>
+      <div style="display:flex; gap:14px; margin-top:40px; flex-wrap:wrap;">
+        <a href="mailto:ceo.deron@gmail.com?subject=Product Inquiry — Deron" class="btn btn-primary btn-arrow">Liên hệ tư vấn</a>
+        <button class="btn btn-outline" onclick="navigate('usecases')">Xem ứng dụng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section style="background:var(--bg-white); padding:96px 0;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" style="margin-bottom:20px;">Danh mục sản phẩm</div>
+        <h2 style="margin-bottom:16px; max-width:640px;">Nền tảng module — linh hoạt theo nhiệm vụ.</h2>
+        <p style="color:var(--text-muted); font-size:18px; max-width:560px;">
+          Sản phẩm Deron được thiết kế theo kiến trúc module — kết hợp linh hoạt giữa khung bay, avionics, payload và hệ thống hỗ trợ mặt đất theo yêu cầu vận hành.
+        </p>
+      </div>
+      <div class="product-categories">
+        <div class="product-cat reveal reveal-delay-1">
+          <div class="product-cat-num">01</div>
+          <h4>Drone Platform</h4>
+          <p>Nền tảng VTOL hybrid thiết kế cho nhiệm vụ giao hàng, giám sát và cứu trợ. Khung composite, cánh cố định kết hợp cất/hạ cánh thẳng đứng.</p>
+          <div class="product-cat-tag">Đang phát triển</div>
+        </div>
+        <div class="product-cat reveal reveal-delay-2">
+          <div class="product-cat-num">02</div>
+          <h4>Avionics & Flight Controller</h4>
+          <p>DMA — hệ thống điện tử bay tự phát triển trên nền STM32F765/PX4. Dual IMU, dual barometer, GNSS/RTK, hardware watchdog.</p>
+          <div class="product-cat-tag">Đang phát triển</div>
+        </div>
+        <div class="product-cat reveal reveal-delay-3">
+          <div class="product-cat-num">03</div>
+          <h4>Payload & Mission Module</h4>
+          <p>Container vận chuyển chuyên dụng theo loại nhiệm vụ — bảo quản nhiệt độ cho y tế, thả hàng cho cứu trợ, gắn sensor cho khảo sát.</p>
+          <div class="product-cat-tag">Thiết kế</div>
+        </div>
+        <div class="product-cat reveal reveal-delay-1">
+          <div class="product-cat-num">04</div>
+          <h4>Safety & Landing</h4>
+          <p>Hệ thống an toàn bay: parachute recovery, đèn cảnh báo, cảm biến tránh vật cản, bãi đáp tiêu chuẩn cho điểm giao/nhận.</p>
+          <div class="product-cat-tag">Thiết kế</div>
+        </div>
+        <div class="product-cat reveal reveal-delay-2">
+          <div class="product-cat-num">05</div>
+          <h4>Ground Support & Integration</h4>
+          <p>Trạm điều khiển mặt đất (GCS), phần mềm giám sát fleet, bảo trì, đào tạo vận hành, tích hợp với hệ thống logistics đối tác.</p>
+          <div class="product-cat-tag">GCS đã triển khai</div>
+        </div>
+        <div class="product-cat reveal reveal-delay-3" style="background:var(--bg-section);">
+          <div style="font-size:13px; color:var(--text-muted); max-width:100%; line-height:1.65;">
+            <strong style="display:block; margin-bottom:10px;">Lưu ý</strong>
+            Deron đang trong giai đoạn phát triển sản phẩm. Danh mục trên là định hướng sản phẩm — chi tiết kỹ thuật và tình trạng sẵn sàng sẽ được cập nhật khi có tiến triển mới.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGET CUSTOMERS -->
+  <section style="background:var(--bg-dark); padding:96px 0; border-top:1px solid var(--border-dark);">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:20px;">Đối tượng khách hàng</div>
+        <h2 class="text-inv" style="margin-bottom:16px; max-width:600px;">Ai nên làm việc với Deron?</h2>
+        <p style="color:var(--text-inv-muted); font-size:18px; max-width:520px;">
+          Sản phẩm Deron hướng đến các tổ chức cần giải pháp UAV nghiêm túc — không phải thiết bị tiêu dùng.
+        </p>
+      </div>
+      <div class="customer-grid">
+        <div class="customer-cell reveal reveal-delay-1">
+          <div class="customer-cell-icon">🛩️</div>
+          <h4>Đội vận hành UAV</h4>
+          <p>Đơn vị đang vận hành hoặc xây dựng fleet drone — cần avionics, khung bay, hoặc hệ thống quản lý fleet.</p>
+        </div>
+        <div class="customer-cell reveal reveal-delay-2">
+          <div class="customer-cell-icon">📦</div>
+          <h4>Đơn vị Logistics</h4>
+          <p>Công ty logistics, bưu chính, sàn TMĐT — cần giải pháp giao hàng chặng cuối bằng drone.</p>
+        </div>
+        <div class="customer-cell reveal reveal-delay-3">
+          <div class="customer-cell-icon">🔬</div>
+          <h4>Đối tác R&D</h4>
+          <p>Viện nghiên cứu, trường đại học, đơn vị tích hợp hệ thống — cần hợp tác phát triển công nghệ UAV.</p>
+        </div>
+        <div class="customer-cell reveal reveal-delay-1">
+          <div class="customer-cell-icon">🎓</div>
+          <h4>Đào tạo & Thử nghiệm</h4>
+          <p>Cơ sở đào tạo pilot, trung tâm thử nghiệm bay — cần thiết bị và platform phục vụ huấn luyện.</p>
+        </div>
+        <div class="customer-cell reveal reveal-delay-2">
+          <div class="customer-cell-icon">🏛️</div>
+          <h4>Cơ quan nhà nước</h4>
+          <p>Sở Y tế, Ban Chỉ huy PCTT, cơ quan quản lý — cần giải pháp drone cho y tế, cứu trợ, giám sát.</p>
+        </div>
+        <div class="customer-cell reveal reveal-delay-3">
+          <div class="customer-cell-icon">🏭</div>
+          <h4>Doanh nghiệp</h4>
+          <p>KCN, nông trại, doanh nghiệp khai thác — cần drone cho vận chuyển nội bộ, giám sát, khảo sát.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO WORK WITH DERON -->
+  <section style="background:var(--bg-light); padding:96px 0;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" style="margin-bottom:20px;">Quy trình hợp tác</div>
+        <h2 style="margin-bottom:16px; max-width:600px;">Từ bài toán đến triển khai.</h2>
+        <p style="color:var(--text-muted); font-size:18px; max-width:520px;">
+          Deron làm việc trực tiếp với đối tác — không bán sản phẩm rời, mà thiết kế giải pháp phù hợp.
+        </p>
+      </div>
+      <div class="procurement-flow">
+        <div class="procurement-step reveal reveal-delay-1">
+          <div class="procurement-step-num">01</div>
+          <h4>Tư vấn giải pháp</h4>
+          <p>Đánh giá bài toán vận hành, xác định yêu cầu kỹ thuật, điều kiện triển khai và mục tiêu.</p>
+        </div>
+        <div class="procurement-step reveal reveal-delay-2">
+          <div class="procurement-step-num">02</div>
+          <h4>Thiết kế nhiệm vụ</h4>
+          <p>Lựa chọn cấu hình drone, payload, hành trình bay và giao thức vận hành phù hợp.</p>
+        </div>
+        <div class="procurement-step reveal reveal-delay-3">
+          <div class="procurement-step-num">03</div>
+          <h4>Triển khai & đào tạo</h4>
+          <p>Lắp đặt hạ tầng, đào tạo nhân sự vận hành, chạy thử và hiệu chỉnh hệ thống.</p>
+        </div>
+        <div class="procurement-step reveal reveal-delay-4">
+          <div class="procurement-step-num">04</div>
+          <h4>Vận hành & hỗ trợ</h4>
+          <p>Giám sát fleet, bảo trì định kỳ, hỗ trợ kỹ thuật liên tục, nâng cấp firmware/phần mềm.</p>
+        </div>
+      </div>
+
+      <!-- Procurement paths -->
+      <div style="margin-top:64px; background:var(--bg-section); border:1px solid var(--border); border-radius:var(--radius-lg); padding:48px;" class="reveal">
+        <div class="label label-red" style="margin-bottom:16px;">Hình thức hợp tác</div>
+        <h3 style="margin-bottom:32px;">Linh hoạt theo quy mô và nhu cầu.</h3>
+        <div class="grid-4" style="margin-top:0;">
+          <div>
+            <h4 style="font-size:15px; margin-bottom:8px;">Mua lẻ</h4>
+            <p style="font-size:13px; color:var(--text-muted); max-width:100%;">Linh kiện, module, phụ kiện cho đội vận hành hiện có.</p>
+          </div>
+          <div>
+            <h4 style="font-size:15px; margin-bottom:8px;">Theo dự án</h4>
+            <p style="font-size:13px; color:var(--text-muted); max-width:100%;">Thiết kế giải pháp toàn bộ cho dự án cụ thể — pilot, thử nghiệm, triển khai.</p>
+          </div>
+          <div>
+            <h4 style="font-size:15px; margin-bottom:8px;">OEM / Integration</h4>
+            <p style="font-size:13px; color:var(--text-muted); max-width:100%;">Tích hợp avionics hoặc module Deron vào nền tảng của đối tác.</p>
+          </div>
+          <div>
+            <h4 style="font-size:15px; margin-bottom:8px;">Hợp tác R&D</h4>
+            <p style="font-size:13px; color:var(--text-muted); max-width:100%;">Đồng phát triển công nghệ, chia sẻ IP theo thỏa thuận, hợp tác nghiên cứu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--bg-dark); padding:80px 0; text-align:center;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:20px;">Bắt đầu</div>
+        <h2 class="text-inv" style="margin:0 auto 24px; max-width:600px;">Liên hệ để nhận tư vấn giải pháp.</h2>
+        <p style="color:var(--text-inv-muted); margin:0 auto 40px; max-width:480px;">
+          Mô tả bài toán vận hành của bạn — Deron sẽ đề xuất cấu hình phù hợp.
+        </p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a href="mailto:ceo.deron@gmail.com?subject=Product Inquiry — Deron" class="btn btn-primary btn-arrow">Gửi yêu cầu tư vấn</a>
+          <button class="btn btn-outline" onclick="navigate('contact')">Các kênh liên hệ</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026 Deron. Made in Vietnam.</div>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ INVESTOR PAGE -->
+<div id="page-investor" class="page">
+  <div style="background:var(--bg-dark); padding:140px 0 80px; position:relative; overflow:hidden;">
+    <div class="hero-grid-bg" style="opacity:0.25;"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="label label-inv" style="margin-bottom:20px;" data-i18n="investor.label">For Investors</div>
+      <h1 class="text-inv" style="max-width:800px;" data-i18n-html="investor.title">Đây không phải<br>startup drone nữa.<br>Đây là <span style="color:var(--red)">hạ tầng</span><br>của Việt Nam.</h1>
+      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;" data-i18n="investor.sub">
+        Giống như đường cao tốc năm 1990 hay cáp quang năm 2000 — mạng lưới logistics tầm thấp là tầng hạ tầng kế tiếp. Và Deron đang xây từ nền.
+      </p>
+      <div style="display:flex; gap:16px; margin-top:40px; flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.05); border:1px solid var(--border-dark); border-radius:var(--radius); padding:16px 24px;">
+          <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:#fff; letter-spacing:-0.03em;">$500K</div>
+          <div style="font-family:var(--font-label); font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-inv-muted); margin-top:4px;" data-i18n="investor.targetLabel">Target Pre-Seed</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); border:1px solid var(--border-dark); border-radius:var(--radius); padding:16px 24px;">
+          <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:#fff; letter-spacing:-0.03em;">2025</div>
+          <div style="font-family:var(--font-label); font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-inv-muted); margin-top:4px;" data-i18n="investor.foundedLabel">Năm thành lập</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); border:1px solid var(--border-dark); border-radius:var(--radius); padding:16px 24px;">
+          <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:#fff; letter-spacing:-0.03em;">Deep Tech</div>
+          <div style="font-family:var(--font-label); font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-inv-muted); margin-top:4px;" data-i18n="investor.classLabel">Phân loại</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="investor-body">
+    <div class="container">
+
+      <!-- Why Deron -->
+      <div style="margin-bottom:80px;" class="reveal">
+        <div class="label label-red" style="margin-bottom:20px;" data-i18n="inv.adv.label">Competitive Advantage</div>
+        <h2 style="margin-bottom:48px; max-width:600px;" data-i18n-html="inv.adv.title">3 lợi thế không thể<br>nhân bản.</h2>
+        <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden;">
+          <div style="background:var(--bg-white); padding:48px 36px;">
+            <div style="font-family:var(--font-mono); font-size:11px; color:var(--red); margin-bottom:16px;">01</div>
+            <h4 style="margin-bottom:12px;" data-i18n="inv.a1.title">Homegrown Advantage</h4>
+            <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="inv.a1.desc">Pháp lý, địa hình, ngôn ngữ, cộng đồng — chúng tôi không cần adapt. Chúng tôi là native. Không một công ty nước ngoài nào có lợi thế này.</p>
+          </div>
+          <div style="background:var(--bg-white); padding:48px 36px;">
+            <div style="font-family:var(--font-mono); font-size:11px; color:var(--red); margin-bottom:16px;">02</div>
+            <h4 style="margin-bottom:12px;" data-i18n="inv.a2.title">Safety-First Architecture</h4>
+            <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="inv.a2.desc">Dual sensor, hardware watchdog, fail-safe logic — được thiết kế để qua được regulatory approval, không phải để làm demo đẹp.</p>
+          </div>
+          <div style="background:var(--bg-white); padding:48px 36px;">
+            <div style="font-family:var(--font-mono); font-size:11px; color:var(--red); margin-bottom:16px;">03</div>
+            <h4 style="margin-bottom:12px;" data-i18n="inv.a3.title">Medical-First Beachhead</h4>
+            <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="inv.a3.desc">Thị trường cao nhất về willingness-to-pay, thấp nhất về giá cạnh tranh, cao nhất về impact credibility. Beachhead lý tưởng cho platform mở rộng.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Roadmap -->
+      <div style="margin-bottom:80px;" class="reveal">
+        <div class="label label-red" style="margin-bottom:20px;" data-i18n="inv.cap.label">Roadmap & Capital</div>
+        <h2 style="margin-bottom:48px;" data-i18n="inv.cap.title">Lộ trình vốn theo giai đoạn.</h2>
+        <div class="roadmap">
+          <div class="roadmap-row header">
+            <div class="roadmap-cell header-cell" data-i18n="inv.cap.h.stage">Giai đoạn</div>
+            <div class="roadmap-cell header-cell" data-i18n="inv.cap.h.time">Thời gian</div>
+            <div class="roadmap-cell header-cell" data-i18n="inv.cap.h.milestones">Mốc chính</div>
+            <div class="roadmap-cell header-cell" data-i18n="inv.cap.h.funding">Vốn cần</div>
+          </div>
+          <div class="roadmap-row">
+            <div class="roadmap-cell"><div class="phase" data-i18n="inv.cap.pre.phase">Pre-Seed</div><div class="timeline" data-i18n="inv.cap.pre.status">Hiện tại</div></div>
+            <div class="roadmap-cell"><div style="font-size:13px;" data-i18n="inv.cap.pre.time">2025 — Q2/2026</div></div>
+            <div class="roadmap-cell"><ul>
+              <li data-i18n="inv.cap.pre.m1">Hoàn thiện nguyên mẫu DMA</li>
+              <li data-i18n="inv.cap.pre.m2">Xin phép thử nghiệm bay</li>
+              <li data-i18n="inv.cap.pre.m3">Chuyến bay thí điểm đầu tiên</li>
+            </ul></div>
+            <div class="roadmap-cell"><div class="funding">$500K</div><div style="font-size:12px; color:var(--red); margin-top:4px;" data-i18n="inv.cap.pre.note">Đang gọi vốn</div></div>
+          </div>
+          <div class="roadmap-row">
+            <div class="roadmap-cell"><div class="phase" data-i18n="inv.cap.seed.phase">Seed</div></div>
+            <div class="roadmap-cell"><div style="font-size:13px;" data-i18n="inv.cap.seed.time">2026 — 2027</div></div>
+            <div class="roadmap-cell"><ul>
+              <li data-i18n="inv.cap.seed.m1">Chuyến bay thương mại đầu tiên</li>
+              <li data-i18n="inv.cap.seed.m2">Hợp tác với bệnh viện / đơn vị y tế</li>
+              <li data-i18n="inv.cap.seed.m3">Đội bay 10 drone</li>
+              <li data-i18n="inv.cap.seed.m4">1 tỉnh thí điểm</li>
+            </ul></div>
+            <div class="roadmap-cell"><div class="funding">$2–3M</div></div>
+          </div>
+          <div class="roadmap-row">
+            <div class="roadmap-cell"><div class="phase" data-i18n="inv.cap.seriesa.phase">Series A</div></div>
+            <div class="roadmap-cell"><div style="font-size:13px;" data-i18n="inv.cap.seriesa.time">2027 — 2028</div></div>
+            <div class="roadmap-cell"><ul>
+              <li data-i18n="inv.cap.seriesa.m1">Triển khai tại 3+ tỉnh/thành</li>
+              <li data-i18n="inv.cap.seriesa.m2">Mở rộng logistics thương mại</li>
+              <li data-i18n="inv.cap.seriesa.m3">Airspace-as-a-Service</li>
+              <li data-i18n="inv.cap.seriesa.m4">Xuất khẩu mô hình</li>
+            </ul></div>
+            <div class="roadmap-cell"><div class="funding">$10M+</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue -->
+      <div style="margin-bottom:64px;" class="reveal">
+        <div class="label label-red" style="margin-bottom:20px;" data-i18n="inv.rev.label">Revenue Model</div>
+        <h2 style="margin-bottom:48px;" data-i18n="inv.rev.title">5 nguồn doanh thu.</h2>
+        <div class="revenue-grid">
+          <div class="revenue-card">
+            <div style="font-family:var(--font-mono); font-size:10px; color:var(--red); margin-bottom:12px;">01</div>
+            <h4 data-i18n="inv.rev.r1.title">Phí theo chuyến</h4>
+            <p data-i18n="inv.rev.r1.desc">Thu phí cho từng chuyến vận chuyển. Các mảng y tế và cứu trợ có mức sẵn sàng chi trả cao.</p>
+          </div>
+          <div class="revenue-card">
+            <div style="font-family:var(--font-mono); font-size:10px; color:var(--red); margin-bottom:12px;">02</div>
+            <h4 data-i18n="inv.rev.r2.title">Hợp đồng SLA</h4>
+            <p data-i18n="inv.rev.r2.desc">Hợp đồng dịch vụ định kỳ với bệnh viện, tỉnh thành và đơn vị logistics. Tạo doanh thu ổn định, dài hạn.</p>
+          </div>
+          <div class="revenue-card">
+            <div style="font-family:var(--font-mono); font-size:10px; color:var(--red); margin-bottom:12px;">03</div>
+            <h4 data-i18n="inv.rev.r3.title">Airspace-as-a-Service</h4>
+            <p data-i18n="inv.rev.r3.desc">Nền tảng quản lý không phận cho các đơn vị drone khác muốn sử dụng hành lang bay và năng lực điều phối của Deron.</p>
+          </div>
+          <div class="revenue-card">
+            <div style="font-family:var(--font-mono); font-size:10px; color:var(--red); margin-bottom:12px;">04</div>
+            <h4 data-i18n="inv.rev.r4.title">Dữ liệu / API</h4>
+            <p data-i18n="inv.rev.r4.desc">Dữ liệu telemetry, mapping và phân tích logistics được cung cấp qua API cho bên thứ ba.</p>
+          </div>
+          <div class="revenue-card">
+            <div style="font-family:var(--font-mono); font-size:10px; color:var(--red); margin-bottom:12px;">05</div>
+            <h4 data-i18n="inv.rev.r5.title">Phần cứng / Linh kiện</h4>
+            <p data-i18n="inv.rev.r5.desc">Cho thuê hoặc bán thiết bị DMA và container chuyên dụng cho các đơn vị muốn vận hành đội bay riêng.</p>
+          </div>
+          <div class="revenue-card" style="background:var(--bg-section);">
+            <div style="font-size:13px; color:var(--text-muted); max-width:100%;">
+              <strong style="display:block; margin-bottom:8px;" data-i18n="inv.rev.note.title">Ghi chú về số liệu</strong>
+              <span data-i18n="inv.rev.note.body">Tất cả số liệu doanh thu và quy mô thị trường trong tài liệu này đều là ước tính. Deron cam kết không công bố projection chưa được kiểm chứng độc lập.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Block -->
+      <div class="doc-block reveal">
+        <div class="label label-red" style="margin-bottom:20px;" data-i18n="inv.cta.label">Get In Touch</div>
+        <h3 data-i18n="inv.cta.title">Chúng tôi đang ở Pre-Seed. Cửa sổ đang mở.</h3>
+        <p style="color:var(--text-muted);" data-i18n="inv.cta.desc">Nếu bạn đang xem xét cơ hội đầu tư vào deep-tech logistics tại Việt Nam — chúng ta nên nói chuyện. Liên hệ trực tiếp với Founder để nhận Pitch Deck.</p>
+        <div class="doc-ctas">
+          <a href="mailto:ceo.deron@gmail.com?subject=Investor Inquiry — Deron" class="btn btn-primary btn-arrow" data-i18n="inv.cta.btn1">Liên hệ Founder</a>
+          <button class="btn btn-outline-dark" onclick="navigate('contact')" data-i18n="inv.cta.btn2">Tìm hiểu thêm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026 Deron. Made in Vietnam.</div>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ CONTACT PAGE -->
+<div id="page-contact" class="page">
+  <div style="background:var(--bg-dark); padding:140px 0 80px; position:relative; overflow:hidden;">
+    <div class="hero-grid-bg" style="opacity:0.25;"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="label label-inv" style="margin-bottom:20px;" data-i18n="contact.label">Contact</div>
+      <h1 class="text-inv" style="max-width:760px;" data-i18n-html="contact.title">Mọi hành trình lớn<br>bắt đầu bằng<br>một cuộc trò chuyện.</h1>
+      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:520px;" data-i18n="contact.sub">
+        Tìm đúng kênh liên hệ bên dưới. Chúng tôi phản hồi trong vòng 24 giờ.
+      </p>
+    </div>
+  </div>
+
+  <div class="contact-body">
+    <div class="container">
+      <div class="contact-flows">
+        <div class="contact-flow reveal">
+          <div class="contact-flow-icon">💼</div>
+          <h4 data-i18n="con.f1.title">Nhà đầu tư & Đối tác chiến lược</h4>
+          <p class="desc" data-i18n="con.f1.desc">Thảo luận về cơ hội đầu tư Pre-Seed, hợp tác chiến lược, hoặc tham gia vào hành trình xây dựng Deron.</p>
+          <a href="mailto:ceo.deron@gmail.com?subject=Investor / Partner Inquiry" class="contact-link">ceo.deron@gmail.com →</a>
+        </div>
+        <div class="contact-flow reveal reveal-delay-1">
+          <div class="contact-flow-icon">⚙️</div>
+          <h4 data-i18n="con.f2.title">Hợp tác kỹ thuật & R&D</h4>
+          <p class="desc" data-i18n="con.f2.desc">Muốn cộng tác về avionics, AI routing, embedded systems, hoặc test & validation. Mô tả ngắn về đề xuất hợp tác của bạn.</p>
+          <a href="mailto:ceo.deron@gmail.com?subject=Technical Collaboration" class="contact-link">ceo.deron@gmail.com →</a>
+        </div>
+        <div class="contact-flow reveal">
+          <div class="contact-flow-icon">📰</div>
+          <h4 data-i18n="con.f3.title">Báo chí & Truyền thông</h4>
+          <p class="desc" data-i18n="con.f3.desc">Tải press kit, đặt lịch phỏng vấn, hoặc nhận thông tin về các milestone của Deron. Phản hồi trong 24 giờ.</p>
+          <a href="mailto:ceo.deron@gmail.com?subject=Press Inquiry" class="contact-link">ceo.deron@gmail.com →</a>
+        </div>
+        <div class="contact-flow reveal reveal-delay-1">
+          <div class="contact-flow-icon">🎓</div>
+          <h4 data-i18n="con.f4.title">Tuyển dụng & Cộng đồng</h4>
+          <p class="desc" data-i18n="con.f4.desc">Kỹ sư, researcher, hoặc người trẻ muốn tham gia xây dựng hạ tầng logistics tầm thấp Việt Nam — chúng tôi muốn gặp bạn.</p>
+          <a href="mailto:ceo.deron@gmail.com?subject=Join Deron" class="contact-link">ceo.deron@gmail.com →</a>
+        </div>
+      </div>
+
+      <!-- Direct Contact -->
+      <div style="margin-top:64px; display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden;" class="reveal">
+        <div style="background:var(--bg-white); padding:40px 32px;">
+          <div style="font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px;" data-i18n="con.email">Email</div>
+          <a href="mailto:ceo.deron@gmail.com" style="font-family:var(--font-display); font-weight:700; font-size:16px; color:var(--text-primary); transition:color var(--transition);">ceo.deron@gmail.com</a>
+        </div>
+        <div style="background:var(--bg-white); padding:40px 32px;">
+          <div style="font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px;" data-i18n="con.phone">Điện thoại</div>
+          <a href="tel:0363045747" style="font-family:var(--font-display); font-weight:700; font-size:16px; color:var(--text-primary);">0363 045 747</a>
+        </div>
+        <div style="background:var(--bg-white); padding:40px 32px;">
+          <div style="font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px;" data-i18n="con.address">Địa chỉ</div>
+          <div style="font-family:var(--font-display); font-weight:700; font-size:16px; color:var(--text-primary);" data-i18n="con.addressVal">TP. Hồ Chí Minh, Việt Nam</div>
+        </div>
+      </div>
+
+      <!-- Closing statement -->
+      <div style="text-align:center; padding:96px 0 48px;" class="reveal">
+        <div class="label label-red" style="margin-bottom:20px;" data-i18n="con.commitment">Our Commitment</div>
+        <blockquote style="font-family:var(--font-display); font-weight:800; font-size:clamp(24px,3vw,40px); letter-spacing:-0.025em; color:var(--text-primary); max-width:720px; margin:0 auto; line-height:1.2;" data-i18n="con.quote">
+          "Với Deron, bạn không chỉ đầu tư vào một startup — mà là góp phần mở cánh cửa cho một kỷ nguyên mới, nơi thế giới nhớ đến Việt Nam."
+        </blockquote>
+        <div style="font-family:var(--font-label); font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:20px;">
+          <span data-i18n="about.founder.name">Nguyễn Phúc Huy</span> · Founder, Deron
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026 Deron. Made in Vietnam.</div>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ DATCS PAGE -->
+<div id="page-datcs" class="page">
+
+  <!-- Hero -->
+  <div style="background:var(--bg-dark); position:relative; overflow:hidden;">
+    <div class="hero-grid-bg" style="opacity:0.3;"></div>
+    <div class="container" style="padding-top:140px; padding-bottom:80px; position:relative; z-index:2;">
+      <div class="label label-red" style="margin-bottom:16px;" data-i18n="datcs.hero.badge">DERON AIR TRAFFIC CONTROL SYSTEM</div>
+      <h1 class="text-inv" style="max-width:820px; line-height:1.05;" data-i18n-html="datcs.hero.h1">DATCS — <span style="color:var(--red)">Phần mềm GCS & UTM</span><br>dành riêng cho Việt Nam</h1>
+      <p style="color:var(--text-inv-muted); font-size:18px; margin-top:24px; max-width:620px; line-height:1.65;" data-i18n="datcs.hero.p">
+        Hệ thống Ground Control Station và Unmanned Traffic Management đầu tiên được phát triển bởi người Việt — tối ưu cho địa hình, pháp lý và hạ tầng viễn thông Việt Nam. Thay thế QGroundControl, Mission Planner cho bối cảnh drone thương mại trong nước.
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:40px;">
+        <button class="btn btn-primary btn-arrow" onclick="navigate('contact')" data-i18n="datcs.hero.cta1">Đăng ký nhận thông tin</button>
+        <button class="btn btn-outline" onclick="scrollToDatcsDownload()" data-i18n="datcs.hero.cta3">Tải DATCS bản thử nghiệm</button>
+        <button class="btn btn-outline" onclick="navigate('technology')" data-i18n="datcs.hero.cta2">Xem công nghệ DMA</button>
+      </div>
+      <div style="display:flex; gap:48px; margin-top:64px; padding-top:48px; border-top:1px solid var(--border-dark); flex-wrap:wrap;">
+        <div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:32px; color:#fff; letter-spacing:-.03em;">GCS + UTM</div>
+          <div style="font-family:var(--font-label); font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inv-muted); margin-top:6px;" data-i18n="datcs.stat1.label">Tích hợp trong một nền tảng</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:32px; color:#fff; letter-spacing:-.03em;">4G/5G</div>
+          <div style="font-family:var(--font-label); font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inv-muted); margin-top:6px;" data-i18n="datcs.stat2.label">Command link qua mạng VN</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:32px; color:#fff; letter-spacing:-.03em;">NĐ 288</div>
+          <div style="font-family:var(--font-label); font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inv-muted); margin-top:6px;" data-i18n="datcs.stat3.label">Tuân thủ pháp lý Việt Nam</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What is DATCS -->
+  <section style="background:var(--bg-white); padding:96px 0;">
+    <div class="container">
+      <div class="grid-2" style="gap:80px; align-items:start;">
+        <div class="reveal">
+          <div class="label label-red" style="margin-bottom:20px;" data-i18n="datcs.what.badge">DATCS là gì?</div>
+          <h2 style="margin-bottom:24px; line-height:1.1;" data-i18n-html="datcs.what.h2">Không chỉ là GCS —<br>là toàn bộ hệ sinh thái<br>quản lý bay.</h2>
+          <p style="color:var(--text-body); margin-bottom:16px; max-width:100%;" data-i18n="datcs.what.p1">
+            DATCS (Deron Air Traffic Control System) là nền tảng phần mềm tích hợp GCS và UTM được Deron phát triển từ đầu. Trong khi QGroundControl và Mission Planner là các công cụ nước ngoài tốt cho mục đích chung, DATCS được thiết kế với tư duy "Vietnam-first".
+          </p>
+          <p style="color:var(--text-muted); margin-bottom:16px; max-width:100%;" data-i18n="datcs.what.p2">
+            Hỗ trợ Nghị định 288/2025/NĐ-CP. Tích hợp với Cổng Dịch vụ công quốc gia cho quy trình cấp phép bay. Tối ưu cho hạ tầng viễn thông 4G/5G/ethernet trên địa hình phức tạp.
+          </p>
+          <p style="color:var(--text-muted); max-width:100%;" data-i18n="datcs.what.p3">
+            DATCS là phần mềm giao tiếp với DMA — flight controller do Deron tự phát triển — đảm bảo mỗi chuyến bay đều tuân thủ pháp lý, an toàn và có thể kiểm chứng.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div style="background:var(--bg-dark); border-radius:var(--radius-lg); padding:40px; border:1px solid var(--border-dark);">
+            <div class="label label-inv" style="margin-bottom:24px;" data-i18n="datcs.rdmap.badge">Roadmap phát triển</div>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="width:8px; height:8px; background:var(--red); border-radius:50%; margin-top:5px; flex-shrink:0;"></div>
+                <div>
+                  <div style="font-family:var(--font-display); font-weight:700; font-size:14px; color:var(--text-inv); margin-bottom:4px;" data-i18n="datcs.rdmap.i1.t">GCS Core</div>
+                  <div style="font-size:13px; color:var(--text-inv-muted);" data-i18n="datcs.rdmap.i1.d">Mission planning, telemetry realtime, waypoint navigation</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="width:8px; height:8px; background:var(--red); border-radius:50%; margin-top:5px; flex-shrink:0;"></div>
+                <div>
+                  <div style="font-family:var(--font-display); font-weight:700; font-size:14px; color:var(--text-inv); margin-bottom:4px;" data-i18n="datcs.rdmap.i2.t">UTM Module</div>
+                  <div style="font-size:13px; color:var(--text-inv-muted);" data-i18n="datcs.rdmap.i2.d">Airspace visualization, cấp phép bay, NOTAM awareness</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="width:8px; height:8px; background:rgba(196,30,58,.25); border-radius:50%; margin-top:5px; flex-shrink:0;"></div>
+                <div>
+                  <div style="font-family:var(--font-display); font-weight:700; font-size:14px; color:rgba(255,255,255,.45); margin-bottom:4px;" data-i18n="datcs.rdmap.i3.t">Fleet Manager</div>
+                  <div style="font-size:13px; color:var(--text-inv-muted);" data-i18n="datcs.rdmap.i3.d">Quản lý đội bay, lập lịch, phân tích hành trình</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="width:8px; height:8px; background:rgba(196,30,58,.25); border-radius:50%; margin-top:5px; flex-shrink:0;"></div>
+                <div>
+                  <div style="font-family:var(--font-display); font-weight:700; font-size:14px; color:rgba(255,255,255,.45); margin-bottom:4px;" data-i18n="datcs.rdmap.i4.t">Mobile App</div>
+                  <div style="font-size:13px; color:var(--text-inv-muted);" data-i18n="datcs.rdmap.i4.d">iOS & Android — điều hành tại hiện trường</div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:24px; padding-top:24px; border-top:1px solid var(--border-dark);">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-inv-muted); opacity:.5;" data-i18n="datcs.rdmap.status">Trạng thái: Đang phát triển · Beta dự kiến 2026–2027</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section style="background:var(--bg-light); padding:96px 0;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" style="margin-bottom:16px;" data-i18n="datcs.feat.badge">Tính năng cốt lõi</div>
+        <h2 style="max-width:700px; margin-bottom:16px;" data-i18n-html="datcs.feat.h2">Được xây để vận hành —<br>không chỉ để demo.</h2>
+        <p style="color:var(--text-muted); font-size:18px; max-width:580px; margin-bottom:64px;" data-i18n="datcs.feat.p">Mỗi tính năng của DATCS bắt nguồn từ yêu cầu vận hành thực tế trong điều kiện Việt Nam.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden;">
+        <div style="background:var(--bg-white); padding:40px 32px;" class="reveal reveal-delay-1">
+          <div style="font-size:28px; margin-bottom:16px;">🗺️</div>
+          <h4 style="margin-bottom:10px;" data-i18n="datcs.f1.title">Mission Planning</h4>
+          <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="datcs.f1.desc">Lập kế hoạch nhiệm vụ trực quan trên bản đồ. Waypoint navigation, hành trình tự động, tối ưu hóa tuyến bay theo thời gian thực.</p>
+        </div>
+        <div style="background:var(--bg-white); padding:40px 32px;" class="reveal reveal-delay-2">
+          <div style="font-size:28px; margin-bottom:16px;">📡</div>
+          <h4 style="margin-bottom:10px;" data-i18n="datcs.f2.title">Telemetry Realtime</h4>
+          <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="datcs.f2.desc">Theo dõi dữ liệu bay real-time: GPS, altitude, tốc độ, pin, tín hiệu. Dashboard trực quan cho điều hành viên tại trung tâm.</p>
+        </div>
+        <div style="background:var(--bg-white); padding:40px 32px;" class="reveal reveal-delay-3">
+          <div style="font-size:28px; margin-bottom:16px;">⚖️</div>
+          <h4 style="margin-bottom:10px;" data-i18n="datcs.f3.title">UTM & Pháp lý</h4>
+          <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="datcs.f3.desc">Tích hợp Nghị định 288/2025/NĐ-CP. Airspace visualization, NOTAM awareness, hỗ trợ nộp hồ sơ cấp phép bay trực tuyến.</p>
+        </div>
+        <div style="background:var(--bg-white); padding:40px 32px;" class="reveal reveal-delay-1">
+          <div style="font-size:28px; margin-bottom:16px;">🛡️</div>
+          <h4 style="margin-bottom:10px;" data-i18n="datcs.f4.title">Safety & Failsafe</h4>
+          <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="datcs.f4.desc">Geofencing, Return-to-Launch tự động, phát hiện loss-of-link, emergency protocols. Tích hợp sâu với DMA flight controller.</p>
+        </div>
+        <div style="background:var(--bg-white); padding:40px 32px;" class="reveal reveal-delay-2">
+          <div style="font-size:28px; margin-bottom:16px;">🚁</div>
+          <h4 style="margin-bottom:10px;" data-i18n="datcs.f5.title">Fleet Management</h4>
+          <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="datcs.f5.desc">Quản lý nhiều drone đồng thời. Lập lịch bay, tracking bảo trì, log hành trình, phân tích hiệu suất đội bay.</p>
+        </div>
+        <div style="background:var(--bg-white); padding:40px 32px;" class="reveal reveal-delay-3">
+          <div style="font-size:28px; margin-bottom:16px;">🌐</div>
+          <h4 style="margin-bottom:10px;" data-i18n="datcs.f6.title">4G/5G Native</h4>
+          <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;" data-i18n="datcs.f6.desc">Command & control hỗ trợ kết nối qua hạ tầng viễn thông 4G/5G/ethernet. Không phụ thuộc RC link truyền thống. Phủ sóng trên địa bàn rộng.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section style="background:var(--bg-dark); padding:96px 0;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:16px;" data-i18n="datcs.cmp.badge">So sánh phần mềm GCS / UTM</div>
+        <h2 class="text-inv" style="max-width:760px; margin-bottom:16px;" data-i18n-html="datcs.cmp.h2">DATCS vs QGroundControl<br>vs Mission Planner vs Betaflight</h2>
+        <p style="color:var(--text-inv-muted); font-size:16px; max-width:620px; margin-bottom:56px;" data-i18n="datcs.cmp.p">Mỗi phần mềm được thiết kế cho mục đích khác nhau. Đây là cách DATCS định vị trong hệ sinh thái GCS/UTM drone toàn cầu và tại Việt Nam.</p>
+      </div>
+      <div style="overflow-x:auto;" class="reveal reveal-delay-1">
+        <table style="width:100%; border-collapse:collapse; border:1px solid var(--border-dark); border-radius:var(--radius-lg); overflow:hidden; min-width:700px;">
+          <thead>
+            <tr style="background:rgba(255,255,255,.04);">
+              <th style="font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inv-muted); padding:18px 20px; text-align:left; border-right:1px solid var(--border-dark);" data-i18n="datcs.tbl.criteria">Tiêu chí</th>
+              <th style="font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--red); padding:18px 20px; text-align:center; border-right:1px solid var(--border-dark);">DATCS</th>
+              <th style="font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inv-muted); padding:18px 20px; text-align:center; border-right:1px solid var(--border-dark);">QGroundControl</th>
+              <th style="font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inv-muted); padding:18px 20px; text-align:center; border-right:1px solid var(--border-dark);">Mission Planner</th>
+              <th style="font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inv-muted); padding:18px 20px; text-align:center;">Betaflight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-top:1px solid var(--border-dark);">
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);" data-i18n="datcs.row1.label">Mục đích chính</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv); text-align:center; border-right:1px solid var(--border-dark); font-weight:600;" data-i18n="datcs.row1.datcs">Logistics UAV thương mại VN</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row1.qgc">GCS đa nền tảng (MAVLink)</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row1.mp">GCS cho ArduPilot/APM</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center;" data-i18n="datcs.row1.bf">Cấu hình FC racing/FPV</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border-dark); background:rgba(255,255,255,.02);">
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);" data-i18n="datcs.row2.label">UTM / Pháp lý Việt Nam</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--red); text-align:center; border-right:1px solid var(--border-dark); font-weight:700;" data-i18n="datcs.row2.datcs">✓ Tích hợp native</td>
+              <td style="padding:16px 20px; font-size:13px; color:rgba(255,255,255,.3); text-align:center; border-right:1px solid var(--border-dark);">—</td>
+              <td style="padding:16px 20px; font-size:13px; color:rgba(255,255,255,.3); text-align:center; border-right:1px solid var(--border-dark);">—</td>
+              <td style="padding:16px 20px; font-size:13px; color:rgba(255,255,255,.3); text-align:center;">—</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border-dark);">
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);" data-i18n="datcs.row3.label">Giao diện Tiếng Việt</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--red); text-align:center; border-right:1px solid var(--border-dark); font-weight:700;" data-i18n="datcs.row3.datcs">✓ Native</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row3.qgc">Một phần</td>
+              <td style="padding:16px 20px; font-size:13px; color:rgba(255,255,255,.3); text-align:center; border-right:1px solid var(--border-dark);">—</td>
+              <td style="padding:16px 20px; font-size:13px; color:rgba(255,255,255,.3); text-align:center;">—</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border-dark); background:rgba(255,255,255,.02);">
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);" data-i18n="datcs.row4.label">4G/5G Command Link</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--red); text-align:center; border-right:1px solid var(--border-dark); font-weight:700;" data-i18n="datcs.row4.datcs">✓ Native</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row4.qgc">Plugin / thứ ba</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row4.mp">Giới hạn</td>
+              <td style="padding:16px 20px; font-size:13px; color:rgba(255,255,255,.3); text-align:center;" data-i18n="datcs.row4.bf">Không áp dụng</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border-dark);">
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);" data-i18n="datcs.row5.label">Quản lý đội bay</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--red); text-align:center; border-right:1px solid var(--border-dark); font-weight:700;" data-i18n="datcs.row5.datcs">✓ Built-in</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row5.qgc">Giới hạn</td>
+              <td style="padding:16px 20px; font-size:13px; color:rgba(255,255,255,.3); text-align:center; border-right:1px solid var(--border-dark);">—</td>
+              <td style="padding:16px 20px; font-size:13px; color:rgba(255,255,255,.3); text-align:center;">—</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border-dark); background:rgba(255,255,255,.02);">
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);" data-i18n="datcs.row6.label">Firmware tương thích</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--red); text-align:center; border-right:1px solid var(--border-dark); font-weight:700;" data-i18n="datcs.row6.datcs">DMA (độc quyền Deron)</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row6.qgc">PX4, ArduPilot</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row6.mp">ArduPilot / APM</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center;" data-i18n="datcs.row6.bf">Betaflight FC</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border-dark);">
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);" data-i18n="datcs.row7.label">Open source</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row7.datcs">Không (thương mại)</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row7.qgc">✓ Apache 2.0</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);" data-i18n="datcs.row7.mp">✓ GPL</td>
+              <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center;" data-i18n="datcs.row7.bf">✓ GPL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-family:var(--font-mono); font-size:10px; color:var(--text-inv-muted); opacity:.5; margin-top:16px; text-align:right;" data-i18n="datcs.tbl.note">* DATCS đang phát triển. Tính năng phát hành theo từng milestone. · 2025–2026</p>
+    </div>
+  </section>
+
+  <!-- FAQ (GEO-optimized) -->
+  <section style="background:var(--bg-white); padding:96px 0;">
+    <div class="container">
+      <div class="container-narrow" style="padding:0;">
+        <div class="reveal">
+          <div class="label label-red" style="margin-bottom:16px;" data-i18n="datcs.faq.badge">Câu hỏi thường gặp</div>
+          <h2 style="max-width:700px; margin-bottom:48px;" data-i18n="datcs.faq.h2">Tất cả những gì bạn cần biết về DATCS.</h2>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:2px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden;">
+          <div style="background:var(--bg-white); padding:36px 40px;" class="reveal">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; letter-spacing:-.01em;" data-i18n="datcs.q1.q">DATCS là gì và khác gì so với QGroundControl?</h3>
+            <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;" data-i18n="datcs.q1.a">DATCS (Deron Air Traffic Control System) là phần mềm GCS và UTM do Deron phát triển, dành riêng cho thị trường Việt Nam. Khác với QGroundControl — GCS mã nguồn mở toàn cầu hỗ trợ giao thức MAVLink — DATCS được thiết kế với trọng tâm tuân thủ pháp lý Việt Nam (Nghị định 288/2025/NĐ-CP), vận hành qua 4G/5G trong nước, và tích hợp sâu với flight controller DMA do Deron tự phát triển.</p>
+          </div>
+          <div style="background:var(--bg-white); padding:36px 40px; border-top:1px solid var(--border);" class="reveal">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; letter-spacing:-.01em;" data-i18n="datcs.q2.q">DATCS có phải là firmware như Betaflight không?</h3>
+            <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;" data-i18n="datcs.q2.a">Không. Betaflight là firmware chạy trực tiếp trên flight controller (FC), chủ yếu cho drone FPV racing và freestyle. DATCS là phần mềm GCS chạy trên thiết bị mặt đất (máy tính, tablet, điện thoại), kết nối với drone để điều hành nhiệm vụ, xem telemetry và quản lý fleet. DATCS giao tiếp với DMA — firmware flight controller riêng của Deron — không phải Betaflight, INAV hay ArduPilot.</p>
+          </div>
+          <div style="background:var(--bg-white); padding:36px 40px; border-top:1px solid var(--border);" class="reveal">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; letter-spacing:-.01em;" data-i18n="datcs.q3.q">Phần mềm quản lý drone nào tốt nhất cho Việt Nam hiện nay?</h3>
+            <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;" data-i18n="datcs.q3.a">Hiện tại (2025–2026), hầu hết tổ chức tại Việt Nam dùng QGroundControl hoặc Mission Planner — đều là giải pháp nước ngoài, chưa tích hợp với quy định và hạ tầng Việt Nam. DATCS được xây để lấp đầy khoảng trống này: GCS + UTM đầu tiên do người Việt phát triển, tối ưu cho Nghị định 288/2025, mạng viễn thông nội địa và địa hình nhiệt đới đặc thù.</p>
+          </div>
+          <div style="background:var(--bg-white); padding:36px 40px; border-top:1px solid var(--border);" class="reveal">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; letter-spacing:-.01em;" data-i18n="datcs.q4.q">DATCS có hỗ trợ UTM (Unmanned Traffic Management) không?</h3>
+            <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;" data-i18n="datcs.q4.a">Có. UTM là module cốt lõi của DATCS. Hệ thống sẽ hỗ trợ airspace visualization (vùng bay, vùng cấm, sân bay gần), tích hợp quy trình nộp hồ sơ cấp phép bay theo Nghị định 288/2025/NĐ-CP qua Cổng Dịch vụ công, và NOTAM awareness cho drone logistics thương mại tại Việt Nam.</p>
+          </div>
+          <div style="background:var(--bg-white); padding:36px 40px; border-top:1px solid var(--border);" class="reveal">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; letter-spacing:-.01em;" data-i18n="datcs.q5.q">DATCS có thể dùng với drone hãng khác không?</h3>
+            <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;" data-i18n="datcs.q5.a">Trong giai đoạn đầu, DATCS tối ưu cho hệ thống drone Deron (với DMA flight controller). Về lâu dài, Deron xem xét tương thích với MAVLink để DATCS hỗ trợ đa nền tảng. UTM module và compliance pháp lý sẽ luôn là trọng tâm phân biệt DATCS với các GCS nước ngoài.</p>
+          </div>
+          <div style="background:var(--bg-white); padding:36px 40px; border-top:1px solid var(--border);" class="reveal">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; letter-spacing:-.01em;" data-i18n="datcs.q6.q">Khi nào DATCS ra mắt? Làm sao nhận thông tin sớm nhất?</h3>
+            <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;" data-i18n-html="datcs.q6.a">DATCS đang phát triển cùng nền tảng drone của Deron. Phiên bản beta dự kiến ra mắt cùng chuyến bay thương mại đầu tiên (2026–2027). Liên hệ qua email <a href="mailto:ceo.deron@gmail.com" style="color:var(--red); text-decoration:underline;">ceo.deron@gmail.com</a> để được cập nhật sớm khi DATCS có phiên bản thử nghiệm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="datcs-download" style="background:var(--bg-dark); padding:80px 0; text-align:center;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="datcs.cta.badge">Tải bản thử nghiệm</div>
+        <h2 class="text-inv" style="margin:0 auto 20px; max-width:720px;" data-i18n-html="datcs.cta.h2">Tải bản thử nghiệm của DATCS —<br>Hệ thống điều phối không lưu Deron.</h2>
+        <p style="color:var(--text-inv-muted); margin:0 auto 40px; font-size:16px; max-width:620px;" data-i18n="datcs.cta.p">Dành cho tổ chức y tế, đơn vị logistics, cơ quan quản lý và nhà phát triển muốn trải nghiệm sớm DATCS. Điền thông tin để nhận liên kết tải an toàn qua email.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-arrow" onclick="openDactsModal()" data-i18n="datcs.cta.btn1">Đăng ký tải ứng dụng DATCS bản thử nghiệm</button>
+          <button class="btn btn-outline" onclick="navigate('technology')" data-i18n="datcs.cta.btn2">Tìm hiểu công nghệ DMA</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="datcs.footer.copy">© 2025–2026 Deron. DATCS — Made in Vietnam.</div>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ INFO PAGE -->
+<div id="page-info" class="page">
+  <!-- HERO -->
+  <div style="background:var(--bg-dark); padding:140px 0 80px; position:relative; overflow:hidden;">
+    <div class="hero-grid-bg" style="opacity:0.25;"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <!-- Breadcrumbs -->
+      <div style="display:flex; gap:8px; align-items:center; margin-bottom:32px; font-family:var(--font-label); font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">
+          <span style="color:var(--text-inv-muted); cursor:pointer; transition:color 0.2s;" onclick="navigate('home')" data-i18n="nav.home">Trang chủ</span>
+          <span style="color:rgba(255,255,255,0.2);">/</span>
+          <span style="color:var(--red);" data-i18n="nav.info">Thông tin</span>
+      </div>
+      <h1 class="text-inv" style="max-width:600px;" data-i18n-html="info.title">Thông<br>tin.</h1>
+      <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:540px; line-height:1.65;" data-i18n="info.sub">
+        Minh bạch về dữ liệu, pháp lý và tài liệu tham khảo. Mọi số liệu trên website Deron đều có nguồn rõ ràng.
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <section style="background:var(--bg-white); padding:96px 0;">
+    <div class="container">
+      <div class="grid-2" style="gap:80px; align-items:start;">
+        
+        <!-- Legal -->
+        <div class="reveal">
+          <div class="label label-red" style="margin-bottom:20px;" data-i18n="info.legal.label">Văn bản pháp lý</div>
+          <div style="display:flex; flex-direction:column; gap:32px;">
+            <div>
+              <h4 style="margin-bottom:8px;" data-i18n="info.legal1.t">Nghị định 288/2025/NĐ-CP</h4>
+              <p style="font-size:15px; color:var(--text-muted); line-height:1.6;" data-i18n="info.legal1.d">Quy định về quản lý tàu bay không người lái, phương tiện bay. Ban hành 05/11/2025.</p>
+            </div>
+            <div style="padding-top:32px; border-top:1px solid var(--border);">
+              <h4 style="margin-bottom:8px;" data-i18n="info.legal2.t">Nghị quyết 57-NQ/TW</h4>
+              <p style="font-size:15px; color:var(--text-muted); line-height:1.6;" data-i18n="info.legal2.d">Về đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia.</p>
+            </div>
+            <div style="padding-top:32px; border-top:1px solid var(--border);">
+              <h4 style="margin-bottom:8px;" data-i18n="info.legal3.t">Quyết định 1131/QĐ-TTg</h4>
+              <p style="font-size:15px; color:var(--text-muted); line-height:1.6;" data-i18n="info.legal3.d">Ban hành Danh mục công nghệ chiến lược quốc gia.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Market Data -->
+        <div class="reveal reveal-delay-2">
+          <div class="label label-red" style="margin-bottom:20px;" data-i18n="info.market.label">Dữ liệu thị trường</div>
+          <div style="display:flex; flex-direction:column; gap:32px;">
+            <div>
+              <h4 style="margin-bottom:8px;" data-i18n="info.market1.t">World Bank — Logistics Performance Index</h4>
+              <p style="font-size:15px; color:var(--text-muted); line-height:1.6;" data-i18n="info.market1.d">Chi phí logistics Việt Nam chiếm 16–20% GDP.</p>
+            </div>
+            <div style="padding-top:32px; border-top:1px solid var(--border);">
+              <h4 style="margin-bottom:8px;" data-i18n="info.market2.t">GSO / Bộ GTVT</h4>
+              <p style="font-size:15px; color:var(--text-muted); line-height:1.6;" data-i18n="info.market2.d">Dữ liệu về hạ tầng giao thông vùng xa, vùng núi.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--bg-dark); padding:80px 0; text-align:center;">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:20px;" data-i18n="cta.label">Bạn đứng ở đâu?</div>
+        <h2 class="text-inv" style="margin:0 auto 24px; max-width:640px;" data-i18n="cta.title">Tham gia hành trình xây dựng hạ tầng logistics Việt Nam.</h2>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-arrow" onclick="navigate('investor')" data-i18n="cta.btn1">Tôi là nhà đầu tư</button>
+          <button class="btn btn-outline" onclick="navigate('contact')" data-i18n="cta.btn2">Liên hệ với chúng tôi</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026 Deron. Made in Vietnam.</div>
+      <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')" data-i18n="nav.backHome">← Trang chủ</button>
+    </div>
+  </footer>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
+  }
+}
+</script>
+<script src="runtime-env.js"></script>
+<script src="public/translations.js"></script>
+
+<!-- ============================================================ JAVASCRIPT -->
+<script>
+// ---- I18N ----
+let currentLang = 'vi';
+
+function toggleLangDropdown() {
+  const dd = document.getElementById('langDropdown');
+  const isOpen = dd.classList.toggle('open');
+  dd.querySelector('.lang-dropdown-toggle').setAttribute('aria-expanded', isOpen);
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  // Close dropdown
+  const dd = document.getElementById('langDropdown');
+  if (dd) { dd.classList.remove('open'); dd.querySelector('.lang-dropdown-toggle').setAttribute('aria-expanded', 'false'); }
+  // Update dropdown toggle label
+  document.querySelectorAll('.lang-dropdown-item').forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    if (active) {
+      const f = document.getElementById('langFlag');
+      const l = document.getElementById('langLabel');
+      if (f) f.className = 'fi fis lang-flag ' + btn.dataset.flagClass;
+      if (l) l.textContent = btn.dataset.label;
+    }
+  });
+  // Update mobile buttons
+  document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  applyTranslations(lang);
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', function(e) {
+  const dd = document.getElementById('langDropdown');
+  if (dd && !dd.contains(e.target)) {
+    dd.classList.remove('open');
+    const toggle = dd.querySelector('.lang-dropdown-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+function applyTranslations(lang) {
+  if (!window.T || !window.T[lang]) return;
+  const dict = window.T[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+    const key = el.dataset.i18nAriaLabel;
+    if (dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+  });
+}
+
+function t(key, fallback = '') {
+  if (!window.T || !window.T[currentLang]) return fallback;
+  const value = window.T[currentLang][key];
+  return value !== undefined ? value : fallback;
+}
+
+// ---- NAVIGATION ----
+const pages = ['home','about','technology','usecases','products','investor','contact','datcs','info'];
+
+function navigate(page) {
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) el.classList.remove('active');
+  });
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  // Update nav active state
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  // Apply current language to newly visible page
+  applyTranslations(currentLang);
+  // Trigger reveal animations
+  setTimeout(initReveal, 50);
+}
+
+function scrollToDatcsDownload() {
+  const target = document.getElementById('datcs-download');
+  if (!target) return;
+  const top = target.getBoundingClientRect().top + window.pageYOffset - 88;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+// ---- MOBILE NAV ----
+function toggleMobileNav() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMobileNav() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// ---- SCROLL NAV ----
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  if (window.scrollY > 30) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+// ---- REVEAL ANIMATIONS ----
+function initReveal() {
+  const reveals = document.querySelectorAll('.page.active .reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => {
+    if (!el.classList.contains('visible')) observer.observe(el);
+  });
+}
+
+// ---- COUNTER ANIMATIONS ----
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1400;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = prefix + (target >= 1000 ? current.toLocaleString('vi-VN') : current) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+// Observe hero stats
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounters();
+      heroObserver.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) heroObserver.observe(heroStats);
+
+// ---- USE CASE TABS ----
+function switchTab(index) {
+  document.querySelectorAll('.usecase-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.usecase-panel').forEach((p, i) => {
+    p.classList.toggle('active', i === index);
+  });
+}
+
+// ---- NAV SCROLLED on load ----
+document.addEventListener('DOMContentLoaded', () => {
+  applyTranslations(currentLang);
+  if (window.scrollY > 30) document.getElementById('nav').classList.add('scrolled');
+  else document.getElementById('nav').classList.add('scrolled'); // always visible
+  initReveal();
+});
+
+// Initial reveal
+setTimeout(initReveal, 100);
+setTimeout(initReveal, 400);
+
+let datcsSupabaseModulePromise = null;
+
+async function getDatcsSupabaseModule() {
+  if (!datcsSupabaseModulePromise) {
+    datcsSupabaseModulePromise = import('./src/lib/supabase.js');
+  }
+
+  return datcsSupabaseModulePromise;
+}
+
+function openDactsModal(){
+  const m=document.getElementById('dactsModal');
+  if(m) m.style.display='flex';
+  const status=document.getElementById('dactsStatus');
+  if(status){
+    status.textContent='';
+    status.style.color='var(--text-muted)';
+  }
+}
+function closeDactsModal(){
+  const m=document.getElementById('dactsModal');
+  if(m) m.style.display='none';
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const form=document.getElementById('dactsForm');
+  if(form) form.addEventListener('submit', async(event)=>{
+    event.preventDefault();
+    const status=document.getElementById('dactsStatus');
+    const submitBtn=form.querySelector('button[type="submit"]');
+    status.textContent=t('datcs.modal.processing','Đang xử lý yêu cầu đăng ký...');
+    status.style.color='var(--text-muted)';
+    submitBtn.disabled=true;
+    
+    const fd=new FormData(form);
+    const payload=Object.fromEntries(fd.entries());
+    
+    try{
+      const { submitDatcsDownloadRequest } = await getDatcsSupabaseModule();
+
+      await submitDatcsDownloadRequest({
+        fullName: payload.full_name,
+        email: payload.email,
+        phone: payload.phone,
+        organization: payload.organization,
+        industry: payload.industry,
+        jobPosition: payload.job_title,
+        country: 'Vietnam',
+        reason: payload.reason,
+        language: ['vi','en','zh'].includes(currentLang) ? currentLang : 'vi',
+        selectedPlatform: 'windows',
+      });
+
+      status.style.color='var(--green)';
+      status.textContent=t('datcs.modal.success','Yêu cầu đã được gửi. Deron sẽ xét duyệt và gửi liên kết tải DATCS an toàn qua email nếu yêu cầu được phê duyệt.');
+      form.reset();
+    }catch(err){
+      status.style.color='var(--red)';
+      status.textContent=err.message||t('datcs.modal.errorGeneric','Đăng ký thất bại. Vui lòng thử lại sau.');
+    }finally{
+      submitBtn.disabled=false;
+    }
+  });
+  
+  const modal=document.getElementById('dactsModal');
+  if(modal) modal.addEventListener('click',e=>{
+    if(e.target===modal) closeDactsModal();
+  });
+});
+</script>
+
+<div class="modal-overlay" id="dactsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+  <div class="modal-content" style="background:var(--bg-white); color:var(--text-primary); padding:32px; border-radius:var(--radius-lg); width:100%; max-width:500px; max-height:90vh; overflow-y:auto; position:relative;">
+    <button onclick="closeDactsModal()" style="position:absolute; top:20px; right:24px; background:none; border:none; font-size:24px; cursor:pointer;" aria-label="Đóng" data-i18n-aria-label="datcs.modal.close">×</button>
+    <h3 style="margin-bottom:8px; font-weight:800; font-size:24px; line-height:1.2;" data-i18n="datcs.modal.title">Đăng ký tải DATCS bản thử nghiệm</h3>
+    <p style="color:var(--text-muted); font-size:14px; margin-bottom:24px;" data-i18n="datcs.modal.desc">Vui lòng điền thông tin bên dưới. Hệ thống sẽ xét duyệt và gửi liên kết tải an toàn của DATCS bản thử nghiệm qua email của bạn.</p>
+    
+    <form id="dactsForm" style="display:flex; flex-direction:column; gap:16px;">
+      <div>
+        <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);" data-i18n="datcs.modal.fullName">Họ và tên *</label>
+        <input type="text" name="full_name" required style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);" data-i18n="datcs.modal.email">Email *</label>
+        <input type="email" name="email" required style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);" data-i18n="datcs.modal.phone">Số điện thoại *</label>
+        <input type="text" name="phone" required style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);" data-i18n="datcs.modal.organization">Đơn vị công tác *</label>
+        <input type="text" name="organization" required style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);" data-i18n="datcs.modal.industry">Lĩnh vực / Ngành nghề *</label>
+        <input type="text" name="industry" required style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);" data-i18n="datcs.modal.jobTitle">Chức vụ *</label>
+        <input type="text" name="job_title" required style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);" data-i18n="datcs.modal.reason">Lý do muốn tải / sử dụng DATCS *</label>
+        <textarea name="reason" required rows="3" style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light); resize:vertical;"></textarea>
+      </div>
+      
+      <div id="dactsStatus" style="font-size:13px; font-weight:600; margin-top:4px;"></div>
+      
+      <button type="submit" class="btn btn-primary" style="margin-top:8px; width:100%; justify-content:center; padding:12px; font-size:14px;" data-i18n="datcs.modal.submit">Đăng ký nhận liên kết tải</button>
+    </form>
+  </div>
+</div>
+
 </body>
 </html>
