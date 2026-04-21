@@ -68,6 +68,7 @@ jobs:
           REQUIRED_DIRS=(
             "assets"
             "ung-dung"
+            "public"
           )
 
           for dir in "${REQUIRED_DIRS[@]}"; do
@@ -121,7 +122,6 @@ jobs:
             **/.git*
             **/node_modules/**
             **/src/**
-            **/public/**
             **/README.md
             **/package*.json
             **/tailwind.config.js
