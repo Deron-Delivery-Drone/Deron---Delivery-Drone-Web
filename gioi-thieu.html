@@ -44,6 +44,12 @@
   .lang-dropdown-item .item-flag { width: 18px; border-radius: 2px; flex-shrink: 0; }
   .nav-right { display: flex; align-items: center; }
   @media (max-width: 768px) { .nav-links, .nav-right { display: none; } .nav-hamburger { display: flex !important; } }
+
+  .about-section { position: relative; overflow: hidden; background: var(--bg-white); }
+  .about-bg-wrapper { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .about-bg-image { position: absolute; inset: -20px; background-image: url('public/Bacgiap.jpeg'); background-size: cover; background-position: center 25%; filter: blur(12px) saturate(1.2); opacity: 0.18; }
+  .about-bg-overlay { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(253, 252, 249, 0.4) 0%, rgba(253, 252, 249, 0.9) 100%); backdrop-filter: blur(2px); }
+  .about-section .container { position: relative; z-index: 2; }
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://deron.vn/#organization","name":"Deron","alternateName":["Deron Vietnam","Deron Delivery Drone"],"url":"https://deron.vn","logo":{"@type":"ImageObject","url":"https://deron.vn/Deron-logo.png","width":512,"height":512},"description":"Deron xây dựng hệ thống drone giao hàng tự hành phục vụ y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó tiếp cận tại Việt Nam.","founder":{"@type":"Person","@id":"https://deron.vn/gioi-thieu#founder","name":"Nguyễn Phúc Huy","jobTitle":"Founder & Project Leader","email":"ceo.deron@gmail.com"},"foundingDate":"2025","foundingLocation":{"@type":"Place","name":"Ho Chi Minh City, Vietnam"},"contactPoint":{"@type":"ContactPoint","email":"ceo.deron@gmail.com","telephone":"+84363045747","contactType":"general"},"address":{"@type":"PostalAddress","addressLocality":"Ho Chi Minh City","addressCountry":"VN"},"sameAs":["https://linkedin.com/company/deron-vietnam","https://github.com/deron-vietnam","https://x.com/deron_vietnam"],"knowsAbout":["Drone logistics","UAV delivery","Emergency medical logistics","Low-altitude economy"],"areaServed":{"@type":"Country","name":"Vietnam"}},{"@type":"WebSite","@id":"https://deron.vn/#website","url":"https://deron.vn","name":"Deron","description":"Deron – Delivery Drone | Chiến Dịch Điện Biên Phủ Trong Lĩnh Vực Logistics","publisher":{"@id":"https://deron.vn/#organization"},"inLanguage":["vi","en","zh"]}]}
@@ -82,7 +88,11 @@
 </nav>
 <div class="page-hero"><div class="hero-grid-bg" style="opacity:.3"></div><div class="container" style="position:relative;z-index:2;padding-top:140px;padding-bottom:80px"><div class="breadcrumb"><a href="/">Trang chủ</a><span class="sep">/</span><span>Về chúng tôi</span></div><h1 class="text-inv" style="max-width:760px">Không bắt đầu từ<br>cơ hội thị trường.</h1><p style="color:var(--text-inv-muted);font-size:20px;margin-top:24px;max-width:560px;line-height:1.65">Deron bắt đầu từ một câu hỏi — và quyết tâm không để nó không có câu trả lời.</p></div></div>
 
-<section class="section" style="background:var(--bg-white)">
+<section class="section about-section">
+<div class="about-bg-wrapper">
+  <div class="about-bg-image"></div>
+  <div class="about-bg-overlay"></div>
+</div>
 <div class="container">
 <div class="grid-2" style="gap:80px">
   <div class="reveal">
