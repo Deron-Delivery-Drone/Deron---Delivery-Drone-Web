@@ -103,7 +103,7 @@ window.T = {
         "footer.col1": "Sứ mệnh", "footer.col2": "Sản phẩm", "footer.col3": "Đầu tư", "footer.col4": "Liên hệ",
         "footer.l1": "Về chúng tôi", "footer.l2": "Giá trị cốt lõi", "footer.l3": "Lộ trình",
         "footer.l4": "Công nghệ DMA", "footer.l5": "Ứng dụng", "footer.l6": "Triết lý an toàn",
-        "footer.l7": "Nhà đầu tư", "footer.l8": "Tải Pitch Deck", "footer.l9": "Lộ trình vốn",
+        "footer.l7": "Nhà đầu tư", "footer.l8": "Tải Pitch Deck", "footer.l9": "Lộ trình vốn", "footer.l10": "Deron Agriculture", "footer.l11": "DATCS",
 
         // About page
         "about.label": "ABOUT DERON",
@@ -495,7 +495,7 @@ window.T = {
         "footer.col1": "Mission", "footer.col2": "Products", "footer.col3": "Investment", "footer.col4": "Contact",
         "footer.l1": "About Us", "footer.l2": "Core Values", "footer.l3": "Roadmap",
         "footer.l4": "DMA Technology", "footer.l5": "Applications", "footer.l6": "Safety Philosophy",
-        "footer.l7": "Investors", "footer.l8": "Download Pitch Deck", "footer.l9": "Capital Roadmap",
+        "footer.l7": "Investors", "footer.l8": "Download Pitch Deck", "footer.l9": "Capital Roadmap", "footer.l10": "Deron Agriculture", "footer.l11": "DATCS",
 
         "about.label": "ABOUT DERON",
         "about.title": "Not born from market opportunity.",
@@ -883,9 +883,9 @@ window.T = {
         "footer.col1": "使命", "footer.col2": "产品", "footer.col3": "投资", "footer.col4": "联系",
         "footer.l1": "关于我们", "footer.l2": "核心价值观", "footer.l3": "路线图",
         "footer.l4": "DMA 技术", "footer.l5": "应用", "footer.l6": "安全理念",
-        "footer.l7": "投资者", "footer.l8": "下载 Pitch Deck", "footer.l9": "资本路线图",
+        "footer.l7": "投资者", "footer.l8": "下载 Pitch Deck", "footer.l9": "资本路线图", "footer.l10": "Deron Agriculture", "footer.l11": "DATCS",
 
-        "about.label": "ABOUT DERON",
+        "about.label": "关于 Deron",
         "about.title": "Deron 的起点，不是市场机会。",
         "about.sub": "Deron 并非起步于市场机会。它起步于一个不变的核心——解决人们真正需要被解决的问题。",
         "about.origin": "起源",
