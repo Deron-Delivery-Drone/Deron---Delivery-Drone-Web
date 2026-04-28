@@ -604,12 +604,12 @@
 
     .hero-drone-svg {
       position: absolute;
-      right: 80px;
+      right: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: 420px;
-      height: 420px;
-      opacity: 0.12;
+      width: 800px;
+      height: auto;
+      opacity: 1;
       pointer-events: none;
     }
 
@@ -2324,19 +2324,7 @@
       <div class="hero-grid-bg"></div>
       <div class="hero-glow"></div>
       <div class="hero-glow-2"></div>
-      <svg class="hero-drone-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="200" r="160" stroke="white" stroke-width="1" />
-        <circle cx="200" cy="200" r="100" stroke="white" stroke-width="1" />
-        <circle cx="200" cy="200" r="40" stroke="white" stroke-width="2" />
-        <line x1="200" y1="40" x2="200" y2="360" stroke="white" stroke-width="0.5" />
-        <line x1="40" y1="200" x2="360" y2="200" stroke="white" stroke-width="0.5" />
-        <circle cx="200" cy="40" r="8" fill="white" />
-        <circle cx="360" cy="200" r="8" fill="white" />
-        <circle cx="200" cy="360" r="8" fill="white" />
-        <circle cx="40" cy="200" r="8" fill="white" />
-        <circle cx="200" cy="200" r="6" fill="#C41E3A" />
-        <path d="M200 160 L240 200 L200 240 L160 200 Z" stroke="white" stroke-width="1.5" fill="none" />
-      </svg>
+      <img src="public/UAV_Design.svg" class="hero-drone-svg" alt="UAV Design">
       <div class="hero-content">
         <div class="hero-badge">
           <div class="hero-badge-dot"></div>
