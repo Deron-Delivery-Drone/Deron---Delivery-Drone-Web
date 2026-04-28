@@ -259,7 +259,8 @@
       border-bottom-color: var(--border-dark);
     }
 
-    .nav-logo {
+    .nav-logo,
+    .footer-logo {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -271,7 +272,8 @@
       cursor: pointer;
     }
 
-    .nav-logo img {
+    .nav-logo img,
+    .footer-logo img {
       height: 1.5em;
       width: auto;
       max-width: none;
@@ -2599,7 +2601,11 @@
       <div class="footer-inner">
         <div class="footer-top">
           <div>
-            <div class="footer-logo"><span style="color:var(--red)">●</span> DERON</div>
+            <div class="footer-logo" onclick="navigate('home')" style="cursor:pointer;">
+              <img src="public/Deron-logo-dark.png" class="logo-dark" alt="Deron logo">
+              <img src="public/Deron-logo-light.png" class="logo-light" alt="Deron logo">
+              <span>DERON</span>
+            </div>
             <p class="footer-brand-desc" data-i18n="footer.desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của
               Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
             <div class="footer-tagline" data-i18n="footer.tagline">Made in Vietnam · Built for Vietnam</div>
@@ -2618,13 +2624,15 @@
               <span class="footer-link" data-i18n="footer.l4" onclick="navigate('technology')">Công nghệ DMA</span>
               <span class="footer-link" data-i18n="footer.l5" onclick="navigate('usecases')">Ứng dụng</span>
               <span class="footer-link" data-i18n="footer.l6" onclick="navigate('technology')">Triết lý an toàn</span>
+              <span class="footer-link" data-i18n="footer.l10" onclick="navigate('usecases')">Deron Agriculture</span>
+              <a href="https://datcs.deron.vn" target="_blank" class="footer-link" data-i18n="footer.l11">DATCS</a>
             </div>
           </div>
           <div>
             <div class="footer-col-title" data-i18n="footer.col3">Đầu tư</div>
             <div class="footer-links">
               <span class="footer-link" data-i18n="footer.l7" onclick="navigate('investor')">Nhà đầu tư</span>
-              <span class="footer-link" data-i18n="footer.l8" onclick="navigate('investor')">Tải Pitch Deck</span>
+            <a class="footer-link" data-i18n="footer.l8" href="public/Deron_Pitch.pdf" target="_blank">Tải Pitch Deck</a>
               <span class="footer-link" data-i18n="footer.l9" onclick="navigate('investor')">Lộ trình vốn</span>
             </div>
           </div>
