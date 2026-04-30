@@ -39,9 +39,10 @@ jobs:
           rm -rf build
           mkdir -p build
 
-          echo "Copying root HTML pages and SEO files..."
+          echo "Copying root HTML pages, SEO files, runtime files and .htaccess..."
           ROOT_FILES=(
             "index.html"
+            "datcs.html"
             "gioi-thieu.html"
             "cong-nghe.html"
             "ung-dung.html"
@@ -53,12 +54,14 @@ jobs:
             "san-pham.html"
             "robots.txt"
             "sitemap.xml"
+            ".htaccess"
+            "runtime-env.js"
           )
 
           for file in "${ROOT_FILES[@]}"; do
             if [ -f "$file" ]; then
               cp "$file" build/
-              echo "Copied: $file"
+              echo "Copied file: $file"
             else
               echo "Skipped missing file: $file"
             fi
@@ -67,8 +70,9 @@ jobs:
           echo "Copying required folders..."
           REQUIRED_DIRS=(
             "assets"
-            "ung-dung"
             "public"
+            "ung-dung"
+            "dates"
           )
 
           for dir in "${REQUIRED_DIRS[@]}"; do
@@ -79,6 +83,48 @@ jobs:
               echo "Skipped missing directory: $dir"
             fi
           done
+
+          echo "Copying DATCS nested routes..."
+
+          # Create DATCS folder inside build
+          mkdir -p build/datcs
+
+          # Optional DATCS folder index
+          # Local: datcs/index.html
+          # Server: public_html/datcs/index.html
+          if [ -f "datcs/index.html" ]; then
+            cp "datcs/index.html" build/datcs/
+            echo "Copied: datcs/index.html"
+          else
+            echo "Skipped missing file: datcs/index.html"
+          fi
+
+          # DATCS install/request page
+          # Local: datcs/install/index.html
+          # Server: public_html/datcs/install/index.html
+          if [ -d "datcs/install" ]; then
+            mkdir -p build/datcs/install
+            cp -R datcs/install/* build/datcs/install/
+            echo "Copied directory: datcs/install"
+          else
+            echo "ERROR: Missing required directory: datcs/install"
+            exit 1
+          fi
+
+          # DATCS secure download page
+          # Local: datcs/download/index.html
+          # Server: public_html/datcs/download/index.html
+          #
+          # If this exists in repo, deploy it.
+          # If it does not exist in repo, keep the existing cPanel version untouched.
+          if [ -d "datcs/download" ]; then
+            mkdir -p build/datcs/download
+            cp -R datcs/download/* build/datcs/download/
+            echo "Copied directory: datcs/download"
+          else
+            echo "Skipped missing directory: datcs/download"
+            echo "Existing cPanel datcs/download will be preserved by FTP exclude rule."
+          fi
 
           echo "Copying common static assets in repo root..."
           find . -maxdepth 1 -type f \( \
@@ -91,7 +137,15 @@ jobs:
           \) -exec cp {} build/ \;
 
           echo "Final build content:"
-          find build -maxdepth 4 -type f | sort
+          find build -maxdepth 5 -type f | sort
+
+          echo "Checking required DATCS install file..."
+          if [ ! -f "build/datcs/install/index.html" ]; then
+            echo "ERROR: build/datcs/install/index.html was not created."
+            exit 1
+          fi
+
+          echo "DATCS install page is ready for deployment."
 
       - name: Decide whether to deploy
         id: guard
@@ -127,3 +181,4 @@ jobs:
             **/tailwind.config.js
             **/.env*
             **/.github/**
+            **/datcs/download/**
