@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/public/Deron-logo-dark.png">
+<link rel="shortcut icon" href="/public/Deron-logo-dark.png">
+<title data-i18n="datcs.install.meta.title">Tải DATCS Desktop | Deron</title>
+<meta name="description" data-i18n-attr="content:datcs.install.meta.desc" content="Tải hoặc yêu cầu quyền truy cập DATCS Desktop, hệ thống điều phối không lưu, giám sát đội bay, kiểm tra telemetry và xác thực an toàn cho nền tảng UAV logistics của Deron.">
+<link rel="canonical" href="https://deron.vn/datcs/install">
+<meta property="og:title" content="Tải DATCS Desktop | Deron">
+<meta property="og:description" content="Tải hoặc yêu cầu quyền truy cập DATCS Desktop cho nền tảng UAV logistics của Deron.">
+<meta property="og:url" content="https://deron.vn/datcs/install">
+<meta property="og:image" content="https://deron.vn/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Deron">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tải DATCS Desktop | Deron">
+<meta name="twitter:description" content="Official controlled DATCS Desktop installer access for Windows, macOS and Linux.">
+<meta name="twitter:image" content="https://deron.vn/og-image.jpg">
+<link rel="alternate" hreflang="vi" href="https://deron.vn/datcs/install">
+<link rel="alternate" hreflang="en" href="https://deron.vn/datcs/install">
+<link rel="alternate" hreflang="zh" href="https://deron.vn/datcs/install">
+<link rel="alternate" hreflang="x-default" href="https://deron.vn/datcs/install">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<style>
+  .lang-dropdown { position: relative; margin: 0 10px; }
+  .lang-dropdown-toggle { display: flex; align-items: center; gap: 7px; font-family: var(--font-label); font-size: 11px; font-weight: 600; letter-spacing: .06em; color: rgba(255,255,255,.7); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); border-radius: var(--radius); padding: 7px 12px 7px 10px; cursor: pointer; transition: all var(--transition); white-space: nowrap; }
+  .lang-dropdown-toggle:hover { color: #fff; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.22); }
+  .lang-dropdown-toggle .lang-flag { width: 16px; border-radius: 2px; flex-shrink: 0; }
+  .lang-arrow { width: 8px; height: 5px; flex-shrink: 0; opacity: .5; transition: transform var(--transition); }
+  .lang-dropdown.open .lang-arrow { transform: rotate(180deg); opacity: .9; }
+  .lang-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 152px; background: #0d1119; border: 1px solid var(--border-dark); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,.55); opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity 160ms ease, transform 160ms ease; z-index: 200; }
+  .lang-dropdown.open .lang-dropdown-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .lang-dropdown-item { display: flex; align-items: center; gap: 10px; width: 100%; font-family: var(--font-label); font-size: 12px; font-weight: 600; letter-spacing: .04em; color: rgba(255,255,255,.5); background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.05); padding: 13px 16px; cursor: pointer; transition: all 150ms ease; text-align: left; }
+  .lang-dropdown-item:last-child { border-bottom: none; }
+  .lang-dropdown-item:hover { background: rgba(255,255,255,.05); color: #fff; }
+  .lang-dropdown-item.active { color: #fff; background: rgba(196,30,58,.1); border-left: 2px solid var(--red); padding-left: 14px; }
+  .lang-dropdown-item .item-flag { width: 18px; border-radius: 2px; flex-shrink: 0; }
+  .nav-right { display: flex; align-items: center; }
+  @media (max-width: 768px) { .nav-links, .nav-right { display: none; } .nav-hamburger { display: flex !important; } }
+
+  .install-hero { background: var(--bg-dark); padding: 140px 0 88px; position: relative; overflow: hidden; }
+  .install-hero .container { position: relative; z-index: 2; }
+  .install-hero-copy { max-width: 820px; }
+  .install-hero-copy p { color: var(--text-inv-muted); font-size: 19px; margin-top: 24px; line-height: 1.7; max-width: 760px; }
+  .install-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
+  .install-stat-row { display: flex; gap: 48px; margin-top: 56px; padding-top: 42px; border-top: 1px solid var(--border-dark); flex-wrap: wrap; }
+  .install-stat-value { font-family: var(--font-display); font-size: 30px; line-height: 1; font-weight: 900; color: #fff; }
+  .install-stat-label { font-family: var(--font-label); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-inv-muted); margin-top: 8px; }
+
+  .install-section { padding: 96px 0; }
+  .install-section-dark { background: var(--bg-dark); color: var(--text-inv); }
+  .install-section-mid { background: var(--bg-mid); color: var(--text-inv); }
+  .install-section-light { background: var(--bg-light); }
+  .install-section-white { background: var(--bg-white); }
+
+  .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .platform-card { background: var(--bg-white); padding: 36px 32px; min-height: 100%; }
+  .platform-name { font-family: var(--font-display); font-size: 28px; font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--text-primary); margin: 12px 0 16px; }
+  .platform-meta { display: grid; gap: 12px; margin: 22px 0 28px; }
+  .platform-meta-row { border-top: 1px solid var(--border); padding-top: 12px; }
+  .platform-meta-key { font-family: var(--font-label); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+  .platform-meta-val { color: var(--text-body); font-size: 14px; line-height: 1.55; margin-top: 4px; }
+  .platform-action { margin-top: auto; }
+
+  .notice-card { border: 1px solid var(--border-dark); border-radius: var(--radius-lg); background: rgba(255,255,255,.04); padding: 28px 32px; }
+  .notice-card p { color: var(--text-inv-muted); max-width: 720px; margin-top: 10px; }
+  .mobile-device-notice { display: none; margin-top: 32px; }
+  .is-mobile-device .mobile-device-notice { display: block; }
+  .is-mobile-device .desktop-primary-cta { display: none; }
+
+  .access-grid { display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; align-items: start; }
+
+  .form-panel, .token-panel { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; color: var(--text-body); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-field.full { grid-column: 1 / -1; }
+  .form-field label, .checkbox-line span { display: block; font-family: var(--font-label); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  .form-field input, .form-field select, .form-field textarea { width: 100%; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-light); color: var(--text-primary); padding: 12px 12px; font: inherit; font-size: 14px; }
+  .form-field textarea { resize: vertical; min-height: 112px; }
+  .checkbox-line { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-top: 1px solid var(--border); }
+  .checkbox-line input { width: auto; margin-top: 5px; }
+  .checkbox-line span { margin: 0; color: var(--text-body); letter-spacing: .04em; line-height: 1.5; }
+  .form-status { min-height: 22px; font-size: 13px; font-weight: 600; margin-top: 14px; line-height: 1.5; }
+  .form-status.success { color: var(--green); }
+  .form-status.error { color: var(--red); }
+
+  .token-panel { display: none; margin-bottom: 24px; }
+  .token-panel.active { display: block; }
+  .token-title { font-family: var(--font-display); font-size: 22px; line-height: 1.2; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; }
+  .token-msg { color: var(--text-muted); font-size: 14px; line-height: 1.6; max-width: 100%; }
+  .token-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 22px 0; }
+  .token-cell { padding: 14px 16px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .token-cell:nth-child(2n) { border-right: none; }
+  .token-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .token-key { font-family: var(--font-label); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+  .token-val { font-family: var(--font-mono); font-size: 12px; color: var(--text-primary); margin-top: 5px; word-break: break-word; }
+  .token-cell.is-hidden { display: none; }
+
+  .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .guide-card { background: var(--bg-white); padding: 34px 30px; }
+  .guide-list { counter-reset: step; display: grid; gap: 16px; margin-top: 22px; }
+  .guide-list li { list-style: none; display: grid; grid-template-columns: 34px 1fr; gap: 14px; color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+  .guide-list li::before { counter-increment: step; content: counter(step, decimal-leading-zero); font-family: var(--font-mono); font-size: 11px; color: var(--red); padding-top: 2px; }
+  .guide-card h3, .first-run-card h3 { font-size: 24px; }
+  .first-run-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 34px 32px; }
+
+  .trouble-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .trouble-item { background: var(--bg-white); padding: 28px 30px; }
+  .trouble-item p { max-width: 100%; color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-top: 10px; }
+
+  .web-console-card { border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 38px 40px; background: rgba(255,255,255,.04); display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
+  .web-console-card p { color: var(--text-inv-muted); max-width: 720px; margin-top: 12px; }
+  .web-console-note { font-family: var(--font-label); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 16px; }
+
+  .security-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border-dark); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); overflow: hidden; }
+  .security-card { background: var(--bg-mid); padding: 28px 30px; }
+  .security-card p { max-width: 100%; color: var(--text-inv-muted); font-size: 14px; line-height: 1.7; margin-top: 10px; }
+
+  @media (max-width: 980px) {
+    .platform-grid, .guide-grid, .trouble-grid, .security-grid, .access-grid, .web-console-card { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .install-hero { padding: 120px 0 70px; }
+    .install-hero-actions .btn, .web-console-card .btn, .form-panel .btn { width: 100%; justify-content: center; white-space: normal; text-align: center; }
+    .token-grid { grid-template-columns: 1fr; }
+    .token-cell { border-right: none; }
+    .token-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .token-cell:last-child { border-bottom: none; }
+  }
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","@id":"https://deron.vn/datcs/install","url":"https://deron.vn/datcs/install","name":"Tải DATCS Desktop | Deron","description":"Tải hoặc yêu cầu quyền truy cập DATCS Desktop, hệ thống điều phối không lưu, giám sát đội bay, kiểm tra telemetry và xác thực an toàn cho nền tảng UAV logistics của Deron.","isPartOf":{"@type":"WebSite","@id":"https://deron.vn/#website"},"about":{"@type":"SoftwareApplication","name":"DATCS Desktop","applicationCategory":"DesktopApplication","operatingSystem":"Windows, macOS, Linux","offers":{"@type":"Offer","availability":"https://schema.org/LimitedAvailability","price":"0","priceCurrency":"VND"}}}
+</script>
+<script src="/runtime-env.js"></script>
+<script src="/public/translations.js"></script>
+<script src="/public/datcs-install-i18n.js"></script>
+</head>
+<body>
+<nav class="nav" id="nav" role="navigation" aria-label="Main">
+  <a href="/" class="nav-logo">
+    <img src="/public/Deron-logo-dark.png" alt="Deron logo" class="logo-dark" loading="lazy" decoding="async">
+    <img src="/public/Deron-logo-light.png" alt="Deron logo" class="logo-light" loading="lazy" decoding="async">
+    DERON
+  </a>
+  <div class="nav-links">
+    <a href="/#about" class="nav-link" data-i18n="nav.about">Về chúng tôi</a>
+    <a href="/#technology" class="nav-link" data-i18n="nav.technology">Công nghệ</a>
+    <a href="/#usecases" class="nav-link" data-i18n="nav.usecases">Ứng dụng</a>
+    <a href="/#contact" class="nav-link" data-i18n="nav.contact">Liên hệ</a>
+    <a href="/#info" class="nav-link" data-i18n="nav.info">Thông tin</a>
+    <a href="/#datcs" class="nav-link active" data-i18n="nav.datcs">DATCS</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-dropdown-toggle" onclick="toggleLangDrop()" aria-haspopup="true" aria-expanded="false" aria-label="Chọn ngôn ngữ">
+        <span class="fi fi-vn fis lang-flag" id="pgLangFlag"></span>
+        <span id="pgLangLabel">VI</span>
+        <svg class="lang-arrow" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-dropdown-menu" role="menu">
+        <button class="lang-dropdown-item active" data-lang="vi" onclick="pgSetLang('vi')" role="menuitem"><span class="fi fi-vn fis item-flag"></span> Tiếng Việt</button>
+        <button class="lang-dropdown-item" data-lang="en" onclick="pgSetLang('en')" role="menuitem"><span class="fi fi-us fis item-flag"></span> English</button>
+        <button class="lang-dropdown-item" data-lang="zh" onclick="pgSetLang('zh')" role="menuitem"><span class="fi fi-cn fis item-flag"></span> 中文</button>
+      </div>
+    </div>
+    <span class="nav-cta" onclick="window.location.href='/#investor'" data-i18n="nav.cta">Dành cho nhà đầu tư</span>
+  </div>
+  <div class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
+</nav>
+
+<main>
+  <section class="install-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/" data-i18n="nav.home">Trang chủ</a><span class="sep">/</span>
+        <a href="/datcs" data-i18n="nav.datcs">DATCS</a><span class="sep">/</span>
+        <span data-i18n="datcs.install.breadcrumb">Desktop Access</span>
+      </div>
+      <div class="install-hero-copy">
+        <div class="status-badge"><span class="dot"></span><span data-i18n="datcs.install.hero.badge">DATCS · Desktop Access</span></div>
+        <h1 class="text-inv" style="margin-top:28px" data-i18n="datcs.install.hero.title">Tải DATCS Desktop</h1>
+        <p data-i18n="datcs.install.hero.subtitle">Tải hoặc yêu cầu quyền truy cập DATCS Desktop — hệ thống điều phối không lưu, giám sát đội bay, kiểm tra telemetry, xác thực an toàn và hỗ trợ kỹ thuật cho nền tảng UAV logistics của Deron.</p>
+        <div class="install-hero-actions">
+          <a href="#access-request" class="btn btn-primary btn-arrow desktop-primary-cta" data-i18n="datcs.install.hero.primary">Yêu cầu tải DATCS</a>
+          <a href="/datcs" class="btn btn-outline" data-i18n="datcs.install.hero.secondary">Tìm hiểu DATCS</a>
+        </div>
+        <div class="mobile-device-notice notice-card">
+          <h3 class="text-inv" data-i18n="datcs.install.mobile.title">DATCS Desktop yêu cầu thiết bị desktop.</h3>
+          <p data-i18n="datcs.install.mobile.body">Bạn đang dùng thiết bị mobile hoặc tablet. Bạn có thể truy cập DATCS Web Console nếu đã được cấp quyền.</p>
+          <div style="margin-top:22px"><a class="btn btn-primary btn-arrow" href="https://datcs.deron.vn" data-i18n="datcs.install.web.open">Mở DATCS Web Console</a></div>
+        </div>
+        <div class="install-stat-row">
+          <div><div class="install-stat-value">3</div><div class="install-stat-label" data-i18n="datcs.install.hero.stat.os">Nền tảng desktop</div></div>
+          <div><div class="install-stat-value">1x</div><div class="install-stat-label" data-i18n="datcs.install.hero.stat.link">Liên kết cá nhân</div></div>
+          <div><div class="install-stat-value" data-i18n="datcs.install.hero.stat.noPublicValue">No public URL</div><div class="install-stat-label" data-i18n="datcs.install.hero.stat.public">Không tải công khai</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="install-section install-section-white" id="platforms">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" style="margin-bottom:20px" data-i18n="datcs.install.platforms.badge">Nền tảng</div>
+        <h2 style="margin-bottom:16px;max-width:720px" data-i18n="datcs.install.platforms.title">DATCS Desktop được phân phối cho Windows, macOS và Linux.</h2>
+        <p class="text-18 text-muted" style="margin-bottom:56px" data-i18n="datcs.install.platforms.desc">Chưa có artifact công khai trong repository này, vì vậy mỗi nền tảng chỉ hiển thị trạng thái yêu cầu quyền tải. Không có phiên bản, dung lượng, SHA256 hoặc URL tải giả.</p>
+      </div>
+      <div class="platform-grid reveal">
+        <article class="platform-card">
+          <div class="label label-red">Windows</div>
+          <div class="platform-name">Windows</div>
+          <p class="text-muted" data-i18n="datcs.install.platform.win.use">Nền tảng Gen-1 chính cho vận hành nhiệm vụ và kiểm tra telemetry.</p>
+          <div class="platform-meta">
+            <div class="platform-meta-row"><div class="platform-meta-key" data-i18n="datcs.install.platform.status.k">Trạng thái</div><div class="platform-meta-val" data-i18n="datcs.install.platform.status.request">Yêu cầu quyền tải</div></div>
+            <div class="platform-meta-row"><div class="platform-meta-key" data-i18n="datcs.install.platform.data.k">Artifact</div><div class="platform-meta-val" data-i18n="datcs.install.platform.data.none">Chưa công bố công khai</div></div>
+          </div>
+          <button class="btn btn-outline-dark platform-action" data-platform="windows" data-i18n="datcs.install.platform.action">Yêu cầu quyền tải</button>
+        </article>
+        <article class="platform-card">
+          <div class="label label-red">macOS</div>
+          <div class="platform-name">macOS</div>
+          <p class="text-muted" data-i18n="datcs.install.platform.mac.use">Bản controlled release theo rollout cho đội vận hành và đối tác được duyệt.</p>
+          <div class="platform-meta">
+            <div class="platform-meta-row"><div class="platform-meta-key" data-i18n="datcs.install.platform.status.k">Trạng thái</div><div class="platform-meta-val" data-i18n="datcs.install.platform.status.request">Yêu cầu quyền tải</div></div>
+            <div class="platform-meta-row"><div class="platform-meta-key" data-i18n="datcs.install.platform.data.k">Artifact</div><div class="platform-meta-val" data-i18n="datcs.install.platform.data.none">Chưa công bố công khai</div></div>
+          </div>
+          <button class="btn btn-outline-dark platform-action" data-platform="macos" data-i18n="datcs.install.platform.action">Yêu cầu quyền tải</button>
+        </article>
+        <article class="platform-card">
+          <div class="label label-red">Linux</div>
+          <div class="platform-name">Linux</div>
+          <p class="text-muted" data-i18n="datcs.install.platform.linux.use">Dành cho engineering, firmware testing và các workflow xác thực nội bộ.</p>
+          <div class="platform-meta">
+            <div class="platform-meta-row"><div class="platform-meta-key" data-i18n="datcs.install.platform.status.k">Trạng thái</div><div class="platform-meta-val" data-i18n="datcs.install.platform.status.request">Yêu cầu quyền tải</div></div>
+            <div class="platform-meta-row"><div class="platform-meta-key" data-i18n="datcs.install.platform.data.k">Artifact</div><div class="platform-meta-val" data-i18n="datcs.install.platform.data.none">Chưa công bố công khai</div></div>
+          </div>
+          <button class="btn btn-outline-dark platform-action" data-platform="linux" data-i18n="datcs.install.platform.action">Yêu cầu quyền tải</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="install-section install-section-dark" id="access-request">
+    <div class="container">
+      <div class="access-grid">
+        <div class="reveal">
+          <div class="token-panel" id="tokenPanel" aria-live="polite">
+            <div class="token-title" id="tokenTitle" data-i18n="datcs.install.token.validating">Đang xác thực liên kết tải...</div>
+            <p class="token-msg" id="tokenMessage" data-i18n="datcs.install.token.wait">Vui lòng đợi trong giây lát.</p>
+            <div class="token-grid" id="downloadGrid" hidden>
+              <div class="token-cell" data-token-field="platform"><div class="token-key" data-i18n="datcs.install.token.platform">Nền tảng</div><div class="token-val" id="downloadPlatform"></div></div>
+              <div class="token-cell" data-token-field="version"><div class="token-key" data-i18n="datcs.install.token.version">Phiên bản</div><div class="token-val" id="downloadVersion"></div></div>
+              <div class="token-cell" data-token-field="size"><div class="token-key" data-i18n="datcs.install.token.size">Dung lượng</div><div class="token-val" id="downloadSize"></div></div>
+              <div class="token-cell" data-token-field="expires"><div class="token-key" data-i18n="datcs.install.token.expires">Hết hạn</div><div class="token-val" id="downloadExpires"></div></div>
+              <div class="token-cell" data-token-field="sha"><div class="token-key">SHA256</div><div class="token-val" id="downloadSha"></div></div>
+            </div>
+            <a class="btn btn-primary btn-arrow" id="downloadButton" href="#" rel="noopener" hidden data-i18n="datcs.install.token.download">Tải installer đã duyệt</a>
+          </div>
+          <form class="form-panel" id="datcsAccessForm" novalidate>
+            <div class="label label-red" style="margin-bottom:12px" data-i18n="datcs.install.form.badge">Yêu cầu truy cập</div>
+            <h3 style="margin-bottom:24px" data-i18n="datcs.install.form.title">Yêu cầu quyền tải DATCS Desktop</h3>
+            <div class="form-grid">
+              <div class="form-field"><label for="fullName" data-i18n="datcs.install.form.name">Họ và tên</label><input id="fullName" name="fullName" type="text" autocomplete="name" required maxlength="200"></div>
+              <div class="form-field"><label for="email" data-i18n="datcs.install.form.email">Email</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+              <div class="form-field"><label for="organization" data-i18n="datcs.install.form.org">Tổ chức / đội nhóm</label><input id="organization" name="organization" type="text" required maxlength="200"></div>
+              <div class="form-field"><label for="role" data-i18n="datcs.install.form.role">Vai trò</label><input id="role" name="role" type="text" required maxlength="160"></div>
+              <div class="form-field"><label for="platform" data-i18n="datcs.install.form.platform">Nền tảng</label><select id="platform" name="platform" required><option value="" data-i18n="datcs.install.form.choose">Chọn nền tảng</option><option value="windows">Windows</option><option value="macos">macOS</option><option value="linux">Linux</option></select></div>
+              <div class="form-field"><label for="purpose" data-i18n="datcs.install.form.purpose">Mục đích</label><select id="purpose" name="purpose" required><option value="" data-i18n="datcs.install.form.choosePurpose">Chọn mục đích</option><option value="mission_operations" data-i18n="datcs.install.purpose.mission">Mission operations</option><option value="fleet_monitoring" data-i18n="datcs.install.purpose.fleet">Fleet monitoring</option><option value="engineering_firmware" data-i18n="datcs.install.purpose.engineering">Engineering / firmware testing</option><option value="partner_evaluation" data-i18n="datcs.install.purpose.partner">Partner evaluation</option><option value="investor_demo" data-i18n="datcs.install.purpose.investor">Investor / demo review</option><option value="internal_deron" data-i18n="datcs.install.purpose.internal">Internal Deron team</option><option value="other" data-i18n="datcs.install.purpose.other">Other</option></select></div>
+              <div class="form-field full"><label for="notes" data-i18n="datcs.install.form.notes">Ghi chú</label><textarea id="notes" name="notes" required maxlength="2000"></textarea></div>
+            </div>
+            <label class="checkbox-line"><input type="checkbox" name="consentPrivate" required><span data-i18n="datcs.install.form.consent1">Tôi hiểu DATCS Desktop không phải phần mềm tải công khai.</span></label>
+            <label class="checkbox-line"><input type="checkbox" name="consentPersonal" required><span data-i18n="datcs.install.form.consent2">Tôi hiểu liên kết tải là cá nhân, có thời hạn và không được chia sẻ lại.</span></label>
+            <div class="form-status" id="requestStatus" aria-live="polite"></div>
+            <button class="btn btn-primary btn-arrow" type="submit" id="requestSubmit" style="margin-top:12px" data-i18n="datcs.install.form.submit">Yêu cầu quyền tải</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="install-section install-section-light" id="install-guide">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" style="margin-bottom:20px" data-i18n="datcs.install.guide.badge">Hướng dẫn cài đặt</div>
+        <h2 style="margin-bottom:16px;max-width:720px" data-i18n="datcs.install.guide.title">Cài DATCS Desktop sau khi được cấp quyền.</h2>
+        <p class="text-18 text-muted" style="margin-bottom:56px" data-i18n="datcs.install.guide.desc">Các bước dưới đây áp dụng sau khi bạn nhận installer đã duyệt hoặc signed download URL từ Deron.</p>
+      </div>
+      <div class="spec-table reveal" style="margin-bottom:56px;background:var(--bg-mid)">
+        <div class="spec-row"><div class="spec-key" data-i18n="datcs.install.req.os.k">Supported OS</div><div class="spec-val" data-i18n="datcs.install.req.os.v">Windows 10/11, macOS 12+, Linux desktop distributions được Deron phê duyệt.</div></div>
+        <div class="spec-row"><div class="spec-key" data-i18n="datcs.install.req.net.k">Network</div><div class="spec-val" data-i18n="datcs.install.req.net.v">Kết nối internet ổn định để xác thực, đồng bộ cấu hình và kiểm tra quyền truy cập.</div></div>
+        <div class="spec-row"><div class="spec-key" data-i18n="datcs.install.req.account.k">Access</div><div class="spec-val" data-i18n="datcs.install.req.account.v">Tài khoản Deron/DATCS được cấp quyền. DATCS Web Console là quyền truy cập riêng.</div></div>
+        <div class="spec-row"><div class="spec-key" data-i18n="datcs.install.req.admin.k">Permission</div><div class="spec-val" data-i18n="datcs.install.req.admin.v">Một số OS có thể yêu cầu quyền admin để cài đặt.</div></div>
+      </div>
+      <div class="guide-grid reveal">
+        <article class="guide-card">
+          <div class="label label-red">Windows</div>
+          <h3>Windows</h3>
+          <ol class="guide-list">
+            <li data-i18n="datcs.install.win.s1">Tải installer Windows đã được phê duyệt.</li>
+            <li data-i18n="datcs.install.win.s2">Mở installer.</li>
+            <li data-i18n="datcs.install.win.s3">Xác nhận publisher/security prompt.</li>
+            <li data-i18n="datcs.install.win.s4">Hoàn tất cài đặt.</li>
+            <li data-i18n="datcs.install.win.s5">Mở DATCS Desktop.</li>
+            <li data-i18n="datcs.install.win.s6">Đăng nhập bằng tài khoản đã được cấp quyền.</li>
+          </ol>
+        </article>
+        <article class="guide-card">
+          <div class="label label-red">macOS</div>
+          <h3>macOS</h3>
+          <ol class="guide-list">
+            <li data-i18n="datcs.install.mac.s1">Tải build macOS đã được phê duyệt.</li>
+            <li data-i18n="datcs.install.mac.s2">Mở installer hoặc package.</li>
+            <li data-i18n="datcs.install.mac.s3">Nếu macOS cảnh báo bảo mật, dùng quy trình mở ứng dụng tin cậy.</li>
+            <li data-i18n="datcs.install.mac.s4">Mở DATCS Desktop.</li>
+            <li data-i18n="datcs.install.mac.s5">Đăng nhập bằng tài khoản đã được cấp quyền.</li>
+          </ol>
+        </article>
+        <article class="guide-card">
+          <div class="label label-red">Linux</div>
+          <h3>Linux</h3>
+          <ol class="guide-list">
+            <li data-i18n="datcs.install.linux.s1">Tải package Linux đã được phê duyệt.</li>
+            <li data-i18n="datcs.install.linux.s2">Đánh dấu executable nếu package yêu cầu.</li>
+            <li data-i18n="datcs.install.linux.s3">Cài bằng package manager hoặc AppImage flow.</li>
+            <li data-i18n="datcs.install.linux.s4">Mở DATCS Desktop.</li>
+            <li data-i18n="datcs.install.linux.s5">Đăng nhập bằng tài khoản đã được cấp quyền.</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="install-section install-section-white">
+    <div class="container">
+      <div class="first-run-card reveal">
+        <div class="label label-red" style="margin-bottom:20px" data-i18n="datcs.install.first.badge">Lần chạy đầu tiên</div>
+        <h2 style="margin-bottom:24px;max-width:720px" data-i18n="datcs.install.first.title">Thiết lập DATCS Desktop trước khi kết nối vận hành thật.</h2>
+        <ol class="guide-list">
+          <li data-i18n="datcs.install.first.s1">Đăng nhập bằng tài khoản đã được cấp quyền.</li>
+          <li data-i18n="datcs.install.first.s2">Xác minh organization/workspace.</li>
+          <li data-i18n="datcs.install.first.s3">Chọn đúng vai trò vận hành.</li>
+          <li data-i18n="datcs.install.first.s4">Xác nhận device trust.</li>
+          <li data-i18n="datcs.install.first.s5">Đồng bộ cấu hình.</li>
+          <li data-i18n="datcs.install.first.s6">Không kết nối vào live operations nếu chưa được ủy quyền.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="install-section install-section-light">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-red" style="margin-bottom:20px" data-i18n="datcs.install.trouble.badge">Troubleshooting</div>
+        <h2 style="margin-bottom:48px;max-width:720px" data-i18n="datcs.install.trouble.title">Các lỗi thường gặp khi truy cập hoặc cài đặt.</h2>
+      </div>
+      <div class="trouble-grid reveal">
+        <article class="trouble-item"><h4 data-i18n="datcs.install.trouble.expired.t">Link expired</h4><p data-i18n="datcs.install.trouble.expired.d">Yêu cầu link mới. Mỗi signed URL có thời hạn ngắn và không được dùng lại.</p></article>
+        <article class="trouble-item"><h4 data-i18n="datcs.install.trouble.used.t">Link already used</h4><p data-i18n="datcs.install.trouble.used.d">Mỗi token chỉ dùng một lần. Nếu đã mở hoặc tải trước đó, bạn cần request lại.</p></article>
+        <article class="trouble-item"><h4 data-i18n="datcs.install.trouble.os.t">Wrong OS</h4><p data-i18n="datcs.install.trouble.os.d">Token được gắn với OS đã phê duyệt. Chọn đúng Windows, macOS hoặc Linux trong request mới.</p></article>
+        <article class="trouble-item"><h4 data-i18n="datcs.install.trouble.blocked.t">Installer blocked</h4><p data-i18n="datcs.install.trouble.blocked.d">Kiểm tra publisher/security prompt. Nếu chữ ký hoặc nguồn không khớp, dừng cài đặt và liên hệ Deron.</p></article>
+        <article class="trouble-item"><h4 data-i18n="datcs.install.trouble.signin.t">Cannot sign in</h4><p data-i18n="datcs.install.trouble.signin.d">Xác minh tài khoản đã được cấp quyền và đúng workspace. Không dùng tài khoản Web Console nếu chưa được cấp quyền Desktop.</p></article>
+        <article class="trouble-item"><h4 data-i18n="datcs.install.trouble.web.t">Web Console vs Desktop</h4><p data-i18n="datcs.install.trouble.web.d">DATCS Web Console chạy tại datcs.deron.vn. DATCS Desktop là app desktop đầy đủ cho workflow desktop, engineering và mission-control.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="install-section install-section-mid">
+    <div class="container">
+      <div class="web-console-card reveal">
+        <div>
+          <div class="label label-inv" style="margin-bottom:18px" data-i18n="datcs.install.web.badge">DATCS Web Console</div>
+          <h2 class="text-inv" data-i18n="datcs.install.web.title">Bạn muốn vận hành DATCS Web?</h2>
+          <p data-i18n="datcs.install.web.body">DATCS Web Console là môi trường vận hành/truy cập qua trình duyệt dành cho người dùng đã được cấp quyền. DATCS Desktop vẫn là bản đầy đủ cho các workflow desktop, engineering và mission-control.</p>
+          <div class="web-console-note" data-i18n="datcs.install.web.note">Chỉ dành cho người dùng được cấp quyền.</div>
+        </div>
+        <a href="https://datcs.deron.vn" class="btn btn-primary btn-arrow" data-i18n="datcs.install.web.open">Mở DATCS Web Console</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="install-section install-section-dark">
+    <div class="container">
+      <div class="reveal">
+        <div class="label label-inv" style="margin-bottom:20px" data-i18n="datcs.install.security.badge">Bảo mật</div>
+        <h2 class="text-inv" style="margin-bottom:48px;max-width:760px" data-i18n="datcs.install.security.title">DATCS Desktop dùng mô hình tải có kiểm soát, expiry-aware và audit-friendly.</h2>
+      </div>
+      <div class="security-grid reveal">
+        <article class="security-card"><div class="label label-red">01</div><p data-i18n="datcs.install.security.s1">Không có public direct download cho installer.</p></article>
+        <article class="security-card"><div class="label label-red">02</div><p data-i18n="datcs.install.security.s2">Signed URL phải được backend phát hành sau khi token hợp lệ.</p></article>
+        <article class="security-card"><div class="label label-red">03</div><p data-i18n="datcs.install.security.s3">Token không được lưu vào localStorage và không hiển thị trên UI.</p></article>
+        <article class="security-card"><div class="label label-red">04</div><p data-i18n="datcs.install.security.s4">Không hiển thị raw backend errors cho người dùng public.</p></article>
+        <article class="security-card"><div class="label label-red">05</div><p data-i18n="datcs.install.security.s5">Không hardcode private download URLs, version, file size hoặc SHA256 giả.</p></article>
+        <article class="security-card"><div class="label label-red">06</div><p data-i18n="datcs.install.security.s6">Mỗi request và download approval nên được backend ghi audit log.</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="footer-logo">
+          <img src="/public/Deron-logo-light.png" alt="Deron" class="footer-logo-img footer-logo-light" loading="lazy" decoding="async">
+          <img src="/public/Deron-logo-dark.png" alt="Deron" class="footer-logo-img footer-logo-dark" loading="lazy" decoding="async">
+          <span>DERON</span>
+        </a>
+        <p class="footer-brand-desc" data-i18n="footer.desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
+        <div class="footer-tagline" data-i18n="footer.tagline">Made in Vietnam · Built for Vietnam</div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.col1">Sứ mệnh</div>
+        <div class="footer-links">
+          <a href="/#about" class="footer-link" data-i18n="footer.l1">Về chúng tôi</a>
+          <a href="/#about" class="footer-link" data-i18n="footer.l2">Giá trị cốt lõi</a>
+          <a href="/#about" class="footer-link" data-i18n="footer.l3">Lộ trình</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.col2">Sản phẩm</div>
+        <div class="footer-links">
+          <a href="/#technology" class="footer-link" data-i18n="footer.l4">Công nghệ DMA</a>
+          <a href="/#usecases" class="footer-link" data-i18n="footer.l5">Ứng dụng</a>
+          <a href="/#technology" class="footer-link" data-i18n="footer.l6">Triết lý an toàn</a>
+          <a href="/#usecases" class="footer-link" data-i18n="footer.l10">Deron Agriculture</a>
+          <a href="https://datcs.deron.vn" target="_blank" rel="noopener" class="footer-link" data-i18n="footer.l11">DATCS</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.col3">Đầu tư</div>
+        <div class="footer-links">
+          <a href="/#contact" class="footer-link" data-i18n="footer.l7">Nhà đầu tư</a>
+          <a href="/public/Deron_Pitch.pdf" target="_blank" rel="noopener" class="footer-link" data-i18n="footer.l8">Tải Pitch Deck</a>
+          <a href="/#contact" class="footer-link" data-i18n="footer.l9">Lộ trình vốn</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.col4">Liên hệ</div>
+        <div class="footer-links">
+          <a href="mailto:ceo.deron@gmail.com" class="footer-link">ceo.deron@gmail.com</a>
+          <a href="tel:0363045747" class="footer-link">0363 045 747</a>
+          <span class="footer-link">deron.vn</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-i18n="footer.copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
+      <div class="footer-copy">Founder: <span data-i18n="about.founder.name">Nguyễn Phúc Huy</span></div>
+      <div class="footer-location" data-i18n="footer.location">Ho Chi Minh City · Vietnam</div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var env = window.__DERON_ENV__ || {};
+  var SUPABASE_URL = env.REACT_APP_SUPABASE_URL || '';
+  var SUPABASE_ANON = env.REACT_APP_SUPABASE_ANON_KEY || '';
+  var TOKEN_ENDPOINT = env.REACT_APP_DATCS_TOKEN_ENDPOINT || (SUPABASE_URL ? SUPABASE_URL + '/functions/v1/validate-token' : '');
+  var REQUEST_ENDPOINT = SUPABASE_URL ? SUPABASE_URL + '/rest/v1/download_requests' : '';
+  var currentLang = 'vi';
+
+  function getCurrentLang() {
+    var lang = localStorage.getItem('deron_lang') || 'vi';
+    return ['vi', 'en', 'zh'].indexOf(lang) !== -1 ? lang : 'vi';
+  }
+
+  function t(key, fallback) {
+    var dict = (window.T && window.T[currentLang]) || (window.T && window.T.vi) || {};
+    return dict[key] !== undefined ? dict[key] : fallback;
+  }
+
+  function applyI18n(lang) {
+    currentLang = lang;
+    var dict = (window.T && window.T[lang]) || (window.T && window.T.vi) || {};
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+      (el.getAttribute('data-i18n-attr') || '').split(',').forEach(function (pair) {
+        var parts = pair.split(':');
+        if (parts.length !== 2) return;
+        var attr = parts[0].trim();
+        var key = parts[1].trim();
+        if (dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+      });
+    });
+    document.documentElement.lang = lang;
+  }
+
+  window.toggleLangDrop = function () {
+    var dd = document.getElementById('langDropdown');
+    if (!dd) return;
+    var isOpen = dd.classList.toggle('open');
+    if (isOpen) {
+      document.addEventListener('click', function h(e) {
+        if (!dd.contains(e.target)) {
+          dd.classList.remove('open');
+          document.removeEventListener('click', h);
+        }
+      });
+    }
+  };
+
+  window.pgSetLang = function (lang) {
+    if (['vi', 'en', 'zh'].indexOf(lang) === -1) lang = 'vi';
+    localStorage.setItem('deron_lang', lang);
+    var flagMap = { vi: 'fi-vn', en: 'fi-us', zh: 'fi-cn' };
+    var labelMap = { vi: 'VI', en: 'EN', zh: 'ZH' };
+    var flag = document.getElementById('pgLangFlag');
+    var label = document.getElementById('pgLangLabel');
+    if (flag) flag.className = 'fi ' + flagMap[lang] + ' fis lang-flag';
+    if (label) label.textContent = labelMap[lang];
+    document.querySelectorAll('.lang-dropdown-item').forEach(function (button) {
+      button.classList.toggle('active', button.dataset.lang === lang);
+    });
+    var dd = document.getElementById('langDropdown');
+    if (dd) dd.classList.remove('open');
+    applyI18n(lang);
+  };
+
+  window.addEventListener('storage', function (event) {
+    if (event.key === 'deron_lang') {
+      window.pgSetLang(event.newValue || 'vi');
+    }
+  });
+
+  function detectPlatform() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf('windows') !== -1) return 'windows';
+    if (ua.indexOf('mac os') !== -1 || ua.indexOf('macintosh') !== -1) return 'macos';
+    if (ua.indexOf('linux') !== -1) return 'linux';
+    return '';
+  }
+
+  function detectMobileOrTablet() {
+    var ua = navigator.userAgent.toLowerCase();
+    return /android|iphone|ipad|ipod|mobile|tablet/.test(ua) || (navigator.maxTouchPoints > 1 && window.innerWidth < 980);
+  }
+
+  function setStatus(type, key, fallback) {
+    var el = document.getElementById('requestStatus');
+    if (!el) return;
+    el.className = 'form-status ' + (type || '');
+    el.textContent = t(key, fallback);
+  }
+
+  function focusRequestForm(platform) {
+    var section = document.getElementById('access-request');
+    var select = document.getElementById('platform');
+    if (select && platform) select.value = platform;
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function () {
+      var first = document.getElementById('fullName');
+      if (first) first.focus({ preventScroll: true });
+    }, 450);
+  }
+
+  function bindPlatformButtons() {
+    document.querySelectorAll('.platform-action').forEach(function (button) {
+      button.addEventListener('click', function () {
+        focusRequestForm(button.getAttribute('data-platform') || '');
+      });
+    });
+  }
+
+  function formatBytes(bytes) {
+    var n = Number(bytes);
+    if (!Number.isFinite(n) || n <= 0) return '';
+    var units = ['B', 'KB', 'MB', 'GB'];
+    var i = 0;
+    while (n >= 1024 && i < units.length - 1) { n = n / 1024; i += 1; }
+    return n.toFixed(n < 10 ? 2 : 1) + ' ' + units[i];
+  }
+
+  function formatDate(value) {
+    if (!value) return '';
+    var d = new Date(value);
+    if (isNaN(d.getTime())) return '';
+    var locale = { vi: 'vi-VN', en: 'en-US', zh: 'zh-CN' }[currentLang] || 'vi-VN';
+    return d.toLocaleString(locale, { dateStyle: 'medium', timeStyle: 'short' });
+  }
+
+  function normalizeTokenState(data, responseOk) {
+    if (!responseOk && (!data || !Object.keys(data).length)) return 'backend_unavailable';
+    var raw = String((data && (data.state || data.status || data.code || data.error_code)) || '').toLowerCase();
+    if ((data && data.valid) || raw === 'valid') return 'valid';
+    if (raw.indexOf('expired') !== -1) return 'expired';
+    if (raw.indexOf('used') !== -1 || raw.indexOf('already') !== -1) return 'already_used';
+    if (raw.indexOf('revoked') !== -1) return 'revoked';
+    if (raw.indexOf('platform') !== -1) return 'platform_mismatch';
+    if (raw.indexOf('unavailable') !== -1 || raw.indexOf('network') !== -1 || raw.indexOf('server') !== -1) return 'backend_unavailable';
+    return 'invalid';
+  }
+
+  function tokenErrorKey(state) {
+    return {
+      expired: 'datcs.install.token.error.expired',
+      already_used: 'datcs.install.token.error.already_used',
+      revoked: 'datcs.install.token.error.revoked',
+      platform_mismatch: 'datcs.install.token.error.platform_mismatch',
+      invalid: 'datcs.install.token.error.invalid',
+      backend_unavailable: 'datcs.install.token.error.backend_unavailable'
+    }[state] || 'datcs.install.token.error.invalid';
+  }
+
+  function showTokenPanel(titleKey, messageKey) {
+    var panel = document.getElementById('tokenPanel');
+    if (!panel) return;
+    panel.classList.add('active');
+    document.getElementById('tokenTitle').setAttribute('data-i18n', titleKey);
+    document.getElementById('tokenTitle').textContent = t(titleKey, '');
+    document.getElementById('tokenMessage').setAttribute('data-i18n', messageKey);
+    document.getElementById('tokenMessage').textContent = t(messageKey, '');
+  }
+
+  function setTokenField(field, value) {
+    var cell = document.querySelector('[data-token-field="' + field + '"]');
+    if (!cell) return;
+    if (!value) {
+      cell.classList.add('is-hidden');
+      return;
+    }
+    cell.classList.remove('is-hidden');
+    var map = {
+      platform: 'downloadPlatform',
+      version: 'downloadVersion',
+      size: 'downloadSize',
+      expires: 'downloadExpires',
+      sha: 'downloadSha'
+    };
+    var el = document.getElementById(map[field]);
+    if (el) el.textContent = value;
+  }
+
+  function showValidDownload(data) {
+    showTokenPanel('datcs.install.token.valid.title', 'datcs.install.token.valid.body');
+    var grid = document.getElementById('downloadGrid');
+    var button = document.getElementById('downloadButton');
+    if (grid) grid.hidden = false;
+    setTokenField('platform', data.platform || data.approved_platform || '');
+    setTokenField('version', data.version || data.release_version || '');
+    setTokenField('size', formatBytes(data.file_size_bytes || data.size_bytes));
+    setTokenField('expires', formatDate(data.expires_at || data.signed_url_expires_at));
+    setTokenField('sha', data.sha256 || data.sha256_hex || '');
+    if (button && data.signed_url) {
+      button.hidden = false;
+      button.href = data.signed_url;
+      button.removeAttribute('download');
+    }
+  }
+
+  async function validateToken(token) {
+    var panel = document.getElementById('tokenPanel');
+    if (panel) panel.classList.add('active');
+    showTokenPanel('datcs.install.token.validating', 'datcs.install.token.wait');
+    if (!TOKEN_ENDPOINT || !SUPABASE_ANON) {
+      showTokenPanel('datcs.install.token.error.title', tokenErrorKey('backend_unavailable'));
+      return;
+    }
+    try {
+      var response = await fetch(TOKEN_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': 'Bearer ' + SUPABASE_ANON
+        },
+        body: JSON.stringify({ token: token })
+      });
+      var data = {};
+      try { data = await response.json(); } catch (_) {}
+      var state = normalizeTokenState(data, response.ok);
+      if (state === 'valid' && data.signed_url) {
+        showValidDownload(data);
+      } else {
+        showTokenPanel('datcs.install.token.error.title', tokenErrorKey(state));
+      }
+    } catch (_) {
+      showTokenPanel('datcs.install.token.error.title', tokenErrorKey('backend_unavailable'));
+    }
+  }
+
+  async function submitAccessRequest(payload) {
+    if (!REQUEST_ENDPOINT || !SUPABASE_ANON) {
+      throw new Error('backend_unavailable');
+    }
+    var response = await fetch(REQUEST_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error('request_failed');
+  }
+
+  function bindRequestForm() {
+    var form = document.getElementById('datcsAccessForm');
+    if (!form) return;
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        setStatus('error', 'datcs.install.form.errorMissing', 'Vui lòng điền đầy đủ thông tin bắt buộc.');
+        form.reportValidity();
+        return;
+      }
+      var submit = document.getElementById('requestSubmit');
+      if (submit) submit.disabled = true;
+      setStatus('', 'datcs.install.form.processing', 'Đang gửi yêu cầu...');
+      var data = new FormData(form);
+      var purpose = String(data.get('purpose') || '').trim();
+      var notes = String(data.get('notes') || '').trim();
+      var payload = {
+        full_name: String(data.get('fullName') || '').trim(),
+        email: String(data.get('email') || '').trim().toLowerCase(),
+        phone: '',
+        organization: String(data.get('organization') || '').trim(),
+        industry: purpose,
+        job_position: String(data.get('role') || '').trim(),
+        country: 'Vietnam',
+        reason: ['Purpose: ' + purpose, 'Notes: ' + notes].join('\n'),
+        language: currentLang,
+        status: 'pending',
+        selected_platform: String(data.get('platform') || '').trim(),
+        detected_platform: detectPlatform() || 'unknown',
+        user_agent: navigator.userAgent,
+        referrer: document.referrer || window.location.href
+      };
+      try {
+        await submitAccessRequest(payload);
+        form.reset();
+        setStatus('success', 'datcs.install.form.success', 'Yêu cầu đã được ghi nhận. Nếu được phê duyệt, liên kết tải an toàn sẽ được gửi qua email.');
+      } catch (_) {
+        setStatus('error', 'datcs.install.form.errorGeneric', 'Không thể gửi yêu cầu lúc này. Vui lòng thử lại sau hoặc liên hệ Deron.');
+      } finally {
+        if (submit) submit.disabled = false;
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (detectMobileOrTablet()) document.body.classList.add('is-mobile-device');
+    window.pgSetLang(getCurrentLang());
+    bindPlatformButtons();
+    bindRequestForm();
+    var detected = detectPlatform();
+    var platformSelect = document.getElementById('platform');
+    if (platformSelect && detected) platformSelect.value = detected;
+    var params = new URLSearchParams(window.location.search);
+    var token = (params.get('token') || '').trim();
+    if (token) {
+      var meta = document.createElement('meta');
+      meta.name = 'robots';
+      meta.content = 'noindex, nofollow';
+      document.head.appendChild(meta);
+      validateToken(token);
+    }
+  });
+})();
+</script>
+</body>
+</html>
