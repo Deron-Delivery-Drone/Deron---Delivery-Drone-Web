@@ -326,7 +326,7 @@ p { max-width: 60ch; }
 }
 .footer-inner { max-width: 1200px; margin: 0 auto; }
 .footer-top {
-  display: grid; grid-template-columns: 280px repeat(3, 1fr);
+  display: grid; grid-template-columns: 280px repeat(4, 1fr);
   gap: 48px; margin-bottom: 56px;
 }
 .footer-logo {

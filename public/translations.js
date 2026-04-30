@@ -331,7 +331,7 @@ window.T = {
         "datcs.hero.badge": "DERON AIR TRAFFIC CONTROL SYSTEM",
         "datcs.hero.h1": "DATCS — <span style=\"color:var(--red)\">Phần mềm GCS & UTM</span><br>dành riêng cho Việt Nam",
         "datcs.hero.p": "Hệ thống Ground Control Station và Unmanned Traffic Management đầu tiên được phát triển bởi người Việt — tối ưu cho địa hình, pháp lý và hạ tầng viễn thông Việt Nam. Thay thế QGroundControl, Mission Planner cho bối cảnh drone thương mại trong nước.",
-        "datcs.hero.cta1": "Đăng ký nhận thông tin", "datcs.hero.cta2": "Xem công nghệ DMA", "datcs.hero.cta3": "Tải DATCS bản thử nghiệm",
+        "datcs.hero.cta1": "Đăng ký nhận thông tin", "datcs.hero.cta2": "Xem công nghệ DMA", "datcs.hero.cta3": "Tải DATCS",
         "datcs.stat1.label": "Tích hợp trong một nền tảng",
         "datcs.stat2.label": "Command link qua mạng VN",
         "datcs.stat3.label": "Tuân thủ pháp lý Việt Nam",
@@ -381,25 +381,28 @@ window.T = {
         "datcs.q5.a": "Trong giai đoạn đầu, DATCS tối ưu cho hệ thống drone Deron (với DMA flight controller). Về lâu dài, Deron xem xét tương thích với MAVLink để DATCS hỗ trợ đa nền tảng. UTM module và compliance pháp lý sẽ luôn là trọng tâm phân biệt DATCS với các GCS nước ngoài.",
         "datcs.q6.q": "Khi nào DATCS ra mắt? Làm sao nhận thông tin sớm nhất?",
         "datcs.q6.a": "DATCS đang phát triển cùng nền tảng drone của Deron. Phiên bản beta dự kiến ra mắt cùng chuyến bay thương mại đầu tiên (2026–2027). Liên hệ qua email <a href=\"mailto:ceo.deron@gmail.com\" style=\"color:var(--red); text-decoration:underline;\">ceo.deron@gmail.com</a> để được cập nhật sớm khi DATCS có phiên bản thử nghiệm.",
-        "datcs.cta.badge": "Tải bản thử nghiệm",
-        "datcs.cta.h2": "Tải bản thử nghiệm của DATCS —<br>Hệ thống điều phối không lưu Deron.",
-        "datcs.cta.p": "Dành cho tổ chức y tế, đơn vị logistics, cơ quan quản lý và nhà phát triển muốn trải nghiệm sớm DATCS. Điền thông tin để nhận liên kết tải an toàn qua email.",
-        "datcs.cta.btn1": "Đăng ký tải ứng dụng DATCS bản thử nghiệm", "datcs.cta.btn2": "Tìm hiểu công nghệ DMA",
-        "datcs.modal.close": "Đóng",
-        "datcs.modal.title": "Đăng ký tải DATCS bản thử nghiệm",
-        "datcs.modal.desc": "Vui lòng điền thông tin bên dưới. Hệ thống sẽ xét duyệt và gửi liên kết tải an toàn của DATCS bản thử nghiệm qua email của bạn.",
-        "datcs.modal.fullName": "Họ và tên *",
-        "datcs.modal.email": "Email *",
-        "datcs.modal.phone": "Số điện thoại *",
-        "datcs.modal.organization": "Đơn vị công tác *",
-        "datcs.modal.industry": "Lĩnh vực / Ngành nghề *",
-        "datcs.modal.jobTitle": "Chức vụ *",
-        "datcs.modal.reason": "Lý do muốn tải / sử dụng DATCS *",
-        "datcs.modal.submit": "Đăng ký nhận liên kết tải",
-        "datcs.modal.processing": "Đang xử lý yêu cầu đăng ký...",
-        "datcs.modal.success": "Yêu cầu đã được gửi. Deron sẽ xét duyệt và gửi liên kết tải DATCS an toàn qua email nếu yêu cầu được phê duyệt.",
-        "datcs.modal.errorGeneric": "Đăng ký thất bại. Vui lòng thử lại sau.",
-        "datcs.footer.copy": "© 2025–2026 Deron. DATCS — Made in Vietnam."
+        "datcs.cta.badge": "DATCS Desktop",
+        "datcs.cta.h2": "Tải DATCS Desktop —<br>Hệ thống điều phối không lưu Deron.",
+        "datcs.cta.p": "Yêu cầu quyền truy cập DATCS Desktop để nhận liên kết tải an toàn qua email nếu được phê duyệt.",
+        "datcs.cta.btn1": "Tải DATCS", "datcs.cta.btn2": "Tìm hiểu công nghệ DMA",
+        "datcs.footer.copy": "© 2025–2026 Deron. DATCS — Made in Vietnam.",
+
+        "footer.founder": "Founder: Nguyễn Phúc Huy",
+        "footer.mission": "Sứ mệnh", "footer.dma": "Công nghệ DMA", "footer.resources": "Tài nguyên",
+        "footer.press": "Báo chí", "footer.changelog": "Nhật ký phát triển", "footer.privacy": "Chính sách bảo mật",
+
+
+
+
+
+
+
+
+
+
+
+
+
     },
 
     // ============================================================
@@ -719,7 +722,7 @@ window.T = {
         "datcs.hero.badge": "DERON AIR TRAFFIC CONTROL SYSTEM",
         "datcs.hero.h1": "DATCS — <span style=\"color:var(--red)\">GCS & UTM Software</span><br>built for Vietnam",
         "datcs.hero.p": "The first Ground Control Station and Unmanned Traffic Management system developed by Vietnamese — optimized for Vietnam's terrain, regulations, and telecom infrastructure. Replaces QGroundControl and Mission Planner for domestic commercial drone operations.",
-        "datcs.hero.cta1": "Register for updates", "datcs.hero.cta2": "Explore DMA technology", "datcs.hero.cta3": "Download DATCS beta",
+        "datcs.hero.cta1": "Register for updates", "datcs.hero.cta2": "Explore DMA technology", "datcs.hero.cta3": "Download DATCS",
         "datcs.stat1.label": "GCS + UTM integrated in one platform",
         "datcs.stat2.label": "Command link over Vietnam's network",
         "datcs.stat3.label": "Vietnam legal compliance",
@@ -769,25 +772,28 @@ window.T = {
         "datcs.q5.a": "In the initial phase, DATCS is optimized for Deron's drone ecosystem (with the DMA flight controller). Long term, Deron is evaluating MAVLink compatibility to make DATCS multi-platform. The UTM module and legal compliance will always be DATCS's primary differentiators from foreign GCS solutions.",
         "datcs.q6.q": "When will DATCS launch? How can I get the earliest information?",
         "datcs.q6.a": "DATCS is being developed alongside Deron's drone platform. A beta version is expected alongside the first commercial flight (2026–2027). Contact <a href=\"mailto:ceo.deron@gmail.com\" style=\"color:var(--red); text-decoration:underline;\">ceo.deron@gmail.com</a> to be notified early when a DATCS test version becomes available.",
-        "datcs.cta.badge": "Beta Download",
-        "datcs.cta.h2": "Download the DATCS beta —<br>Deron Air Traffic Control System.",
-        "datcs.cta.p": "For healthcare organizations, logistics operators, government agencies, and developers that want early access to DATCS. Fill in the form to receive a secure download link by email.",
-        "datcs.cta.btn1": "Register to download the DATCS beta app", "datcs.cta.btn2": "Explore DMA technology",
-        "datcs.modal.close": "Close",
-        "datcs.modal.title": "Register to download the DATCS beta",
-        "datcs.modal.desc": "Please fill in the form below. After review, the system will send a secure download link for the DATCS beta to your email.",
-        "datcs.modal.fullName": "Full name *",
-        "datcs.modal.email": "Email *",
-        "datcs.modal.phone": "Phone number *",
-        "datcs.modal.organization": "Organization *",
-        "datcs.modal.industry": "Industry *",
-        "datcs.modal.jobTitle": "Job title *",
-        "datcs.modal.reason": "Reason for downloading / using DATCS *",
-        "datcs.modal.submit": "Register for the download link",
-        "datcs.modal.processing": "Processing your registration...",
-        "datcs.modal.success": "Your request has been submitted. Deron will review it and send a secure DATCS download link by email if the request is approved.",
-        "datcs.modal.errorGeneric": "Registration failed. Please try again later.",
-        "datcs.footer.copy": "© 2025–2026 Deron. DATCS — Made in Vietnam."
+        "datcs.cta.badge": "DATCS Desktop",
+        "datcs.cta.h2": "Download DATCS Desktop —<br>Deron Air Traffic Control System.",
+        "datcs.cta.p": "Request DATCS Desktop access to receive a secure download link by email if approved.",
+        "datcs.cta.btn1": "Download DATCS", "datcs.cta.btn2": "Explore DMA technology",
+        "datcs.footer.copy": "© 2025–2026 Deron. DATCS — Made in Vietnam.",
+
+        "footer.founder": "Founder: Nguyễn Phúc Huy",
+        "footer.mission": "Mission", "footer.dma": "DMA Technology", "footer.resources": "Resources",
+        "footer.press": "Press", "footer.changelog": "Changelog", "footer.privacy": "Privacy Policy",
+
+
+
+
+
+
+
+
+
+
+
+
+
     },
 
     // ============================================================
@@ -1107,7 +1113,7 @@ window.T = {
         "datcs.hero.badge": "DERON AIR TRAFFIC CONTROL SYSTEM",
         "datcs.hero.h1": "DATCS — <span style=\"color:var(--red)\">GCS & UTM 软件</span><br>专为越南打造",
         "datcs.hero.p": "越南人自主开发的首套地面控制站与无人机交通管理系统——针对越南地形、法规和电信基础设施深度优化。替代QGroundControl和Mission Planner，服务国内商业无人机运营。",
-        "datcs.hero.cta1": "注册获取资讯", "datcs.hero.cta2": "了解DMA技术", "datcs.hero.cta3": "下载 DATCS 测试版",
+        "datcs.hero.cta1": "注册获取资讯", "datcs.hero.cta2": "了解DMA技术", "datcs.hero.cta3": "下载 DATCS",
         "datcs.stat1.label": "GCS + UTM 集成于一个平台",
         "datcs.stat2.label": "通过越南网络的指挥链路",
         "datcs.stat3.label": "符合越南法律法规",
@@ -1157,25 +1163,28 @@ window.T = {
         "datcs.q5.a": "初期阶段，DATCS 针对 Deron 无人机生态系统（含 DMA 飞控）优化。长期来看，Deron 正在评估 MAVLink 兼容性以使 DATCS 支持多平台。UTM 模块与法律合规功能将始终是 DATCS 区别于外国 GCS 解决方案的核心差异化要素。",
         "datcs.q6.q": "DATCS 何时发布？如何最早获取信息？",
         "datcs.q6.a": "DATCS 正与 Deron 无人机平台同步开发。Beta 版本预计随首次商业飞行一同推出（2026–2027年）。请发送邮件至 <a href=\"mailto:ceo.deron@gmail.com\" style=\"color:var(--red); text-decoration:underline;\">ceo.deron@gmail.com</a>，当 DATCS 测试版本可用时将第一时间通知您。",
-        "datcs.cta.badge": "测试版下载",
-        "datcs.cta.h2": "下载 DATCS 测试版——<br>Deron 空中交通管制系统。",
-        "datcs.cta.p": "面向希望尽早体验 DATCS 的医疗机构、物流单位、政府部门与开发者。填写信息后，系统将通过电子邮件发送安全下载链接。",
-        "datcs.cta.btn1": "登记下载 DATCS 测试版应用", "datcs.cta.btn2": "探索 DMA 技术",
-        "datcs.modal.close": "关闭",
-        "datcs.modal.title": "登记下载 DATCS 测试版",
-        "datcs.modal.desc": "请填写以下信息。系统审核后，将通过电子邮件向您发送 DATCS 测试版的安全下载链接。",
-        "datcs.modal.fullName": "姓名 *",
-        "datcs.modal.email": "电子邮箱 *",
-        "datcs.modal.phone": "电话号码 *",
-        "datcs.modal.organization": "所属机构 *",
-        "datcs.modal.industry": "行业 / 领域 *",
-        "datcs.modal.jobTitle": "职位 *",
-        "datcs.modal.reason": "希望下载 / 使用 DATCS 的原因 *",
-        "datcs.modal.submit": "登记获取下载链接",
-        "datcs.modal.processing": "正在处理登记请求...",
-        "datcs.modal.success": "请求已提交。若审核通过，Deron 将通过电子邮件向您发送安全的 DATCS 下载链接。",
-        "datcs.modal.errorGeneric": "登记失败，请稍后重试。",
-        "datcs.footer.copy": "© 2025–2026 Deron。DATCS —— 越南制造。"
+        "datcs.cta.badge": "DATCS Desktop",
+        "datcs.cta.h2": "下载 DATCS Desktop——<br>Deron 空中交通管制系统。",
+        "datcs.cta.p": "申请 DATCS Desktop 访问权限。若获批准，安全下载链接将通过电子邮件发送。",
+        "datcs.cta.btn1": "下载 DATCS", "datcs.cta.btn2": "探索 DMA 技术",
+        "datcs.footer.copy": "© 2025–2026 Deron。DATCS —— 越南制造。",
+
+        "footer.founder": "创始人：Nguyễn Phúc Huy",
+        "footer.mission": "使命", "footer.dma": "DMA 技术", "footer.resources": "资源",
+        "footer.press": "媒体", "footer.changelog": "开发日志", "footer.privacy": "隐私政策",
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 };

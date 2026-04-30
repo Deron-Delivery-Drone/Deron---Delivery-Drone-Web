@@ -3867,8 +3867,7 @@
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:40px;">
           <button class="btn btn-primary btn-arrow" onclick="navigate('contact')" data-i18n="datcs.hero.cta1">Đăng ký
             nhận thông tin</button>
-          <button class="btn btn-outline" onclick="scrollToDatcsDownload()" data-i18n="datcs.hero.cta3">Tải DATCS bản
-            thử nghiệm</button>
+          <a class="btn btn-outline" href="/datcs/install" data-i18n="datcs.hero.cta3">Tải DATCS</a>
           <button class="btn btn-outline" onclick="navigate('technology')" data-i18n="datcs.hero.cta2">Xem công nghệ
             DMA</button>
         </div>
@@ -4281,15 +4280,12 @@
     <section id="datcs-download" style="background:var(--bg-dark); padding:80px 0; text-align:center;">
       <div class="container">
         <div class="reveal">
-          <div class="label label-inv" style="margin-bottom:20px;" data-i18n="datcs.cta.badge">Tải bản thử nghiệm</div>
-          <h2 class="text-inv" style="margin:0 auto 20px; max-width:720px;" data-i18n-html="datcs.cta.h2">Tải bản thử
-            nghiệm của DATCS —<br>Hệ thống điều phối không lưu Deron.</h2>
+          <div class="label label-inv" style="margin-bottom:20px;" data-i18n="datcs.cta.badge">DATCS Desktop</div>
+          <h2 class="text-inv" style="margin:0 auto 20px; max-width:720px;" data-i18n-html="datcs.cta.h2">Tải DATCS Desktop —<br>Hệ thống điều phối không lưu Deron.</h2>
           <p style="color:var(--text-inv-muted); margin:0 auto 40px; font-size:16px; max-width:620px;"
-            data-i18n="datcs.cta.p">Dành cho tổ chức y tế, đơn vị logistics, cơ quan quản lý và nhà phát triển muốn trải
-            nghiệm sớm DATCS. Điền thông tin để nhận liên kết tải an toàn qua email.</p>
+            data-i18n="datcs.cta.p">Yêu cầu quyền truy cập DATCS Desktop để nhận liên kết tải an toàn qua email nếu được phê duyệt.</p>
           <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-            <button class="btn btn-primary btn-arrow" onclick="openDactsModal()" data-i18n="datcs.cta.btn1">Đăng ký tải
-              ứng dụng DATCS bản thử nghiệm</button>
+            <a class="btn btn-primary btn-arrow" href="/datcs/install" data-i18n="datcs.cta.btn1">Tải DATCS</a>
             <button class="btn btn-outline" onclick="navigate('technology')" data-i18n="datcs.cta.btn2">Tìm hiểu công
               nghệ DMA</button>
           </div>
@@ -4422,7 +4418,21 @@
   <!-- ============================================================ JAVASCRIPT -->
   <script>
     // ---- I18N ----
-    let currentLang = 'vi';
+    const LANG_STORAGE_KEY = 'deron_lang';
+
+    function normalizeLanguage(lang) {
+      return ['vi', 'en', 'zh'].includes(lang) ? lang : 'vi';
+    }
+
+    function getStoredLanguage() {
+      try {
+        return normalizeLanguage(localStorage.getItem(LANG_STORAGE_KEY) || 'vi');
+      } catch (_) {
+        return 'vi';
+      }
+    }
+
+    let currentLang = getStoredLanguage();
 
     function toggleLangDropdown() {
       const dd = document.getElementById('langDropdown');
@@ -4431,7 +4441,11 @@
     }
 
     function setLanguage(lang) {
+      lang = normalizeLanguage(lang);
       currentLang = lang;
+      try {
+        localStorage.setItem(LANG_STORAGE_KEY, lang);
+      } catch (_) {}
       // Close dropdown
       const dd = document.getElementById('langDropdown');
       if (dd) { dd.classList.remove('open'); dd.querySelector('.lang-dropdown-toggle').setAttribute('aria-expanded', 'false'); }
@@ -4463,6 +4477,12 @@
       }
     });
 
+    window.addEventListener('storage', function (event) {
+      if (event.key === LANG_STORAGE_KEY) {
+        setLanguage(event.newValue || 'vi');
+      }
+    });
+
     function applyTranslations(lang) {
       if (!window.T || !window.T[lang]) return;
       const dict = window.T[lang];
@@ -4489,7 +4509,8 @@
     // ---- NAVIGATION ----
     const pages = ['home', 'about', 'technology', 'usecases', 'products', 'investor', 'contact', 'datcs', 'info'];
 
-    function navigate(page) {
+    function navigate(page, opts) {
+      const updateHash = !opts || opts.updateHash !== false;
       pages.forEach(p => {
         const el = document.getElementById('page-' + p);
         if (el) el.classList.remove('active');
@@ -4505,6 +4526,26 @@
       applyTranslations(currentLang);
       // Trigger reveal animations
       setTimeout(initReveal, 50);
+      // Sync URL hash so the section is bookmarkable / shareable / refreshable
+      if (updateHash) {
+        const targetHash = page && page !== 'home' ? '#' + page : '';
+        if (window.location.hash !== targetHash) {
+          if (targetHash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search + targetHash);
+          } else {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }
+      }
+    }
+
+    function navigateFromHash() {
+      const raw = (window.location.hash || '').replace(/^#/, '').toLowerCase();
+      if (raw && pages.includes(raw)) {
+        navigate(raw, { updateHash: false });
+      } else {
+        navigate('home', { updateHash: false });
+      }
     }
 
     function scrollToDatcsDownload() {
@@ -4589,151 +4630,21 @@
 
     // ---- NAV SCROLLED on load ----
     document.addEventListener('DOMContentLoaded', () => {
-      applyTranslations(currentLang);
+      setLanguage(getStoredLanguage());
       if (window.scrollY > 30) document.getElementById('nav').classList.add('scrolled');
       else document.getElementById('nav').classList.add('scrolled'); // always visible
+      navigateFromHash();
       initReveal();
     });
+
+    // Respond to hash changes (back/forward navigation, in-page hash links)
+    window.addEventListener('hashchange', navigateFromHash);
 
     // Initial reveal
     setTimeout(initReveal, 100);
     setTimeout(initReveal, 400);
 
-    let datcsSupabaseModulePromise = null;
-
-    async function getDatcsSupabaseModule() {
-      if (!datcsSupabaseModulePromise) {
-        datcsSupabaseModulePromise = import('./src/lib/supabase.js');
-      }
-
-      return datcsSupabaseModulePromise;
-    }
-
-    function openDactsModal() {
-      const m = document.getElementById('dactsModal');
-      if (m) m.style.display = 'flex';
-      const status = document.getElementById('dactsStatus');
-      if (status) {
-        status.textContent = '';
-        status.style.color = 'var(--text-muted)';
-      }
-    }
-    function closeDactsModal() {
-      const m = document.getElementById('dactsModal');
-      if (m) m.style.display = 'none';
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('dactsForm');
-      if (form) form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const status = document.getElementById('dactsStatus');
-        const submitBtn = form.querySelector('button[type="submit"]');
-        status.textContent = t('datcs.modal.processing', 'Đang xử lý yêu cầu đăng ký...');
-        status.style.color = 'var(--text-muted)';
-        submitBtn.disabled = true;
-
-        const fd = new FormData(form);
-        const payload = Object.fromEntries(fd.entries());
-
-        try {
-          const { submitDatcsDownloadRequest } = await getDatcsSupabaseModule();
-
-          await submitDatcsDownloadRequest({
-            fullName: payload.full_name,
-            email: payload.email,
-            phone: payload.phone,
-            organization: payload.organization,
-            industry: payload.industry,
-            jobPosition: payload.job_title,
-            country: 'Vietnam',
-            reason: payload.reason,
-            language: ['vi', 'en', 'zh'].includes(currentLang) ? currentLang : 'vi',
-            selectedPlatform: 'windows',
-          });
-
-          status.style.color = 'var(--green)';
-          status.textContent = t('datcs.modal.success', 'Yêu cầu đã được gửi. Deron sẽ xét duyệt và gửi liên kết tải DATCS an toàn qua email nếu yêu cầu được phê duyệt.');
-          form.reset();
-        } catch (err) {
-          status.style.color = 'var(--red)';
-          status.textContent = err.message || t('datcs.modal.errorGeneric', 'Đăng ký thất bại. Vui lòng thử lại sau.');
-        } finally {
-          submitBtn.disabled = false;
-        }
-      });
-
-      const modal = document.getElementById('dactsModal');
-      if (modal) modal.addEventListener('click', e => {
-        if (e.target === modal) closeDactsModal();
-      });
-    });
   </script>
-
-  <div class="modal-overlay" id="dactsModal"
-    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-    <div class="modal-content"
-      style="background:var(--bg-white); color:var(--text-primary); padding:32px; border-radius:var(--radius-lg); width:100%; max-width:500px; max-height:90vh; overflow-y:auto; position:relative;">
-      <button onclick="closeDactsModal()"
-        style="position:absolute; top:20px; right:24px; background:none; border:none; font-size:24px; cursor:pointer;"
-        aria-label="Đóng" data-i18n-aria-label="datcs.modal.close">×</button>
-      <h3 style="margin-bottom:8px; font-weight:800; font-size:24px; line-height:1.2;" data-i18n="datcs.modal.title">
-        Đăng ký tải DATCS bản thử nghiệm</h3>
-      <p style="color:var(--text-muted); font-size:14px; margin-bottom:24px;" data-i18n="datcs.modal.desc">Vui lòng điền
-        thông tin bên dưới. Hệ thống sẽ xét duyệt và gửi liên kết tải an toàn của DATCS bản thử nghiệm qua email của
-        bạn.</p>
-
-      <form id="dactsForm" style="display:flex; flex-direction:column; gap:16px;">
-        <div>
-          <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);"
-            data-i18n="datcs.modal.fullName">Họ và tên *</label>
-          <input type="text" name="full_name" required
-            style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
-        </div>
-        <div>
-          <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);"
-            data-i18n="datcs.modal.email">Email *</label>
-          <input type="email" name="email" required
-            style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
-        </div>
-        <div>
-          <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);"
-            data-i18n="datcs.modal.phone">Số điện thoại *</label>
-          <input type="text" name="phone" required
-            style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
-        </div>
-        <div>
-          <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);"
-            data-i18n="datcs.modal.organization">Đơn vị công tác *</label>
-          <input type="text" name="organization" required
-            style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
-        </div>
-        <div>
-          <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);"
-            data-i18n="datcs.modal.industry">Lĩnh vực / Ngành nghề *</label>
-          <input type="text" name="industry" required
-            style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
-        </div>
-        <div>
-          <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);"
-            data-i18n="datcs.modal.jobTitle">Chức vụ *</label>
-          <input type="text" name="job_title" required
-            style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light);">
-        </div>
-        <div>
-          <label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--text-body);"
-            data-i18n="datcs.modal.reason">Lý do muốn tải / sử dụng DATCS *</label>
-          <textarea name="reason" required rows="3"
-            style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:4px; font-family:inherit; background:var(--bg-light); resize:vertical;"></textarea>
-        </div>
-
-        <div id="dactsStatus" style="font-size:13px; font-weight:600; margin-top:4px;"></div>
-
-        <button type="submit" class="btn btn-primary"
-          style="margin-top:8px; width:100%; justify-content:center; padding:12px; font-size:14px;"
-          data-i18n="datcs.modal.submit">Đăng ký nhận liên kết tải</button>
-      </form>
-    </div>
-  </div>
 
 </body>
 
