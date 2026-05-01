@@ -1,0 +1,343 @@
+/* Deron public chatbot widget */
+.deron-chatbot {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 140;
+  font-family: var(--font-body, "Be Vietnam Pro", system-ui, sans-serif);
+  color: var(--text-body, #2a2a2a);
+}
+
+.deron-chatbot * {
+  box-sizing: border-box;
+}
+
+.deron-chatbot__toggle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--red, #c41e3a);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 18px 44px rgba(11, 14, 19, 0.28);
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.deron-chatbot__toggle:hover {
+  background: var(--red-hover, #a3172f);
+  transform: translateY(-1px);
+  box-shadow: 0 22px 52px rgba(11, 14, 19, 0.34);
+}
+
+.deron-chatbot__toggle:focus-visible,
+.deron-chatbot__icon-button:focus-visible,
+.deron-chatbot__send:focus-visible,
+.deron-chatbot__quick:focus-visible,
+.deron-chatbot__cta:focus-visible,
+.deron-chatbot__input:focus-visible {
+  outline: 2px solid rgba(196, 30, 58, 0.45);
+  outline-offset: 3px;
+}
+
+.deron-chatbot__toggle-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.deron-chatbot__panel {
+  position: absolute;
+  right: 0;
+  bottom: 74px;
+  width: min(360px, calc(100vw - 32px));
+  max-height: min(560px, calc(100vh - 116px));
+  border: 1px solid var(--border-dark, #232d3f);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-white, #fdfcf9);
+  box-shadow: 0 26px 80px rgba(11, 14, 19, 0.34);
+  display: none;
+}
+
+.deron-chatbot.is-open .deron-chatbot__panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.deron-chatbot__header {
+  background: var(--bg-dark, #0b0e13);
+  color: var(--text-inv, #ede9e3);
+  padding: 12px 12px 11px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-dark, #232d3f);
+}
+
+.deron-chatbot__title {
+  font-family: var(--font-display, "Be Vietnam Pro", system-ui, sans-serif);
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0;
+  color: #fff;
+}
+
+.deron-chatbot__subtitle {
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--text-inv-muted, #8a9bae);
+}
+
+.deron-chatbot__controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.deron-chatbot__icon-button {
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.deron-chatbot__icon-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.deron-chatbot__body {
+  min-height: 190px;
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 12px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.86)),
+    var(--bg-light, #f7f6f2);
+}
+
+.deron-chatbot__messages {
+  display: grid;
+  gap: 10px;
+}
+
+.deron-chatbot__message {
+  display: grid;
+  gap: 7px;
+  max-width: 100%;
+}
+
+.deron-chatbot__message--user {
+  justify-self: end;
+}
+
+.deron-chatbot__message--assistant,
+.deron-chatbot__message--error {
+  justify-self: start;
+}
+
+.deron-chatbot__bubble {
+  border-radius: 8px;
+  padding: 10px 11px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.deron-chatbot__message--user .deron-chatbot__bubble {
+  background: var(--red, #c41e3a);
+  color: #fff;
+  border-bottom-right-radius: 3px;
+}
+
+.deron-chatbot__message--assistant .deron-chatbot__bubble {
+  background: #fff;
+  color: var(--text-body, #2a2a2a);
+  border: 1px solid var(--border, #e0ddd6);
+  border-bottom-left-radius: 3px;
+}
+
+.deron-chatbot__message--error .deron-chatbot__bubble {
+  background: rgba(196, 30, 58, 0.08);
+  color: var(--red, #c41e3a);
+  border: 1px solid rgba(196, 30, 58, 0.22);
+}
+
+.deron-chatbot__cta-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.deron-chatbot__cta {
+  min-height: 34px;
+  border-radius: 4px;
+  padding: 8px 11px;
+  background: transparent;
+  border: 1px solid var(--border, #e0ddd6);
+  color: var(--text-primary, #111);
+  font-family: var(--font-label, "Barlow Condensed", system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.deron-chatbot__cta:hover {
+  border-color: var(--red, #c41e3a);
+  color: var(--red, #c41e3a);
+}
+
+.deron-chatbot__typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: auto;
+}
+
+.deron-chatbot__typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted, #6b6660);
+  opacity: 0.45;
+  animation: deron-chatbot-pulse 1s infinite ease-in-out;
+}
+
+.deron-chatbot__typing span:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.deron-chatbot__typing span:nth-child(3) {
+  animation-delay: 0.28s;
+}
+
+@keyframes deron-chatbot-pulse {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }
+  40% { transform: translateY(-3px); opacity: 0.85; }
+}
+
+.deron-chatbot__quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  overflow: visible;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border, #e0ddd6);
+  background: var(--bg-white, #fdfcf9);
+}
+
+.deron-chatbot__quick {
+  width: 100%;
+  min-width: 0;
+  min-height: 32px;
+  padding: 7px 9px;
+  border-radius: 4px;
+  border: 1px solid var(--border, #e0ddd6);
+  background: #fff;
+  color: var(--text-body, #2a2a2a);
+  font-size: 12.5px;
+  line-height: 1.25;
+  cursor: pointer;
+  text-align: center;
+}
+
+.deron-chatbot__quick:hover {
+  border-color: var(--red, #c41e3a);
+  color: var(--red, #c41e3a);
+}
+
+.deron-chatbot__composer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 54px;
+  gap: 6px;
+  padding: 10px 12px 12px;
+  border-top: 1px solid var(--border, #e0ddd6);
+  background: #fff;
+}
+
+.deron-chatbot__input {
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  max-height: 110px;
+  resize: none;
+  border-radius: 4px;
+  border: 1px solid var(--border, #e0ddd6);
+  background: var(--bg-white, #fdfcf9);
+  padding: 10px 11px;
+  color: var(--text-body, #2a2a2a);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.deron-chatbot__send {
+  width: 54px;
+  min-width: 0;
+  height: 42px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background: var(--red, #c41e3a);
+  color: #fff;
+  font-family: var(--font-label, "Barlow Condensed", system-ui, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.deron-chatbot__send:hover {
+  background: var(--red-hover, #a3172f);
+}
+
+.deron-chatbot__send:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .deron-chatbot {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .deron-chatbot__panel {
+    right: 0;
+    bottom: 68px;
+    width: calc(100vw - 24px);
+    max-height: min(560px, calc(100vh - 92px));
+  }
+
+  .deron-chatbot__body {
+    min-height: 180px;
+    max-height: calc(100vh - 300px);
+  }
+
+  .deron-chatbot__quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .deron-chatbot__toggle {
+    width: 54px;
+    height: 54px;
+  }
+}

@@ -23,7 +23,7 @@
     "alternateName": ["Deron GCS", "Phần mềm quản lý drone Việt Nam", "UAV Ground Control Station Vietnam"],
     "description": "DATCS là phần mềm GCS (Ground Control Station) và UTM (Unmanned Traffic Management) đầu tiên được phát triển bởi người Việt, tối ưu cho pháp lý và hạ tầng Việt Nam. Thay thế QGroundControl, Mission Planner cho thị trường drone thương mại Việt Nam.",
     "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+    "operatingSystem": "Windows (Early Access), macOS (Coming Soon), Linux (Coming Soon), Android, iOS",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "VND", "availability": "https://schema.org/PreOrder" },
     "creator": { "@type": "Organization", "name": "Deron", "url": "https://deron.vn" },
     "keywords": "GCS drone Vietnam, QGroundControl alternative, phần mềm điều khiển drone, UTM Vietnam, drone management software, phần mềm quản lý UAV, Mission Planner Vietnam, Betaflight alternative"
@@ -57,6 +57,7 @@
     href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
+  <link rel="stylesheet" href="/assets/css/chatbot.css" id="deron-chatbot-css">
 
   <style>
     /* ============================================================
@@ -2632,7 +2633,8 @@
             <div class="footer-col-title" data-i18n="footer.col3">Đầu tư</div>
             <div class="footer-links">
               <span class="footer-link" data-i18n="footer.l7" onclick="navigate('investor')">Nhà đầu tư</span>
-            <a class="footer-link" data-i18n="footer.l8" href="public/Deron_Pitch.pdf" target="_blank">Tải Pitch Deck</a>
+              <a class="footer-link" data-i18n="footer.l8" href="public/Deron_Pitch.pdf" target="_blank">Tải Pitch
+                Deck</a>
               <span class="footer-link" data-i18n="footer.l9" onclick="navigate('investor')">Lộ trình vốn</span>
             </div>
           </div>
@@ -2647,7 +2649,7 @@
         </div>
         <div class="footer-bottom">
           <div class="footer-copy" data-i18n="footer.copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
-          <div class="footer-copy">Founder: <span data-i18n="about.founder.name">Nguyễn Phúc Huy</span></div>
+          <div class="footer-copy" data-i18n="footer.founder">Founder: Nguyễn Phúc Huy</div>
           <div class="footer-location" data-i18n="footer.location">Ho Chi Minh City · Vietnam</div>
         </div>
       </div>
@@ -2874,7 +2876,8 @@
           <div class="spec-row">
             <div class="spec-key">Watchdog</div>
             <div class="spec-val" data-i18n-html="tech.spec.watchdog">Hardware Watchdog — independent fail detection
-              <span class="spec-tag">Safety-Critical</span></div>
+              <span class="spec-tag">Safety-Critical</span>
+            </div>
           </div>
           <div class="spec-row">
             <div class="spec-key">Power</div>
@@ -2946,7 +2949,8 @@
       <div class="container" style="position:relative; z-index:2;">
         <div class="label label-inv" style="margin-bottom:20px;" data-i18n="uc.hero.badge">Ứng dụng thực tế</div>
         <h1 class="text-inv" style="max-width:760px;" data-i18n-html="uc.hero.title">Drone vận hành<br>cho nhiệm vụ
-          <span style="color:var(--red)">thực.</span></h1>
+          <span style="color:var(--red)">thực.</span>
+        </h1>
         <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;"
           data-i18n="uc.hero.p">
           Mỗi ứng dụng của Deron được thiết kế từ bài toán vận hành cụ thể — rõ đối tượng, rõ quy trình, rõ vai trò của
@@ -3829,7 +3833,7 @@
           </blockquote>
           <div
             style="font-family:var(--font-label); font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:20px;">
-            <span data-i18n="about.founder.name">Nguyễn Phúc Huy</span> · Founder, Deron
+            <span data-i18n="about.founder.name">Nguyễn Phúc Huy</span> · <span data-i18n="about.founder.deron">Founder, Deron</span>
           </div>
         </div>
       </div>
@@ -4280,10 +4284,11 @@
     <section id="datcs-download" style="background:var(--bg-dark); padding:80px 0; text-align:center;">
       <div class="container">
         <div class="reveal">
-          <div class="label label-inv" style="margin-bottom:20px;" data-i18n="datcs.cta.badge">DATCS Desktop</div>
-          <h2 class="text-inv" style="margin:0 auto 20px; max-width:720px;" data-i18n-html="datcs.cta.h2">Tải DATCS Desktop —<br>Hệ thống điều phối không lưu Deron.</h2>
+          <div class="label label-inv" style="margin-bottom:20px;" data-i18n="datcs.cta.badge">DATCS</div>
+          <h2 class="text-inv" style="margin:0 auto 20px; max-width:720px;" data-i18n-html="datcs.cta.h2">Tải DATCS —<br>Hệ thống điều phối không lưu Deron.</h2>
           <p style="color:var(--text-inv-muted); margin:0 auto 40px; font-size:16px; max-width:620px;"
-            data-i18n="datcs.cta.p">Yêu cầu quyền truy cập DATCS Desktop để nhận liên kết tải an toàn qua email nếu được phê duyệt.</p>
+            data-i18n="datcs.cta.p">Yêu cầu quyền truy cập DATCS để nhận liên kết tải an toàn qua email nếu được
+            phê duyệt.</p>
           <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
             <a class="btn btn-primary btn-arrow" href="/datcs/install" data-i18n="datcs.cta.btn1">Tải DATCS</a>
             <button class="btn btn-outline" onclick="navigate('technology')" data-i18n="datcs.cta.btn2">Tìm hiểu công
@@ -4445,7 +4450,7 @@
       currentLang = lang;
       try {
         localStorage.setItem(LANG_STORAGE_KEY, lang);
-      } catch (_) {}
+      } catch (_) { }
       // Close dropdown
       const dd = document.getElementById('langDropdown');
       if (dd) { dd.classList.remove('open'); dd.querySelector('.lang-dropdown-toggle').setAttribute('aria-expanded', 'false'); }
@@ -4486,6 +4491,7 @@
     function applyTranslations(lang) {
       if (!window.T || !window.T[lang]) return;
       const dict = window.T[lang];
+      document.documentElement.lang = lang;
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         if (dict[key] !== undefined) el.textContent = dict[key];
@@ -4646,6 +4652,7 @@
 
   </script>
 
+  <script src="/assets/js/deron-chatbot.js" id="deron-chatbot-js" defer></script>
 </body>
 
 </html>

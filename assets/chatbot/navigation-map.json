@@ -1,0 +1,19 @@
+{
+  "home": {
+    "path": "/",
+    "labelKey": "home"
+  },
+  "datcs": {
+    "path": "/datcs",
+    "labelKey": "datcs"
+  },
+  "datcs_install": {
+    "path": "/datcs/install",
+    "labelKey": "datcsInstall"
+  },
+  "contact": {
+    "path": "/#contact",
+    "labelKey": "contact",
+    "note": "Current public site uses the home-page contact section. Update to /contact if a dedicated route is added."
+  }
+}

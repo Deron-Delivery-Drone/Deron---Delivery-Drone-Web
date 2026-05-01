@@ -191,12 +191,13 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
-        <div class="footer-copy">Founder: <span data-i18n="about.founder.name">Nguyễn Phúc Huy</span></div>
+        <div class="footer-copy" data-i18n="footer.founder">Founder: Nguyễn Phúc Huy</div>
         <div class="footer-location">Ho Chi Minh City · Vietnam</div>
       </div>
     </div>
   </footer>
 
+  <script src="public/translations.js"></script>
   <script src="/assets/js/main.js"></script>
   <script>
     function toggleLangDrop() {
@@ -223,6 +224,8 @@
         b.classList.toggle('active', b.dataset.lang === lang);
       });
       document.getElementById('langDropdown').classList.remove('open');
+      if (window.applyDeronTranslations) window.applyDeronTranslations(lang);
+      else document.documentElement.lang = lang;
     }
     document.addEventListener('DOMContentLoaded', () => {
       const lang = localStorage.getItem('deron_lang') || 'vi';

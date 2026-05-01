@@ -121,6 +121,7 @@ window.T = {
         "about.dbp.p2": "Chiến dịch Điện Biên Phủ là bằng chứng rằng người Việt có thể chiến thắng bằng trí tuệ, bằng sáng tạo, bằng ý chí — kể cả khi đối mặt với những thách thức tưởng như bất khả thi.",
         "about.founder.name": "Nguyễn Phúc Huy",
         "about.founder.role": "Founder & Project Leader",
+        "about.founder.deron": "Founder, Deron",
         "about.founder.p1": "Người sáng lập Deron, sinh ra và lớn lên tại Đăk Lắk — một trong những tỉnh có địa hình phức tạp và nhiều vùng khó tiếp cận nhất Tây Nguyên.",
         "about.founder.p2": "Hiện đặt tại TP. Hồ Chí Minh, Huy đang xây dựng Deron với tầm nhìn dài hạn về hạ tầng logistics tầm thấp — xuất phát từ nhu cầu thực tế, không phải từ trend công nghệ.",
         "about.founder.p3": "Deron là một trong số ít startup Việt Nam đang tự phát triển flight controller riêng (DMA) thay vì phụ thuộc hoàn toàn vào platform nước ngoài.",
@@ -381,10 +382,17 @@ window.T = {
         "datcs.q5.a": "Trong giai đoạn đầu, DATCS tối ưu cho hệ thống drone Deron (với DMA flight controller). Về lâu dài, Deron xem xét tương thích với MAVLink để DATCS hỗ trợ đa nền tảng. UTM module và compliance pháp lý sẽ luôn là trọng tâm phân biệt DATCS với các GCS nước ngoài.",
         "datcs.q6.q": "Khi nào DATCS ra mắt? Làm sao nhận thông tin sớm nhất?",
         "datcs.q6.a": "DATCS đang phát triển cùng nền tảng drone của Deron. Phiên bản beta dự kiến ra mắt cùng chuyến bay thương mại đầu tiên (2026–2027). Liên hệ qua email <a href=\"mailto:ceo.deron@gmail.com\" style=\"color:var(--red); text-decoration:underline;\">ceo.deron@gmail.com</a> để được cập nhật sớm khi DATCS có phiên bản thử nghiệm.",
-        "datcs.cta.badge": "DATCS Desktop",
-        "datcs.cta.h2": "Tải DATCS Desktop —<br>Hệ thống điều phối không lưu Deron.",
-        "datcs.cta.p": "Yêu cầu quyền truy cập DATCS Desktop để nhận liên kết tải an toàn qua email nếu được phê duyệt.",
+        "datcs.cta.badge": "DATCS",
+        "datcs.cta.h2": "Tải DATCS —<br>Hệ thống điều phối không lưu Deron.",
+        "datcs.cta.p": "Yêu cầu quyền truy cập DATCS để nhận liên kết tải an toàn qua email nếu được phê duyệt.",
         "datcs.cta.btn1": "Tải DATCS", "datcs.cta.btn2": "Tìm hiểu công nghệ DMA",
+        "datcs.hero.st1.val": "v1.0", "datcs.hero.st1.lbl": "Phiên bản Beta",
+        "datcs.hero.st2.val": "3 OS", "datcs.hero.st2.lbl": "Win (Early Access) · Mac (Coming Soon) · Linux (Coming Soon)",
+        "datcs.hero.st3.val": "Bản beta", "datcs.hero.st3.lbl": "Cho dùng thử",
+        "datcs.hero.st4.val": "MAVLink", "datcs.hero.st4.lbl": "2.0 Compatible",
+        "datcs.cta.chk1": "Windows (Early Access) · macOS (Coming Soon) · Linux (Coming Soon)",
+        "datcs.cta.chk2": "MAVLink 2.0 Compatible",
+        "datcs.cta.chk3": "Dành cho truy cập có kiểm soát",
         "datcs.footer.copy": "© 2025–2026 Deron. DATCS — Made in Vietnam.",
 
         "footer.founder": "Founder: Nguyễn Phúc Huy",
@@ -513,8 +521,9 @@ window.T = {
         "about.dbp.title": "Inspired by<br>national spirit",
         "about.dbp.p1": "Inspired by a quote from General Võ Nguyên Giáp: \"The time has come for new Điện Biên Phủ battles\" — not about war, but about the will for self-reliance.",
         "about.dbp.p2": "The Battle of Điện Biên Phủ is proof that Vietnamese people can prevail through intelligence, creativity, and determination — even against seemingly impossible challenges.",
-        "about.founder.name": "Nguyễn Phúc Huy (Harry Nguyễn)",
+        "about.founder.name": "Nguyễn Phúc Huy ( Harry Nguyễn)",
         "about.founder.role": "Founder & Project Leader",
+        "about.founder.deron": "Founder, Deron",
         "about.founder.p1": "Founder of Deron, born and raised in Đắk Lắk — one of the provinces with the most complex terrain in Vietnam's Central Highlands.",
         "about.founder.p2": "Currently based in Ho Chi Minh City, Harry is building Deron with a long-term vision for low-altitude logistics infrastructure — driven by real needs, not technology trends.",
         "about.founder.p3": "Deron is one of the few Vietnamese startups developing its own flight controller (DMA) rather than relying entirely on foreign platforms.",
@@ -772,13 +781,20 @@ window.T = {
         "datcs.q5.a": "In the initial phase, DATCS is optimized for Deron's drone ecosystem (with the DMA flight controller). Long term, Deron is evaluating MAVLink compatibility to make DATCS multi-platform. The UTM module and legal compliance will always be DATCS's primary differentiators from foreign GCS solutions.",
         "datcs.q6.q": "When will DATCS launch? How can I get the earliest information?",
         "datcs.q6.a": "DATCS is being developed alongside Deron's drone platform. A beta version is expected alongside the first commercial flight (2026–2027). Contact <a href=\"mailto:ceo.deron@gmail.com\" style=\"color:var(--red); text-decoration:underline;\">ceo.deron@gmail.com</a> to be notified early when a DATCS test version becomes available.",
-        "datcs.cta.badge": "DATCS Desktop",
-        "datcs.cta.h2": "Download DATCS Desktop —<br>Deron Air Traffic Control System.",
-        "datcs.cta.p": "Request DATCS Desktop access to receive a secure download link by email if approved.",
+        "datcs.cta.badge": "DATCS",
+        "datcs.cta.h2": "Download DATCS —<br>Deron Air Traffic Control System.",
+        "datcs.cta.p": "Request DATCS access to receive a secure download link by email if approved.",
         "datcs.cta.btn1": "Download DATCS", "datcs.cta.btn2": "Explore DMA technology",
+        "datcs.hero.st1.val": "v1.0", "datcs.hero.st1.lbl": "Beta Version",
+        "datcs.hero.st2.val": "3 OS", "datcs.hero.st2.lbl": "Win (Early Access) · Mac (Coming Soon) · Linux (Coming Soon)",
+        "datcs.hero.st3.val": "Beta", "datcs.hero.st3.lbl": "For trial",
+        "datcs.hero.st4.val": "MAVLink", "datcs.hero.st4.lbl": "2.0 Compatible",
+        "datcs.cta.chk1": "Windows (Early Access) · macOS (Coming Soon) · Linux (Coming Soon)",
+        "datcs.cta.chk2": "MAVLink 2.0 Compatible",
+        "datcs.cta.chk3": "For controlled access",
         "datcs.footer.copy": "© 2025–2026 Deron. DATCS — Made in Vietnam.",
 
-        "footer.founder": "Founder: Nguyễn Phúc Huy",
+        "footer.founder": "Founder: Nguyễn Phúc Huy ( Harry Nguyễn)",
         "footer.mission": "Mission", "footer.dma": "DMA Technology", "footer.resources": "Resources",
         "footer.press": "Press", "footer.changelog": "Changelog", "footer.privacy": "Privacy Policy",
 
@@ -906,6 +922,7 @@ window.T = {
         "about.dbp.p2": "奠边府战役证明了越南人民可以凭借智慧、创造力和意志力取胜——即使面对看似不可能的挑战。",
         "about.founder.name": "Nguyễn Phúc Huy (阮福辉)",
         "about.founder.role": "创始人 & 项目负责人",
+        "about.founder.deron": "Deron 创始人",
         "about.founder.p1": "Deron 创始人，出生并成长于得乐省——越南中部高原地形最复杂的省份之一。",
         "about.founder.p2": "现居胡志明市，阿辉正在以对低空物流基础设施的长期愿景来建设 Deron——源于真实需求，而非技术潮流。",
         "about.founder.p3": "Deron 是为数不多正在自主开发飞控系统 (DMA) 的越南初创公司之一。",
@@ -1163,13 +1180,20 @@ window.T = {
         "datcs.q5.a": "初期阶段，DATCS 针对 Deron 无人机生态系统（含 DMA 飞控）优化。长期来看，Deron 正在评估 MAVLink 兼容性以使 DATCS 支持多平台。UTM 模块与法律合规功能将始终是 DATCS 区别于外国 GCS 解决方案的核心差异化要素。",
         "datcs.q6.q": "DATCS 何时发布？如何最早获取信息？",
         "datcs.q6.a": "DATCS 正与 Deron 无人机平台同步开发。Beta 版本预计随首次商业飞行一同推出（2026–2027年）。请发送邮件至 <a href=\"mailto:ceo.deron@gmail.com\" style=\"color:var(--red); text-decoration:underline;\">ceo.deron@gmail.com</a>，当 DATCS 测试版本可用时将第一时间通知您。",
-        "datcs.cta.badge": "DATCS Desktop",
-        "datcs.cta.h2": "下载 DATCS Desktop——<br>Deron 空中交通管制系统。",
-        "datcs.cta.p": "申请 DATCS Desktop 访问权限。若获批准，安全下载链接将通过电子邮件发送。",
+        "datcs.cta.badge": "DATCS",
+        "datcs.cta.h2": "下载 DATCS——<br>Deron 空中交通管制系统。",
+        "datcs.cta.p": "申请 DATCS 访问权限。若获批准，安全下载链接将通过电子邮件发送。",
         "datcs.cta.btn1": "下载 DATCS", "datcs.cta.btn2": "探索 DMA 技术",
+        "datcs.hero.st1.val": "v1.0", "datcs.hero.st1.lbl": "Beta 版本",
+        "datcs.hero.st2.val": "3 OS", "datcs.hero.st2.lbl": "Win (抢先体验) · Mac (即将推出) · Linux (即将推出)",
+        "datcs.hero.st3.val": "Beta", "datcs.hero.st3.lbl": "用于试用",
+        "datcs.hero.st4.val": "MAVLink", "datcs.hero.st4.lbl": "2.0 兼容",
+        "datcs.cta.chk1": "Windows (抢先体验) · macOS (即将推出) · Linux (即将推出)",
+        "datcs.cta.chk2": "MAVLink 2.0 兼容",
+        "datcs.cta.chk3": "受控访问",
         "datcs.footer.copy": "© 2025–2026 Deron。DATCS —— 越南制造。",
 
-        "footer.founder": "创始人：Nguyễn Phúc Huy",
+        "footer.founder": "创始人：Nguyễn Phúc Huy (阮福辉)",
         "footer.mission": "使命", "footer.dma": "DMA 技术", "footer.resources": "资源",
         "footer.press": "媒体", "footer.changelog": "开发日志", "footer.privacy": "隐私政策",
 
@@ -1188,3 +1212,86 @@ window.T = {
     }
 
 };
+
+(function () {
+    const supportedLanguages = ['vi', 'en', 'zh'];
+    let viTextKeyMap;
+
+    function normalizeLanguage(lang) {
+        return supportedLanguages.includes(lang) ? lang : 'vi';
+    }
+
+    function normalizeText(value) {
+        return String(value || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function htmlToText(html) {
+        if (typeof document === 'undefined') return normalizeText(html);
+        const tmp = document.createElement('div');
+        tmp.innerHTML = String(html || '');
+        return normalizeText(tmp.textContent || '');
+    }
+
+    function getViTextKeyMap() {
+        if (viTextKeyMap) return viTextKeyMap;
+        viTextKeyMap = new Map();
+        const vi = (window.T && window.T.vi) || {};
+        Object.keys(vi).forEach(key => {
+            const value = vi[key];
+            if (typeof value !== 'string') return;
+            const text = htmlToText(value);
+            if (text && !viTextKeyMap.has(text)) viTextKeyMap.set(text, key);
+        });
+        return viTextKeyMap;
+    }
+
+    function setElementValue(el, value, asHtml) {
+        if (asHtml || /<[a-z][\s\S]*>/i.test(String(value))) {
+            el.innerHTML = value;
+        } else {
+            el.textContent = value;
+        }
+    }
+
+    window.applyDeronTranslations = function applyDeronTranslations(lang) {
+        lang = normalizeLanguage(lang);
+        const dict = window.T && window.T[lang];
+        if (!dict || typeof document === 'undefined') return;
+
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+
+        document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+            (el.getAttribute('data-i18n-attr') || '').split(',').forEach(pair => {
+                const parts = pair.split(':');
+                const attr = parts[0] && parts[0].trim();
+                const key = parts[1] && parts[1].trim();
+                if (attr && key && dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+            });
+        });
+
+        const viMap = getViTextKeyMap();
+        document.querySelectorAll('body *:not(script):not(style):not(noscript)').forEach(el => {
+            if (el.hasAttribute('data-i18n') || el.hasAttribute('data-i18n-html') || el.hasAttribute('data-i18n-attr')) return;
+            let key = el.getAttribute('data-i18n-auto');
+            if (!key) {
+                if (el.children.length > 4) return;
+                const text = normalizeText(el.textContent);
+                if (!text || text.length > 260) return;
+                key = viMap.get(text);
+                if (!key) return;
+                el.setAttribute('data-i18n-auto', key);
+            }
+            if (dict[key] !== undefined) setElementValue(el, dict[key], false);
+        });
+    };
+})();
