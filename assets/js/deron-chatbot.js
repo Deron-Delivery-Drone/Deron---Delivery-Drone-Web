@@ -42,7 +42,7 @@
       },
       answers: {
         deron_overview: 'Deron là website công khai giới thiệu định hướng xây dựng hạ tầng UAV của Deron cho logistics, y tế khẩn cấp và ứng phó quan trọng tại Việt Nam. Với các thông tin chưa được công bố, vui lòng dùng kênh liên hệ chính thức.',
-        datcs_overview: 'DATCS là lớp phần mềm được mô tả công khai của Deron để giám sát, theo dõi, xác thực, ghi log và hỗ trợ ra quyết định. DATCS không trực tiếp điều khiển motor drone; quyền tác động actuator thuộc DMA/IO MCU, và Safety MCU nắm quyền kill.',
+        datcs_overview: 'DATCS là lớp phần mềm được mô tả công khai của Deron để giám sát, theo dõi, xác thực, ghi log và hỗ trợ ra quyết định. DATCS không trực tiếp điều khiển motor drone; các quyền điều khiển phần cứng thuộc những lớp hệ thống được phê duyệt riêng.',
         datcs_download: 'DATCS không phải phần mềm tải công khai. Bạn có thể gửi yêu cầu quyền tải tại trang DATCS install chính thức của Deron.',
         datcs_usage: 'Hướng dẫn sử dụng chi tiết của DATCS sẽ chỉ được cung cấp qua kênh hỗ trợ dành cho người dùng đã được duyệt. Tôi có thể dẫn bạn đến trang DATCS hoặc trang tải chính thức.',
         troubleshooting: 'Để bắt đầu xử lý lỗi DATCS, hãy dùng trang tải/yêu cầu quyền chính thức hoặc liên hệ Deron. Tôi không hỗ trợ bỏ qua bước bảo mật, chia sẻ token, hoặc truy cập không được cấp quyền.',
@@ -74,7 +74,7 @@
       },
       answers: {
         deron_overview: 'Deron\'s public website presents its direction for UAV infrastructure for logistics, emergency healthcare, and critical response in Vietnam. For anything not publicly confirmed, use the official contact channel.',
-        datcs_overview: 'DATCS is Deron\'s publicly described software layer for supervision, monitoring, validation, logging, and decision support. DATCS does not directly control drone motors; actuator authority belongs to DMA/IO MCU, and kill authority belongs to Safety MCU.',
+        datcs_overview: 'DATCS is Deron\'s publicly described software layer for supervision, monitoring, validation, logging, and decision support. DATCS does not directly control drone motors; hardware control authority belongs to separately approved system layers.',
         datcs_download: 'DATCS is not a public direct-download product. You can request download access through Deron’s official DATCS install page.',
         datcs_usage: 'Detailed DATCS user guidance will be provided only through approved support channels. I can point you to the DATCS page or the official download request page.',
         troubleshooting: 'To start DATCS troubleshooting, use the official download/request page or contact Deron. I cannot help bypass security, share tokens, or access unapproved systems.',
@@ -106,7 +106,7 @@
       },
       answers: {
         deron_overview: 'Deron 官网公开介绍其面向越南物流、医疗应急和关键响应场景的 UAV 基础设施方向。未公开确认的信息，请通过官方联系渠道确认。',
-        datcs_overview: 'DATCS 是 Deron 公开描述的软件层，用于监督、监测、验证、记录日志并支持决策。DATCS 不直接控制无人机电机；执行器权限属于 DMA/IO MCU，kill 权限属于 Safety MCU。',
+        datcs_overview: 'DATCS 是 Deron 公开描述的软件层，用于监督、监测、验证、记录日志并支持决策。DATCS 不直接控制无人机电机；硬件控制权限属于另行批准的系统层。',
         datcs_download: 'DATCS 不是公开直接下载的软件。你可以通过 Deron 官方 DATCS 安装页面申请下载权限。',
         datcs_usage: 'DATCS 的详细使用指南只会通过面向获批用户的支持渠道提供。我可以引导你前往 DATCS 页面或官方下载申请页面。',
         troubleshooting: '如需开始 DATCS 故障排查，请使用官方下载/申请页面或联系 Deron。我不能协助绕过安全流程、分享 token 或访问未授权系统。',

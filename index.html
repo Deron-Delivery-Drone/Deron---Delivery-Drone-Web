@@ -35,7 +35,7 @@
       {
         "@type": "Question",
         "name": "DATCS là gì và khác gì so với QGroundControl?",
-        "acceptedAnswer": { "@type": "Answer", "text": "DATCS (Deron Air Traffic Control System) là phần mềm GCS và UTM được Deron phát triển dành riêng cho thị trường Việt Nam. Khác với QGroundControl — GCS mã nguồn mở hỗ trợ MAVLink — DATCS tích hợp pháp lý Việt Nam (Nghị định 288/2025/NĐ-CP), vận hành qua 4G/5G và kết hợp với DMA flight controller do Deron tự phát triển." }
+        "acceptedAnswer": { "@type": "Answer", "text": "DATCS (Deron Air Traffic Control System) là phần mềm GCS và UTM được Deron phát triển dành riêng cho thị trường Việt Nam. Khác với QGroundControl — GCS mã nguồn mở hỗ trợ MAVLink — DATCS tập trung vào pháp lý Việt Nam, vận hành qua hạ tầng viễn thông trong nước và quản lý đội bay trong phạm vi được phê duyệt." }
       },
       {
         "@type": "Question",
@@ -990,6 +990,178 @@
     .tech-specs {
       background: var(--bg-mid);
       padding: 80px 0;
+    }
+
+    .technology-overview {
+      background: var(--bg-dark);
+      padding: 96px 0 112px;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .tech-overview-head {
+      display: grid;
+      grid-template-columns: minmax(0, 760px);
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+
+    .tech-overview-copy p {
+      color: var(--text-inv-muted);
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 680px;
+      margin-top: 24px;
+    }
+
+    .tech-visual-placeholder {
+      min-height: 320px;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      background-color: #0E141D;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(196, 30, 58, 0.16), transparent 42%);
+      background-size: 44px 44px, 44px 44px, 100% 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      color: rgba(237, 233, 227, 0.44);
+      font-family: var(--font-label);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .tech-visual-code {
+      color: var(--text-inv);
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .tech-visual-label {
+      color: rgba(138, 155, 174, 0.72);
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .tech-layer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .tech-layer-card {
+      background: var(--bg-mid);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.92fr);
+      gap: 0;
+      min-height: 340px;
+    }
+
+    .tech-layer-copy {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .tech-card-visual {
+      min-height: 100%;
+      height: 100%;
+      border: 0;
+      border-left: 1px solid var(--border-dark);
+      border-radius: 0;
+    }
+
+    .tech-card-image-frame {
+      padding: 18px;
+      overflow: hidden;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .tech-card-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: calc(var(--radius-lg) - 6px);
+      border: 1px solid rgba(138, 155, 174, 0.18);
+      background: #05070B;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+    }
+
+    .tech-layer-card:nth-child(even) .tech-layer-copy { order: 2; }
+    .tech-layer-card:nth-child(even) .tech-card-visual {
+      order: 1;
+      border-left: 0;
+      border-right: 1px solid var(--border-dark);
+    }
+
+    .tech-layer-acronym {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 18px;
+    }
+
+    .tech-layer-card h3 {
+      color: var(--text-inv);
+      font-size: 22px;
+      line-height: 1.18;
+      margin-bottom: 16px;
+      letter-spacing: -0.015em;
+    }
+
+    .tech-layer-card p {
+      color: var(--text-inv-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 100%;
+    }
+
+    .tech-layer-line {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-inv) !important;
+    }
+
+    .tech-positioning-card {
+      margin-top: 2px;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      background: #0E141D;
+      padding: 38px 40px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .tech-positioning-card p {
+      color: var(--text-inv);
+      font-size: 20px;
+      line-height: 1.65;
+      max-width: 840px;
     }
 
     .spec-table {
@@ -2001,8 +2173,31 @@
       }
 
       .revenue-grid,
-      .safety-cards {
+      .safety-cards,
+      .tech-layer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .tech-overview-head,
+      .tech-positioning-card,
+      .tech-layer-card {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-layer-card:nth-child(even) .tech-layer-copy,
+      .tech-layer-card:nth-child(even) .tech-card-visual {
+        order: initial;
+      }
+
+      .tech-card-visual,
+      .tech-layer-card:nth-child(even) .tech-card-visual {
+        border-left: 0;
+        border-right: 0;
+        border-top: 1px solid var(--border-dark);
+      }
+
+      .tech-visual-placeholder {
+        min-height: 260px;
       }
 
       .value-grid {
@@ -2622,7 +2817,7 @@
           <div>
             <div class="footer-col-title" data-i18n="footer.col2">Sản phẩm</div>
             <div class="footer-links">
-              <span class="footer-link" data-i18n="footer.l4" onclick="navigate('technology')">Công nghệ DMA</span>
+              <span class="footer-link" data-i18n="footer.l4" onclick="navigate('technology')">Công nghệ</span>
               <span class="footer-link" data-i18n="footer.l5" onclick="navigate('usecases')">Ứng dụng</span>
               <span class="footer-link" data-i18n="footer.l6" onclick="navigate('technology')">Triết lý an toàn</span>
               <span class="footer-link" data-i18n="footer.l10" onclick="navigate('usecases')">Deron Agriculture</span>
@@ -2724,8 +2919,8 @@
                 tỉnh có địa hình phức tạp và nhiều vùng khó tiếp cận nhất Tây Nguyên.</p>
               <p data-i18n="about.founder.p2">Hiện đặt tại TP. Hồ Chí Minh, Harry đang xây dựng Deron với tầm nhìn dài
                 hạn về hạ tầng logistics tầm thấp — xuất phát từ nhu cầu thực tế, không phải từ trend công nghệ.</p>
-              <p data-i18n="about.founder.p3">Deron là một trong số ít startup Việt Nam đang tự phát triển flight
-                controller riêng (DMA) thay vì phụ thuộc hoàn toàn vào platform nước ngoài.</p>
+              <p data-i18n="about.founder.p3">Deron đang xây dựng lớp công nghệ UAV của riêng mình theo từng giai đoạn,
+                ưu tiên khả năng kiểm chứng, an toàn và phù hợp với bối cảnh Việt Nam.</p>
             </div>
             <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
               <a href="mailto:ceo.deron@gmail.com" class="btn btn-outline-dark"
@@ -2753,8 +2948,8 @@
             <div class="timeline-content">
               <div class="timeline-year" data-i18n="about.tl1.year">2025 — Q2/2026 · Pre-Seed</div>
               <h4 data-i18n="about.tl1.title">Xây nền tảng kỹ thuật</h4>
-              <p data-i18n="about.tl1.desc">Hoàn thiện DMA flight controller, thiết kế VTOL hybrid, xin phép thử nghiệm,
-                gọi vốn $500K. Đây là giai đoạn chứng minh khả năng kỹ thuật.</p>
+              <p data-i18n="about.tl1.desc">Hoàn thiện lớp công nghệ UAV, thiết kế VTOL hybrid, chuẩn bị quy trình thử
+                nghiệm và gọi vốn $500K. Đây là giai đoạn chứng minh khả năng kỹ thuật.</p>
             </div>
           </div>
           <div class="timeline-item reveal reveal-delay-1">
@@ -2813,118 +3008,118 @@
       <div style="position:relative; overflow:hidden; background:var(--bg-dark);">
         <div class="hero-grid-bg" style="opacity:0.25;"></div>
         <div class="container" style="padding-top:140px; padding-bottom:80px; position:relative; z-index:2;">
-          <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.label">Technology</div>
-          <h1 class="text-inv" style="max-width:800px;" data-i18n-html="tech.title">Chúng tôi không<br>mua công
-            nghệ.<br>Chúng tôi <span style="color:var(--red)">xây</span> nó.</h1>
+          <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.label">Công nghệ</div>
+          <h1 class="text-inv" style="max-width:800px;" data-i18n-html="tech.title">Chúng tôi không mua công nghệ.<br>Chúng tôi <span style="color:var(--red)">xây nó</span>.</h1>
           <p style="color:var(--text-inv-muted); font-size:20px; margin-top:28px; max-width:560px; line-height:1.65;"
             data-i18n="tech.sub">
-            Bởi vì không có hệ thống nào được thiết kế cho địa hình Việt Nam, quy định Việt Nam, và cộng đồng Việt Nam —
-            trước khi Deron bắt đầu làm.
+            Bởi vì không có hệ thống nào được thiết kế cho địa hình Việt Nam, quy định Việt Nam, và cộng đồng Việt Nam
+            — trước khi Deron bắt đầu làm.
           </p>
         </div>
       </div>
     </div>
 
-    <div class="tech-specs">
+    <section class="technology-overview" aria-labelledby="technology-overview-title">
       <div class="container">
-        <div class="reveal">
-          <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.dma.label">DMA — Deron Main Avionics
-          </div>
-          <h2 class="text-inv" style="margin-bottom:8px;" data-i18n-html="tech.dma.title">Flight controller<br>thuần
-            Việt.</h2>
-          <p style="color:var(--text-inv-muted); font-size:16px; max-width:540px; margin-bottom:8px;"
-            data-i18n="tech.dma.desc">
-            DMA là hệ thống avionics tự phát triển — không phụ thuộc platform nước ngoài.
-            Đang trong giai đoạn phát triển, mục tiêu hoàn thiện Q2/2026.
-          </p>
-          <div
-            style="display:inline-flex; align-items:center; gap:8px; background:rgba(196,30,58,0.15); border:1px solid rgba(196,30,58,0.3); border-radius:4px; padding:6px 12px; margin-bottom:36px;">
-            <div style="width:6px; height:6px; border-radius:50%; background:var(--red); animation:pulse 2s infinite;">
-            </div>
-            <span
-              style="font-family:var(--font-label); font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--red);"
-              data-i18n="tech.dma.status">In Development</span>
+        <div class="tech-overview-head reveal">
+          <div class="tech-overview-copy">
+            <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.overview.label">Tổng quan công nghệ</div>
+            <h2 class="text-inv" id="technology-overview-title" data-i18n="tech.overview.title">Một nền tảng. Nhiều lớp công nghệ.</h2>
+            <p data-i18n="tech.overview.desc">Deron đang xây dựng một hệ công nghệ UAV theo từng lớp: phần cứng bay, phần mềm điều phối, hệ thống an toàn, hiển thị không gian và hạ tầng dữ liệu. Mục tiêu không phải chỉ tạo ra một chiếc drone, mà là xây dựng nền móng cho hạ tầng bay an toàn, có thể mở rộng và phù hợp với Việt Nam.</p>
           </div>
         </div>
-        <div class="spec-table reveal">
-          <div class="spec-row">
-            <div class="spec-key">FMU</div>
-            <div class="spec-val" data-i18n="tech.spec.fmu">STM32H743 — Flight Management Unit chính</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">IO Processor</div>
-            <div class="spec-val" data-i18n="tech.spec.io">STM32F103 — Input/Output dedicated processor</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">Companion</div>
-            <div class="spec-val">Raspberry Pi 5 — AI routing, mission logic, telemetry</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">IMU</div>
-            <div class="spec-val" data-i18n-html="tech.spec.imu">Dual IMU — redundant inertial measurement <span
-                class="spec-tag">Redundant</span></div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">Barometer</div>
-            <div class="spec-val" data-i18n-html="tech.spec.baro">Dual Barometer — altitude sensing redundancy <span
-                class="spec-tag">Redundant</span></div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">GNSS</div>
-            <div class="spec-val">GNSS / RTK — high-precision positioning</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">Watchdog</div>
-            <div class="spec-val" data-i18n-html="tech.spec.watchdog">Hardware Watchdog — independent fail detection
-              <span class="spec-tag">Safety-Critical</span>
-            </div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">Power</div>
-            <div class="spec-val">INA226 current sensing · TPS54560 dual buck · LM74700 ideal diode</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">Autopilot</div>
-            <div class="spec-val">PX4 — open standard, certified autopilot base</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-key">EDA</div>
-            <div class="spec-val" data-i18n="tech.spec.eda">KiCad — PCB layout & schematic (in progress)</div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <section style="background:var(--bg-dark); padding:80px 0;">
-      <div class="container">
-        <div class="reveal">
-          <div class="label label-inv" style="margin-bottom:20px;" data-i18n="tech.safety.label">Safety Philosophy</div>
-          <h2 class="text-inv" style="margin-bottom:24px; max-width:600px;" data-i18n="tech.safety.title">An toàn không
-            phải tính năng. An toàn là kiến trúc.</h2>
-          <p style="color:var(--text-inv-muted); font-size:18px; max-width:560px; margin-bottom:56px;"
-            data-i18n="tech.safety.desc">
-            Mọi component của Deron được thiết kế với giả định nó sẽ fail — và fail một cách an toàn.
-          </p>
+        <div class="tech-layer-grid">
+          <article class="tech-layer-card reveal">
+            <div class="tech-layer-copy">
+              <div class="tech-layer-acronym">DMA</div>
+              <h3 data-i18n="tech.card.dma.title">DMA — Deron Main Avionics</h3>
+              <p data-i18n="tech.card.dma.desc">DMA là nền tảng avionics do Deron phát triển cho các hệ UAV tương lai. Đây là lớp phần cứng và điều khiển cốt lõi giúp Deron tiến tới khả năng tự chủ hơn về flight control, cảm biến, giám sát an toàn và tích hợp với hệ sinh thái phần mềm.</p>
+              <p class="tech-layer-line" data-i18n="tech.card.dma.value">Giá trị mang lại: tự chủ công nghệ, kiểm soát an toàn tốt hơn, và nền tảng phần cứng có thể mở rộng.</p>
+            </div>
+            <div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DMA visual placeholder">
+              <span class="tech-visual-code">DMA</span>
+              <span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span>
+            </div>
+          </article>
+
+          <article class="tech-layer-card reveal">
+            <div class="tech-layer-copy">
+              <div class="tech-layer-acronym">DATCS</div>
+              <h3 data-i18n="tech.card.datcs.title">DATCS — Deron Air Traffic Control System</h3>
+              <p data-i18n="tech.card.datcs.desc">DATCS là nền tảng phần mềm điều phối và giám sát của Deron. Hệ thống hỗ trợ theo dõi nhiệm vụ, telemetry, trạng thái đội bay, quy trình vận hành và các lớp kiểm tra an toàn.</p>
+              <p class="tech-layer-line" data-i18n="tech.card.datcs.value">DATCS giám sát và hỗ trợ ra quyết định; DATCS không trực tiếp điều khiển motor.</p>
+            </div>
+            <div class="tech-visual-placeholder tech-card-visual tech-card-image-frame">
+              <img src="public/datcs_review.png" alt="DATCS interface preview" loading="lazy" decoding="async">
+            </div>
+          </article>
+
+          <article class="tech-layer-card reveal">
+            <div class="tech-layer-copy">
+              <div class="tech-layer-acronym">DAPS</div>
+              <h3 data-i18n="tech.card.daps.title">DAPS — Deron Aerial Pixel System</h3>
+              <p data-i18n="tech.card.daps.desc">DAPS là công nghệ gốc cho hệ hiển thị không gian của Deron. Trong DAPS, mỗi node bay có thể được xem như một ‘pixel’ trong không gian 3D, có thể đồng bộ vị trí, thời gian và ánh sáng để tạo nên các trải nghiệm trực quan trên bầu trời.</p>
+              <p class="tech-layer-line" data-i18n="tech.card.daps.value">DAPS không chỉ là drone lightshow; đó là cách Deron biến không gian thành một lớp hiển thị có thể lập trình.</p>
+            </div>
+            <div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DAPS visual placeholder">
+              <span class="tech-visual-code">DAPS</span>
+              <span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span>
+            </div>
+          </article>
+
+          <article class="tech-layer-card reveal">
+            <div class="tech-layer-copy">
+              <div class="tech-layer-acronym">DAPL</div>
+              <h3 data-i18n="tech.card.dapl.title">DAPL — Deron Aerial Pixel Lightshow</h3>
+              <p data-i18n="tech.card.dapl.desc">DAPL, hay Deron PixelShow, là hướng ứng dụng thương mại của DAPS cho trình diễn ánh sáng. Hệ thống được định vị để tạo ra những màn hiển thị trên không có tính đồng bộ, có câu chuyện và có bản sắc công nghệ Việt Nam.</p>
+            </div>
+            <div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DAPL visual placeholder">
+              <span class="tech-visual-code">DAPL</span>
+              <span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span>
+            </div>
+          </article>
+
+          <article class="tech-layer-card reveal">
+            <div class="tech-layer-copy">
+              <div class="tech-layer-acronym">DSAS</div>
+              <h3 data-i18n="tech.card.dsas.title">DSAS — Deron Spatial Anchor System</h3>
+              <p data-i18n="tech.card.dsas.desc">DSAS là lớp anchor không gian cho hệ DAPS. Thay vì để toàn bộ hệ phụ thuộc vào từng node riêng lẻ, DSAS đóng vai trò mốc tham chiếu, hỗ trợ đồng bộ thời gian, định vị cục bộ, truyền thông và vùng an toàn.</p>
+            </div>
+            <div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DSAS visual placeholder">
+              <span class="tech-visual-code">DSAS</span>
+              <span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span>
+            </div>
+          </article>
+
+          <article class="tech-layer-card reveal">
+            <div class="tech-layer-copy">
+              <div class="tech-layer-acronym">DAPN</div>
+              <h3 data-i18n="tech.card.dapn.title">DAPN — Deron Aerial Pixel Node</h3>
+              <p data-i18n="tech.card.dapn.desc">DAPN là từng node bay trong hệ DAPS. Mỗi node là một điểm hiển thị độc lập, có thể mang ánh sáng, dữ liệu trạng thái và logic an toàn cơ bản để tham gia vào một cấu trúc hiển thị lớn hơn.</p>
+            </div>
+            <div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DAPN visual placeholder">
+              <span class="tech-visual-code">DAPN</span>
+              <span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span>
+            </div>
+          </article>
+
+          <article class="tech-layer-card reveal">
+            <div class="tech-layer-copy">
+              <div class="tech-layer-acronym">DSDA</div>
+              <h3 data-i18n="tech.card.dsda.title">DSDA — Deron Spatial Display Architecture</h3>
+              <p data-i18n="tech.card.dsda.desc">DSDA là kiến trúc tổng thể kết nối DAPS, DAPN, DSAS, DAPL và DATCS thành một hệ thống thống nhất. Đây là cách Deron tổ chức công nghệ hiển thị không gian theo hướng có thể mở rộng, quản lý được và an toàn hơn.</p>
+            </div>
+            <div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DSDA visual placeholder">
+              <span class="tech-visual-code">DSDA</span>
+              <span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span>
+            </div>
+          </article>
         </div>
-        <div class="safety-cards">
-          <div class="safety-card reveal reveal-delay-1">
-            <div class="safety-card-num">01 / SENSOR</div>
-            <h4 data-i18n="tech.s1.title">Dual Sensor Redundancy</h4>
-            <p data-i18n="tech.s1.desc">Hai bộ IMU và barometer hoàn toàn độc lập. Nếu một cảm biến fail, hệ thống tự
-              chuyển sang nguồn dự phòng mà không gián đoạn chuyến bay.</p>
-          </div>
-          <div class="safety-card reveal reveal-delay-2">
-            <div class="safety-card-num">02 / WATCHDOG</div>
-            <h4 data-i18n="tech.s2.title">Hardware Watchdog</h4>
-            <p data-i18n="tech.s2.desc">Mạch giám sát vật lý độc lập với flight controller chính. Phát hiện và xử lý sự
-              cố phần cứng trước khi firmware có thể phản ứng.</p>
-          </div>
-          <div class="safety-card reveal reveal-delay-3">
-            <div class="safety-card-num">03 / FAILSAFE</div>
-            <h4 data-i18n="tech.s3.title">Automatic Return-to-Home</h4>
-            <p data-i18n="tech.s3.desc">Trong mọi tình huống mất kết nối, pin thấp, hoặc sensor anomaly — drone tự động
-              về điểm xuất phát. Không phụ thuộc quyết định của operator.</p>
-          </div>
+
+        <div class="tech-positioning-card reveal">
+          <div class="tech-layer-acronym">DAPS / DSDA</div>
+          <p data-i18n="tech.positioning.line">Deron Aerial Pixel System biến không gian thành một lớp hiển thị 3D có thể lập trình — nơi mỗi node bay là một pixel, mỗi anchor là một mốc không gian, và DATCS là lớp điều phối an toàn.</p>
         </div>
       </div>
     </section>
@@ -3340,9 +3535,9 @@
           </div>
           <div class="product-cat reveal reveal-delay-2">
             <div class="product-cat-num">02</div>
-            <h4>Avionics & Flight Controller</h4>
-            <p>DMA — hệ thống điện tử bay tự phát triển trên nền STM32H743/PX4. Dual IMU, dual barometer, GNSS/RTK,
-              hardware watchdog.</p>
+            <h4>Deron Technology Layer</h4>
+            <p>Lớp phần cứng, phần mềm và dữ liệu được phát triển theo lộ trình có kiểm soát để hỗ trợ giám sát nhiệm vụ,
+              kiểm tra an toàn và tích hợp UAV theo phạm vi được duyệt.</p>
             <div class="product-cat-tag">Đang phát triển</div>
           </div>
           <div class="product-cat reveal reveal-delay-3">
@@ -3618,7 +3813,7 @@
               </div>
               <div class="roadmap-cell">
                 <ul>
-                  <li data-i18n="inv.cap.pre.m1">Hoàn thiện nguyên mẫu DMA</li>
+                  <li data-i18n="inv.cap.pre.m1">Hoàn thiện nguyên mẫu UAV</li>
                   <li data-i18n="inv.cap.pre.m2">Xin phép thử nghiệm bay</li>
                   <li data-i18n="inv.cap.pre.m3">Chuyến bay thí điểm đầu tiên</li>
                 </ul>
@@ -3702,7 +3897,7 @@
             <div class="revenue-card">
               <div style="font-family:var(--font-mono); font-size:10px; color:var(--red); margin-bottom:12px;">05</div>
               <h4 data-i18n="inv.rev.r5.title">Phần cứng / Linh kiện</h4>
-              <p data-i18n="inv.rev.r5.desc">Cho thuê hoặc bán thiết bị DMA và container chuyên dụng cho các đơn vị muốn
+              <p data-i18n="inv.rev.r5.desc">Cho thuê hoặc bán thiết bị UAV và container chuyên dụng cho các đơn vị muốn
                 vận hành đội bay riêng.</p>
             </div>
             <div class="revenue-card" style="background:var(--bg-section);">
@@ -3873,7 +4068,7 @@
             nhận thông tin</button>
           <a class="btn btn-outline" href="/datcs/install" data-i18n="datcs.hero.cta3">Tải DATCS</a>
           <button class="btn btn-outline" onclick="navigate('technology')" data-i18n="datcs.hero.cta2">Xem công nghệ
-            DMA</button>
+            Deron</button>
         </div>
         <div
           style="display:flex; gap:48px; margin-top:64px; padding-top:48px; border-top:1px solid var(--border-dark); flex-wrap:wrap;">
@@ -3923,8 +4118,8 @@
               ưu cho hạ tầng viễn thông 4G/5G/ethernet trên địa hình phức tạp.
             </p>
             <p style="color:var(--text-muted); max-width:100%;" data-i18n="datcs.what.p3">
-              DATCS là phần mềm giao tiếp với DMA — flight controller do Deron tự phát triển — đảm bảo mỗi chuyến bay
-              đều tuân thủ pháp lý, an toàn và có thể kiểm chứng.
+              DATCS kết nối với các lớp hệ thống được phê duyệt để hỗ trợ giám sát nhiệm vụ, kiểm tra trạng thái và ghi
+              nhận dữ liệu vận hành một cách có thể kiểm chứng.
             </p>
           </div>
           <div class="reveal reveal-delay-2">
@@ -4030,8 +4225,8 @@
             <div style="font-size:28px; margin-bottom:16px;">🛡️</div>
             <h4 style="margin-bottom:10px;" data-i18n="datcs.f4.title">Safety & Failsafe</h4>
             <p style="font-size:14px; color:var(--text-muted); max-width:100%; line-height:1.65;"
-              data-i18n="datcs.f4.desc">Geofencing, Return-to-Launch tự động, phát hiện loss-of-link, emergency
-              protocols. Tích hợp sâu với DMA flight controller.</p>
+              data-i18n="datcs.f4.desc">Geofencing, Return-to-Launch tự động, phát hiện loss-of-link và quy trình khẩn
+              cấp trong phạm vi vận hành được phê duyệt.</p>
           </div>
           <div style="background:var(--bg-white); padding:40px 32px;" class="reveal reveal-delay-2">
             <div style="font-size:28px; margin-bottom:16px;">🚁</div>
@@ -4166,34 +4361,18 @@
               <tr style="border-top:1px solid var(--border-dark); background:rgba(255,255,255,.02);">
                 <td
                   style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);"
-                  data-i18n="datcs.row6.label">Firmware tương thích</td>
+                  data-i18n="datcs.row6.label">Tích hợp hệ thống</td>
                 <td
                   style="padding:16px 20px; font-size:13px; color:var(--red); text-align:center; border-right:1px solid var(--border-dark); font-weight:700;"
-                  data-i18n="datcs.row6.datcs">DMA (độc quyền Deron)</td>
+                  data-i18n="datcs.row6.datcs">Thiết bị được duyệt</td>
                 <td
                   style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);"
-                  data-i18n="datcs.row6.qgc">PX4, ArduPilot</td>
+                  data-i18n="datcs.row6.qgc">Autopilot phổ biến</td>
                 <td
                   style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);"
-                  data-i18n="datcs.row6.mp">ArduPilot / APM</td>
+                  data-i18n="datcs.row6.mp">Autopilot phổ biến</td>
                 <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center;"
-                  data-i18n="datcs.row6.bf">Betaflight FC</td>
-              </tr>
-              <tr style="border-top:1px solid var(--border-dark);">
-                <td
-                  style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); border-right:1px solid var(--border-dark);"
-                  data-i18n="datcs.row7.label">Open source</td>
-                <td
-                  style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);"
-                  data-i18n="datcs.row7.datcs">Không (thương mại)</td>
-                <td
-                  style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);"
-                  data-i18n="datcs.row7.qgc">✓ Apache 2.0</td>
-                <td
-                  style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center; border-right:1px solid var(--border-dark);"
-                  data-i18n="datcs.row7.mp">✓ GPL</td>
-                <td style="padding:16px 20px; font-size:13px; color:var(--text-inv-muted); text-align:center;"
-                  data-i18n="datcs.row7.bf">✓ GPL</td>
+                  data-i18n="datcs.row6.bf">Firmware FPV</td>
               </tr>
             </tbody>
           </table>
@@ -4221,19 +4400,17 @@
               <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;"
                 data-i18n="datcs.q1.a">DATCS (Deron Air Traffic Control System) là phần mềm GCS và UTM do Deron phát
                 triển, dành riêng cho thị trường Việt Nam. Khác với QGroundControl — GCS mã nguồn mở toàn cầu hỗ trợ
-                giao thức MAVLink — DATCS được thiết kế với trọng tâm tuân thủ pháp lý Việt Nam (Nghị định
-                288/2025/NĐ-CP), vận hành qua 4G/5G trong nước, và tích hợp sâu với flight controller DMA do Deron tự
-                phát triển.</p>
+                giao thức MAVLink — DATCS tập trung vào tuân thủ pháp lý Việt Nam, vận hành qua hạ tầng viễn thông trong
+                nước và quản lý đội bay theo phạm vi được phê duyệt.</p>
             </div>
             <div style="background:var(--bg-white); padding:36px 40px; border-top:1px solid var(--border);"
               class="reveal">
               <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; letter-spacing:-.01em;"
                 data-i18n="datcs.q2.q">DATCS có phải là firmware như Betaflight không?</h3>
               <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;"
-                data-i18n="datcs.q2.a">Không. Betaflight là firmware chạy trực tiếp trên flight controller (FC), chủ yếu
-                cho drone FPV racing và freestyle. DATCS là phần mềm GCS chạy trên thiết bị mặt đất (máy tính, tablet,
-                điện thoại), kết nối với drone để điều hành nhiệm vụ, xem telemetry và quản lý fleet. DATCS giao tiếp
-                với DMA — firmware flight controller riêng của Deron — không phải Betaflight, INAV hay ArduPilot.</p>
+                data-i18n="datcs.q2.a">Không. Betaflight là firmware chạy trực tiếp trên thiết bị bay, chủ yếu cho
+                drone FPV racing và freestyle. DATCS là phần mềm GCS chạy trên thiết bị mặt đất, hỗ trợ điều phối nhiệm
+                vụ, xem telemetry và quản lý fleet trong phạm vi được phê duyệt.</p>
             </div>
             <div style="background:var(--bg-white); padding:36px 40px; border-top:1px solid var(--border);"
               class="reveal">
@@ -4260,8 +4437,8 @@
               <h3 style="font-size:18px; font-weight:700; margin-bottom:12px; letter-spacing:-.01em;"
                 data-i18n="datcs.q5.q">DATCS có thể dùng với drone hãng khác không?</h3>
               <p style="font-size:15px; color:var(--text-muted); max-width:100%; line-height:1.7;"
-                data-i18n="datcs.q5.a">Trong giai đoạn đầu, DATCS tối ưu cho hệ thống drone Deron (với DMA flight
-                controller). Về lâu dài, Deron xem xét tương thích với MAVLink để DATCS hỗ trợ đa nền tảng. UTM module
+                data-i18n="datcs.q5.a">Trong giai đoạn đầu, DATCS ưu tiên hệ sinh thái drone Deron và các thiết bị được
+                phê duyệt. Về lâu dài, Deron xem xét khả năng tương thích mở rộng theo giao thức tiêu chuẩn. UTM module
                 và compliance pháp lý sẽ luôn là trọng tâm phân biệt DATCS với các GCS nước ngoài.</p>
             </div>
             <div style="background:var(--bg-white); padding:36px 40px; border-top:1px solid var(--border);"
@@ -4292,7 +4469,7 @@
           <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
             <a class="btn btn-primary btn-arrow" href="/datcs/install" data-i18n="datcs.cta.btn1">Tải DATCS</a>
             <button class="btn btn-outline" onclick="navigate('technology')" data-i18n="datcs.cta.btn2">Tìm hiểu công
-              nghệ DMA</button>
+              nghệ Deron</button>
           </div>
         </div>
       </div>

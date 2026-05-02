@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="public/Deron-logo-dark.png">
 <link rel="shortcut icon" href="public/Deron-logo-dark.png">
-<title>Công Nghệ DMA — Flight Controller Tự Phát Triển | Deron</title>
-<meta name="description" content="DMA (Deron Main Avionics) là flight controller nội địa. STM32H743, Raspberry Pi 5, PX4. Dual redundancy, hardware watchdog.">
+<title>Công Nghệ UAV An Toàn | Deron</title>
+<meta name="description" content="Deron phát triển nền tảng công nghệ UAV theo hướng kiểm soát, kiểm chứng và phù hợp bối cảnh vận hành tại Việt Nam.">
 <link rel="canonical" href="https://deron.vn/cong-nghe">
-<meta property="og:title" content="Công Nghệ DMA — Flight Controller Tự Phát Triển | Deron">
-<meta property="og:description" content="DMA (Deron Main Avionics) là flight controller nội địa. STM32H743, Raspberry Pi 5, PX4. Dual redundancy, hardware watchdog.">
+<meta property="og:title" content="Công Nghệ UAV An Toàn | Deron">
+<meta property="og:description" content="Deron phát triển nền tảng công nghệ UAV theo hướng kiểm soát, kiểm chứng và phù hợp bối cảnh vận hành tại Việt Nam.">
 <meta property="og:url" content="https://deron.vn/cong-nghe">
 <meta property="og:image" content="https://deron.vn/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -18,8 +18,8 @@
 <meta property="og:locale" content="vi_VN">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Công Nghệ DMA — Flight Controller Tự Phát Triển | Deron">
-<meta name="twitter:description" content="DMA (Deron Main Avionics) là flight controller nội địa. STM32H743, Raspberry Pi 5, PX4. Dual redundancy, hardware watchdog.">
+<meta name="twitter:title" content="Công Nghệ UAV An Toàn | Deron">
+<meta name="twitter:description" content="Deron phát triển nền tảng công nghệ UAV theo hướng kiểm soát, kiểm chứng và phù hợp bối cảnh vận hành tại Việt Nam.">
 <meta name="twitter:image" content="https://deron.vn/og-image.jpg">
 <link rel="alternate" hreflang="vi" href="https://deron.vn/cong-nghe">
 <link rel="alternate" hreflang="x-default" href="https://deron.vn/cong-nghe">
@@ -77,39 +77,28 @@
   </div>
   <div class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
 </nav>
-<div class="page-hero"><div class="hero-grid-bg" style="opacity:.25"></div><div class="container" style="position:relative;z-index:2;padding-top:140px;padding-bottom:80px"><div class="breadcrumb"><a href="/">Trang chủ</a><span class="sep">/</span><span>Công nghệ</span></div><h1 class="text-inv" style="max-width:800px">Chúng tôi không<br>mua công nghệ.<br>Chúng tôi <span style="color:var(--red)">xây</span> nó.</h1><p style="color:var(--text-inv-muted);font-size:20px;margin-top:28px;max-width:560px">Không có hệ thống nào thiết kế cho địa hình Việt Nam — trước khi Deron bắt đầu làm.</p></div></div>
+<div class="page-hero"><div class="hero-grid-bg" style="opacity:.25"></div><div class="container" style="position:relative;z-index:2;padding-top:140px;padding-bottom:80px"><div class="breadcrumb"><a href="/">Trang chủ</a><span class="sep">/</span><span data-i18n="nav.technology">Công nghệ</span></div><h1 class="text-inv" style="max-width:800px" data-i18n-html="tech.title">Chúng tôi không mua công nghệ.<br>Chúng tôi <span style="color:var(--red)">xây nó</span>.</h1><p style="color:var(--text-inv-muted);font-size:20px;margin-top:28px;max-width:560px" data-i18n="tech.sub">Bởi vì không có hệ thống nào được thiết kế cho địa hình Việt Nam, quy định Việt Nam, và cộng đồng Việt Nam — trước khi Deron bắt đầu làm.</p></div></div>
 
-<section style="background:var(--bg-mid);padding:80px 0">
+<section class="technology-overview" aria-labelledby="technology-overview-title">
 <div class="container">
-  <div class="reveal">
-    <div class="label label-inv mb-16">DMA — Deron Main Avionics</div>
-    <h2 class="text-inv mb-8">Flight controller<br>thuần Việt.</h2>
-    <p style="color:var(--text-inv-muted);font-size:16px;max-width:540px;margin-bottom:16px">DMA là hệ thống avionics tự phát triển — không phụ thuộc platform nước ngoài.</p>
-    <div class="status-badge mb-48"><div class="dot"></div><span>In Development</span></div>
+  <div class="tech-overview-head reveal">
+    <div class="tech-overview-copy">
+      <div class="label label-inv mb-16" data-i18n="tech.overview.label">Tổng quan công nghệ</div>
+      <h2 class="text-inv" id="technology-overview-title" data-i18n="tech.overview.title">Một nền tảng. Nhiều lớp công nghệ.</h2>
+      <p data-i18n="tech.overview.desc">Deron đang xây dựng một hệ công nghệ UAV theo từng lớp: phần cứng bay, phần mềm điều phối, hệ thống an toàn, hiển thị không gian và hạ tầng dữ liệu. Mục tiêu không phải chỉ tạo ra một chiếc drone, mà là xây dựng nền móng cho hạ tầng bay an toàn, có thể mở rộng và phù hợp với Việt Nam.</p>
+    </div>
   </div>
-  <div class="spec-table reveal">
-    <div class="spec-row"><div class="spec-key">FMU</div><div class="spec-val">STM32H743 — Flight Management Unit chính</div></div>
-    <div class="spec-row"><div class="spec-key">IO Processor</div><div class="spec-val">STM32F103 — Input/Output dedicated</div></div>
-    <div class="spec-row"><div class="spec-key">Companion</div><div class="spec-val">Raspberry Pi 5 — AI routing, mission logic, telemetry</div></div>
-    <div class="spec-row"><div class="spec-key">IMU</div><div class="spec-val">Dual IMU — redundant inertial measurement <span class="spec-tag">Redundant</span></div></div>
-    <div class="spec-row"><div class="spec-key">Barometer</div><div class="spec-val">Dual Barometer — altitude sensing <span class="spec-tag">Redundant</span></div></div>
-    <div class="spec-row"><div class="spec-key">GNSS</div><div class="spec-val">GNSS / RTK — high-precision positioning</div></div>
-    <div class="spec-row"><div class="spec-key">Watchdog</div><div class="spec-val">Hardware Watchdog — independent fail detection <span class="spec-tag">Safety-Critical</span></div></div>
-    <div class="spec-row"><div class="spec-key">Power</div><div class="spec-val">INA226 current sensing · TPS54560 dual buck · LM74700 ideal diode</div></div>
-    <div class="spec-row"><div class="spec-key">Autopilot</div><div class="spec-val">PX4 — open standard, certified autopilot base</div></div>
-    <div class="spec-row"><div class="spec-key">EDA</div><div class="spec-val">KiCad — PCB layout &amp; schematic (in progress)</div></div>
-  </div>
-</div>
-</section>
 
-<section style="background:var(--bg-dark);padding:80px 0">
-<div class="container">
-  <div class="reveal"><div class="label label-inv mb-16">Safety Philosophy</div><h2 class="text-inv mb-24 max-w-600">An toàn không phải tính năng. An toàn là kiến trúc.</h2><p style="color:var(--text-inv-muted);font-size:18px;max-width:560px;margin-bottom:56px">Mọi component được thiết kế với giả định nó sẽ fail — và fail một cách an toàn.</p></div>
-  <div class="tile-grid dark cols-3">
-    <div class="cell reveal"><div class="mono-sm mb-16">01 / SENSOR</div><h4>Dual Sensor Redundancy</h4><p style="font-size:14px;margin-top:12px">Hai bộ IMU và barometer độc lập. Nếu một fail, hệ thống tự chuyển sang dự phòng.</p></div>
-    <div class="cell reveal reveal-delay-1"><div class="mono-sm mb-16">02 / WATCHDOG</div><h4>Hardware Watchdog</h4><p style="font-size:14px;margin-top:12px">Mạch giám sát vật lý độc lập với flight controller. Phát hiện sự cố trước firmware.</p></div>
-    <div class="cell reveal reveal-delay-2"><div class="mono-sm mb-16">03 / FAILSAFE</div><h4>Automatic Return-to-Home</h4><p style="font-size:14px;margin-top:12px">Mất kết nối, pin thấp, sensor anomaly — drone tự động về điểm xuất phát.</p></div>
+  <div class="tech-layer-grid">
+    <article class="tech-layer-card reveal"><div class="tech-layer-copy"><div class="tech-layer-acronym">DMA</div><h3 data-i18n="tech.card.dma.title">DMA — Deron Main Avionics</h3><p data-i18n="tech.card.dma.desc">DMA là nền tảng avionics do Deron phát triển cho các hệ UAV tương lai. Đây là lớp phần cứng và điều khiển cốt lõi giúp Deron tiến tới khả năng tự chủ hơn về flight control, cảm biến, giám sát an toàn và tích hợp với hệ sinh thái phần mềm.</p><p class="tech-layer-line" data-i18n="tech.card.dma.value">Giá trị mang lại: tự chủ công nghệ, kiểm soát an toàn tốt hơn, và nền tảng phần cứng có thể mở rộng.</p></div><div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DMA visual placeholder"><span class="tech-visual-code">DMA</span><span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span></div></article>
+    <article class="tech-layer-card reveal"><div class="tech-layer-copy"><div class="tech-layer-acronym">DATCS</div><h3 data-i18n="tech.card.datcs.title">DATCS — Deron Air Traffic Control System</h3><p data-i18n="tech.card.datcs.desc">DATCS là nền tảng phần mềm điều phối và giám sát của Deron. Hệ thống hỗ trợ theo dõi nhiệm vụ, telemetry, trạng thái đội bay, quy trình vận hành và các lớp kiểm tra an toàn.</p><p class="tech-layer-line" data-i18n="tech.card.datcs.value">DATCS giám sát và hỗ trợ ra quyết định; DATCS không trực tiếp điều khiển motor.</p></div><div class="tech-visual-placeholder tech-card-visual tech-card-image-frame"><img src="public/datcs_review.png" alt="DATCS interface preview" loading="lazy" decoding="async"></div></article>
+    <article class="tech-layer-card reveal"><div class="tech-layer-copy"><div class="tech-layer-acronym">DAPS</div><h3 data-i18n="tech.card.daps.title">DAPS — Deron Aerial Pixel System</h3><p data-i18n="tech.card.daps.desc">DAPS là công nghệ gốc cho hệ hiển thị không gian của Deron. Trong DAPS, mỗi node bay có thể được xem như một ‘pixel’ trong không gian 3D, có thể đồng bộ vị trí, thời gian và ánh sáng để tạo nên các trải nghiệm trực quan trên bầu trời.</p><p class="tech-layer-line" data-i18n="tech.card.daps.value">DAPS không chỉ là drone lightshow; đó là cách Deron biến không gian thành một lớp hiển thị có thể lập trình.</p></div><div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DAPS visual placeholder"><span class="tech-visual-code">DAPS</span><span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span></div></article>
+    <article class="tech-layer-card reveal"><div class="tech-layer-copy"><div class="tech-layer-acronym">DAPL</div><h3 data-i18n="tech.card.dapl.title">DAPL — Deron Aerial Pixel Lightshow</h3><p data-i18n="tech.card.dapl.desc">DAPL, hay Deron PixelShow, là hướng ứng dụng thương mại của DAPS cho trình diễn ánh sáng. Hệ thống được định vị để tạo ra những màn hiển thị trên không có tính đồng bộ, có câu chuyện và có bản sắc công nghệ Việt Nam.</p></div><div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DAPL visual placeholder"><span class="tech-visual-code">DAPL</span><span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span></div></article>
+    <article class="tech-layer-card reveal"><div class="tech-layer-copy"><div class="tech-layer-acronym">DSAS</div><h3 data-i18n="tech.card.dsas.title">DSAS — Deron Spatial Anchor System</h3><p data-i18n="tech.card.dsas.desc">DSAS là lớp anchor không gian cho hệ DAPS. Thay vì để toàn bộ hệ phụ thuộc vào từng node riêng lẻ, DSAS đóng vai trò mốc tham chiếu, hỗ trợ đồng bộ thời gian, định vị cục bộ, truyền thông và vùng an toàn.</p></div><div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DSAS visual placeholder"><span class="tech-visual-code">DSAS</span><span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span></div></article>
+    <article class="tech-layer-card reveal"><div class="tech-layer-copy"><div class="tech-layer-acronym">DAPN</div><h3 data-i18n="tech.card.dapn.title">DAPN — Deron Aerial Pixel Node</h3><p data-i18n="tech.card.dapn.desc">DAPN là từng node bay trong hệ DAPS. Mỗi node là một điểm hiển thị độc lập, có thể mang ánh sáng, dữ liệu trạng thái và logic an toàn cơ bản để tham gia vào một cấu trúc hiển thị lớn hơn.</p></div><div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DAPN visual placeholder"><span class="tech-visual-code">DAPN</span><span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span></div></article>
+    <article class="tech-layer-card reveal"><div class="tech-layer-copy"><div class="tech-layer-acronym">DSDA</div><h3 data-i18n="tech.card.dsda.title">DSDA — Deron Spatial Display Architecture</h3><p data-i18n="tech.card.dsda.desc">DSDA là kiến trúc tổng thể kết nối DAPS, DAPN, DSAS, DAPL và DATCS thành một hệ thống thống nhất. Đây là cách Deron tổ chức công nghệ hiển thị không gian theo hướng có thể mở rộng, quản lý được và an toàn hơn.</p></div><div class="tech-visual-placeholder tech-card-visual" role="img" aria-label="DSDA visual placeholder"><span class="tech-visual-code">DSDA</span><span class="tech-visual-label" data-i18n="tech.visual.placeholder">Technology visual placeholder</span></div></article>
   </div>
+  <div class="tech-positioning-card reveal"><div class="tech-layer-acronym">DAPS / DSDA</div><p data-i18n="tech.positioning.line">Deron Aerial Pixel System biến không gian thành một lớp hiển thị 3D có thể lập trình — nơi mỗi node bay là một pixel, mỗi anchor là một mốc không gian, và DATCS là lớp điều phối an toàn.</p></div>
 </div>
 </section>
 
@@ -125,7 +114,7 @@
         <div class="footer-col-title">Sứ mệnh</div>
         <div class="footer-links">
           <a href="/#about" class="footer-link">Về chúng tôi</a>
-          <a href="/#technology" class="footer-link">Công nghệ DMA</a>
+          <a href="/#technology" class="footer-link">Công nghệ</a>
           <a href="/#usecases" class="footer-link">Ứng dụng</a>
         </div>
       </div>
