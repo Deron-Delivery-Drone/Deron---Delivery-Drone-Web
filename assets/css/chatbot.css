@@ -318,26 +318,56 @@
   .deron-chatbot {
     right: 12px;
     bottom: 12px;
+    left: 12px;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .deron-chatbot__panel {
-    right: 0;
-    bottom: 68px;
-    width: calc(100vw - 24px);
-    max-height: min(560px, calc(100vh - 92px));
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 76px;
+    width: auto;
+    max-height: min(620px, calc(100dvh - 96px));
   }
 
   .deron-chatbot__body {
     min-height: 180px;
-    max-height: calc(100vh - 300px);
+    max-height: calc(100dvh - 324px);
   }
 
   .deron-chatbot__quick-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 104px;
+    overflow-y: auto;
   }
 
   .deron-chatbot__toggle {
     width: 54px;
     height: 54px;
+  }
+}
+
+@media (max-width: 380px) {
+  .deron-chatbot__panel {
+    left: 8px;
+    right: 8px;
+  }
+
+  .deron-chatbot__quick-actions {
+    grid-template-columns: 1fr;
+    max-height: 126px;
+  }
+
+  .deron-chatbot__composer {
+    grid-template-columns: minmax(0, 1fr) 48px;
+    padding-inline: 10px;
+  }
+
+  .deron-chatbot__send {
+    width: 48px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
   }
 }
