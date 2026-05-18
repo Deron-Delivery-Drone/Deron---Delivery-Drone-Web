@@ -1,13 +1,13 @@
 name: Build & Deploy Deron Website to cPanel
 
-on:
-  workflow_dispatch:
-    inputs:
-      deploy_code:
-        description: 'Nhập mã triển khai 6 số'
-        required: true
-        default: ''
-        type: string
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       deploy_code:
+#         description: 'Nhập mã triển khai 6 số'
+#         required: true
+#         default: ''
+#         type: string
 
 jobs:
   build-and-deploy:
