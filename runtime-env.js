@@ -2,4 +2,5 @@ window.__DERON_ENV__ = {
   REACT_APP_SUPABASE_URL: "https://ghcnbzitzgwhvyoqeowb.supabase.co",
   REACT_APP_SUPABASE_ANON_KEY:
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdoY25ieml0emd3aHZ5b3Flb3diIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyOTQzNTgsImV4cCI6MjA5MDg3MDM1OH0.73aVLpjOGVJ0rA4DihE4cd3GeEFD41a3YtTEfx9AT-Y",
+  REACT_APP_NETLIFY_SITE_URL: "https://deron-admin.netlify.app",
 };
