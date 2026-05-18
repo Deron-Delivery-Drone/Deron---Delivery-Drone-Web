@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# local_backend: true
+
+media_folder: "/content/media"
+public_folder: "/content/media"
+
+collections:
+  - name: "blogs"
+    label: "Blogs"
+    label_singular: "Blog"
+    folder: "content/blogs"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date Display (MM/YYYY)", name: "date_display", widget: "string", hint: "Example: 04/2026", required: true }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", required: true }
+      - { label: "Summary", name: "summary", widget: "text", required: true }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
