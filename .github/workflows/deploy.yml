@@ -73,6 +73,8 @@ jobs:
             "public"
             "ung-dung"
             "dates"
+            "admin"
+            "content"
           )
 
           for dir in "${REQUIRED_DIRS[@]}"; do
