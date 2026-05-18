@@ -149,18 +149,18 @@ jobs:
 
           echo "DATCS install page is ready for deployment."
 
-      - name: Decide whether to deploy
-        id: guard
-        run: |
-          OWNER="NpHarry-Tech"
+      # - name: Decide whether to deploy
+      #   id: guard
+      #   run: |
+      #     OWNER="NpHarry-Tech"
 
-          if [ "${GITHUB_ACTOR}" = "$OWNER" ] && [ "${{ github.event.inputs.deploy_code }}" = "${{ secrets.DEPLOY_CODE }}" ]; then
-            echo "deploy=true" >> "$GITHUB_OUTPUT"
-            echo "✅ Chủ repo + đúng mã. Cho phép deploy."
-          else
-            echo "deploy=false" >> "$GITHUB_OUTPUT"
-            echo "ℹ️ Không phải chủ repo hoặc sai mã. Chỉ build, KHÔNG deploy."
-          fi
+      #     if [ "${GITHUB_ACTOR}" = "$OWNER" ] && [ "${{ github.event.inputs.deploy_code }}" = "${{ secrets.DEPLOY_CODE }}" ]; then
+      #       echo "deploy=true" >> "$GITHUB_OUTPUT"
+      #       echo "✅ Chủ repo + đúng mã. Cho phép deploy."
+      #     else
+      #       echo "deploy=false" >> "$GITHUB_OUTPUT"
+      #       echo "ℹ️ Không phải chủ repo hoặc sai mã. Chỉ build, KHÔNG deploy."
+      #     fi
 
       - name: Deploy build folder to cPanel via FTP
         if: steps.guard.outputs.deploy == 'true'
