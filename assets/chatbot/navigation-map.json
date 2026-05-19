@@ -11,6 +11,18 @@
     "path": "/datcs/install",
     "labelKey": "datcsInstall"
   },
+  "blog": {
+    "path": "/blog",
+    "labelKey": "blog"
+  },
+  "press": {
+    "path": "/blog/#bao-chi",
+    "labelKey": "press"
+  },
+  "info": {
+    "path": "/blog/#thong-tin",
+    "labelKey": "info"
+  },
   "contact": {
     "path": "/#contact",
     "labelKey": "contact",

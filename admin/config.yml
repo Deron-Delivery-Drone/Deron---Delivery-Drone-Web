@@ -15,8 +15,15 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title (VI)", name: "title", widget: "string", hint: "Vietnamese/default title shown when the site language is VI." }
+      - { label: "Category", name: "category", widget: "select", default: "updates", options: [{ label: "Cập nhật", value: "updates" }, { label: "Tin tức", value: "news" }, { label: "Báo chí", value: "press" }, { label: "Thông tin", value: "info" }], required: true }
       - { label: "Date Display (MM/YYYY)", name: "date_display", widget: "string", hint: "Example: 04/2026", required: true }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", required: true }
-      - { label: "Summary", name: "summary", widget: "text", required: true }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Summary (VI)", name: "summary", widget: "text", required: true }
+      - { label: "Body (VI)", name: "body", widget: "markdown", required: false }
+      - { label: "Title (EN)", name: "title_en", widget: "string", required: false }
+      - { label: "Summary (EN)", name: "summary_en", widget: "text", required: false }
+      - { label: "Body (EN)", name: "body_en", widget: "markdown", required: false }
+      - { label: "Title (ZH)", name: "title_zh", widget: "string", required: false }
+      - { label: "Summary (ZH)", name: "summary_zh", widget: "text", required: false }
+      - { label: "Body (ZH)", name: "body_zh", widget: "markdown", required: false }

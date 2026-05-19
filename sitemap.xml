@@ -39,29 +39,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://deron.vn/press</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://deron.vn/nhat-ky</loc>
+    <loc>https://deron.vn/blog</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://deron.vn/lien-he</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://deron.vn/phap-ly</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://deron.vn/thong-tin</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://deron.vn/datcs</loc>
@@ -72,5 +57,5 @@
     <loc>https://deron.vn/datcs/install</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
+  </url>
 </urlset>

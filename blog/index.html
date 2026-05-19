@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/public/Deron-logo-dark.png">
+<link rel="shortcut icon" href="/public/Deron-logo-dark.png">
+<title>Blog | Deron Vietnam</title>
+<meta name="description" content="Bản tin Deron: thông tin công khai, tin tức, báo chí và cập nhật về sản phẩm, công nghệ.">
+<link rel="canonical" href="https://deron.vn/blog">
+<meta property="og:title" content="Blog | Deron Vietnam">
+<meta property="og:description" content="Bản tin Deron: thông tin công khai, tin tức, báo chí và cập nhật về sản phẩm, công nghệ.">
+<meta property="og:url" content="https://deron.vn/blog">
+<meta property="og:image" content="https://deron.vn/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Deron">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | Deron Vietnam">
+<meta name="twitter:description" content="Bản tin Deron: thông tin công khai, tin tức, báo chí và cập nhật về sản phẩm, công nghệ.">
+<meta name="twitter:image" content="https://deron.vn/og-image.jpg">
+<link rel="alternate" hreflang="vi" href="https://deron.vn/blog">
+<link rel="alternate" hreflang="x-default" href="https://deron.vn/blog">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<style>
+  .lang-dropdown { position: relative; margin: 0 10px; }
+  .lang-dropdown-toggle { display: flex; align-items: center; gap: 7px; font-family: var(--font-label); font-size: 11px; font-weight: 600; letter-spacing: .06em; color: rgba(255,255,255,.7); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); border-radius: var(--radius); padding: 7px 12px 7px 10px; cursor: pointer; transition: all var(--transition); white-space: nowrap; }
+  .lang-dropdown-toggle:hover { color: #fff; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.22); }
+  .lang-dropdown-toggle .lang-flag { width: 16px; border-radius: 2px; flex-shrink: 0; }
+  .lang-arrow { width: 8px; height: 5px; flex-shrink: 0; opacity: .5; transition: transform var(--transition); }
+  .lang-dropdown.open .lang-arrow { transform: rotate(180deg); opacity: .9; }
+  .lang-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 152px; background: #0d1119; border: 1px solid var(--border-dark); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,.55); opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity 160ms ease, transform 160ms ease; z-index: 200; }
+  .lang-dropdown.open .lang-dropdown-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .lang-dropdown-item { display: flex; align-items: center; gap: 10px; width: 100%; font-family: var(--font-label); font-size: 12px; font-weight: 600; letter-spacing: .04em; color: rgba(255,255,255,.5); background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.05); padding: 13px 16px; cursor: pointer; transition: all 150ms ease; text-align: left; }
+  .lang-dropdown-item:last-child { border-bottom: none; }
+  .lang-dropdown-item:hover { background: rgba(255,255,255,.05); color: #fff; }
+  .lang-dropdown-item.active { color: #fff; background: rgba(196,30,58,.1); border-left: 2px solid var(--red); padding-left: 14px; }
+  .lang-dropdown-item .item-flag { width: 18px; border-radius: 2px; flex-shrink: 0; }
+  .nav-right { display: flex; align-items: center; }
+  @media (max-width: 768px) { .nav-links, .nav-right { display: none; } .nav-hamburger { display: flex !important; } }
+
+  /* Blog newsroom */
+  .blog-hero { padding: 106px 0 44px; border-bottom: 1px solid var(--border-dark); }
+  .blog-hero-inner { position: relative; z-index: 2; }
+  .blog-hero .breadcrumb { margin-bottom: 22px; }
+  .blog-hero h1 { font-size: clamp(40px, 5vw, 66px); max-width: 760px; }
+  .newsroom-section { background: var(--bg-light); padding: 74px 0 92px; min-height: 62vh; }
+  .newsroom-masthead { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; padding-bottom: 28px; margin-bottom: 34px; border-bottom: 3px solid var(--text-primary); }
+  .newsroom-masthead h2 { font-size: clamp(34px, 4vw, 58px); letter-spacing: -.03em; margin-top: 10px; }
+  .newsroom-edition { font-family: var(--font-label); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); text-align: right; white-space: nowrap; }
+  .newsroom-grid { display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(300px, .72fr); gap: 42px; align-items: start; }
+  .lead-story { display: block; color: inherit; padding: 2px 0 34px; border-bottom: 1px solid var(--border); }
+  .lead-story-kicker, .rail-kicker, .story-kicker, .info-kicker { font-family: var(--font-label); font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  .lead-story h3 { font-size: clamp(36px, 5.6vw, 72px); line-height: .98; letter-spacing: -.045em; max-width: 760px; transition: color var(--transition); overflow-wrap: anywhere; }
+  .lead-story:hover h3 { color: var(--red); }
+  .lead-story-summary { color: var(--text-muted); font-size: clamp(16px, 1.6vw, 20px); line-height: 1.7; max-width: 720px; margin-top: 24px; }
+  .story-meta { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-top: 24px; font-family: var(--font-label); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+  .story-cta { color: var(--red); }
+  .news-rail { border-top: 3px solid var(--text-primary); }
+  .news-rail-head { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--border); font-family: var(--font-label); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--text-primary); }
+  .rail-item { display: block; color: inherit; padding: 22px 0; border-bottom: 1px solid var(--border); transition: color var(--transition); }
+  .rail-item:hover h3 { color: var(--red); }
+  .rail-item h3 { font-size: 22px; line-height: 1.18; margin-bottom: 10px; letter-spacing: -.02em; transition: color var(--transition); overflow-wrap: anywhere; }
+  .rail-item p { color: var(--text-muted); font-size: 14px; line-height: 1.65; }
+  .newspaper-band { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr); gap: 46px; margin-top: 58px; }
+  .section-rule { border-top: 3px solid var(--text-primary); padding-top: 13px; margin-bottom: 12px; font-family: var(--font-label); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--text-primary); }
+  .story-list { border-top: 1px solid var(--border); }
+  .story-row { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 22px; padding: 24px 0; border-bottom: 1px solid var(--border); color: inherit; transition: color var(--transition); }
+  .story-row:hover h3 { color: var(--red); }
+  .story-date { font-family: var(--font-label); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+  .story-row h3 { font-size: 24px; line-height: 1.18; margin-bottom: 10px; letter-spacing: -.025em; transition: color var(--transition); overflow-wrap: anywhere; }
+  .story-row p { color: var(--text-muted); font-size: 15px; line-height: 1.68; }
+  .press-desk { border-left: 1px solid var(--border); padding-left: 34px; }
+  .press-feature { display: block; color: inherit; border-top: 1px solid var(--border); padding-top: 24px; }
+  .press-feature h3 { font-size: clamp(28px, 3vw, 40px); letter-spacing: -.035em; margin-bottom: 16px; transition: color var(--transition); }
+  .press-feature:hover h3 { color: var(--red); }
+  .press-feature p { color: var(--text-muted); line-height: 1.7; }
+  .press-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+  .press-actions a, .press-actions span { font-family: var(--font-label); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+  .press-facts { display: grid; grid-template-columns: 1fr; gap: 1px; margin-top: 30px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .press-fact { background: var(--bg-white); padding: 18px 16px; min-width: 0; }
+  .press-fact-label { font-family: var(--font-label); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .press-fact-value { font-family: var(--font-display); font-size: 17px; font-weight: 800; line-height: 1.2; color: var(--text-primary); overflow-wrap: anywhere; }
+  .press-boilerplate { margin-top: 28px; border-top: 1px solid var(--border); padding-top: 24px; }
+  .press-boilerplate h4 { font-size: 18px; margin-bottom: 12px; }
+  .press-boilerplate p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+  .info-strip { background: var(--bg-white); border-top: 1px solid var(--border); padding: 78px 0 86px; }
+  .info-strip-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 30px; }
+  .info-strip h2 { font-size: clamp(30px, 3.5vw, 48px); letter-spacing: -.03em; margin-top: 10px; }
+  .info-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; border-top: 3px solid var(--text-primary); padding-top: 26px; }
+  .info-note { min-width: 0; border-top: 1px solid var(--border); padding-top: 18px; }
+  .info-note h3 { font-size: 19px; line-height: 1.25; margin-bottom: 11px; letter-spacing: -.02em; overflow-wrap: anywhere; }
+  .info-note p { color: var(--text-muted); font-size: 14px; line-height: 1.68; }
+  .blog-loading { padding: 60px 0; color: var(--text-muted); font-family: var(--font-label); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+
+  @media (max-width: 900px) {
+    .newsroom-grid, .newspaper-band { grid-template-columns: 1fr; }
+    .press-desk { border-left: 0; padding-left: 0; }
+    .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .blog-hero { padding: 96px 0 36px; }
+    .newsroom-section { padding: 54px 0 68px; }
+    .newsroom-masthead, .info-strip-head { display: block; }
+    .newsroom-edition { text-align: left; margin-top: 18px; white-space: normal; }
+    .lead-story h3 { font-size: clamp(34px, 12vw, 48px); }
+    .story-row { grid-template-columns: 1fr; gap: 8px; }
+    .info-strip { padding: 58px 0 66px; }
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","@id":"https://deron.vn/blog","name":"Blog Deron","description":"Bản tin Deron: thông tin công khai, tin tức, báo chí và cập nhật về sản phẩm, công nghệ.","url":"https://deron.vn/blog","inLanguage":["vi","en","zh"],"publisher":{"@type":"Organization","name":"Deron","url":"https://deron.vn","logo":{"@type":"ImageObject","url":"https://deron.vn/Deron-logo.png"}}}
+</script>
+<script src="/public/translations.js?v=blog-newsroom-20260519b"></script>
+</head>
+<body>
+<nav class="nav" id="nav" role="navigation" aria-label="Main">
+  <a href="/" class="nav-logo">
+    <img src="/public/Deron-logo-dark.png" alt="Deron logo" class="logo-dark" loading="lazy" decoding="async">
+    <img src="/public/Deron-logo-light.png" alt="Deron logo" class="logo-light" loading="lazy" decoding="async">
+    DERON
+  </a>
+  <div class="nav-links">
+    <a href="/#about" class="nav-link" data-i18n="nav.about">Về chúng tôi</a>
+    <a href="/#technology" class="nav-link" data-i18n="nav.technology">Công nghệ</a>
+    <a href="/#usecases" class="nav-link" data-i18n="nav.usecases">Ứng dụng</a>
+    <a href="/blog" class="nav-link active" data-i18n="nav.blog">Blog</a>
+    <a href="/#contact" class="nav-link" data-i18n="nav.contact">Liên hệ</a>
+    <a href="/#datcs" class="nav-link">DATCS</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-dropdown-toggle" onclick="toggleLangDrop()" aria-haspopup="true" aria-expanded="false" aria-label="Chọn ngôn ngữ" data-i18n-attr="aria-label:lang.selector">
+        <span class="fi fi-vn fis lang-flag" id="pgLangFlag"></span>
+        <span id="pgLangLabel">VI</span>
+        <svg class="lang-arrow" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-dropdown-menu" role="menu">
+        <button class="lang-dropdown-item active" data-lang="vi" onclick="pgSetLang('vi')" role="menuitem"><span class="fi fi-vn fis item-flag"></span> Tiếng Việt</button>
+        <button class="lang-dropdown-item" data-lang="en" onclick="pgSetLang('en')" role="menuitem"><span class="fi fi-us fis item-flag"></span> English</button>
+        <button class="lang-dropdown-item" data-lang="zh" onclick="pgSetLang('zh')" role="menuitem"><span class="fi fi-cn fis item-flag"></span> 中文</button>
+      </div>
+    </div>
+    <span class="nav-cta" onclick="window.location.href='/#investor'" data-i18n="nav.cta">Dành cho nhà đầu tư</span>
+  </div>
+  <div class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero blog-hero">
+  <div class="hero-grid-bg" style="opacity:.25"></div>
+  <div class="container blog-hero-inner">
+    <div class="breadcrumb"><a href="/" data-i18n="nav.home">Trang chủ</a><span class="sep">/</span><span data-i18n="nav.blog">Blog</span></div>
+    <h1 class="text-inv" data-i18n-html="blog.hero.title">Blog<br>Deron.</h1>
+  </div>
+</div>
+
+<section class="newsroom-section">
+  <div class="container">
+    <div class="newsroom-masthead">
+      <div>
+        <div class="label label-red" data-i18n="blog.list.label">Bản tin</div>
+        <h2 data-i18n="blog.list.title">Bản tin Deron.</h2>
+      </div>
+      <div class="newsroom-edition" data-i18n="blog.edition">DERON / BẢN TIN CÔNG KHAI</div>
+    </div>
+    <div class="newsroom-grid" data-i18n-skip>
+      <div id="lead-story" aria-live="polite" data-i18n-skip>
+        <div class="blog-loading" data-i18n="blog.loading">Đang tải bài viết…</div>
+      </div>
+      <aside class="news-rail" aria-labelledby="news-rail-title">
+        <div class="news-rail-head" id="news-rail-title">
+          <span data-i18n="blog.section.today">Dòng tin</span>
+          <span>DERON</span>
+        </div>
+        <div id="news-rail"></div>
+      </aside>
+    </div>
+    <div class="newspaper-band" data-i18n-skip>
+      <section class="updates-desk" id="cap-nhat" data-i18n-skip>
+        <div class="section-rule"><span data-i18n="blog.section.updates">Cập nhật</span></div>
+        <div id="updates-list" class="story-list" aria-live="polite">
+          <div class="blog-loading" data-i18n="blog.loading">Đang tải bài viết…</div>
+        </div>
+      </section>
+      <section class="press-desk" id="bao-chi" data-i18n-skip>
+        <div class="section-rule"><span data-i18n="blog.section.press">Báo chí</span></div>
+        <div id="press-panel"></div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="info-strip" id="thong-tin">
+  <div class="container">
+    <div class="info-strip-head">
+      <div>
+        <div class="label label-red" data-i18n="blog.info.label">Thông tin</div>
+        <h2 data-i18n="blog.info.title">Thông tin công khai.</h2>
+      </div>
+    </div>
+    <div class="info-grid" id="blog-info-grid" aria-live="polite" data-i18n-skip>
+      <div class="blog-loading" data-i18n="blog.loading">Đang tải bài viết…</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="/public/Deron-logo-light.png" alt="Deron" class="footer-logo-img footer-logo-light" loading="lazy" decoding="async"><img src="/public/Deron-logo-dark.png" alt="Deron" class="footer-logo-img footer-logo-dark" loading="lazy" decoding="async"><span>DERON</span></div>
+        <p class="footer-brand-desc" data-i18n="footer.desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
+        <div class="footer-tagline" data-i18n="footer.tagline">Made in Vietnam · Built for Vietnam</div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.mission">Sứ mệnh</div>
+        <div class="footer-links">
+          <a href="/#about" class="footer-link" data-i18n="nav.about">Về chúng tôi</a>
+          <a href="/#technology" class="footer-link" data-i18n="nav.technology">Công nghệ</a>
+          <a href="/#usecases" class="footer-link" data-i18n="nav.usecases">Ứng dụng</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.resources">Tài nguyên</div>
+        <div class="footer-links">
+          <a href="/blog" class="footer-link" data-i18n="nav.blog">Blog</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="nav.contact">Liên hệ</div>
+        <div class="footer-links">
+          <a href="mailto:ceo.deron@gmail.com" class="footer-link">ceo.deron@gmail.com</a>
+          <a href="tel:0363045747" class="footer-link">0363 045 747</a>
+          <span class="footer-link">deron.vn</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-i18n="footer.copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
+      <div class="footer-copy" data-i18n="footer.founder">Founder: Nguyễn Phúc Huy</div>
+      <div class="footer-location" data-i18n="footer.location">Ho Chi Minh City · Vietnam</div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+  function toggleLangDrop() {
+    const dd = document.getElementById('langDropdown');
+    const isOpen = dd.classList.toggle('open');
+    if (isOpen) {
+      document.addEventListener('click', function h(e) {
+        if (!dd.contains(e.target)) {
+          dd.classList.remove('open');
+          document.removeEventListener('click', h);
+        }
+      });
+    }
+  }
+  function pgSetLang(lang) {
+    localStorage.setItem('deron_lang', lang);
+    const flagMap = { vi: 'fi-vn', en: 'fi-us', zh: 'fi-cn' };
+    const labelMap = { vi: 'VI', en: 'EN', zh: 'ZH' };
+    const f = document.getElementById('pgLangFlag');
+    const l = document.getElementById('pgLangLabel');
+    if (f) f.className = 'fi ' + (flagMap[lang] || 'fi-vn') + ' fis lang-flag';
+    if (l) l.textContent = labelMap[lang] || 'VI';
+    document.querySelectorAll('.lang-dropdown-item').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    document.getElementById('langDropdown').classList.remove('open');
+    if (window.applyDeronTranslations) window.applyDeronTranslations(lang);
+    else document.documentElement.lang = lang;
+    if (window.applyBlogPageLanguage) window.applyBlogPageLanguage(lang);
+    if (window.renderBlogListingLanguage) window.renderBlogListingLanguage(lang);
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('deron_lang') || 'vi';
+    pgSetLang(lang);
+  });
+</script>
+
+<script>
+  (function () {
+    const leadSlot = document.getElementById('lead-story');
+    const railSlot = document.getElementById('news-rail');
+    const updatesSlot = document.getElementById('updates-list');
+    const pressSlot = document.getElementById('press-panel');
+    const infoGrid = document.getElementById('blog-info-grid');
+    let cachedPosts = [];
+
+    const BLOG_I18N = {
+      vi: {
+        'nav.blog': 'Blog',
+        'blog.meta.title': 'Blog | Deron Vietnam',
+        'blog.meta.description': 'Bản tin Deron: thông tin công khai, tin tức, báo chí và cập nhật về sản phẩm, công nghệ.',
+        'blog.hero.title': 'Blog<br>Deron.',
+        'blog.list.label': 'Bản tin',
+        'blog.list.title': 'Bản tin Deron.',
+        'blog.edition': 'DERON / BẢN TIN CÔNG KHAI',
+        'blog.section.today': 'Dòng tin',
+        'blog.section.updates': 'Cập nhật',
+        'blog.section.press': 'Báo chí',
+        'blog.cat.all': 'Tất cả',
+        'blog.cat.info': 'Thông tin',
+        'blog.cat.news': 'Tin tức',
+        'blog.cat.updates': 'Cập nhật',
+        'blog.cat.press': 'Báo chí',
+        'blog.info.label': 'Thông tin',
+        'blog.info.title': 'Thông tin công khai.',
+        'blog.card.open': 'Mở trang →',
+        'blog.card.read': 'Đọc bài viết →',
+        'blog.card.contact': 'Liên hệ báo chí',
+        'blog.loading': 'Đang tải bản tin...',
+      },
+      en: {
+        'nav.blog': 'Blog',
+        'blog.meta.title': 'Blog | Deron Vietnam',
+        'blog.meta.description': 'Deron newsroom: public information, news, press resources, and product and technology updates.',
+        'blog.hero.title': 'Deron<br>Blog.',
+        'blog.list.label': 'Newsroom',
+        'blog.list.title': 'Deron newsroom.',
+        'blog.edition': 'DERON / PUBLIC NEWSROOM',
+        'blog.section.today': 'News desk',
+        'blog.section.updates': 'Updates',
+        'blog.section.press': 'Press',
+        'blog.cat.all': 'All',
+        'blog.cat.info': 'Information',
+        'blog.cat.news': 'News',
+        'blog.cat.updates': 'Updates',
+        'blog.cat.press': 'Press',
+        'blog.info.label': 'Information',
+        'blog.info.title': 'Public information.',
+        'blog.card.open': 'Open page →',
+        'blog.card.read': 'Read post →',
+        'blog.card.contact': 'Press contact',
+        'blog.loading': 'Loading newsroom...',
+      },
+      zh: {
+        'nav.blog': '博客',
+        'blog.meta.title': '博客 | Deron Vietnam',
+        'blog.meta.description': 'Deron 资讯室：公开信息、新闻、媒体资料，以及产品与技术更新。',
+        'blog.hero.title': 'Deron<br>资讯室。',
+        'blog.list.label': '资讯室',
+        'blog.list.title': 'Deron 资讯室。',
+        'blog.edition': 'DERON / 公开资讯室',
+        'blog.section.today': '新闻速览',
+        'blog.section.updates': '更新',
+        'blog.section.press': '媒体',
+        'blog.cat.all': '全部',
+        'blog.cat.info': '信息',
+        'blog.cat.news': '新闻',
+        'blog.cat.updates': '更新',
+        'blog.cat.press': '媒体',
+        'blog.info.label': '信息',
+        'blog.info.title': '公开信息。',
+        'blog.card.open': '打开页面 →',
+        'blog.card.read': '阅读全文 →',
+        'blog.card.contact': '媒体联系',
+        'blog.loading': '正在加载资讯室...',
+      },
+    };
+
+    const LEAD_STORY = {
+      category: 'info',
+      href: '#thong-tin',
+      title: {
+        vi: 'Thông tin, tin tức và cập nhật Deron',
+        en: 'Deron information, news, and updates',
+        zh: 'Deron 信息、新闻与更新',
+      },
+      summary: {
+        vi: 'Một luồng nội dung chung cho thông tin công khai, tin tức, báo chí và các cập nhật vận hành của Deron.',
+        en: 'One editorial stream for public information, company news, press resources, and operating updates from Deron.',
+        zh: '一个统一的信息流，汇集 Deron 的公开信息、公司新闻、媒体资料与运营更新。',
+      },
+      date: { vi: 'Bản tin', en: 'Newsroom', zh: '资讯室' },
+    };
+
+    const RAIL_ITEMS = [
+      {
+        category: 'info',
+        href: '#thong-tin',
+        title: { vi: 'Thông tin công khai', en: 'Public information', zh: '公开信息' },
+        summary: {
+          vi: 'Nguồn tham chiếu, dữ liệu thị trường, DATCS và kênh xác minh được đặt ngay trong Blog.',
+          en: 'References, market data, DATCS notes, and verification routes are grouped inside the Blog.',
+          zh: '参考资料、市场数据、DATCS 说明与核实渠道统一放在博客中。',
+        },
+      },
+      {
+        category: 'news',
+        href: '#cap-nhat',
+        title: { vi: 'Tin tức', en: 'News', zh: '新闻' },
+        summary: {
+          vi: 'Các thông báo, sự kiện và diễn biến mới của Deron được đặt trong cùng một luồng bản tin.',
+          en: 'Announcements, events, and public developments from Deron stay in one newsroom flow.',
+          zh: 'Deron 的公告、活动与公开动态会统一放入资讯流。',
+        },
+      },
+      {
+        category: 'updates',
+        href: '#cap-nhat',
+        title: { vi: 'Cập nhật vận hành', en: 'Operating updates', zh: '运营更新' },
+        summary: {
+          vi: 'Tiến độ sản phẩm, công nghệ và DATCS được gom vào phần cập nhật bên dưới.',
+          en: 'Product, technology, and DATCS progress is collected in the updates desk below.',
+          zh: '产品、技术与 DATCS 进展会汇总在下方的更新版块。',
+        },
+      },
+      {
+        category: 'press',
+        href: '#bao-chi',
+        title: { vi: 'Báo chí', en: 'Press', zh: '媒体' },
+        summary: {
+          vi: 'Tư liệu truyền thông và kênh liên hệ chính thức cho báo chí.',
+          en: 'Press materials, media information, and official press contact routes.',
+          zh: '媒体资料、传播信息与官方媒体联系渠道。',
+        },
+      },
+    ];
+
+    const UPDATE_ITEMS = [
+      {
+        category: 'news',
+        date: { vi: 'Tin mới', en: 'News', zh: '新闻' },
+        title: { vi: 'Tin tức', en: 'News', zh: '新闻' },
+        summary: {
+          vi: 'Thông báo, hoạt động và các điểm mới đáng chú ý của Deron sẽ được đăng tại đây khi công bố.',
+          en: 'Announcements, activities, and notable Deron developments will be published here.',
+          zh: 'Deron 的公告、活动与重要动态会在这里发布。',
+        },
+      },
+      {
+        category: 'updates',
+        date: { vi: 'Cập nhật', en: 'Updates', zh: '更新' },
+        title: { vi: 'Cập nhật sản phẩm và công nghệ', en: 'Product and technology updates', zh: '产品与技术更新' },
+        summary: {
+          vi: 'Các ghi nhận về sản phẩm, công nghệ bay, phần mềm và thử nghiệm được trình bày theo dạng bản tin.',
+          en: 'Product, flight technology, software, and testing notes are presented as newsroom updates.',
+          zh: '产品、飞行技术、软件与测试记录会以资讯更新形式呈现。',
+        },
+      },
+      {
+        category: 'updates',
+        date: { vi: 'DATCS', en: 'DATCS', zh: 'DATCS' },
+        title: { vi: 'DATCS và hạ tầng điều phối', en: 'DATCS and coordination infrastructure', zh: 'DATCS 与调度基础设施' },
+        summary: {
+          vi: 'Những thay đổi liên quan DATCS, GCS/UTM và quy trình truy cập được gom vào cùng mạch cập nhật.',
+          en: 'DATCS, GCS/UTM, and access-process changes are grouped in the same update stream.',
+          zh: 'DATCS、GCS/UTM 与访问流程相关变更会统一汇总。',
+        },
+      },
+    ];
+
+    const PRESS_FEATURE = {
+      category: 'press',
+      title: { vi: 'Báo chí và truyền thông', en: 'Press and media', zh: '媒体与传播' },
+      summary: {
+        vi: 'Thông cáo, tư liệu hình ảnh, hồ sơ thương hiệu và kênh liên hệ chính thức cho báo chí.',
+        en: 'Press releases, media assets, brand profile notes, and official press contact information.',
+        zh: '新闻稿、媒体素材、品牌资料与官方媒体联系方式。',
+      },
+    };
+
+    const PRESS_FACTS = [
+      {
+        label: { vi: 'Tên tổ chức', en: 'Organization', zh: '组织名称' },
+        value: { vi: 'Deron', en: 'Deron', zh: 'Deron' },
+      },
+      {
+        label: { vi: 'Người sáng lập', en: 'Founder', zh: '创始人' },
+        value: { vi: 'Nguyễn Phúc Huy', en: 'Nguyễn Phúc Huy', zh: 'Nguyễn Phúc Huy' },
+      },
+      {
+        label: { vi: 'Trụ sở', en: 'Base', zh: '总部' },
+        value: { vi: 'TP. Hồ Chí Minh', en: 'Ho Chi Minh City', zh: '胡志明市' },
+      },
+      {
+        label: { vi: 'Liên hệ báo chí', en: 'Press contact', zh: '媒体联系' },
+        value: { vi: 'ceo.deron@gmail.com', en: 'ceo.deron@gmail.com', zh: 'ceo.deron@gmail.com' },
+      },
+    ];
+
+    const PRESS_BOILERPLATE = {
+      title: { vi: 'Về Deron', en: 'About Deron', zh: '关于 Deron' },
+      summary: {
+        vi: 'Deron xây dựng hệ thống drone giao hàng tự hành phục vụ y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó tiếp cận tại Việt Nam. Công nghệ được phát triển theo từng giai đoạn cho địa hình, pháp lý và cộng đồng Việt Nam.',
+        en: 'Deron builds autonomous delivery drone systems for emergency medical logistics, disaster relief, and remote-area supply chains in Vietnam. Its technology is developed step by step for Vietnamese terrain, regulations, and communities.',
+        zh: 'Deron 为越南构建用于紧急医疗物流、灾害救援和偏远地区供应链的自主送货无人机系统，技术按越南地形、法规和社区需求逐步开发。',
+      },
+    };
+
+    const INFO_ITEMS = [
+      {
+        title: { vi: 'Văn bản pháp lý', en: 'Legal references', zh: '法律参考' },
+        summary: {
+          vi: 'Nghị định 288/2025/NĐ-CP, Nghị quyết 57-NQ/TW và Quyết định 1131/QĐ-TTg là các mốc tham khảo công khai.',
+          en: 'Decree 288/2025/ND-CP, Resolution 57-NQ/TW, and Decision 1131/QD-TTg are public reference points.',
+          zh: '第 288/2025/NĐ-CP 号法令、57-NQ/TW 决议和 1131/QĐ-TTg 决定是公开参考资料。',
+        },
+      },
+      {
+        title: { vi: 'Dữ liệu thị trường', en: 'Market data', zh: '市场数据' },
+        summary: {
+          vi: 'Deron chỉ dùng các số liệu có nguồn công khai như World Bank, GSO và Bộ GTVT khi trình bày bối cảnh thị trường.',
+          en: 'Deron uses public sources such as the World Bank, GSO, and transport-sector references when discussing market context.',
+          zh: 'Deron 在说明市场背景时仅使用世界银行、GSO 和交通领域公开来源。',
+        },
+      },
+      {
+        title: { vi: 'DATCS', en: 'DATCS', zh: 'DATCS' },
+        summary: {
+          vi: 'DATCS là phần mềm GCS/UTM đang phát triển. Thông tin tải và yêu cầu truy cập nằm tại trang DATCS install.',
+          en: 'DATCS is a GCS/UTM software platform in development. Download and access-request information is on the DATCS install page.',
+          zh: 'DATCS 是正在开发中的 GCS/UTM 软件平台。下载与访问申请信息位于 DATCS install 页面。',
+        },
+      },
+      {
+        title: { vi: 'Kênh xác minh', en: 'Verification channel', zh: '核实渠道' },
+        summary: {
+          vi: 'Với thông tin chưa rõ hoặc cần xác minh, hãy liên hệ Deron qua email ceo.deron@gmail.com.',
+          en: 'For unclear or verification-sensitive information, contact Deron at ceo.deron@gmail.com.',
+          zh: '如需核实尚不明确的信息，请通过 ceo.deron@gmail.com 联系 Deron。',
+        },
+      },
+    ];
+
+    function currentLang() {
+      const stored = localStorage.getItem('deron_lang');
+      return ['vi', 'en', 'zh'].includes(stored) ? stored : 'vi';
+    }
+
+    function t(key, lang) {
+      const dict = window.T && (window.T[lang] || window.T.vi);
+      const localDict = BLOG_I18N[lang] || BLOG_I18N.vi;
+      const fallback = window.T && window.T.vi;
+      return (dict && dict[key]) || localDict[key] || (fallback && fallback[key]) || BLOG_I18N.vi[key] || key;
+    }
+
+    function textFor(item, field, lang) {
+      return (item[field] && (item[field][lang] || item[field].vi)) || '';
+    }
+
+    function setMeta(selector, value) {
+      const el = document.querySelector(selector);
+      if (el && value) el.setAttribute('content', value);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function localizedPost(post, lang) {
+      const translation = post && post.translations && post.translations[lang];
+      return Object.assign({}, post, translation || {});
+    }
+
+    function postToItem(post, lang) {
+      const localized = localizedPost(post, lang);
+      return {
+        id: post.slug,
+        category: post.category || 'updates',
+        href: `/blog/${encodeURIComponent(post.slug)}`,
+        dateText: post.date_display || post.date || '',
+        titleText: localized.title || '',
+        summaryText: localized.summary || '',
+        cta: t('blog.card.read', lang),
+      };
+    }
+
+    function itemFromStatic(item, lang, ctaKey) {
+      return {
+        category: item.category,
+        href: item.href || '',
+        dateText: textFor(item, 'date', lang),
+        titleText: textFor(item, 'title', lang),
+        summaryText: textFor(item, 'summary', lang),
+        cta: item.href ? t(ctaKey || 'blog.card.open', lang) : '',
+      };
+    }
+
+    function tagFor(item) {
+      return item.href ? 'a' : 'article';
+    }
+
+    function hrefAttr(item) {
+      return item.href ? ` href="${escapeHtml(item.href)}"` : '';
+    }
+
+    function renderLead(lang) {
+      const item = cachedPosts.length ? postToItem(cachedPosts[0], lang) : itemFromStatic(LEAD_STORY, lang, 'blog.card.open');
+      const tag = tagFor(item);
+      leadSlot.innerHTML = `
+        <${tag} class="lead-story"${hrefAttr(item)}>
+          <div class="lead-story-kicker">${escapeHtml(t(`blog.cat.${item.category}`, lang))}</div>
+          <h3>${escapeHtml(item.titleText)}</h3>
+          <p class="lead-story-summary">${escapeHtml(item.summaryText)}</p>
+          <div class="story-meta">
+            ${item.dateText ? `<span>${escapeHtml(item.dateText)}</span>` : ''}
+            ${item.cta ? `<span class="story-cta">${escapeHtml(item.cta)}</span>` : ''}
+          </div>
+        </${tag}>
+      `;
+    }
+
+    function renderRail(lang) {
+      railSlot.innerHTML = RAIL_ITEMS.map((raw) => {
+        const item = itemFromStatic(raw, lang, 'blog.card.open');
+        const tag = tagFor(item);
+        return `
+          <${tag} class="rail-item"${hrefAttr(item)}>
+            <div class="rail-kicker">${escapeHtml(t(`blog.cat.${item.category}`, lang))}</div>
+            <h3>${escapeHtml(item.titleText)}</h3>
+            <p>${escapeHtml(item.summaryText)}</p>
+          </${tag}>
+        `;
+      }).join('');
+    }
+
+    function renderUpdates(lang) {
+      const postItems = cachedPosts.map((post) => postToItem(post, lang));
+      const items = postItems.length ? postItems : UPDATE_ITEMS.map((item) => itemFromStatic(item, lang, 'blog.card.open'));
+      updatesSlot.innerHTML = items.map((item) => {
+        const tag = tagFor(item);
+        return `
+          <${tag} class="story-row"${hrefAttr(item)}>
+            <div class="story-date">${escapeHtml(item.dateText || t(`blog.cat.${item.category}`, lang))}</div>
+            <div>
+              <div class="story-kicker">${escapeHtml(t(`blog.cat.${item.category}`, lang))}</div>
+              <h3>${escapeHtml(item.titleText)}</h3>
+              <p>${escapeHtml(item.summaryText)}</p>
+              ${item.cta ? `<div class="story-meta"><span class="story-cta">${escapeHtml(item.cta)}</span></div>` : ''}
+            </div>
+          </${tag}>
+        `;
+      }).join('');
+    }
+
+    function renderPress(lang) {
+      const item = itemFromStatic(PRESS_FEATURE, lang, 'blog.card.open');
+      const facts = PRESS_FACTS.map((fact) => `
+        <div class="press-fact">
+          <div class="press-fact-label">${escapeHtml(textFor(fact, 'label', lang))}</div>
+          <div class="press-fact-value">${escapeHtml(textFor(fact, 'value', lang))}</div>
+        </div>
+      `).join('');
+      pressSlot.innerHTML = `
+        <article class="press-feature">
+          <div class="story-kicker">${escapeHtml(t(`blog.cat.${item.category}`, lang))}</div>
+          <h3>${escapeHtml(item.titleText)}</h3>
+          <p>${escapeHtml(item.summaryText)}</p>
+          <div class="press-facts">${facts}</div>
+          <div class="press-boilerplate">
+            <h4>${escapeHtml(textFor(PRESS_BOILERPLATE, 'title', lang))}</h4>
+            <p>${escapeHtml(textFor(PRESS_BOILERPLATE, 'summary', lang))}</p>
+          </div>
+          <div class="press-actions">
+            <a href="mailto:ceo.deron@gmail.com?subject=Press%20Inquiry">${escapeHtml(t('blog.card.contact', lang))}: ceo.deron@gmail.com</a>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderInfo(lang) {
+      infoGrid.innerHTML = INFO_ITEMS.map((item) => `
+        <article class="info-note">
+          <div class="info-kicker">${escapeHtml(t('blog.cat.info', lang))}</div>
+          <h3>${escapeHtml(textFor(item, 'title', lang))}</h3>
+          <p>${escapeHtml(textFor(item, 'summary', lang))}</p>
+        </article>
+      `).join('');
+    }
+
+    function renderNewsroom(lang) {
+      renderLead(lang);
+      renderRail(lang);
+      renderUpdates(lang);
+      renderPress(lang);
+      renderInfo(lang);
+    }
+
+    window.applyBlogPageLanguage = function applyBlogPageLanguage(lang) {
+      lang = ['vi', 'en', 'zh'].includes(lang) ? lang : 'vi';
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (BLOG_I18N.vi[key] !== undefined) el.textContent = t(key, lang);
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-html');
+        if (BLOG_I18N.vi[key] !== undefined) el.innerHTML = t(key, lang);
+      });
+      document.title = t('blog.meta.title', lang);
+      const desc = t('blog.meta.description', lang);
+      setMeta('meta[name="description"]', desc);
+      setMeta('meta[property="og:title"]', t('blog.meta.title', lang));
+      setMeta('meta[property="og:description"]', desc);
+      setMeta('meta[name="twitter:title"]', t('blog.meta.title', lang));
+      setMeta('meta[name="twitter:description"]', desc);
+      renderNewsroom(lang);
+    };
+
+    window.renderBlogListingLanguage = function renderBlogListingLanguage(lang) {
+      lang = ['vi', 'en', 'zh'].includes(lang) ? lang : currentLang();
+      renderNewsroom(lang);
+    };
+
+    fetch('/content/blogs/index.json', { cache: 'no-cache' })
+      .then((r) => r.ok ? r.json() : [])
+      .then((posts) => {
+        cachedPosts = Array.isArray(posts) ? posts : [];
+        renderBlogListingLanguage(currentLang());
+      })
+      .catch(() => {
+        cachedPosts = [];
+        renderBlogListingLanguage(currentLang());
+      });
+  })();
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@ window.T = {
 
     vi: {
         // Navigation
-        "nav.home": "Trang chủ", "nav.about": "Về chúng tôi", "nav.technology": "Công nghệ", "nav.usecases": "Ứng dụng", "nav.datcs": "DATCS", "nav.investor": "Nhà đầu tư", "nav.contact": "Liên hệ", "nav.info": "Thông tin", "nav.cta": "Dành cho nhà đầu tư", "nav.backHome": "← Trang chủ",
+        "nav.home": "Trang chủ", "nav.about": "Về chúng tôi", "nav.technology": "Công nghệ", "nav.usecases": "Ứng dụng", "nav.blog": "Blog", "nav.datcs": "DATCS", "nav.investor": "Nhà đầu tư", "nav.contact": "Liên hệ", "nav.info": "Thông tin", "nav.cta": "Dành cho nhà đầu tư", "nav.backHome": "← Trang chủ", "lang.selector": "Chọn ngôn ngữ",
 
         // Info section
         "info.label": "Thông tin",
@@ -400,6 +400,31 @@ window.T = {
         "footer.founder": "Founder: Nguyễn Phúc Huy",
         "footer.mission": "Sứ mệnh", "footer.dma": "Công nghệ", "footer.resources": "Tài nguyên",
         "footer.press": "Báo chí", "footer.changelog": "Nhật ký phát triển", "footer.privacy": "Chính sách bảo mật",
+        "blog.meta.title": "Blog | Deron Vietnam",
+        "blog.meta.description": "Bản tin Deron: thông tin công khai, tin tức, báo chí và cập nhật về sản phẩm, công nghệ.",
+        "blog.hero.title": "Blog<br>Deron.",
+        "blog.list.label": "Bản tin",
+        "blog.list.title": "Bản tin Deron.",
+        "blog.edition": "DERON / BẢN TIN CÔNG KHAI",
+        "blog.section.today": "Dòng tin",
+        "blog.section.updates": "Cập nhật",
+        "blog.section.press": "Báo chí",
+        "blog.cat.all": "Tất cả",
+        "blog.cat.info": "Thông tin",
+        "blog.cat.news": "Tin tức",
+        "blog.cat.updates": "Cập nhật",
+        "blog.cat.press": "Báo chí",
+        "blog.info.label": "Thông tin",
+        "blog.info.title": "Thông tin công khai.",
+        "blog.loading": "Đang tải bản tin...",
+        "blog.empty.title": "Chưa có bài viết",
+        "blog.empty.desc": "Hãy quay lại sau — chúng tôi sẽ sớm chia sẻ những cập nhật mới nhất.",
+        "blog.empty.manifest": "Chưa tải được danh sách bài viết. Vui lòng chạy lại bước build blog.",
+        "blog.card.cta": "Đọc bài viết →",
+        "blog.card.open": "Mở trang →",
+        "blog.card.read": "Đọc bài viết →",
+        "blog.card.contact": "Liên hệ báo chí",
+        "blog.back": "← Quay lại Blog",
 
 
 
@@ -419,7 +444,7 @@ window.T = {
     // ENGLISH
     // ============================================================
     en: {
-        "nav.home": "Home", "nav.about": "About Us", "nav.technology": "Technology", "nav.usecases": "Applications", "nav.datcs": "DATCS", "nav.investor": "Investors", "nav.contact": "Contact", "nav.info": "Info", "nav.cta": "For Investors", "nav.backHome": "← Home",
+        "nav.home": "Home", "nav.about": "About Us", "nav.technology": "Technology", "nav.usecases": "Applications", "nav.blog": "Blog", "nav.datcs": "DATCS", "nav.investor": "Investors", "nav.contact": "Contact", "nav.info": "Info", "nav.cta": "For Investors", "nav.backHome": "← Home", "lang.selector": "Choose language",
 
         // Info section
         "info.label": "Information",
@@ -801,6 +826,31 @@ window.T = {
         "footer.founder": "Founder: Nguyễn Phúc Huy ( Harry Nguyễn)",
         "footer.mission": "Mission", "footer.dma": "Technology", "footer.resources": "Resources",
         "footer.press": "Press", "footer.changelog": "Changelog", "footer.privacy": "Privacy Policy",
+        "blog.meta.title": "Blog | Deron Vietnam",
+        "blog.meta.description": "Deron newsroom: public information, news, press resources, and product and technology updates.",
+        "blog.hero.title": "Deron<br>Blog.",
+        "blog.list.label": "Newsroom",
+        "blog.list.title": "Deron newsroom.",
+        "blog.edition": "DERON / PUBLIC NEWSROOM",
+        "blog.section.today": "News desk",
+        "blog.section.updates": "Updates",
+        "blog.section.press": "Press",
+        "blog.cat.all": "All",
+        "blog.cat.info": "Information",
+        "blog.cat.news": "News",
+        "blog.cat.updates": "Updates",
+        "blog.cat.press": "Press",
+        "blog.info.label": "Information",
+        "blog.info.title": "Public information.",
+        "blog.loading": "Loading newsroom...",
+        "blog.empty.title": "No posts yet",
+        "blog.empty.desc": "Check back soon — we will share the latest updates here.",
+        "blog.empty.manifest": "Could not load the blog list. Please run the blog build step again.",
+        "blog.card.cta": "Read post →",
+        "blog.card.open": "Open page →",
+        "blog.card.read": "Read post →",
+        "blog.card.contact": "Press contact",
+        "blog.back": "← Back to Blog",
 
 
 
@@ -820,7 +870,7 @@ window.T = {
     // CHINESE SIMPLIFIED (中文简体)
     // ============================================================
     zh: {
-        "nav.home": "首页", "nav.about": "关于我们", "nav.technology": "技术", "nav.usecases": "应用", "nav.datcs": "DATCS", "nav.investor": "投资者", "nav.contact": "联系", "nav.info": "信息", "nav.cta": "投资者专区", "nav.backHome": "← 首页",
+        "nav.home": "首页", "nav.about": "关于我们", "nav.technology": "技术", "nav.usecases": "应用", "nav.blog": "博客", "nav.datcs": "DATCS", "nav.investor": "投资者", "nav.contact": "联系", "nav.info": "信息", "nav.cta": "投资者专区", "nav.backHome": "← 首页", "lang.selector": "选择语言",
 
         // Info section
         "info.label": "信息",
@@ -1202,6 +1252,31 @@ window.T = {
         "footer.founder": "创始人：Nguyễn Phúc Huy (阮福辉)",
         "footer.mission": "使命", "footer.dma": "技术", "footer.resources": "资源",
         "footer.press": "媒体", "footer.changelog": "开发日志", "footer.privacy": "隐私政策",
+        "blog.meta.title": "博客 | Deron Vietnam",
+        "blog.meta.description": "Deron 资讯室：公开信息、新闻、媒体资料，以及产品与技术更新。",
+        "blog.hero.title": "Deron<br>资讯室。",
+        "blog.list.label": "资讯室",
+        "blog.list.title": "Deron 资讯室。",
+        "blog.edition": "DERON / 公开资讯室",
+        "blog.section.today": "新闻速览",
+        "blog.section.updates": "更新",
+        "blog.section.press": "媒体",
+        "blog.cat.all": "全部",
+        "blog.cat.info": "信息",
+        "blog.cat.news": "新闻",
+        "blog.cat.updates": "更新",
+        "blog.cat.press": "媒体",
+        "blog.info.label": "信息",
+        "blog.info.title": "公开信息。",
+        "blog.loading": "正在加载资讯室...",
+        "blog.empty.title": "暂无文章",
+        "blog.empty.desc": "请稍后回来查看 — 我们会在这里分享最新更新。",
+        "blog.empty.manifest": "无法加载博客列表。请重新运行博客构建步骤。",
+        "blog.card.cta": "阅读全文 →",
+        "blog.card.open": "打开页面 →",
+        "blog.card.read": "阅读全文 →",
+        "blog.card.contact": "媒体联系",
+        "blog.back": "← 返回博客",
 
 
 
@@ -1287,7 +1362,7 @@ window.T = {
 
         const viMap = getViTextKeyMap();
         document.querySelectorAll('body *:not(script):not(style):not(noscript)').forEach(el => {
-            if (el.hasAttribute('data-i18n') || el.hasAttribute('data-i18n-html') || el.hasAttribute('data-i18n-attr')) return;
+            if (el.hasAttribute('data-i18n-skip') || el.hasAttribute('data-i18n') || el.hasAttribute('data-i18n-html') || el.hasAttribute('data-i18n-attr')) return;
             let key = el.getAttribute('data-i18n-auto');
             if (!key) {
                 if (el.children.length > 4) return;

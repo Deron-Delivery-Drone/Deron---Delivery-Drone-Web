@@ -47,8 +47,6 @@ jobs:
             "cong-nghe.html"
             "ung-dung.html"
             "press.html"
-            "nhat-ky.html"
-            "phap-ly.html"
             "thong-tin.html"
             "lien-he.html"
             "san-pham.html"
@@ -75,6 +73,7 @@ jobs:
             "dates"
             "admin"
             "content"
+            "blog"
           )
 
           for dir in "${REQUIRED_DIRS[@]}"; do
@@ -148,6 +147,20 @@ jobs:
           fi
 
           echo "DATCS install page is ready for deployment."
+
+      - name: Build blog pages from markdown
+        run: |
+          set -e
+          echo "Generating blog HTML pages from content/blogs/*.md..."
+          node scripts/build-blog.js --src content/blogs --dst build
+          echo "Generated blog files:"
+          if [ -d "build/blog" ]; then
+            find build/blog -type f -name 'index.html' | sort
+          fi
+          if [ -f "build/content/blogs/index.json" ]; then
+            echo "Blog manifest:"
+            cat build/content/blogs/index.json | head -100
+          fi
 
       # - name: Decide whether to deploy
       #   id: guard

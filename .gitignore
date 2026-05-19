@@ -29,3 +29,8 @@ yarn-error.log*
 
 # build output
 /build
+
+# Blog generated artifacts (rebuilt at deploy time)
+# Ignore per-post subdirectories, but keep blog/index.html (the listing page source)
+/blog/*/
+/content/blogs/index.json

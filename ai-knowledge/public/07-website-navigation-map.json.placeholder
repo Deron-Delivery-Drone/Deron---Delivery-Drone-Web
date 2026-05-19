@@ -1,4 +1,65 @@
 {
-  "placeholder": true,
-  "note": "Add reviewed public-safe website navigation data later."
+  "placeholder": false,
+  "review_status": "public-safe navigation only",
+  "routes": {
+    "home": {
+      "path": "/",
+      "label": {
+        "vi": "Trang chủ",
+        "en": "Home",
+        "zh": "首页"
+      }
+    },
+    "datcs": {
+      "path": "/datcs",
+      "label": {
+        "vi": "DATCS",
+        "en": "DATCS",
+        "zh": "DATCS"
+      }
+    },
+    "datcs_install": {
+      "path": "/datcs/install",
+      "label": {
+        "vi": "Tải DATCS",
+        "en": "Download DATCS",
+        "zh": "下载 DATCS"
+      }
+    },
+    "blog": {
+      "path": "/blog",
+      "label": {
+        "vi": "Blog",
+        "en": "Blog",
+        "zh": "博客"
+      }
+    },
+    "press": {
+      "path": "/blog/#bao-chi",
+      "label": {
+        "vi": "Báo chí",
+        "en": "Press",
+        "zh": "媒体"
+      },
+      "note": "The previous standalone press page is now grouped inside the Blog newsroom section."
+    },
+    "info": {
+      "path": "/blog/#thong-tin",
+      "label": {
+        "vi": "Thông tin",
+        "en": "Information",
+        "zh": "信息"
+      },
+      "note": "The previous standalone information tab is now grouped inside the Blog content hub."
+    },
+    "contact": {
+      "path": "/#contact",
+      "label": {
+        "vi": "Liên hệ",
+        "en": "Contact",
+        "zh": "联系"
+      },
+      "note": "Current public site uses the home-page contact section. Update to /contact if a dedicated route is added."
+    }
+  }
 }
