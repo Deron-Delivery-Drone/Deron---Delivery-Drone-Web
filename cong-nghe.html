@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
-<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/styles.css?v=20260519d">
 <style>
   .lang-dropdown { position: relative; margin: 0 10px; }
   .lang-dropdown-toggle { display: flex; align-items: center; gap: 7px; font-family: var(--font-label); font-size: 11px; font-weight: 600; letter-spacing: .06em; color: rgba(255,255,255,.7); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); border-radius: var(--radius); padding: 7px 12px 7px 10px; cursor: pointer; transition: all var(--transition); white-space: nowrap; }
@@ -102,46 +102,10 @@
 </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo"><img src="/Deron-logo-light.png" alt="Deron" class="footer-logo-img footer-logo-light" loading="lazy" decoding="async"><img src="/Deron-logo-dark.png" alt="Deron" class="footer-logo-img footer-logo-dark" loading="lazy" decoding="async"><span>DERON</span></div>
-        <p class="footer-brand-desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
-        <div class="footer-tagline">Made in Vietnam · Built for Vietnam</div>
-      </div>
-      <div>
-        <div class="footer-col-title">Sứ mệnh</div>
-        <div class="footer-links">
-          <a href="/#about" class="footer-link">Về chúng tôi</a>
-          <a href="/#technology" class="footer-link">Công nghệ</a>
-          <a href="/#usecases" class="footer-link">Ứng dụng</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Tài nguyên</div>
-        <div class="footer-links">
-          <a href="/blog" class="footer-link">Blog</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Liên hệ</div>
-        <div class="footer-links">
-          <a href="mailto:ceo.deron@gmail.com" class="footer-link">ceo.deron@gmail.com</a>
-          <a href="tel:0363045747" class="footer-link">0363 045 747</a>
-          <span class="footer-link">deron.vn</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
-      <div class="footer-copy" data-i18n="footer.founder">Founder: Nguyễn Phúc Huy</div>
-      <div class="footer-location">Ho Chi Minh City · Vietnam</div>
-    </div>
-  </div>
-</footer>
+<div data-deron-footer data-back-home="true"></div>
 <script src="public/translations.js"></script>
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/footer.js?v=20260519d" defer></script>
 <script>
   function toggleLangDrop() {
     const dd = document.getElementById('langDropdown');

@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
-<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/styles.css?v=20260519d">
 <style>
   .lang-dropdown { position: relative; margin: 0 10px; }
   .lang-dropdown-toggle { display: flex; align-items: center; gap: 7px; font-family: var(--font-label); font-size: 11px; font-weight: 600; letter-spacing: .06em; color: rgba(255,255,255,.7); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); border-radius: var(--radius); padding: 7px 12px 7px 10px; cursor: pointer; transition: all var(--transition); white-space: nowrap; }
@@ -211,46 +211,10 @@
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo"><img src="/public/Deron-logo-light.png" alt="Deron" class="footer-logo-img footer-logo-light" loading="lazy" decoding="async"><img src="/public/Deron-logo-dark.png" alt="Deron" class="footer-logo-img footer-logo-dark" loading="lazy" decoding="async"><span>DERON</span></div>
-        <p class="footer-brand-desc" data-i18n="footer.desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
-        <div class="footer-tagline" data-i18n="footer.tagline">Made in Vietnam · Built for Vietnam</div>
-      </div>
-      <div>
-        <div class="footer-col-title" data-i18n="footer.mission">Sứ mệnh</div>
-        <div class="footer-links">
-          <a href="/#about" class="footer-link" data-i18n="nav.about">Về chúng tôi</a>
-          <a href="/#technology" class="footer-link" data-i18n="nav.technology">Công nghệ</a>
-          <a href="/#usecases" class="footer-link" data-i18n="nav.usecases">Ứng dụng</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title" data-i18n="footer.resources">Tài nguyên</div>
-        <div class="footer-links">
-          <a href="/blog" class="footer-link" data-i18n="nav.blog">Blog</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title" data-i18n="nav.contact">Liên hệ</div>
-        <div class="footer-links">
-          <a href="mailto:ceo.deron@gmail.com" class="footer-link">ceo.deron@gmail.com</a>
-          <a href="tel:0363045747" class="footer-link">0363 045 747</a>
-          <span class="footer-link">deron.vn</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy" data-i18n="footer.copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
-      <div class="footer-copy" data-i18n="footer.founder">Founder: Nguyễn Phúc Huy</div>
-      <div class="footer-location" data-i18n="footer.location">Ho Chi Minh City · Vietnam</div>
-    </div>
-  </div>
-</footer>
+<div data-deron-footer data-back-home="true"></div>
 
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/footer.js?v=20260519d" defer></script>
 <script>
   function toggleLangDrop() {
     const dd = document.getElementById('langDropdown');
@@ -384,7 +348,7 @@
       date: { vi: 'Bản tin', en: 'Newsroom', zh: '资讯室' },
     };
 
-    const RAIL_ITEMS = [
+    let RAIL_ITEMS = [
       {
         category: 'info',
         href: '#thong-tin',
@@ -460,7 +424,7 @@
       },
     ];
 
-    const PRESS_FEATURE = {
+    let PRESS_FEATURE = {
       category: 'press',
       title: { vi: 'Báo chí và truyền thông', en: 'Press and media', zh: '媒体与传播' },
       summary: {
@@ -470,7 +434,7 @@
       },
     };
 
-    const PRESS_FACTS = [
+    let PRESS_FACTS = [
       {
         label: { vi: 'Tên tổ chức', en: 'Organization', zh: '组织名称' },
         value: { vi: 'Deron', en: 'Deron', zh: 'Deron' },
@@ -489,7 +453,7 @@
       },
     ];
 
-    const PRESS_BOILERPLATE = {
+    let PRESS_BOILERPLATE = {
       title: { vi: 'Về Deron', en: 'About Deron', zh: '关于 Deron' },
       summary: {
         vi: 'Deron xây dựng hệ thống drone giao hàng tự hành phục vụ y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó tiếp cận tại Việt Nam. Công nghệ được phát triển theo từng giai đoạn cho địa hình, pháp lý và cộng đồng Việt Nam.',
@@ -498,7 +462,7 @@
       },
     };
 
-    const INFO_ITEMS = [
+    let INFO_ITEMS = [
       {
         title: { vi: 'Văn bản pháp lý', en: 'Legal references', zh: '法律参考' },
         summary: {
@@ -714,16 +678,54 @@
       renderNewsroom(lang);
     };
 
-    fetch('/content/blogs/index.json', { cache: 'no-cache' })
+    function unflattenLocalized(obj, fields) {
+      if (!obj || typeof obj !== 'object') return null;
+      const out = Object.assign({}, obj);
+      for (const field of fields) {
+        const vi = obj[field + '_vi'];
+        if (vi == null) continue;
+        out[field] = {
+          vi: vi,
+          en: obj[field + '_en'] || vi,
+          zh: obj[field + '_zh'] || vi,
+        };
+      }
+      return out;
+    }
+
+    function applySidebarConfig(cfg) {
+      if (!cfg || typeof cfg !== 'object') return;
+      if (Array.isArray(cfg.rail) && cfg.rail.length) {
+        RAIL_ITEMS = cfg.rail.map((it) => unflattenLocalized(it, ['title', 'summary'])).filter(Boolean);
+      }
+      if (Array.isArray(cfg.info) && cfg.info.length) {
+        INFO_ITEMS = cfg.info.map((it) => unflattenLocalized(it, ['title', 'summary'])).filter(Boolean);
+      }
+      if (cfg.press_feature) {
+        const pf = unflattenLocalized(cfg.press_feature, ['title', 'summary']);
+        if (pf) PRESS_FEATURE = Object.assign({}, PRESS_FEATURE, pf);
+      }
+      if (Array.isArray(cfg.press_facts) && cfg.press_facts.length) {
+        PRESS_FACTS = cfg.press_facts.map((it) => unflattenLocalized(it, ['label', 'value'])).filter(Boolean);
+      }
+      if (cfg.press_boilerplate) {
+        const pb = unflattenLocalized(cfg.press_boilerplate, ['title', 'summary']);
+        if (pb) PRESS_BOILERPLATE = pb;
+      }
+    }
+
+    const fetchPosts = fetch('/content/blogs/index.json', { cache: 'no-cache' })
       .then((r) => r.ok ? r.json() : [])
-      .then((posts) => {
-        cachedPosts = Array.isArray(posts) ? posts : [];
-        renderBlogListingLanguage(currentLang());
-      })
-      .catch(() => {
-        cachedPosts = [];
-        renderBlogListingLanguage(currentLang());
-      });
+      .catch(() => []);
+    const fetchSidebar = fetch('/content/blog-sidebar.json', { cache: 'no-cache' })
+      .then((r) => r.ok ? r.json() : null)
+      .catch(() => null);
+
+    Promise.all([fetchPosts, fetchSidebar]).then(([posts, sidebarCfg]) => {
+      cachedPosts = Array.isArray(posts) ? posts : [];
+      applySidebarConfig(sidebarCfg);
+      renderBlogListingLanguage(currentLang());
+    });
   })();
 </script>
 </body>

@@ -1653,8 +1653,8 @@
 
     .footer-top {
       display: grid;
-      grid-template-columns: 280px repeat(4, 1fr);
-      gap: 48px;
+      grid-template-columns: 240px repeat(5, minmax(0, 1fr));
+      gap: 32px;
       margin-bottom: 56px;
     }
 
@@ -1705,15 +1705,22 @@
       gap: 10px;
     }
 
-    .footer-link {
+    .footer-link,
+    a.footer-link,
+    a.footer-link:link,
+    a.footer-link:visited,
+    a.footer-link:active {
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.5) !important;
+      text-decoration: none !important;
       cursor: pointer;
       transition: color var(--transition);
     }
 
-    .footer-link:hover {
-      color: #fff;
+    .footer-link:hover,
+    a.footer-link:hover,
+    a.footer-link:focus {
+      color: #fff !important;
     }
 
     .footer-bottom {
@@ -1738,6 +1745,26 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-back-home {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-back-btn {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 10px 24px;
+    }
+
+    .site-footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-dark);
+      padding: 64px 32px 40px;
     }
 
     /* ============================================================ PAGE SYSTEM */
@@ -2113,8 +2140,13 @@
       }
 
       .footer-top {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 28px;
       }
+      .footer-top > .footer-brand,
+      .footer-top > div:first-child { grid-column: 1 / -1; max-width: 100%; }
+      .footer-top > .footer-brand .footer-brand-desc,
+      .footer-top > div:first-child .footer-brand-desc { max-width: 520px; }
 
       .hero-drone-svg {
         display: none;
@@ -2210,7 +2242,10 @@
 
       .footer-top {
         grid-template-columns: 1fr;
+        gap: 30px;
       }
+      .footer-back-home { margin-top: 18px; padding-top: 18px; }
+      .footer-back-btn { width: 100%; max-width: 280px; }
 
       .founder-card {
         grid-template-columns: 1fr;
@@ -2780,6 +2815,7 @@
         grid-template-columns: 1fr !important;
         gap: 34px;
       }
+      .footer-top > .footer-brand { max-width: none; }
 
       .footer-bottom {
         align-items: flex-start;
@@ -3197,63 +3233,7 @@
     </section>
 
     <!-- FOOTER (on home) -->
-    <footer id="footer">
-      <div class="footer-inner">
-        <div class="footer-top">
-          <div>
-            <div class="footer-logo" onclick="navigate('home')" style="cursor:pointer;">
-              <img src="public/Deron-logo-dark.png" class="logo-dark" alt="Deron logo">
-              <img src="public/Deron-logo-light.png" class="logo-light" alt="Deron logo">
-              <span>DERON</span>
-            </div>
-            <p class="footer-brand-desc" data-i18n="footer.desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của
-              Việt Nam — cho y tế, cứu trợ, và tương lai.</p>
-            <div class="footer-tagline" data-i18n="footer.tagline">Made in Vietnam · Built for Vietnam</div>
-          </div>
-          <div>
-            <div class="footer-col-title" data-i18n="footer.col1">Sứ mệnh</div>
-            <div class="footer-links">
-              <span class="footer-link" data-i18n="footer.l1" onclick="navigate('about')">Về chúng tôi</span>
-              <span class="footer-link" data-i18n="footer.l2" onclick="navigate('about')">Giá trị cốt lõi</span>
-              <span class="footer-link" data-i18n="footer.l3" onclick="navigate('about')">Lộ trình</span>
-            </div>
-          </div>
-          <div>
-            <div class="footer-col-title" data-i18n="footer.col2">Sản phẩm</div>
-            <div class="footer-links">
-              <span class="footer-link" data-i18n="footer.l4" onclick="navigate('technology')">Công nghệ</span>
-              <span class="footer-link" data-i18n="footer.l5" onclick="navigate('usecases')">Ứng dụng</span>
-              <span class="footer-link" data-i18n="footer.l6" onclick="navigate('technology')">Triết lý an toàn</span>
-              <span class="footer-link" data-i18n="footer.l10" onclick="navigate('usecases')">Deron Agriculture</span>
-              <a href="https://datcs.deron.vn" target="_blank" class="footer-link" data-i18n="footer.l11">DATCS</a>
-              <a href="/blog" class="footer-link">Blog</a>
-            </div>
-          </div>
-          <div>
-            <div class="footer-col-title" data-i18n="footer.col3">Đầu tư</div>
-            <div class="footer-links">
-              <span class="footer-link" data-i18n="footer.l7" onclick="navigate('investor')">Nhà đầu tư</span>
-              <a class="footer-link" data-i18n="footer.l8" href="public/Deron_Pitch.pdf" target="_blank">Tải Pitch
-                Deck</a>
-              <span class="footer-link" data-i18n="footer.l9" onclick="navigate('investor')">Lộ trình vốn</span>
-            </div>
-          </div>
-          <div>
-            <div class="footer-col-title" data-i18n="footer.col4">Liên hệ</div>
-            <div class="footer-links">
-              <a class="footer-link" href="mailto:ceo.deron@gmail.com">ceo.deron@gmail.com</a>
-              <a class="footer-link" href="tel:0363045747">0363 045 747</a>
-              <span class="footer-link">deron.vn</span>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div class="footer-copy" data-i18n="footer.copy">© 2025–2026 Deron. Delivering Vietnam's future.</div>
-          <div class="footer-copy" data-i18n="footer.founder">Founder: Nguyễn Phúc Huy</div>
-          <div class="footer-location" data-i18n="footer.location">Ho Chi Minh City · Vietnam</div>
-        </div>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="false"></div>
   </div>
 
   <!-- ============================================================ ABOUT PAGE -->
@@ -3395,16 +3375,7 @@
       </div>
     </section>
 
-    <footer id="footer-about"
-      style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
-      <div
-        style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026
-          Deron. Made in Vietnam.</div>
-        <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')"
-          data-i18n="nav.backHome">← Trang chủ</button>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="true"></div>
   </div>
 
   <!-- ============================================================ TECHNOLOGY PAGE -->
@@ -3529,16 +3500,7 @@
       </div>
     </section>
 
-    <footer
-      style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
-      <div
-        style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026
-          Deron. Made in Vietnam.</div>
-        <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')"
-          data-i18n="nav.backHome">← Trang chủ</button>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="true"></div>
   </div>
 
   <!-- ============================================================ USE CASES PAGE (REDESIGNED) -->
@@ -3886,16 +3848,7 @@
       </div>
     </section>
 
-    <footer
-      style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
-      <div
-        style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026
-          Deron. Made in Vietnam.</div>
-        <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')"
-          data-i18n="nav.backHome">← Trang chủ</button>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="true"></div>
   </div>
 
   <!-- ============================================================ PRODUCTS PAGE -->
@@ -4106,16 +4059,7 @@
       </div>
     </section>
 
-    <footer
-      style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
-      <div
-        style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026
-          Deron. Made in Vietnam.</div>
-        <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')"
-          data-i18n="nav.backHome">← Trang chủ</button>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="true"></div>
   </div>
 
   <!-- ============================================================ INVESTOR PAGE -->
@@ -4332,16 +4276,7 @@
       </div>
     </div>
 
-    <footer
-      style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
-      <div
-        style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026
-          Deron. Made in Vietnam.</div>
-        <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')"
-          data-i18n="nav.backHome">← Trang chủ</button>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="true"></div>
   </div>
 
   <!-- ============================================================ CONTACT PAGE -->
@@ -4439,16 +4374,7 @@
       </div>
     </div>
 
-    <footer
-      style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
-      <div
-        style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026
-          Deron. Made in Vietnam.</div>
-        <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')"
-          data-i18n="nav.backHome">← Trang chủ</button>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="true"></div>
   </div>
 
   <!-- ============================================================ DATCS PAGE -->
@@ -4880,16 +4806,7 @@
       </div>
     </section>
 
-    <footer
-      style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
-      <div
-        style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="datcs.footer.copy">© 2025–2026 Deron.
-          DATCS — Made in Vietnam.</div>
-        <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')"
-          data-i18n="nav.backHome">← Trang chủ</button>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="true"></div>
   </div>
 
   <!-- ============================================================ INFO PAGE -->
@@ -4980,16 +4897,7 @@
       </div>
     </section>
 
-    <footer
-      style="background:var(--bg-dark); border-top:1px solid var(--border-dark); padding:40px 32px; text-align:center;">
-      <div
-        style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div class="footer-copy" style="color:rgba(255,255,255,0.3);" data-i18n="footer.madeInVietnam">© 2025–2026
-          Deron. Made in Vietnam.</div>
-        <button class="btn btn-outline" style="font-size:11px; padding:10px 20px;" onclick="navigate('home')"
-          data-i18n="nav.backHome">← Trang chủ</button>
-      </div>
-    </footer>
+    <div data-deron-footer data-back-home="true"></div>
   </div>
 
   <script type="importmap">
@@ -5001,6 +4909,7 @@
 </script>
   <script src="runtime-env.js"></script>
   <script src="public/translations.js"></script>
+  <script src="/assets/js/footer.js?v=20260519d" defer></script>
 
   <!-- ============================================================ JAVASCRIPT -->
   <script>

@@ -27,3 +27,81 @@ collections:
       - { label: "Title (ZH)", name: "title_zh", widget: "string", required: false }
       - { label: "Summary (ZH)", name: "summary_zh", widget: "text", required: false }
       - { label: "Body (ZH)", name: "body_zh", widget: "markdown", required: false }
+
+  - name: "blog_page"
+    label: "Cấu hình trang Blog"
+    label_singular: "Cấu hình"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "content/blog-sidebar.json"
+        name: "sidebar"
+        label: "Sidebar & các khối tĩnh"
+        extension: "json"
+        format: "json"
+        fields:
+          - { label: "Lưu ý AI-Knowledge (chỉ public-safe)", name: "ai_notice", widget: "string", required: false, hint: "Chỉ nhập nội dung public-safe đã duyệt. KHÔNG dán DMA/APPB/DATCS internals, API key, .env, link nội bộ, hay tài liệu chưa công bố." }
+
+          - label: "Dòng tin (sidebar phải, 4 mục)"
+            name: "rail"
+            widget: "list"
+            summary: "{{fields.title_vi}}"
+            min: 1
+            fields:
+              - { label: "Loại", name: "category", widget: "select", default: "info", options: [ { label: "Thông tin", value: "info" }, { label: "Tin tức", value: "news" }, { label: "Cập nhật", value: "updates" }, { label: "Báo chí", value: "press" } ] }
+              - { label: "Anchor / liên kết (vd: #thong-tin, #cap-nhat, #bao-chi)", name: "href", widget: "string", required: false }
+              - { label: "Tiêu đề (VI)", name: "title_vi", widget: "string" }
+              - { label: "Tiêu đề (EN)", name: "title_en", widget: "string", required: false }
+              - { label: "Tiêu đề (ZH)", name: "title_zh", widget: "string", required: false }
+              - { label: "Tóm tắt (VI)", name: "summary_vi", widget: "text" }
+              - { label: "Tóm tắt (EN)", name: "summary_en", widget: "text", required: false }
+              - { label: "Tóm tắt (ZH)", name: "summary_zh", widget: "text", required: false }
+
+          - label: "Thông tin công khai (dải dưới, 4 ô)"
+            name: "info"
+            widget: "list"
+            summary: "{{fields.title_vi}}"
+            min: 1
+            fields:
+              - { label: "Tiêu đề (VI)", name: "title_vi", widget: "string" }
+              - { label: "Tiêu đề (EN)", name: "title_en", widget: "string", required: false }
+              - { label: "Tiêu đề (ZH)", name: "title_zh", widget: "string", required: false }
+              - { label: "Tóm tắt (VI)", name: "summary_vi", widget: "text" }
+              - { label: "Tóm tắt (EN)", name: "summary_en", widget: "text", required: false }
+              - { label: "Tóm tắt (ZH)", name: "summary_zh", widget: "text", required: false }
+
+          - label: "Báo chí – Tiêu đề khối"
+            name: "press_feature"
+            widget: "object"
+            fields:
+              - { label: "Tiêu đề (VI)", name: "title_vi", widget: "string" }
+              - { label: "Tiêu đề (EN)", name: "title_en", widget: "string", required: false }
+              - { label: "Tiêu đề (ZH)", name: "title_zh", widget: "string", required: false }
+              - { label: "Tóm tắt (VI)", name: "summary_vi", widget: "text" }
+              - { label: "Tóm tắt (EN)", name: "summary_en", widget: "text", required: false }
+              - { label: "Tóm tắt (ZH)", name: "summary_zh", widget: "text", required: false }
+
+          - label: "Báo chí – Bảng thông tin tổ chức"
+            name: "press_facts"
+            widget: "list"
+            summary: "{{fields.label_vi}}: {{fields.value_vi}}"
+            min: 1
+            fields:
+              - { label: "Nhãn (VI)", name: "label_vi", widget: "string" }
+              - { label: "Nhãn (EN)", name: "label_en", widget: "string", required: false }
+              - { label: "Nhãn (ZH)", name: "label_zh", widget: "string", required: false }
+              - { label: "Giá trị (VI)", name: "value_vi", widget: "string" }
+              - { label: "Giá trị (EN)", name: "value_en", widget: "string", required: false }
+              - { label: "Giá trị (ZH)", name: "value_zh", widget: "string", required: false }
+
+          - label: "Báo chí – Đoạn 'Về Deron'"
+            name: "press_boilerplate"
+            widget: "object"
+            fields:
+              - { label: "Tiêu đề (VI)", name: "title_vi", widget: "string" }
+              - { label: "Tiêu đề (EN)", name: "title_en", widget: "string", required: false }
+              - { label: "Tiêu đề (ZH)", name: "title_zh", widget: "string", required: false }
+              - { label: "Đoạn văn (VI)", name: "summary_vi", widget: "text" }
+              - { label: "Đoạn văn (EN)", name: "summary_en", widget: "text", required: false }
+              - { label: "Đoạn văn (ZH)", name: "summary_zh", widget: "text", required: false }

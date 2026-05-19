@@ -1,0 +1,129 @@
+{
+  "ai_notice": "Chỉ ghi nội dung public-safe đã được duyệt. KHÔNG nhập DMA/APPB/DATCS internals, API key, .env, link nội bộ, tài liệu pháp lý dự thảo, hoặc bất kỳ thông tin chưa được công bố.",
+  "rail": [
+    {
+      "category": "info",
+      "href": "#thong-tin",
+      "title_vi": "Thông tin công khai",
+      "title_en": "Public information",
+      "title_zh": "公开信息",
+      "summary_vi": "Nguồn tham chiếu, dữ liệu thị trường, DATCS và kênh xác minh được đặt ngay trong Blog.",
+      "summary_en": "References, market data, DATCS notes, and verification routes are grouped inside the Blog.",
+      "summary_zh": "参考资料、市场数据、DATCS 说明与核实渠道统一放在博客中。"
+    },
+    {
+      "category": "news",
+      "href": "#cap-nhat",
+      "title_vi": "Tin tức",
+      "title_en": "News",
+      "title_zh": "新闻",
+      "summary_vi": "Các thông báo, sự kiện và diễn biến mới của Deron được đặt trong cùng một luồng bản tin.",
+      "summary_en": "Announcements, events, and public developments from Deron stay in one newsroom flow.",
+      "summary_zh": "Deron 的公告、活动与公开动态会统一放入资讯流。"
+    },
+    {
+      "category": "updates",
+      "href": "#cap-nhat",
+      "title_vi": "Cập nhật vận hành",
+      "title_en": "Operating updates",
+      "title_zh": "运营更新",
+      "summary_vi": "Tiến độ sản phẩm, công nghệ và DATCS được gom vào phần cập nhật bên dưới.",
+      "summary_en": "Product, technology, and DATCS progress is collected in the updates desk below.",
+      "summary_zh": "产品、技术与 DATCS 进展会汇总在下方的更新版块。"
+    },
+    {
+      "category": "press",
+      "href": "#bao-chi",
+      "title_vi": "Báo chí",
+      "title_en": "Press",
+      "title_zh": "媒体",
+      "summary_vi": "Tư liệu truyền thông và kênh liên hệ chính thức cho báo chí.",
+      "summary_en": "Press materials, media information, and official press contact routes.",
+      "summary_zh": "媒体资料、传播信息与官方媒体联系渠道。"
+    }
+  ],
+  "info": [
+    {
+      "title_vi": "Văn bản pháp lý",
+      "title_en": "Legal references",
+      "title_zh": "法律参考",
+      "summary_vi": "Nghị định 288/2025/NĐ-CP, Nghị quyết 57-NQ/TW và Quyết định 1131/QĐ-TTg là các mốc tham khảo công khai.",
+      "summary_en": "Decree 288/2025/ND-CP, Resolution 57-NQ/TW, and Decision 1131/QD-TTg are public reference points.",
+      "summary_zh": "第 288/2025/NĐ-CP 号法令、57-NQ/TW 决议和 1131/QĐ-TTg 决定是公开参考资料。"
+    },
+    {
+      "title_vi": "Dữ liệu thị trường",
+      "title_en": "Market data",
+      "title_zh": "市场数据",
+      "summary_vi": "Deron chỉ dùng các số liệu có nguồn công khai như World Bank, GSO và Bộ GTVT khi trình bày bối cảnh thị trường.",
+      "summary_en": "Deron uses public sources such as the World Bank, GSO, and transport-sector references when discussing market context.",
+      "summary_zh": "Deron 在说明市场背景时仅使用世界银行、GSO 和交通领域公开来源。"
+    },
+    {
+      "title_vi": "DATCS",
+      "title_en": "DATCS",
+      "title_zh": "DATCS",
+      "summary_vi": "DATCS là phần mềm GCS/UTM đang phát triển. Thông tin tải và yêu cầu truy cập nằm tại trang DATCS install.",
+      "summary_en": "DATCS is a GCS/UTM software platform in development. Download and access-request information is on the DATCS install page.",
+      "summary_zh": "DATCS 是正在开发中的 GCS/UTM 软件平台。下载与访问申请信息位于 DATCS install 页面。"
+    },
+    {
+      "title_vi": "Kênh xác minh",
+      "title_en": "Verification channel",
+      "title_zh": "核实渠道",
+      "summary_vi": "Với thông tin chưa rõ hoặc cần xác minh, hãy liên hệ Deron qua email ceo.deron@gmail.com.",
+      "summary_en": "For unclear or verification-sensitive information, contact Deron at ceo.deron@gmail.com.",
+      "summary_zh": "如需核实尚不明确的信息，请通过 ceo.deron@gmail.com 联系 Deron。"
+    }
+  ],
+  "press_feature": {
+    "title_vi": "Báo chí và truyền thông",
+    "title_en": "Press and media",
+    "title_zh": "媒体与传播",
+    "summary_vi": "Thông cáo, tư liệu hình ảnh, hồ sơ thương hiệu và kênh liên hệ chính thức cho báo chí.",
+    "summary_en": "Press releases, media assets, brand profile notes, and official press contact information.",
+    "summary_zh": "新闻稿、媒体素材、品牌资料与官方媒体联系方式。"
+  },
+  "press_facts": [
+    {
+      "label_vi": "Tên tổ chức",
+      "label_en": "Organization",
+      "label_zh": "组织名称",
+      "value_vi": "Deron",
+      "value_en": "Deron",
+      "value_zh": "Deron"
+    },
+    {
+      "label_vi": "Người sáng lập",
+      "label_en": "Founder",
+      "label_zh": "创始人",
+      "value_vi": "Nguyễn Phúc Huy",
+      "value_en": "Nguyễn Phúc Huy",
+      "value_zh": "Nguyễn Phúc Huy"
+    },
+    {
+      "label_vi": "Trụ sở",
+      "label_en": "Base",
+      "label_zh": "总部",
+      "value_vi": "TP. Hồ Chí Minh",
+      "value_en": "Ho Chi Minh City",
+      "value_zh": "胡志明市"
+    },
+    {
+      "label_vi": "Liên hệ báo chí",
+      "label_en": "Press contact",
+      "label_zh": "媒体联系",
+      "value_vi": "ceo.deron@gmail.com",
+      "value_en": "ceo.deron@gmail.com",
+      "value_zh": "ceo.deron@gmail.com"
+    }
+  ],
+  "press_boilerplate": {
+    "title_vi": "Về Deron",
+    "title_en": "About Deron",
+    "title_zh": "关于 Deron",
+    "summary_vi": "Deron xây dựng hệ thống drone giao hàng tự hành phục vụ y tế khẩn cấp, cứu trợ thiên tai và logistics vùng khó tiếp cận tại Việt Nam. Công nghệ được phát triển theo từng giai đoạn cho địa hình, pháp lý và cộng đồng Việt Nam.",
+    "summary_en": "Deron builds autonomous delivery drone systems for emergency medical logistics, disaster relief, and remote-area supply chains in Vietnam. Its technology is developed step by step for Vietnamese terrain, regulations, and communities.",
+    "summary_zh": "Deron 为越南构建用于紧急医疗物流、灾害救援和偏远地区供应链的自主送货无人机系统，技术按越南地形、法规和社区需求逐步开发。"
+  }
+}
