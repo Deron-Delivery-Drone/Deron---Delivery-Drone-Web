@@ -548,11 +548,9 @@ a.footer-link:focus { color: #fff !important; }
   color: rgba(255,255,255,0.25);
 }
 .footer-back-home {
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border-dark);
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .footer-back-btn {
   font-size: 11px;
@@ -610,7 +608,7 @@ a.footer-link:focus { color: #fff !important; }
   }
   .tech-visual-placeholder { min-height: 260px; }
   .footer-top { grid-template-columns: 1fr; gap: 30px; }
-  .footer-back-home { margin-top: 18px; padding-top: 18px; }
+  .footer-back-home { margin-top: 16px; padding-top: 0; justify-content: flex-start; }
   .footer-back-btn { width: 100%; max-width: 280px; }
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }

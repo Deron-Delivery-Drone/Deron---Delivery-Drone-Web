@@ -463,8 +463,8 @@ window.T = {
         "info.market2.t": "GSO / Ministry of Transport",
         "info.market2.d": "Data on transport infrastructure in remote and mountainous regions.",
 
-        "hero.badge": "DERON · The Điện Biên Phủ of Logistics",
-        "hero.title": "An Era<br>of National<br><span>Rise</span>",
+        "hero.badge": "DERON · A Điện Biên Phủ Campaign for Vietnam's Logistics",
+        "hero.title": "An Era of the<br>Rising<br><span>Vietnamese Nation</span>",
         "hero.sub": "Deron is building a Vietnamese drone technology platform — opening a new layer of sky infrastructure for logistics, agriculture, inspection, emergency response, and many future UAV applications.",
         "hero.cta1": "Explore our mission", "hero.cta2": "For investors",
         "hero.stat1": "% GDP — Vietnam logistics cost<br><span style=\"font-size:9px;opacity:.6\">Source: World Bank</span>",
@@ -543,11 +543,11 @@ window.T = {
         "about.why.p1": "Why is it that every rainy season, communities are not isolated from the world — but isolated from the relief system?",
         "about.why.p2": "Why are military helicopters the only solution — not because alternative technology doesn't exist, but because no one bothered to build it?",
         "about.why.p3": "Deron was built to answer those questions. Through engineering. Through commitment. Through Vietnamese roots.",
-        "about.bacgiap.caption": "General Võ Nguyên Giáp (1911–2013)",
+        "about.bacgiap.caption": "General Võ Nguyên Giáp (1911–2013) — architect of the Điện Biên Phủ victory",
         "about.dbp.label": "Điện Biên Phủ",
-        "about.dbp.title": "Inspired by<br>national spirit",
-        "about.dbp.p1": "Inspired by a quote from General Võ Nguyên Giáp: \"The time has come for new Điện Biên Phủ battles\" — not about war, but about the will for self-reliance.",
-        "about.dbp.p2": "The Battle of Điện Biên Phủ is proof that Vietnamese people can prevail through intelligence, creativity, and determination — even against seemingly impossible challenges.",
+        "about.dbp.title": "Inspired by the<br>Vietnamese national spirit",
+        "about.dbp.p1": "Deron draws its inspiration from General Võ Nguyên Giáp — the commander who led Vietnam to its historic victory at Điện Biên Phủ in 1954. His words, \"The time has come for new Điện Biên Phủ battles,\" speak not of war, but of the will for a nation to stand on its own.",
+        "about.dbp.p2": "At Điện Biên Phủ, a young and under-equipped Vietnamese army defeated a far stronger colonial force against seemingly impossible odds. That victory remains living proof that the Vietnamese people can prevail through intelligence, creativity, and sheer determination — and it is the spirit on which Deron is built.",
         "about.founder.name": "Nguyễn Phúc Huy ( Harry Nguyễn)",
         "about.founder.role": "Founder & Project Leader",
         "about.founder.deron": "Founder, Deron",
@@ -889,8 +889,8 @@ window.T = {
         "info.market2.t": "越南统计总局 / 交通运输部",
         "info.market2.d": "关于偏远地区与山区交通基础设施的数据。",
 
-        "hero.badge": "DERON · 物流的奠边府时刻",
-        "hero.title": "民族腾飞的<span>新纪元</span>",
+        "hero.badge": "DERON · 越南物流领域的奠边府战役",
+        "hero.title": "越南民族腾飞的<span>新纪元</span>",
         "hero.sub": "Deron 正在打造属于越南人的无人机技术平台——为物流、农业、巡检、救援以及未来更多无人机应用，开启一层全新的空中基础设施。",
         "hero.cta1": "探索我们的使命", "hero.cta2": "投资者专区",
         "hero.stat1": "% GDP — 越南物流成本<br><span style=\"font-size:9px;opacity:.6\">来源: 世界银行</span>",
@@ -969,11 +969,11 @@ window.T = {
         "about.why.p1": "为什么每到雨季，一些地区不是与世隔绝——而是与救援系统隔绝？",
         "about.why.p2": "为什么军用直升机是唯一的解决方案——不是因为没有替代技术，而是因为没有人愿意去建造？",
         "about.why.p3": "Deron 就是为了回答这些问题而建立的。通过工程技术。通过承诺。通过越南的根基。",
-        "about.bacgiap.caption": "武元甲大将（1911-2013）",
+        "about.bacgiap.caption": "武元甲大将（1911–2013）—— 奠边府大捷的缔造者",
         "about.dbp.label": "奠边府",
-        "about.dbp.title": "源自<br>民族精神的灵感",
-        "about.dbp.p1": "灵感来自武元甲大将的一句话：\"新的奠边府战役的时刻已经到来\"——不是关于战争，而是关于自强的意志。",
-        "about.dbp.p2": "奠边府战役证明了越南人民可以凭借智慧、创造力和意志力取胜——即使面对看似不可能的挑战。",
+        "about.dbp.title": "源自<br>越南民族精神的灵感",
+        "about.dbp.p1": "Deron 的灵感源自武元甲大将——正是他率领越南在 1954 年的奠边府战役中赢得历史性胜利。他的那句话\"新的奠边府战役的时刻已经到来\"，讲的不是战争，而是一个民族自立自强的意志。",
+        "about.dbp.p2": "在奠边府，一支年轻且装备落后的越南军队以弱胜强，击败了远比自己强大的殖民军队。这场胜利至今仍是有力的证明：越南人民能够凭借智慧、创造力与坚定意志取胜——而这正是 Deron 所秉承的精神。",
         "about.founder.name": "Nguyễn Phúc Huy (阮福辉)",
         "about.founder.role": "创始人 & 项目负责人",
         "about.founder.deron": "Deron 创始人",
@@ -1372,7 +1372,14 @@ window.T = {
                 if (!key) return;
                 el.setAttribute('data-i18n-auto', key);
             }
-            if (dict[key] !== undefined) setElementValue(el, dict[key], false);
+            if (dict[key] === undefined) return;
+            // Never overwrite an element's textContent when the translated value is
+            // plain text but the element wraps child elements — doing so would destroy
+            // those children (and any handlers/links on them). Only leaf elements or
+            // HTML-valued translations are safe to apply here.
+            const isHtmlValue = /<[a-z][\s\S]*>/i.test(String(dict[key]));
+            if (!isHtmlValue && el.children.length > 0) return;
+            setElementValue(el, dict[key], false);
         });
     };
 })();

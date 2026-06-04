@@ -61,10 +61,11 @@
               logoMarkup() +
               '<p class="footer-brand-desc" data-i18n="footer.desc">Xây dựng lớp hạ tầng logistics tầm thấp đầu tiên của Việt Nam — cho y tế, cứu trợ, và tương lai.</p>' +
               '<div class="footer-tagline" data-i18n="footer.tagline">Made in Vietnam · Built for Vietnam</div>' +
+              (showBackHome ? '<div class="footer-back-home">' + backHomeMarkup() + '</div>' : '') +
             '</div>' +
             '<div>' +
               '<div class="footer-col-title" data-i18n="footer.col1">Sứ mệnh</div>' +
-              '<div class="footer-links">' +
+              '<div class="footer-links" data-i18n-skip>' +
                 navLink('about', 'footer.l1', 'Về chúng tôi') +
                 navLink('about', 'footer.l2', 'Giá trị cốt lõi') +
                 navLink('about', 'footer.l3', 'Lộ trình') +
@@ -72,7 +73,7 @@
             '</div>' +
             '<div>' +
               '<div class="footer-col-title" data-i18n="footer.col2">Sản phẩm</div>' +
-              '<div class="footer-links">' +
+              '<div class="footer-links" data-i18n-skip>' +
                 navLink('technology', 'footer.l4', 'Công nghệ') +
                 navLink('usecases', 'footer.l5', 'Ứng dụng') +
                 navLink('technology', 'footer.l6', 'Triết lý an toàn') +
@@ -82,13 +83,13 @@
             '</div>' +
             '<div>' +
               '<div class="footer-col-title" data-i18n="footer.col_info">Thông tin</div>' +
-              '<div class="footer-links">' +
+              '<div class="footer-links" data-i18n-skip>' +
                 blogLink() +
               '</div>' +
             '</div>' +
             '<div>' +
               '<div class="footer-col-title" data-i18n="footer.col3">Đầu tư</div>' +
-              '<div class="footer-links">' +
+              '<div class="footer-links" data-i18n-skip>' +
                 navLink('investor', 'footer.l7', 'Nhà đầu tư') +
                 '<a class="footer-link" data-i18n="footer.l8" href="/public/Deron_Pitch.pdf" target="_blank" rel="noopener">Tải Pitch Deck</a>' +
                 navLink('investor', 'footer.l9', 'Lộ trình vốn') +
@@ -96,7 +97,7 @@
             '</div>' +
             '<div>' +
               '<div class="footer-col-title" data-i18n="footer.col4">Liên hệ</div>' +
-              '<div class="footer-links">' +
+              '<div class="footer-links" data-i18n-skip>' +
                 '<a class="footer-link" href="mailto:ceo.deron@gmail.com">ceo.deron@gmail.com</a>' +
                 '<a class="footer-link" href="tel:0363045747">0363 045 747</a>' +
                 '<span class="footer-link">deron.vn</span>' +
@@ -108,7 +109,6 @@
             '<div class="footer-copy" data-i18n="footer.founder">Founder: Nguyễn Phúc Huy</div>' +
             '<div class="footer-location" data-i18n="footer.location">Ho Chi Minh City · Vietnam</div>' +
           '</div>' +
-          (showBackHome ? '<div class="footer-back-home">' + backHomeMarkup() + '</div>' : '') +
         '</div>' +
       '</footer>';
 
