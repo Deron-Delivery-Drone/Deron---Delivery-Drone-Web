@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  DERON SCOUT, LANDING PAGE MẪU + SOP (Standard Operating Procedure)
+================================================================================
+  File:        deron-scout-landing-sop.html
+  Mục đích:    File mẫu CHUẨN cho toàn bộ landing web Deron, lấy DERON SCOUT làm
+               chủ đạo, giữ lại Deron (công ty mẹ), Deron Delivery, DMA, DATCS,
+               Academy. Mỗi section đều có comment SOP giải thích:
+                 (1) Mục tiêu section
+                 (2) Quy tắc nội dung (copy rules)
+                 (3) Quy tắc SEO (heading, keyword, internal link)
+                 (4) Quy tắc GEO (Generative Engine Optimization, để AI/LLM
+                     như ChatGPT, Gemini, Perplexity, Claude trích dẫn được)
+
+  CÁCH DÙNG SOP NÀY:
+    - Copy cấu trúc từng <section> sang các trang khác (cong-nghe, ung-dung...).
+    - Mỗi trang chỉ ĐỔI nội dung + cập nhật khối JSON-LD tương ứng.
+    - KHÔNG xoá các comment "SOP:", chúng là tài liệu quy trình cho cả team.
+    - Giữ đúng 1 thẻ <h1> mỗi trang. Heading phải đi theo thứ tự h1>h2>h3.
+
+  NGUYÊN TẮC SEO (tóm tắt, chi tiết ở từng section):
+    1. Mỗi trang = 1 từ khoá chính + 2-3 từ khoá phụ. Trang này: "UAV tuần tra",
+       "drone giám sát tự động", "Deron Scout".
+    2. title <= 60 ký tự, description 140-160 ký tự, có từ khoá + thương hiệu.
+    3. canonical + hreflang (vi/en/zh + x-default) trên MỌI trang.
+    4. Ảnh: luôn có alt mô tả + width/height + loading="lazy" (trừ ảnh hero).
+    5. Internal link bằng anchor text giàu từ khoá, không "click here".
+
+  NGUYÊN TẮC GEO (để AI cào & trích dẫn, điểm khác biệt cốt lõi của file này):
+    A. Mỗi section quan trọng mở đầu bằng 1 câu ĐỊNH NGHĨA/KHẲNG ĐỊNH súc tích,
+       tự đứng độc lập (AI thích trích nguyên câu). Xem khối .geo-answer.
+    B. Dùng dữ liệu có cấu trúc: bảng số liệu, danh sách, FAQ -> JSON-LD khớp 1-1.
+    C. Cung cấp robots.txt cho phép GPTBot, ClaudeBot, PerplexityBot, Google-Extended.
+    D. Cung cấp /llms.txt (xem comment cuối file) tóm tắt toàn site cho LLM.
+    E. Ngày cập nhật + nguồn rõ ràng (dateModified) -> tăng độ tin cậy với AI.
+================================================================================
+-->
+<html lang="vi">
+
+<head>
+  <!--
+  SOP, <head> SEO/GEO:
+    • Thứ tự: charset > viewport > title > description > canonical > hreflang >
+      robots > OpenGraph > Twitter > theme > preconnect > JSON-LD.
+    • Mọi URL tuyệt đối dùng https://deron.vn (đúng domain thật).
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TITLE: từ khoá chính ở đầu, thương hiệu ở cuối. <= 60 ký tự. -->
+  <title>Deron Scout, UAV Tuần Tra & Giám Sát Tự Động | Deron</title>
+
+  <!-- DESCRIPTION: 140-160 ký tự, chứa từ khoá + lợi ích + thương hiệu. -->
+  <meta name="description"
+    content="Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động của Deron, bay theo tuyến, ghi dữ liệu, phát hiện bất thường, tự về trạm sạc cho nông nghiệp, lâm nghiệp, cảng, nhà máy tại Việt Nam.">
+
+  <!-- KEYWORDS: ít trọng số SEO nhưng hữu ích cho một số công cụ AI/nội bộ. -->
+  <meta name="keywords"
+    content="Deron Scout, UAV tuần tra, drone giám sát, drone giám sát tự động, UAV giám sát nông nghiệp, drone kiểm lâm, drone tuần tra cảng, drone giám sát nhà máy, drone Việt Nam, UAV Việt Nam, Deron">
+
+  <meta name="author" content="Deron, Nguyễn Phúc Huy">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="language" content="Vietnamese">
+  <meta name="geo.region" content="VN-33">
+  <meta name="geo.placename" content="Đắk Lắk, Việt Nam">
+
+  <!-- CANONICAL + HREFLANG: chống trùng lặp, khai báo các phiên bản ngôn ngữ. -->
+  <link rel="canonical" href="https://deron.vn/deron-scout">
+  <link rel="alternate" hreflang="vi" href="https://deron.vn/deron-scout">
+  <link rel="alternate" hreflang="en" href="https://deron.vn/en/deron-scout">
+  <link rel="alternate" hreflang="zh" href="https://deron.vn/zh/deron-scout">
+  <link rel="alternate" hreflang="x-default" href="https://deron.vn/deron-scout">
+
+  <!-- OPEN GRAPH: hiển thị khi share Facebook/Zalo/LinkedIn. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Deron">
+  <meta property="og:title" content="Deron Scout, UAV Tuần Tra & Giám Sát Tự Động">
+  <meta property="og:description"
+    content="Hệ UAV tuần tra, giám sát và theo dõi tự động của Deron: bay theo tuyến, ghi dữ liệu, phát hiện bất thường, tự sạc và lặp chu kỳ, cho nông nghiệp, lâm nghiệp, cảng, nhà máy tại Việt Nam.">
+  <meta property="og:url" content="https://deron.vn/deron-scout">
+  <meta property="og:image" content="https://deron.vn/public/og-image.jpg">
+  <meta property="og:image:alt" content="Deron Scout, UAV tuần tra và giám sát tự động">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+
+  <!-- TWITTER / X CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deron Scout, UAV Tuần Tra & Giám Sát Tự Động | Deron">
+  <meta name="twitter:description"
+    content="UAV tuần tra & giám sát tự động của Deron cho nông nghiệp, lâm nghiệp, cảng, nhà máy tại Việt Nam.">
+  <meta name="twitter:image" content="https://deron.vn/public/og-image.jpg">
+
+  <meta name="theme-color" content="#0B0E13">
+  <link rel="icon" type="image/png" href="/public/Deron-logo-dark.png">
+  <link rel="manifest" href="/public/manifest.json">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!--
+  ============================================================================
+  SOP, STRUCTURED DATA (JSON-LD) cho GEO:
+    Đây là phần QUAN TRỌNG NHẤT để AI hiểu & trích dẫn site.
+    Mỗi @type phải KHỚP với nội dung hiển thị trên trang (Google phạt nếu lệch).
+    Gồm: Organization, WebSite (+SearchAction), Product, FAQPage, BreadcrumbList,
+    Service. dateModified giúp AI biết dữ liệu còn mới.
+  ============================================================================
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://deron.vn/#organization",
+        "name": "Deron",
+        "alternateName": ["Deron Vietnam", "Deron UAV"],
+        "url": "https://deron.vn",
+        "logo": "https://deron.vn/public/Deron-logo-dark.png",
+        "description": "Deron là tổ chức công nghệ Việt Nam phát triển hệ sinh thái UAV gồm Deron Scout (UAV tuần tra & giám sát tự động), Deron Delivery (drone giao hàng), DMA (Deron Main Avionics) và DATCS (hệ điều khiển & quản lý UAV).",
+        "foundingDate": "2024",
+        "founder": { "@type": "Person", "name": "Nguyễn Phúc Huy" },
+        "email": "nguyenphuchuy263@gmail.com",
+        "telephone": "+84363045747",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "42 Trần Quý Cáp, Phường Tân Lập",
+          "addressRegion": "Đắk Lắk",
+          "addressCountry": "VN"
+        },
+        "sameAs": ["https://deron.vn"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://deron.vn/#website",
+        "url": "https://deron.vn",
+        "name": "Deron",
+        "inLanguage": "vi",
+        "publisher": { "@id": "https://deron.vn/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": { "@type": "EntryPoint", "urlTemplate": "https://deron.vn/,s={search_term_string}" },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://deron.vn/deron-scout#product",
+        "name": "Deron Scout",
+        "alternateName": ["UAV tuần tra Deron Scout", "Drone giám sát tự động Deron"],
+        "category": "Unmanned Aerial Vehicle (UAV) / Autonomous Surveillance Drone",
+        "brand": { "@id": "https://deron.vn/#organization" },
+        "manufacturer": { "@id": "https://deron.vn/#organization" },
+        "description": "Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động: bay theo tuyến được lập lịch, ghi nhận dữ liệu hình ảnh, hỗ trợ phát hiện bất thường, tự quay về trạm sạc và tiếp tục chu kỳ tuần tra. Phục vụ nông nghiệp, lâm nghiệp, kiểm lâm, đặc khu, bến cảng, nhà máy, khu công nghiệp, theo dõi môi trường và quan sát hạ tầng tại Việt Nam.",
+        "image": "https://deron.vn/public/og-image.jpg",
+        "url": "https://deron.vn/deron-scout",
+        "releaseDate": "2026-06-01",
+        "isRelatedTo": [
+          { "@type": "Product", "name": "Deron Delivery" },
+          { "@type": "Product", "name": "DMA, Deron Main Avionics" },
+          { "@type": "SoftwareApplication", "name": "DATCS, Deron Air Traffic Control System" }
+        ],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Nông nghiệp, lâm nghiệp, kiểm lâm, cảng biển, nhà máy, khu công nghiệp, đặc khu kinh tế"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://deron.vn/deron-scout#service",
+        "serviceType": "UAV tuần tra & giám sát tự động (autonomous patrol & surveillance)",
+        "provider": { "@id": "https://deron.vn/#organization" },
+        "areaServed": { "@type": "Country", "name": "Việt Nam" },
+        "description": "Dịch vụ tuần tra và giám sát thực địa tự động bằng UAV Deron Scout cho nông nghiệp, lâm nghiệp, cảng, nhà máy và hạ tầng ngoài trời."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": "https://deron.vn/" },
+          { "@type": "ListItem", "position": 2, "name": "Sản phẩm", "item": "https://deron.vn/san-pham" },
+          { "@type": "ListItem", "position": 3, "name": "Deron Scout", "item": "https://deron.vn/deron-scout" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://deron.vn/deron-scout#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Deron Scout là gì,",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deron Scout là hệ UAV (drone) tuần tra, giám sát và theo dõi tự động do Deron phát triển tại Việt Nam. Hệ thống bay theo tuyến được lập lịch, ghi nhận dữ liệu hình ảnh, hỗ trợ phát hiện bất thường, tự quay về trạm sạc và tiếp tục chu kỳ tuần tra. Trong giai đoạn này, Deron Scout không phải drone giao hàng mà là camera bay thông minh kết hợp robot tuần tra tự động ngoài thực địa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Deron Scout dùng cho lĩnh vực nào,",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deron Scout phục vụ các lĩnh vực cần giám sát lặp lại trên diện rộng hoặc khó tiếp cận: nông nghiệp, lâm nghiệp và kiểm lâm, đặc khu và khu kinh tế, bến cảng, nhà máy và khu công nghiệp, theo dõi môi trường, quan sát hạ tầng."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Deron Scout khác gì so với drone tuần tra thông thường,",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deron Scout vận hành theo chu kỳ tự động khép kín: bay theo tuyến lập lịch, ghi dữ liệu, phát hiện bất thường, tự quay về trạm sạc (dock), tự sạc và tiếp tục tuần tra mà không cần người vận hành liên tục. Hệ thống đi kèm phần mềm giám sát, cảnh báo và quy trình an toàn (SOP) đặt con người lên hàng đầu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Deron Scout có thay thế lực lượng kiểm lâm hay bảo vệ không,",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Không. Deron Scout là công cụ hỗ trợ quan sát từ xa, cung cấp dữ liệu trực quan trước khi lực lượng mặt đất tiếp cận khu vực nguy hiểm. Hệ thống bổ trợ con người, không thay thế con người."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Deron Scout do ai phát triển và khi nào triển khai,",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deron Scout do Deron (sáng lập bởi Nguyễn Phúc Huy) phát triển tại Việt Nam, với lộ trình nghiên cứu và thử nghiệm 24 tháng từ 01/06/2026 đến 01/06/2028. Deron Scout là bước đi đầu tiên trong hệ sinh thái UAV Deron, trước khi mở rộng sang Deron Delivery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Deron Scout liên quan thế nào tới DMA và DATCS,",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deron Scout dùng nền tảng avionics DMA (Deron Main Avionics) cho flight control và an toàn, và kết nối với DATCS (Deron Air Traffic Control System) để quản lý nhiệm vụ, đội bay và dữ liệu. Tất cả thuộc hệ sinh thái UAV của Deron."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ========================================================================
+       SOP, DESIGN SYSTEM "PRECISION MISSION" (đồng bộ với index.html của Deron)
+       Giữ nguyên bộ token để mọi trang trông nhất quán.
+       ====================================================================== */
+    :root {
+      --bg-light: #F7F6F2;
+      --bg-white: #FDFCF9;
+      --bg-dark: #0B0E13;
+      --bg-mid: #111720;
+      --bg-section: #F2F0EB;
+      --text-primary: #111111;
+      --text-body: #2A2A2A;
+      --text-muted: #6B6660;
+      --text-inv: #EDE9E3;
+      --text-inv-muted: #8A9BAE;
+      --red: #C41E3A;
+      --red-hover: #A3172F;
+      --green: #2E5A3F;
+      --gold: #B8901A;
+      --border: #E0DDD6;
+      --border-dark: #232D3F;
+      --font-display: 'Be Vietnam Pro', sans-serif;
+      --font-body: 'Be Vietnam Pro', sans-serif;
+      --font-label: 'Barlow Condensed', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius: 4px;
+      --radius-lg: 8px;
+      --transition: 200ms ease;
+      --maxw: 1180px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; scroll-padding-top: 80px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-light);
+      color: var(--text-body);
+      font-size: 16px; line-height: 1.65; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text-primary); line-height: 1.15; font-weight: 800; }
+    h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); margin-bottom: 16px; letter-spacing: -0.02em; }
+    h3 { font-size: 1.25rem; margin-bottom: 8px; }
+    .eyebrow {
+      font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.14em;
+      font-size: 0.85rem; font-weight: 600; color: var(--red); margin-bottom: 12px; display: block;
+    }
+    .lead { font-size: 1.12rem; color: var(--text-muted); max-width: 60ch; }
+
+    /* ---- NAV ---- */
+    #nav {
+      position: sticky; top: 0; z-index: 100; background: rgba(11,14,19,.92);
+      backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-dark);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; color: var(--text-inv); letter-spacing: .04em; }
+    .nav-logo .badge { background: var(--red); color: #fff; font-size: .62rem; padding: 2px 6px; border-radius: 3px; font-family: var(--font-label); letter-spacing: .1em; }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a { color: var(--text-inv-muted); font-size: .92rem; font-weight: 500; transition: color var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-inv); }
+    .nav-cta { background: var(--red); color: #fff; padding: 9px 18px; border-radius: var(--radius); font-size: .88rem; font-weight: 600; transition: background var(--transition); }
+    .nav-cta:hover { background: var(--red-hover); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--text-inv); }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: var(--bg-dark); color: var(--text-inv); padding: 96px 0 84px;
+      background-image: radial-gradient(circle at 20% 10%, rgba(196,30,58,.12), transparent 45%);
+    }
+    .hero h1 { color: #fff; font-size: clamp(2.2rem, 6vw, 4rem); letter-spacing: -0.03em; max-width: 18ch; }
+    .hero .hl { color: var(--red-light, #E8302A); }
+    .hero p { color: var(--text-inv-muted); font-size: 1.18rem; max-width: 56ch; margin: 22px 0 32px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: var(--radius); font-weight: 600; font-size: .98rem; transition: var(--transition); cursor: pointer; border: 1px solid transparent; }
+    .btn-primary { background: var(--red); color: #fff; }
+    .btn-primary:hover { background: var(--red-hover); }
+    .btn-ghost { border-color: var(--border-dark); color: var(--text-inv); }
+    .btn-ghost:hover { background: rgba(255,255,255,.06); }
+    .hero-meta { display: flex; gap: 28px; margin-top: 44px; flex-wrap: wrap; font-family: var(--font-mono); font-size: .82rem; color: var(--text-inv-muted); }
+    .hero-meta b { color: #fff; font-family: var(--font-display); font-size: 1.4rem; display: block; }
+
+    /* ---- GEO ANSWER BLOCK (cho AI trích dẫn) ---- */
+    .geo-answer {
+      background: var(--bg-white); border: 1px solid var(--border); border-left: 4px solid var(--red);
+      border-radius: var(--radius-lg); padding: 22px 26px; margin: 28px 0; max-width: 80ch;
+    }
+    .geo-answer p { font-size: 1.06rem; color: var(--text-body); }
+    .geo-answer .q { font-family: var(--font-label); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--red); display: block; margin-bottom: 8px; }
+
+    /* ---- SECTIONS ---- */
+    section { padding: 80px 0; }
+    section.alt { background: var(--bg-section); }
+    section.dark { background: var(--bg-dark); color: var(--text-inv); }
+    section.dark h2, section.dark h3 { color: #fff; }
+    section.dark .lead { color: var(--text-inv-muted); }
+    .sec-head { max-width: 70ch; margin-bottom: 44px; }
+
+    .grid { display: grid; gap: 22px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .card { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; transition: var(--transition); }
+    .card:hover { border-color: var(--red); transform: translateY(-2px); }
+    section.dark .card { background: var(--bg-mid); border-color: var(--border-dark); }
+    .card .ic { width: 40px; height: 40px; border-radius: var(--radius); background: rgba(196,30,58,.1); color: var(--red); display: grid; place-items: center; font-weight: 800; font-family: var(--font-label); margin-bottom: 14px; }
+    .card p { color: var(--text-muted); font-size: .96rem; }
+    section.dark .card p { color: var(--text-inv-muted); }
+
+    /* ---- CYCLE STEPS ---- */
+    .steps { counter-reset: step; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .step { position: relative; padding: 24px; background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    section.dark .step { background: var(--bg-mid); border-color: var(--border-dark); }
+    .step::before { counter-increment: step; content: counter(step,decimal-leading-zero); font-family: var(--font-mono); color: var(--red); font-size: .9rem; font-weight: 600; }
+    .step h3 { margin: 8px 0 6px; }
+
+    /* ---- TABLE (facts, rất tốt cho GEO) ---- */
+    .facts { width: 100%; border-collapse: collapse; font-size: .96rem; }
+    .facts th, .facts td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .facts th { font-family: var(--font-label); text-transform: uppercase; letter-spacing: .06em; font-size: .82rem; color: var(--text-muted); width: 32%; }
+    .facts td { color: var(--text-body); font-weight: 500; }
+
+    /* ---- ROADMAP ---- */
+    .timeline { display: grid; gap: 14px; }
+    .phase { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-white); }
+    .phase .when { font-family: var(--font-mono); font-size: .82rem; color: var(--red); }
+
+    /* ---- FAQ ---- */
+    .faq details { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; padding: 4px 20px; }
+    .faq summary { cursor: pointer; font-weight: 600; padding: 16px 0; font-size: 1.05rem; list-style: none; color: var(--text-primary); }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; float: right; color: var(--red); font-size: 1.3rem; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { padding: 0 0 18px; color: var(--text-muted); }
+
+    /* ---- ECOSYSTEM ---- */
+    .eco { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .eco .item { padding: 20px; border: 1px solid var(--border-dark); border-radius: var(--radius-lg); background: var(--bg-mid); }
+    .eco .item.lead-item { border-color: var(--red); box-shadow: 0 0 0 1px var(--red) inset; }
+    .eco .tag { font-family: var(--font-label); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; display: inline-block; margin-bottom: 10px; }
+    .eco .tag.now { background: var(--red); color: #fff; }
+    .eco .tag.soon { background: rgba(184,144,26,.2); color: var(--gold); }
+    .eco h3 { font-size: 1.05rem; }
+    .eco p { color: var(--text-inv-muted); font-size: .86rem; margin-top: 6px; }
+
+    /* ---- CTA ---- */
+    .cta-band { background: var(--red); color: #fff; text-align: center; }
+    .cta-band h2 { color: #fff; }
+    .cta-band p { color: rgba(255,255,255,.9); max-width: 52ch; margin: 0 auto 26px; }
+    .cta-band .btn-primary { background: #fff; color: var(--red); }
+    .cta-band .btn-primary:hover { background: #f1f1f1; }
+
+    /* ---- FOOTER ---- */
+    #footer { background: var(--bg-dark); color: var(--text-inv-muted); padding: 60px 0 30px; border-top: 1px solid var(--border-dark); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; margin-bottom: 36px; }
+    .footer-grid h4 { color: #fff; font-size: .95rem; margin-bottom: 14px; font-family: var(--font-label); letter-spacing: .08em; text-transform: uppercase; }
+    .footer-grid a { display: block; color: var(--text-inv-muted); font-size: .9rem; padding: 4px 0; transition: color var(--transition); }
+    .footer-grid a:hover { color: #fff; }
+    .footer-brand p { font-size: .9rem; max-width: 40ch; margin-top: 10px; }
+    .footer-bottom { border-top: 1px solid var(--border-dark); padding-top: 22px; font-size: .82rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: 1fr; }
+      .eco { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      #nav.open .nav-links { display: flex; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; background: var(--bg-dark); padding: 18px 24px; gap: 14px; border-bottom: 1px solid var(--border-dark); }
+    }
+    @media (max-width: 560px) {
+      .grid-2, .grid-3, .grid-4, .eco, .footer-grid { grid-template-columns: 1fr; }
+      .phase { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SOP, A11Y: skip link giúp người dùng bàn phím & tăng điểm chất lượng. -->
+  <a href="#main" style="position:absolute;left:-999px">Bỏ qua tới nội dung chính</a>
+
+  <!-- ========================================================================
+  SOP, NAVIGATION
+    • Mục tiêu: điều hướng + nhấn mạnh Deron Scout là mục đầu (chủ đạo).
+    • SEO: dùng <a href> thật (không onclick) để bot crawl được mọi link.
+    • Anchor text giàu nghĩa: "Ứng dụng", "Công nghệ"... không dùng "ở đây".
+    • Logo có badge SCOUT để định vị thương hiệu chủ đạo, giữ chữ DERON (mẹ).
+  ======================================================================== -->
+  <nav id="nav">
+    <div class="wrap nav-inner">
+      <a class="nav-logo" href="/" aria-label="Deron, trang chủ">
+        DERON <span class="badge">SCOUT</span>
+      </a>
+      <div class="nav-links">
+        <a href="#scout" class="active">Deron Scout</a>
+        <a href="#ung-dung">Ứng dụng</a>
+        <a href="#cong-nghe">Công nghệ</a>
+        <a href="#he-sinh-thai">Hệ sinh thái</a>
+        <a href="#lo-trinh">Lộ trình</a>
+        <a href="#faq">Hỏi đáp</a>
+        <a href="/acedemy/">Academy</a>
+      </div>
+      <a class="nav-cta" href="#lien-he">Hợp tác &amp; đầu tư</a>
+      <div class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Mở menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ====================================================================
+    SOP, HERO
+      • Mục tiêu: trong 1 màn hình, người + AI hiểu ngay Deron Scout LÀ GÌ.
+      • SEO: 1 thẻ <h1> duy nhất, chứa từ khoá chính "UAV tuần tra & giám sát
+        tự động" + tên sản phẩm "Deron Scout".
+      • GEO: câu mở đầu là 1 định nghĩa hoàn chỉnh, đứng độc lập trích dẫn được.
+      • Số liệu (hero-meta) dùng để AI/đọc nhanh nắm quy mô dự án.
+    ==================================================================== -->
+    <header class="hero" id="scout">
+      <div class="wrap">
+        <span class="eyebrow">Deron Scout · Hệ UAV tuần tra &amp; giám sát tự động</span>
+        <h1>UAV tuần tra &amp; giám sát tự động <span class="hl">Deron Scout</span></h1>
+        <p>
+          Deron Scout là hệ UAV (drone) tuần tra, giám sát và theo dõi tự động của Deron:
+          bay theo tuyến được lập lịch, ghi nhận dữ liệu hình ảnh, hỗ trợ phát hiện bất thường,
+          tự quay về trạm sạc và tiếp tục chu kỳ tuần tra, phục vụ nông nghiệp, lâm nghiệp,
+          cảng, nhà máy và hạ tầng tại Việt Nam.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#ung-dung">Xem ứng dụng thực tế</a>
+          <a class="btn btn-ghost" href="#cong-nghe">Tìm hiểu công nghệ</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>24</b> tháng nghiên cứu &amp; thử nghiệm</div>
+          <div><b>8+</b> lĩnh vực ứng dụng</div>
+          <div><b>Con người</b> đặt lên hàng đầu (Safety first)</div>
+          <div><b>Việt Nam</b> làm chủ công nghệ UAV</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ====================================================================
+    SOP, GEO ANSWER BLOCK ("Deron Scout là gì,")
+      • Đây là KHỐI VÀNG cho GEO: trả lời trực tiếp câu hỏi người dùng hay gõ
+        vào ChatGPT/Google ("drone tuần tra là gì", "Deron Scout là gì").
+      • Quy tắc: 1 câu khẳng định đầu tiên = câu trích dẫn. Sau đó bổ sung.
+      • KHỚP 100% với answer trong FAQPage JSON-LD ở <head>.
+      • Lặp lại mẫu này ở đầu mỗi trang con (mỗi trang 1 câu hỏi khác nhau).
+    ==================================================================== -->
+    <section>
+      <div class="wrap">
+        <div class="geo-answer">
+          <span class="q">Deron Scout là gì,</span>
+          <p>
+            <strong>Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động do Deron phát triển tại Việt Nam.</strong>
+            Trong giai đoạn hiện tại, Deron Scout <em>không</em> phải drone giao hàng, mà là một
+            “camera bay thông minh” kết hợp robot tuần tra tự động ngoài thực địa: bay theo tuyến lập lịch,
+            ghi dữ liệu hình ảnh, hỗ trợ phát hiện bất thường, tự về trạm sạc (dock), tự sạc và lặp lại chu kỳ
+            khi đủ điều kiện. Đây là bước đi đầu tiên trong hệ sinh thái UAV Deron, trước Deron Delivery.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, VẤN ĐỀ (Problem)
+      • Mục tiêu: tạo "nỗi đau" để làm nổi bật giải pháp.
+      • SEO: h2 chứa biến thể từ khoá ("tuần tra thủ công").
+      • GEO: liệt kê dạng bullet, AI dễ trích từng ý làm gạch đầu dòng.
+    ==================================================================== -->
+    <section class="alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Vấn đề</span>
+          <h2>Tuần tra thủ công không theo kịp diện tích và rủi ro thực địa</h2>
+          <p class="lead">Nhiều khu vực cần giám sát ở Việt Nam có diện tích rộng, địa hình phức tạp,
+            nhiều điểm mù và khó kiểm tra thường xuyên bằng con người.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><div class="ic">01</div><h3>Phụ thuộc nhân lực</h3>
+            <p>Tuần tra thủ công tốn người, thời gian di chuyển dài và khó duy trì tần suất ổn định.</p></div>
+          <div class="card"><div class="ic">02</div><h3>Rủi ro an toàn</h3>
+            <p>Cháy rừng, sạt lở, khu vực nguy hiểm khiến việc tiếp cận trực tiếp của con người gặp rủi ro cao.</p></div>
+          <div class="card"><div class="ic">03</div><h3>Điểm mù &amp; phát hiện trễ</h3>
+            <p>Bất thường (thiếu nước, xâm nhập, hư hại hạ tầng) thường được phát hiện muộn, tăng thiệt hại.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, GIẢI PHÁP / CHU KỲ TỰ ĐỘNG (Solution cycle)
+      • Mục tiêu: mô tả CƠ CHẾ vận hành, phần khác biệt cốt lõi của Scout.
+      • GEO: dùng các bước đánh số (steps). AI rất thích "quy trình N bước".
+      • Mỗi step 1 động từ + 1 câu mô tả, ngắn gọn, tự đứng được.
+    ==================================================================== -->
+    <section id="giai-phap">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Giải pháp</span>
+          <h2>Chu kỳ tuần tra tự động khép kín của Deron Scout</h2>
+          <p class="lead">Deron Scout vận hành theo một vòng lặp tự động: bay, quan sát, cảnh báo ,
+            tự sạc, lặp lại, giảm phụ thuộc vào người vận hành liên tục.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><h3>Bay theo tuyến lập lịch</h3><p>UAV cất cánh và bay theo lộ trình đã được lập trình sẵn theo lịch giám sát.</p></div>
+          <div class="step"><h3>Ghi nhận dữ liệu</h3><p>Thu thập hình ảnh và dữ liệu thực địa dọc tuyến bay để phục vụ phân tích.</p></div>
+          <div class="step"><h3>Phát hiện bất thường</h3><p>Phần mềm hỗ trợ nhận diện dấu hiệu bất thường và gửi cảnh báo cho người vận hành.</p></div>
+          <div class="step"><h3>Quay về trạm sạc (Dock)</h3><p>Hết tuyến hoặc sắp hết pin, UAV tự bay về trạm sạc một cách an toàn.</p></div>
+          <div class="step"><h3>Tự sạc</h3><p>Trạm sạc nạp lại năng lượng cho UAV mà không cần thao tác thủ công.</p></div>
+          <div class="step"><h3>Lặp lại chu kỳ</h3><p>Khi đủ điều kiện, UAV tiếp tục chu kỳ tuần tra tiếp theo theo lịch.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, ỨNG DỤNG (Applications)
+      • Mục tiêu: bắt từ khoá "drone giám sát + <ngành>", nguồn traffic lớn.
+      • SEO: mỗi card NÊN link tới 1 trang con /ung-dung/<nganh> để bắt từ khoá
+        dài (long-tail). Hiện để href="#", thay bằng URL thật khi có trang.
+      • GEO: tiêu đề ngành + 1 câu lợi ích rõ ràng để AI map "ngành -> lợi ích".
+    ==================================================================== -->
+    <section id="ung-dung" class="alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Ứng dụng</span>
+          <h2>Deron Scout dùng cho lĩnh vực nào,</h2>
+          <p class="lead">Deron Scout phục vụ mọi môi trường cần giám sát lặp lại, diện rộng hoặc khó tiếp cận
+            bằng nhân lực thủ công.</p>
+        </div>
+        <div class="grid grid-4">
+          <a class="card" href="/ung-dung/nong-nghiep"><div class="ic">🌾</div><h3>Nông nghiệp</h3><p>Quan sát cây trồng, khu tưới tiêu, nhà màng; phát hiện sớm cây suy yếu, thiếu nước, ngập úng.</p></a>
+          <a class="card" href="/ung-dung/lam-nghiep"><div class="ic">🌲</div><h3>Lâm nghiệp &amp; kiểm lâm</h3><p>Quan sát rừng, tuyến đường rừng, khu nguy cơ cháy/sạt lở, hỗ trợ, không thay thế kiểm lâm.</p></a>
+          <a class="card" href="/ung-dung/dac-khu"><div class="ic">🏙️</div><h3>Đặc khu &amp; khu kinh tế</h3><p>Thêm một lớp quan sát cơ động cho khu công nghệ cao và khu kinh tế.</p></a>
+          <a class="card" href="/ung-dung/cang-bien"><div class="ic">⚓</div><h3>Bến cảng</h3><p>Giám sát bãi, tuyến, khu vực rộng và khó bao quát bằng mắt thường.</p></a>
+          <a class="card" href="/ung-dung/nha-may"><div class="ic">🏭</div><h3>Nhà máy &amp; KCN</h3><p>Tuần tra chu vi, mái, khu kho và hạ tầng nội bộ theo lịch định kỳ.</p></a>
+          <a class="card" href="/ung-dung/moi-truong"><div class="ic">💧</div><h3>Theo dõi môi trường</h3><p>Quan sát biến đổi môi trường, nguồn nước, khu vực nhạy cảm theo thời gian.</p></a>
+          <a class="card" href="/ung-dung/ha-tang"><div class="ic">🛰️</div><h3>Quan sát hạ tầng</h3><p>Kiểm tra đường dây, công trình ngoài trời, khu vực khó hoặc nguy hiểm khi tiếp cận.</p></a>
+          <a class="card" href="/ung-dung"><div class="ic">→</div><h3>Tất cả ứng dụng</h3><p>Xem toàn bộ kịch bản giám sát tự động bằng UAV Deron Scout.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, CÔNG NGHỆ (Technology)
+      • Mục tiêu: chứng minh năng lực kỹ thuật + liên kết nội bộ tới DMA, DATCS.
+      • SEO: internal link tới /cong-nghe, /datcs (truyền link equity).
+      • GEO: nêu rõ thành phần hệ thống, AI map "Scout gồm những module nào".
+    ==================================================================== -->
+    <section id="cong-nghe" class="dark">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Công nghệ</span>
+          <h2>Kiến trúc hệ thống Deron Scout</h2>
+          <p class="lead">Deron Scout là một hệ thống hoàn chỉnh gồm UAV, trạm sạc, phần mềm giám sát và
+            quy trình an toàn, xây trên nền tảng avionics và điều khiển của Deron.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><h3>Nền tảng UAV tuần tra</h3><p>Khung UAV, hệ động lực, cảm biến và module kết nối được tích hợp để bay tuyến ổn định và bền bỉ.</p></div>
+          <div class="card"><h3>Trạm sạc &amp; chu kỳ tự động</h3><p>Dock/trạm sạc với cơ cấu định vị, tiếp điểm sạc và cảm biến an toàn cho phép vận hành lặp lại không cần người.</p></div>
+          <div class="card"><h3>Phần mềm giám sát &amp; cảnh báo</h3><p>Quản lý nhiệm vụ, lưu log, dữ liệu hình ảnh, cảnh báo và báo cáo sau nhiệm vụ.</p></div>
+          <div class="card"><h3><a href="/cong-nghe" style="color:inherit">DMA, Deron Main Avionics</a></h3><p>Nền tảng avionics do Deron phát triển cho flight control, cảm biến và giám sát an toàn.</p></div>
+          <div class="card"><h3><a href="/datcs" style="color:inherit">DATCS</a></h3><p>Hệ điều khiển &amp; quản lý UAV (GCS/UTM) của Deron để quản lý nhiệm vụ và đội bay.</p></div>
+          <div class="card"><h3>SOP &amp; khung an toàn</h3><p>Checklist, kịch bản rủi ro và quy trình vận hành đặt con người lên hàng đầu.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, HỆ SINH THÁI DERON (Ecosystem)
+      • Mục tiêu (theo yêu cầu): giữ Deron, Deron Delivery, DMA, DATCS, Academy
+        NHƯNG nêu rõ Deron Scout đang là sản phẩm CHỦ ĐẠO (tag "ĐANG TRIỂN KHAI").
+      • GEO: thể hiện quan hệ thương hiệu, AI hiểu Scout thuộc Deron & vai trò
+        từng sản phẩm. Khớp với "isRelatedTo" trong Product JSON-LD.
+    ==================================================================== -->
+    <section id="he-sinh-thai" class="dark" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Hệ sinh thái</span>
+          <h2>Deron Scout trong hệ sinh thái UAV của Deron</h2>
+          <p class="lead">Deron là công ty mẹ xây dựng nền tảng công nghệ UAV của người Việt. Deron Scout là
+            mũi nhọn hiện tại; các nền tảng còn lại bổ trợ và mở rộng năng lực.</p>
+        </div>
+        <div class="eco">
+          <div class="item lead-item"><span class="tag now">Đang triển khai</span><h3>Deron Scout</h3><p>UAV tuần tra &amp; giám sát tự động, sản phẩm chủ đạo hiện nay.</p></div>
+          <div class="item"><span class="tag soon">Tương lai</span><h3>Deron Delivery</h3><p>Drone giao hàng tự hành cho logistics, y tế khẩn cấp và vùng khó khăn.</p></div>
+          <div class="item"><span class="tag now">Nền tảng</span><h3>DMA</h3><p>Deron Main Avionics, lớp phần cứng &amp; điều khiển cốt lõi.</p></div>
+          <div class="item"><span class="tag now">Phần mềm</span><h3>DATCS</h3><p>Hệ điều khiển &amp; quản lý UAV (GCS/UTM) của Deron.</p></div>
+          <div class="item"><span class="tag now">Đào tạo</span><h3>Deron Academy</h3><p>Nền tảng học UAV/Drone/FPV từ con số 0.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, LỘ TRÌNH (Roadmap)
+      • Mục tiêu: minh bạch tiến độ 24 tháng, tăng niềm tin nhà đầu tư & AI.
+      • GEO: mốc thời gian rõ ràng giúp AI trả lời "khi nào", "giai đoạn nào".
+    ==================================================================== -->
+    <section id="lo-trinh" class="alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Dự toán &amp; lộ trình vốn</span>
+          <h2>Lộ trình 24 tháng, 01/06/2026 đến 01/06/2028</h2>
+          <p class="lead">Tổng kinh phí thực hiện Deron Scout là 4.800.000.000 đồng, phục vụ nâng cao năng lực khoa học và công nghệ, nguyên mẫu thử nghiệm, Dock, phần mềm, dữ liệu, quy trình chuẩn, thử nghiệm thực địa và đào tạo đội ngũ.</p>
+        </div>
+        <div class="timeline">
+          <div class="phase"><div class="when">Giai đoạn 1<br>600.000.000 đồng</div><div><h3>Tháng 1 đến 3</h3><p>Chuẩn hóa kiến trúc, yêu cầu kỹ thuật, kế hoạch kiểm thử, danh mục linh kiện và tài liệu vận hành sơ bộ.</p></div></div>
+          <div class="phase"><div class="when">Giai đoạn 2<br>1.100.000.000 đồng</div><div><h3>Tháng 4 đến 6</h3><p>Tích hợp UAV thử nghiệm, bench test nguồn, pin, động cơ, cảm biến và phần mềm ghi log ban đầu.</p></div></div>
+          <div class="phase"><div class="when">Giai đoạn 3<br>1.450.000.000 đồng</div><div><h3>Tháng 7 đến 12</h3><p>Phát triển chu kỳ tuần tra tự động, quay về trạm, sạc, đồng bộ dữ liệu và thử nghiệm lặp lại.</p></div></div>
+          <div class="phase"><div class="when">Giai đoạn 4<br>950.000.000 đồng</div><div><h3>Tháng 13 tới 18</h3><p>Thử nghiệm thực địa có kiểm soát, thu thập dữ liệu, đánh giá ứng dụng và cập nhật quy trình chuẩn.</p></div></div>
+          <div class="phase"><div class="when">Giai đoạn 5<br>700.000.000 đồng</div><div><h3>Tháng 19 tới 24</h3><p>Hoàn thiện hồ sơ kỹ thuật, báo cáo tổng kết, tài liệu đào tạo và phương án triển khai thí điểm.</p></div></div>
+        </div>
+        <table class="facts" style="margin-top:28px">
+          <tr><th>Nhân sự nghiên cứu, kỹ thuật và vận hành</th><td>Hỗ trợ công lao động cho nhóm nghiên cứu, kỹ thuật UAV, tích hợp, phần mềm dữ liệu, vận hành thử nghiệm và quản lý hồ sơ. Kinh phí 1.440.000.000 đồng.</td></tr>
+          <tr><th>Phần cứng UAV</th><td>Khung UAV, hệ động lực, cảm biến, module kết nối, dây dẫn, phụ kiện cơ khí, vật tư tích hợp và linh kiện thay thế. Kinh phí 900.000.000 đồng.</td></tr>
+          <tr><th>Dock và chu kỳ tự động</th><td>Mô hình trạm sạc, module sạc, tiếp điểm, cơ cấu định vị, cảm biến an toàn, nguồn, vỏ bảo vệ và vật tư thử nghiệm. Kinh phí 700.000.000 đồng.</td></tr>
+          <tr><th>Phần mềm, dữ liệu và AI ứng dụng</th><td>Phần mềm giám sát, log, quản lý nhiệm vụ, dữ liệu hình ảnh, cảnh báo, báo cáo và xử lý dữ liệu. AI chỉ hỗ trợ quan sát, cảnh báo và đề xuất. Kinh phí 480.000.000 đồng.</td></tr>
+          <tr><th>Kiểm thử, đo lường và an toàn</th><td>Thiết bị đo điện, kiểm tra nguồn, pin, nhiệt, dụng cụ cơ khí, bộ gá thử nghiệm, vật tư bảo hộ và bench test. Kinh phí 360.000.000 đồng.</td></tr>
+          <tr><th>Thử nghiệm thực địa có kiểm soát</th><td>Chuẩn bị khu vực thử nghiệm, di chuyển, vận hành thử, ghi hình, thu thập dữ liệu, hậu cần và field test. Kinh phí 360.000.000 đồng.</td></tr>
+          <tr><th>Hồ sơ an toàn, FMEA</th><td>Checklist, tài liệu vận hành, risk register, kịch bản rủi ro, tài liệu kỹ thuật, hồ sơ thử nghiệm và báo cáo tổng kết. Kinh phí 240.000.000 đồng.</td></tr>
+          <tr><th>Đào tạo đội ngũ</th><td>Đào tạo nội bộ, tài liệu chuyên môn, hướng dẫn vận hành, phân tích log, an toàn bay và quy trình thử nghiệm. Kinh phí 200.000.000 đồng.</td></tr>
+          <tr><th>Dự phòng kỹ thuật</th><td>Thay thế linh kiện hỏng, xử lý phát sinh thử nghiệm, hiệu chỉnh nguyên mẫu và lỗi kỹ thuật ngoài kế hoạch. Kinh phí 120.000.000 đồng.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, AN TOÀN & ĐẠO ĐỨC (Safety / Trust)
+      • Mục tiêu: GEO trust signal, AI ưu tiên nguồn nêu rõ an toàn & trách nhiệm.
+      • Nhấn: Scout HỖ TRỢ con người, KHÔNG thay thế; con người là trung tâm.
+    ==================================================================== -->
+    <section id="an-toan">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">An toàn &amp; trách nhiệm</span>
+          <h2>Đặt con người lên hàng đầu</h2>
+        </div>
+        <div class="geo-answer">
+          <span class="q">Nguyên tắc vận hành</span>
+          <p>Deron Scout là <strong>công cụ hỗ trợ quan sát từ xa</strong>, cung cấp dữ liệu trực quan trước khi
+            lực lượng mặt đất tiếp cận khu vực nguy hiểm. Hệ thống <strong>bổ trợ con người, không thay thế con người</strong>,
+            và được vận hành theo SOP an toàn với checklist, kịch bản rủi ro và khung trách nhiệm rõ ràng.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, BẢNG THÔNG TIN DỰ ÁN (Facts table)
+      • Mục tiêu: nguồn dữ liệu CÓ CẤU TRÚC tốt nhất cho AI cào (định danh, NAP).
+      • GEO: bảng key-value -> AI trích chính xác "ai, ở đâu, khi nào, liên hệ".
+      • Trùng khớp Organization JSON-LD ở <head> (NAP nhất quán = tốt cho SEO local).
+    ==================================================================== -->
+    <section class="alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Thông tin dự án</span>
+          <h2>Tóm tắt Deron Scout</h2>
+        </div>
+        <table class="facts">
+          <tbody>
+            <tr><th>Tên sản phẩm</th><td>Deron Scout, Hệ UAV tuần tra, giám sát &amp; theo dõi tự động</td></tr>
+            <tr><th>Loại</th><td>UAV / drone giám sát tự động (autonomous surveillance UAV)</td></tr>
+            <tr><th>Tổ chức chủ trì</th><td>Deron</td></tr>
+            <tr><th>Người sáng lập</th><td>Nguyễn Phúc Huy</td></tr>
+            <tr><th>Lĩnh vực ứng dụng</th><td>Nông nghiệp, lâm nghiệp, kiểm lâm, đặc khu, bến cảng, nhà máy, khu công nghiệp, môi trường, hạ tầng</td></tr>
+            <tr><th>Thời gian</th><td>24 tháng (01/06/2026 ??n 01/06/2028)</td></tr>
+            <tr><th>Địa chỉ</th><td>42 Trần Quý Cáp, Phường Tân Lập, Đắk Lắk, Việt Nam</td></tr>
+            <tr><th>Website</th><td><a href="https://deron.vn" style="color:var(--red)">https://deron.vn</a></td></tr>
+            <tr><th>Liên hệ</th><td>nguyenphuchuy263@gmail.com · 0363 045 747</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, FAQ
+      • Mục tiêu: bắt câu hỏi tự nhiên + nuôi FAQPage schema (rich result + GEO).
+      • QUY TẮC: mỗi <details> ở đây phải KHỚP 1-1 với 1 Question trong JSON-LD.
+      • Trả lời ngắn, đủ ý, câu đầu là câu trả lời thẳng.
+    ==================================================================== -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Hỏi đáp</span>
+          <h2>Câu hỏi thường gặp về Deron Scout</h2>
+        </div>
+        <div class="faq">
+          <details open><summary>Deron Scout là gì,</summary><p>Deron Scout là hệ UAV (drone) tuần tra, giám sát và theo dõi tự động do Deron phát triển tại Việt Nam. Hệ thống bay theo tuyến lập lịch, ghi dữ liệu hình ảnh, hỗ trợ phát hiện bất thường, tự về trạm sạc và tiếp tục chu kỳ. Đây không phải drone giao hàng mà là camera bay thông minh kết hợp robot tuần tra tự động.</p></details>
+          <details><summary>Deron Scout dùng cho lĩnh vực nào,</summary><p>Nông nghiệp, lâm nghiệp và kiểm lâm, đặc khu và khu kinh tế, bến cảng, nhà máy và khu công nghiệp, theo dõi môi trường, quan sát hạ tầng, mọi nơi cần giám sát lặp lại trên diện rộng hoặc khó tiếp cận.</p></details>
+          <details><summary>Deron Scout khác gì so với drone tuần tra thông thường,</summary><p>Deron Scout vận hành theo chu kỳ tự động khép kín: bay theo tuyến, ghi dữ liệu, phát hiện bất thường, tự về trạm sạc, tự sạc và tiếp tục, không cần người vận hành liên tục, đi kèm phần mềm giám sát và SOP an toàn.</p></details>
+          <details><summary>Deron Scout có thay thế kiểm lâm hay bảo vệ không,</summary><p>Không. Deron Scout hỗ trợ quan sát từ xa, cung cấp dữ liệu trực quan trước khi lực lượng mặt đất tiếp cận khu vực nguy hiểm. Hệ thống bổ trợ con người, không thay thế con người.</p></details>
+          <details><summary>Deron Scout do ai phát triển và khi nào triển khai,</summary><p>Do Deron (sáng lập bởi Nguyễn Phúc Huy) phát triển tại Việt Nam, lộ trình nghiên cứu &amp; thử nghiệm 24 tháng từ 01/06/2026 đến 01/06/2028. Đây là bước đầu trong hệ sinh thái UAV Deron, trước Deron Delivery.</p></details>
+          <details><summary>Deron Scout liên quan thế nào tới DMA và DATCS,</summary><p>Deron Scout dùng nền tảng avionics DMA (Deron Main Avionics) cho flight control và an toàn, kết nối DATCS (Deron Air Traffic Control System) để quản lý nhiệm vụ, đội bay và dữ liệu, tất cả thuộc hệ sinh thái UAV của Deron.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+    SOP, CTA BAND
+      • Mục tiêu: 1 hành động chính (hợp tác/đầu tư). 1 CTA = tỷ lệ chuyển đổi cao.
+    ==================================================================== -->
+    <section id="lien-he" class="cta-band">
+      <div class="wrap">
+        <h2>Đồng hành cùng Deron Scout</h2>
+        <p>Bạn là đối tác ngành, đơn vị muốn thử nghiệm giám sát tự động, hay nhà đầu tư quan tâm tới UAV
+          Việt Nam, Hãy kết nối với Deron.</p>
+        <a class="btn btn-primary" href="mailto:nguyenphuchuy263@gmail.com">Liên hệ hợp tác &amp; đầu tư</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+  SOP, FOOTER
+    • Mục tiêu: NAP nhất quán (Name/Address/Phone) cho SEO local + GEO trust.
+    • Internal links đầy đủ giúp bot crawl toàn site (sitemap "mềm").
+  ==================================================================== -->
+  <footer id="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">DERON <span class="badge">SCOUT</span></div>
+          <p>Deron xây dựng hệ sinh thái UAV của người Việt, bắt đầu với Deron Scout, hệ UAV tuần tra
+            và giám sát tự động cho nông nghiệp, lâm nghiệp, cảng và hạ tầng.</p>
+        </div>
+        <div>
+          <h4>Sản phẩm</h4>
+          <a href="#scout">Deron Scout</a>
+          <a href="/san-pham">Deron Delivery</a>
+          <a href="/cong-nghe">DMA, Avionics</a>
+          <a href="/datcs">DATCS</a>
+        </div>
+        <div>
+          <h4>Khám phá</h4>
+          <a href="/ung-dung">Ứng dụng</a>
+          <a href="/cong-nghe">Công nghệ</a>
+          <a href="/acedemy/">Academy</a>
+          <a href="/blog">Blog</a>
+        </div>
+        <div>
+          <h4>Liên hệ</h4>
+          <a href="mailto:nguyenphuchuy263@gmail.com">nguyenphuchuy263@gmail.com</a>
+          <a href="tel:+84363045747">0363 045 747</a>
+          <a href="/lien-he">42 Trần Quý Cáp, Đắk Lắk</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Deron. Deron Scout, UAV tuần tra &amp; giám sát tự động.</span>
+        <span>Deron Badge không phải giấy phép bay.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SOP, JS tối thiểu: chỉ đủ để menu mobile + active link. Không chặn render. -->
+  <script>
+    // Highlight nav link đang xem (cải thiện UX, không ảnh hưởng SEO).
+    const links = document.querySelectorAll('.nav-links a[href^="#"]');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = '#' + e.target.id;
+          links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+    document.querySelectorAll('section[id], header[id]').forEach(s => obs.observe(s));
+    // Đóng menu mobile sau khi chọn.
+    document.querySelectorAll('.nav-links a').forEach(a =>
+      a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')));
+  </script>
+
+  <!--
+  ============================================================================
+  SOP, PHỤ LỤC GEO/SEO (KHÔNG render, hướng dẫn triển khai ngoài file HTML)
+  ============================================================================
+
+  (1) robots.txt , đặt tại https://deron.vn/robots.txt, CHO PHÉP AI crawler:
+  ----------------------------------------------------------------------------
+  User-agent: *
+  Allow: /
+
+  # Cho phép các AI/LLM crawler để được trích dẫn (GEO):
+  User-agent: GPTBot
+  Allow: /
+  User-agent: OAI-SearchBot
+  Allow: /
+  User-agent: ChatGPT-User
+  Allow: /
+  User-agent: ClaudeBot
+  Allow: /
+  User-agent: Claude-Web
+  Allow: /
+  User-agent: PerplexityBot
+  Allow: /
+  User-agent: Google-Extended
+  Allow: /
+  User-agent: Applebot-Extended
+  Allow: /
+  User-agent: Bytespider
+  Allow: /
+  User-agent: CCBot
+  Allow: /
+
+  Sitemap: https://deron.vn/sitemap.xml
+  ----------------------------------------------------------------------------
+  LƯU Ý: chỉ "Allow" nếu bạn ĐỒNG Ý cho AI dùng nội dung để huấn luyện/trích dẫn.
+  Nếu muốn được TRÍCH DẪN trong câu trả lời AI nhưng không cho train, cân nhắc
+  từng bot (vd Google-Extended ảnh hưởng tính năng AI của Google).
+
+  (2) /llms.txt, đặt tại https://deron.vn/llms.txt, bản tóm tắt cho LLM:
+  ----------------------------------------------------------------------------
+  # Deron
+  > Tổ chức công nghệ Việt Nam phát triển hệ sinh thái UAV: Deron Scout, Deron
+  > Delivery, DMA, DATCS, Deron Academy.
+
+  ## Sản phẩm chủ đạo
+  - [Deron Scout](https://deron.vn/deron-scout): UAV tuần tra & giám sát tự động
+    cho nông nghiệp, lâm nghiệp, cảng, nhà máy, hạ tầng tại Việt Nam.
+
+  ## Hệ sinh thái
+  - [Deron Delivery](https://deron.vn/san-pham): drone giao hàng tự hành (tương lai).
+  - [DMA](https://deron.vn/cong-nghe): Deron Main Avionics, nền tảng avionics.
+  - [DATCS](https://deron.vn/datcs): hệ điều khiển & quản lý UAV (GCS/UTM).
+  - [Deron Academy](https://deron.vn/acedemy/): học UAV/Drone/FPV từ con số 0.
+
+  ## Liên hệ
+  - Người sáng lập: Nguyễn Phúc Huy, nguyenphuchuy263@gmail.com, 0363045747
+  - Địa chỉ: 42 Trần Quý Cáp, Phường Tân Lập, Đắk Lắk, Việt Nam
+  ----------------------------------------------------------------------------
+
+  (3) sitemap.xml, thêm URL trang này:
+      <url><loc>https://deron.vn/deron-scout</loc><changefreq>monthly</changefreq>
+      <priority>0.9</priority></url>
+
+  (4) CHECKLIST SEO/GEO trước khi publish mỗi trang:
+      [ ] 1 thẻ <h1> duy nhất, chứa từ khoá chính.
+      [ ] title <=60 ký tự, description 140-160 ký tự.
+      [ ] canonical + 3 hreflang + x-default.
+      [ ] JSON-LD khớp nội dung hiển thị (test: search.google.com/test/rich-results).
+      [ ] FAQ hiển thị == FAQ trong JSON-LD.
+      [ ] Mọi ảnh có alt + width/height + loading="lazy" (trừ hero).
+      [ ] Có ít nhất 1 khối .geo-answer trả lời thẳng 1 câu hỏi.
+      [ ] Internal link bằng anchor text giàu từ khoá.
+      [ ] Cập nhật sitemap.xml + dateModified.
+  ============================================================================
+  -->
+<script src="/assets/js/content-protection.js" defer></script>
+</body>
+</html>

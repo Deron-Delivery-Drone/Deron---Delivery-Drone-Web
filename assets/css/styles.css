@@ -73,6 +73,9 @@ p { max-width: 60ch; }
 .text-inv { color: var(--text-inv); }
 .text-inv p, .text-inv h1, .text-inv h2, .text-inv h3, .text-inv h4 { color: var(--text-inv); }
 
+/* --- CTA SECTION (dark) --- */
+.cta-section { background: var(--bg-dark); padding: 96px 0; text-align: center; }
+
 /* --- LAYOUT --- */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 .container-narrow { max-width: 860px; margin: 0 auto; padding: 0 32px; }
@@ -534,6 +537,32 @@ a.footer-link:active {
 .footer-link:hover,
 a.footer-link:hover,
 a.footer-link:focus { color: #fff !important; }
+.footer-social {
+  display: flex; flex-direction: row; flex-wrap: nowrap;
+  align-items: center; justify-content: flex-end; gap: 18px;
+  margin: -44px 0 34px;
+  width: 100%;
+}
+.footer-social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.footer-social-link img {
+  height: 64px; width: auto; max-width: 300px; display: block;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.footer-social-link .footer-zalo-logo {
+  width: 64px;
+  height: 64px;
+  padding: 7px;
+  background: #fff;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+.footer-social-link:hover { transform: translateY(-2px); opacity: 0.88; }
 .footer-bottom {
   padding-top: 32px;
   border-top: 1px solid var(--border-dark);

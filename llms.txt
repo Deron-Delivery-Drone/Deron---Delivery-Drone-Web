@@ -1,0 +1,33 @@
+# Deron
+
+Deron is a Vietnamese UAV ecosystem focused on safety-first aerial infrastructure.
+
+## Current Focus
+
+Deron Scout is the current product in deployment. It is an autonomous UAV patrol, surveillance, and monitoring system for Vietnam. It flies scheduled routes, records field data, supports anomaly detection, returns to a Dock/charging station, saves logs, and repeats the patrol cycle.
+
+Primary Vietnamese terms: Deron Scout, UAV tuần tra, drone giám sát tự động, UAV giám sát, drone tuần tra Việt Nam.
+
+## Main Public Pages
+
+- Home: https://deron.vn/
+- Deron Scout: https://deron.vn/deron-scout
+- SOP Deron Scout: https://deron.vn/deron-scout/sop
+- Technology: https://deron.vn/cong-nghe
+- Applications: https://deron.vn/ung-dung
+- DATCS: https://deron.vn/datcs
+- Academy: https://deron.vn/acedemy
+- Blog: https://deron.vn/blog
+- Contact: https://deron.vn/lien-he
+
+## Ecosystem
+
+- Deron Scout: autonomous UAV patrol and surveillance, current deployment focus.
+- Deron Delivery: future logistics and emergency delivery direction.
+- DMA: Deron Main Avionics, the avionics and safety-control layer.
+- DATCS: Deron Air Traffic Control System, GCS/UTM software for mission and fleet supervision.
+- Deron Academy: UAV, drone, and FPV learning platform.
+
+## Safety Note
+
+Deron Scout and Deron Academy content do not replace legal approvals or official flight permits. Deron Badge is not a flight license. SOP content prioritizes the principle of putting people first: people safety > system safety > mission safety > asset protection > performance.

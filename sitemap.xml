@@ -9,6 +9,20 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://deron.vn/deron-scout</loc>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://deron.vn/deron-scout"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deron.vn/deron-scout"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://deron.vn/deron-scout/sop</loc>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://deron.vn/deron-scout/sop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deron.vn/deron-scout/sop"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://deron.vn/gioi-thieu</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -37,6 +51,41 @@
     <loc>https://deron.vn/san-pham</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://deron.vn/acedemy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://deron.vn/acedemy/paths/drone-beginner-foundation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://deron.vn/acedemy/paths/build-your-first-uav</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://deron.vn/acedemy/paths/fpv-pilot-starter</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://deron.vn/acedemy/paths/firmware-basics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://deron.vn/acedemy/paths/uav-engineering-foundation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://deron.vn/acedemy/paths/startup-product-lab</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://deron.vn/blog</loc>

@@ -1,31 +1,67 @@
 {
-  "home": {
-    "path": "/",
-    "labelKey": "home"
-  },
-  "datcs": {
-    "path": "/datcs",
-    "labelKey": "datcs"
-  },
-  "datcs_install": {
-    "path": "/datcs/install",
-    "labelKey": "datcsInstall"
-  },
-  "blog": {
-    "path": "/blog",
-    "labelKey": "blog"
-  },
-  "press": {
-    "path": "/blog/#bao-chi",
-    "labelKey": "press"
-  },
-  "info": {
-    "path": "/blog/#thong-tin",
-    "labelKey": "info"
-  },
-  "contact": {
-    "path": "/#contact",
-    "labelKey": "contact",
-    "note": "Current public site uses the home-page contact section. Update to /contact if a dedicated route is added."
-  }
+ "home": {
+ "path": "/",
+ "labelKey": "home"
+ },
+ "deron_scout": {
+ "path": "/deron-scout",
+ "labelKey": "deronScout"
+ },
+ "deron_scout_sop": {
+ "path": "/deron-scout/sop",
+ "labelKey": "deronScoutSop"
+ },
+ "datcs": {
+ "path": "/datcs",
+ "labelKey": "datcs"
+ },
+ "datcs_install": {
+ "path": "/datcs/install",
+ "labelKey": "datcsInstall"
+ },
+ "blog": {
+ "path": "/blog",
+ "labelKey": "blog"
+ },
+ "academy": {
+ "path": "/acedemy/",
+ "labelKey": "academy"
+ },
+ "academy_drone_beginner_foundation": {
+ "path": "/acedemy/paths/drone-beginner-foundation/",
+ "labelKey": "academyDroneBeginnerFoundation"
+ },
+ "academy_build_your_first_uav": {
+ "path": "/acedemy/paths/build-your-first-uav/",
+ "labelKey": "academyBuildYourFirstUav"
+ },
+ "academy_fpv_pilot_starter": {
+ "path": "/acedemy/paths/fpv-pilot-starter/",
+ "labelKey": "academyFpvPilotStarter"
+ },
+ "academy_firmware_basics": {
+ "path": "/acedemy/paths/firmware-basics/",
+ "labelKey": "academyFirmwareBasics"
+ },
+ "academy_uav_engineering_foundation": {
+ "path": "/acedemy/paths/uav-engineering-foundation/",
+ "labelKey": "academyUavEngineeringFoundation"
+ },
+ "academy_startup_product_lab": {
+ "path": "/acedemy/paths/startup-product-lab/",
+ "labelKey": "academyStartupProductLab"
+ },
+ "press": {
+ "path": "/blog/#bao-chi",
+ "labelKey": "press"
+ },
+ "info": {
+ "path": "/blog/#thong-tin",
+ "labelKey": "info"
+ },
+ "contact": {
+ "path": "/#contact",
+ "labelKey": "contact",
+ "note": "Current public site uses the home-page contact section. Update to /contact if a dedicated route is added."
+ }
 }

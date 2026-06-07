@@ -3,11 +3,11 @@
 
   window.T.vi = Object.assign({}, window.T.vi || {}, {
     "datcs.install.meta.title": "Tải DATCS | Deron",
-    "datcs.install.meta.desc": "DATCS là hệ thống điều phối và giám sát UAV logistics của Deron — hỗ trợ kiểm tra telemetry, xác thực an toàn, theo dõi đội bay và vận hành nhiệm vụ một cách có kiểm soát.",
+    "datcs.install.meta.desc": "DATCS là hệ thống điều phối và giám sát UAV logistics của Deron , hỗ trợ kiểm tra telemetry, xác thực an toàn, theo dõi đội bay và vận hành nhiệm vụ một cách có kiểm soát.",
     "datcs.install.breadcrumb": "Air Traffic Control",
     "datcs.install.hero.badge": "DATCS · Air Traffic Control",
     "datcs.install.hero.title": "Tải DATCS",
-    "datcs.install.hero.subtitle": "DATCS là hệ thống điều phối và giám sát UAV logistics của Deron — hỗ trợ kiểm tra telemetry, xác thực an toàn, theo dõi đội bay và vận hành nhiệm vụ một cách có kiểm soát.",
+    "datcs.install.hero.subtitle": "DATCS là hệ thống điều phối và giám sát UAV logistics của Deron , hỗ trợ kiểm tra telemetry, xác thực an toàn, theo dõi đội bay và vận hành nhiệm vụ một cách có kiểm soát.",
     "datcs.install.hero.primary": "Nhận link tải Windows",
     "datcs.install.hero.secondary": "Tìm hiểu DATCS",
     "datcs.install.hero.stat.os": "Nền tảng hỗ trợ",
@@ -154,11 +154,11 @@
 
   window.T.en = Object.assign({}, window.T.en || {}, {
     "datcs.install.meta.title": "Download DATCS | Deron",
-    "datcs.install.meta.desc": "DATCS is Deron's UAV logistics coordination and monitoring system — supporting telemetry review, safety validation, fleet tracking, and controlled mission operations.",
+    "datcs.install.meta.desc": "DATCS is Deron's UAV logistics coordination and monitoring system , supporting telemetry review, safety validation, fleet tracking, and controlled mission operations.",
     "datcs.install.breadcrumb": "Air Traffic Control",
     "datcs.install.hero.badge": "DATCS · Air Traffic Control",
     "datcs.install.hero.title": "Download DATCS",
-    "datcs.install.hero.subtitle": "DATCS is Deron's UAV logistics coordination and monitoring system — supporting telemetry review, safety validation, fleet tracking, and controlled mission operations.",
+    "datcs.install.hero.subtitle": "DATCS is Deron's UAV logistics coordination and monitoring system , supporting telemetry review, safety validation, fleet tracking, and controlled mission operations.",
     "datcs.install.hero.primary": "Get Windows download link",
     "datcs.install.hero.secondary": "Learn About DATCS",
     "datcs.install.hero.stat.os": "Supported platforms",
@@ -305,11 +305,11 @@
 
   window.T.zh = Object.assign({}, window.T.zh || {}, {
     "datcs.install.meta.title": "下载 DATCS | Deron",
-    "datcs.install.meta.desc": "DATCS 是 Deron 的无人机物流协调和监控系统 —— 支持遥测检查、安全验证、机队跟踪和受控的任务运行。",
+    "datcs.install.meta.desc": "DATCS 是 Deron 的无人机物流协调和监控系统 ,, 支持遥测检查、安全验证、机队跟踪和受控的任务运行。",
     "datcs.install.breadcrumb": "空中交通管制",
     "datcs.install.hero.badge": "DATCS · 空中交通管制",
     "datcs.install.hero.title": "下载 DATCS",
-    "datcs.install.hero.subtitle": "DATCS 是 Deron 的无人机物流协调和监控系统 —— 支持遥测检查、安全验证、机队跟踪和受控的任务运行。",
+    "datcs.install.hero.subtitle": "DATCS 是 Deron 的无人机物流协调和监控系统 ,, 支持遥测检查、安全验证、机队跟踪和受控的任务运行。",
     "datcs.install.hero.primary": "获取 Windows 下载链接",
     "datcs.install.hero.secondary": "了解 DATCS",
     "datcs.install.hero.stat.os": "支持的平台",

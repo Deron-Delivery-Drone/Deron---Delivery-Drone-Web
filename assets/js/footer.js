@@ -31,6 +31,13 @@
     return '<a class="footer-link" href="/blog/" data-i18n="footer.l_blog">Blog</a>';
   }
 
+  function scoutLink() {
+    if (isSPA()) {
+      return '<span class="footer-link" data-i18n="footer.l12" onclick="window.location.href=\'/deron-scout/\'">Deron Scout</span>';
+    }
+    return '<a class="footer-link" href="/deron-scout/" data-i18n="footer.l12">Deron Scout</a>';
+  }
+
   function logoMarkup() {
     var inner =
       '<img src="/public/Deron-logo-dark.png" alt="Deron logo" class="footer-logo-img footer-logo-dark" loading="lazy" decoding="async">' +
@@ -40,6 +47,26 @@
       return '<div class="footer-logo" onclick="navigate(\'home\')" style="cursor:pointer;">' + inner + '</div>';
     }
     return '<a href="/" class="footer-logo">' + inner + '</a>';
+  }
+
+  function socialMarkup() {
+    var rowStyle = 'display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-end;gap:18px;margin:-44px 0 34px;width:100%;';
+    var linkStyle = 'display:inline-flex;align-items:center;justify-content:center;line-height:0;flex:0 0 auto;';
+    var imgStyle = 'height:64px;width:auto;max-width:300px;display:block;border-radius:8px;object-fit:contain;';
+    var iconImgStyle = 'height:64px;width:64px;display:block;border-radius:10px;object-fit:contain;';
+    var zaloStyle = 'height:64px;width:64px;display:block;border-radius:12px;object-fit:contain;background:#fff;padding:7px;box-sizing:border-box;';
+    return '' +
+      '<div class="footer-social" aria-label="Kết nối với Deron" style="' + rowStyle + '">' +
+        '<a class="footer-social-link" style="' + linkStyle + '" href="https://www.facebook.com/profile.php?id=61583590713232" target="_blank" rel="noopener" aria-label="Facebook">' +
+          '<img src="/public/find-us-on-facebook.svg" alt="Find us on Facebook" loading="lazy" decoding="async" style="' + imgStyle + '">' +
+        '</a>' +
+        '<a class="footer-social-link" style="' + linkStyle + '" href="http://zaloapp.com/qr/p/fd908iz06f5z" target="_blank" rel="noopener" aria-label="Zalo">' +
+          '<img class="footer-zalo-logo" src="/public/zalo-1.svg" alt="Zalo" loading="lazy" decoding="async" style="' + zaloStyle + '">' +
+        '</a>' +
+        '<a class="footer-social-link" style="' + linkStyle + '" href="https://www.linkedin.com/in/nguy%E1%BB%85n-ph%C3%BAc-huy-1417222a8/" target="_blank" rel="noopener" aria-label="LinkedIn">' +
+          '<img src="/public/linkedin-icon-2.svg" alt="LinkedIn" loading="lazy" decoding="async" style="' + iconImgStyle + '">' +
+        '</a>' +
+      '</div>';
   }
 
   function backHomeMarkup() {
@@ -74,6 +101,7 @@
             '<div>' +
               '<div class="footer-col-title" data-i18n="footer.col2">Sản phẩm</div>' +
               '<div class="footer-links" data-i18n-skip>' +
+                scoutLink() +
                 navLink('technology', 'footer.l4', 'Công nghệ') +
                 navLink('usecases', 'footer.l5', 'Ứng dụng') +
                 navLink('technology', 'footer.l6', 'Triết lý an toàn') +
@@ -104,6 +132,7 @@
               '</div>' +
             '</div>' +
           '</div>' +
+          socialMarkup() +
           '<div class="footer-bottom">' +
             '<div class="footer-copy" data-i18n="footer.copy">© 2025–2026 Deron. Delivering Vietnam\'s future.</div>' +
             '<div class="footer-copy" data-i18n="footer.founder">Founder: Nguyễn Phúc Huy</div>' +

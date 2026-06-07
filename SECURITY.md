@@ -40,7 +40,7 @@ We aim to follow this process:
 
 ## Security Principles
 
-Deron follows a safety-first and human-first engineering approach.
+Deron follows a safety-first engineering approach that puts people first.
 
 For this repository, security priorities include:
 
