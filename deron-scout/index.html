@@ -52,7 +52,7 @@
  .scout-kicker { display: inline-flex; gap: 9px; align-items: center; border: 1px solid rgba(196, 30, 58, .35); background: rgba(196, 30, 58, .1); border-radius: var(--radius); padding: 7px 14px; color: var(--red); font-family: var(--font-label); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin-bottom: 24px; }
  .scout-hero h1 { color: #fff; max-width: 900px; letter-spacing: -.04em; }
  .scout-hero h1 span { color: var(--red); }
- .scout-hero p { color: var(--text-inv-muted); font-size: 19px; line-height: 1.7; max-width: 660px; margin-top: 28px; }
+ .scout-hero p { color: var(--text-inv-muted); font-size: 19px; line-height: 1.7; max-width: 660px; margin-top: 28px; text-align: justify; text-justify: inter-word; }
  .scout-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
  .scout-panel { position: relative; background: linear-gradient(90deg, rgba(11, 14, 19, .9) 0%, rgba(11, 14, 19, .72) 52%, rgba(11, 14, 19, .34) 100%), url('/public/DJIDoc.png') center / cover no-repeat; border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 34px; min-height: 520px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 28px 80px rgba(0, 0, 0, .26); }
  .scout-panel::after { content: "Hình ảnh chỉ mang tính chất minh họa"; position: absolute; right: 16px; bottom: 12px; font-size: 10px; font-style: italic; letter-spacing: .02em; color: rgba(237, 233, 227, .62); pointer-events: none; }
@@ -64,22 +64,36 @@
  .cycle-item strong { display: block; color: #fff; margin-bottom: 2px; }
  .geo-answer { background: var(--bg-white); border: 1px solid var(--border); border-left: 4px solid var(--red); border-radius: var(--radius-lg); padding: 26px 30px; box-shadow: 0 10px 36px rgba(11, 14, 19, .08); }
  .geo-answer .q { display: block; font-family: var(--font-label); text-transform: uppercase; letter-spacing: .12em; font-size: 12px; color: var(--red); font-weight: 700; margin-bottom: 10px; }
- .geo-answer p { max-width: 920px; color: var(--text-body); font-size: 17px; line-height: 1.75; }
+ .geo-answer p { max-width: 920px; color: var(--text-body); font-size: 17px; line-height: 1.75; text-align: justify; text-justify: inter-word; }
  .scout-section { padding: 96px 0; background: var(--bg-white); border-bottom: 1px solid var(--border); }
  .scout-section.alt { background: var(--bg-section); }
  .scout-section.dark { background: var(--bg-dark); border-color: var(--border-dark); color: var(--text-inv); }
  .scout-section.dark h2, .scout-section.dark h3 { color: #fff; }
  .scout-section-head { margin-bottom: 48px; max-width: 780px; }
- .scout-section-head p { color: var(--text-muted); font-size: 18px; line-height: 1.7; margin-top: 18px; }
+ .scout-section-head p { color: var(--text-muted); font-size: 18px; line-height: 1.7; margin-top: 18px; text-align: justify; text-justify: inter-word; }
  .scout-section.dark .scout-section-head p { color: var(--text-inv-muted); }
  .scout-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
- .scout-card { background: var(--bg-white); padding: 34px 32px; min-height: 220px; }
+ .scout-card { background: var(--bg-white); padding: 34px 32px; min-height: 220px; height: 100%; }
  .scout-card h3 { font-size: 22px; margin-bottom: 12px; }
- .scout-card p { color: var(--text-muted); line-height: 1.72; }
+ .scout-card p { color: var(--text-muted); line-height: 1.72; text-align: justify; text-justify: inter-word; }
+ .scout-application-grid { gap: 1px; align-items: stretch; }
+ .scout-app-card { padding: 0; display: grid; grid-template-rows: auto 1fr; min-height: 520px; }
+ .scout-app-media { min-height: 172px; aspect-ratio: 16 / 9; background: var(--bg-section); border-bottom: 1px solid var(--border); overflow: hidden; display: grid; place-items: center; }
+ .scout-app-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+ .scout-app-placeholder { background: linear-gradient(135deg, rgba(196, 30, 58, .08), rgba(11, 14, 19, .02)), var(--bg-section); }
+ .scout-app-placeholder span { font-family: var(--font-label); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); border: 1px dashed rgba(107, 102, 96, .36); border-radius: var(--radius); padding: 9px 12px; background: rgba(255, 255, 255, .52); }
+ .scout-app-body { padding: 28px 28px 30px; display: grid; grid-template-rows: auto 1fr auto; gap: 14px; min-height: 0; }
+ .scout-app-body h3 { margin-bottom: 0; }
+ .scout-app-body p { font-size: 15px; line-height: 1.72; margin: 0; }
+ .scout-app-body > p { align-self: start; }
+ .scout-link-card.scout-app-card { display: grid; grid-template-rows: auto 1fr; height: 100%; }
+ .scout-app-evidence { align-self: end; min-height: 126px; margin-top: 0; padding-top: 16px; border-top: 1px solid var(--border); }
+ .scout-app-evidence span { display: block; font-family: var(--font-label); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 7px; }
+ .scout-app-evidence p { margin: 0; font-size: 13px; line-height: 1.62; color: var(--text-muted); }
  .scout-budget-grid .scout-card { min-height: auto; }
  .budget-amount { display: block; font-family: var(--font-display); font-size: 24px; font-weight: 900; letter-spacing: -.02em; color: var(--text-primary); margin-bottom: 8px; }
  .budget-card-code { display: block; font-family: var(--font-mono); color: var(--red); font-size: 12px; font-weight: 700; margin-bottom: 12px; }
- .budget-note { color: var(--text-muted); font-size: 15px; line-height: 1.75; max-width: 980px; margin-top: 28px; }
+ .budget-note { color: var(--text-muted); font-size: 15px; line-height: 1.75; max-width: 980px; margin-top: 28px; text-align: justify; text-justify: inter-word; }
  .scout-section.dark .scout-grid { background: var(--border-dark); border-color: var(--border-dark); }
  .scout-section.dark .scout-card { background: var(--bg-mid); }
  .scout-section.dark .scout-card p { color: var(--text-inv-muted); }
@@ -87,7 +101,7 @@
  .flow-step { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
  .flow-step .idx { font-family: var(--font-mono); color: var(--red); font-weight: 700; font-size: 12px; margin-bottom: 14px; display: block; }
  .flow-step h3 { font-size: 18px; margin-bottom: 10px; }
- .flow-step p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+ .flow-step p { font-size: 14px; color: var(--text-muted); line-height: 1.65; text-align: justify; text-justify: inter-word; }
  .scout-link-card { display: block; color: inherit; text-decoration: none; }
  .scout-link-card:hover { text-decoration: none; }
  .scout-meta { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); overflow: hidden; background: rgba(255, 255, 255, .03); margin-top: 44px; }
@@ -95,15 +109,15 @@
  .scout-meta div:last-child { border-right: 0; }
  .scout-meta b { display: block; color: #fff; font-size: 24px; margin-bottom: 4px; }
  .scout-meta span { color: var(--text-inv-muted); font-family: var(--font-label); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
- .sop-callout { background: rgba(196, 30, 58, .1); border: 1px solid rgba(196, 30, 58, .32); border-left: 4px solid var(--red); border-radius: var(--radius-lg); padding: 24px 28px; color: var(--text-inv-muted); line-height: 1.7; }
+ .sop-callout { background: rgba(196, 30, 58, .1); border: 1px solid rgba(196, 30, 58, .32); border-left: 4px solid var(--red); border-radius: var(--radius-lg); padding: 24px 28px; color: var(--text-inv-muted); line-height: 1.7; text-align: justify; text-justify: inter-word; }
  .sop-callout strong { color: #fff; }
  .faq-list { display: grid; gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
  .faq-list details { background: var(--bg-white); padding: 0 28px; }
  .faq-list summary { cursor: pointer; list-style: none; padding: 24px 0; font-weight: 800; color: var(--text-primary); }
  .faq-list summary::-webkit-details-marker { display: none; }
- .faq-list p { padding: 0 0 26px; color: var(--text-muted); line-height: 1.75; max-width: 900px; }
+ .faq-list p { padding: 0 0 26px; color: var(--text-muted); line-height: 1.75; max-width: 900px; text-align: justify; text-justify: inter-word; }
  @media (max-width: 1024px) { .scout-hero-grid { grid-template-columns: 1fr; gap: 42px; } .scout-flow { grid-template-columns: repeat(2, 1fr); } .scout-grid { grid-template-columns: repeat(2, 1fr); } .scout-meta { grid-template-columns: repeat(2, 1fr); } .scout-meta div:nth-child(2) { border-right: 0; } .scout-meta div:nth-child(-n+2) { border-bottom: 1px solid var(--border-dark); } }
- @media (max-width: 768px) { .nav-links, .nav-right { display: none; } .nav-hamburger { display: flex !important; } .scout-hero .container { padding-top: 112px; padding-bottom: 64px; } .scout-hero p { font-size: 16px; } .scout-section { padding: 64px 0; } .scout-grid, .scout-flow, .scout-meta { grid-template-columns: 1fr; } .scout-meta div { border-right: 0; border-bottom: 1px solid var(--border-dark); } .scout-meta div:last-child { border-bottom: 0; } }
+ @media (max-width: 768px) { .nav-links, .nav-right { display: none; } .nav-hamburger { display: flex !important; } .scout-hero .container { padding-top: 112px; padding-bottom: 64px; } .scout-hero p { font-size: 16px; } .scout-section { padding: 64px 0; } .scout-grid, .scout-flow, .scout-meta { grid-template-columns: 1fr; } .scout-app-evidence { min-height: auto; } .scout-meta div { border-right: 0; border-bottom: 1px solid var(--border-dark); } .scout-meta div:last-child { border-bottom: 0; } }
 </style>
 <script type="application/ld+json">
 {
@@ -145,7 +159,7 @@
  "mainEntity": [
  { "@type": "Question", "name": "Deron Scout là gì?", "acceptedAnswer": { "@type": "Answer", "text": "Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động do Deron phát triển tại Việt Nam. Hệ thống bay theo tuyến lập lịch, ghi dữ liệu hình ảnh, hỗ trợ phát hiện bất thường, tự về trạm sạc và tiếp tục chu kỳ." } },
  { "@type": "Question", "name": "Deron Scout dùng cho lĩnh vực nào?", "acceptedAnswer": { "@type": "Answer", "text": "Deron Scout dùng cho nông nghiệp, lâm nghiệp và kiểm lâm, bến cảng, nhà máy, khu công nghiệp, môi trường, hạ tầng và những khu vực cần giám sát lặp lại trên diện rộng." } },
- { "@type": "Question", "name": "Deron Scout khác drone tuần tra thông thường thế nào?", "acceptedAnswer": { "@type": "Answer", "text": "Deron Scout được thiết kế theo chu kỳ tự động khép kín: lập lịch tuyến bay, cất cánh, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự về Dock, sạc và chuẩn bị cho nhiệm vụ tiếp theo." } },
+ { "@type": "Question", "name": "Deron Scout khác drone tuần tra thông thường thế nào?", "acceptedAnswer": { "@type": "Answer", "text": "Deron Scout được thiết kế theo chu kỳ tự động khép kín: lập lịch tuyến bay, cất cánh, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự về trạm sạc và chuẩn bị cho nhiệm vụ tiếp theo." } },
  { "@type": "Question", "name": "Deron Scout có thay thế con người không?", "acceptedAnswer": { "@type": "Answer", "text": "Không. Deron Scout hỗ trợ quan sát từ xa và giảm rủi ro khi con người phải tiếp cận vùng khó hoặc nguy hiểm. Hệ thống bổ trợ lực lượng mặt đất, không thay thế con người." } }
  ]
  },
@@ -198,27 +212,27 @@
  <div class="container">
  <div class="scout-hero-grid">
  <div>
- <div class="scout-kicker">Deron Scout · Sản phẩm đang triển khai</div>
+ <div class="scout-kicker" data-i18n="ds.hero.kicker">Deron Scout · Sản phẩm đang triển khai</div>
  <h1 data-i18n-html="ds.hero.h1">UAV tuần tra & giám sát tự động <span>Deron Scout.</span></h1>
- <p>Bay theo tuyến lập lịch, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự về trạm sạc và lặp chu kỳ. Đây là bước triển khai hiện tại của hệ sinh thái UAV Deron trước khi mở rộng sang Deron Delivery, DMA và DATCS ở quy mô lớn hơn.</p>
+ <p data-i18n="ds.hero.p">Bay theo tuyến lập lịch, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự về trạm sạc và lặp chu kỳ. Đây là bước triển khai hiện tại của hệ sinh thái UAV Deron trước khi mở rộng sang Deron Delivery, DMA và DATCS ở quy mô lớn hơn.</p>
  <div class="scout-hero-actions">
- <a href="#applications" class="btn btn-primary btn-arrow">Xem ứng dụng</a>
- <a href="/deron-scout/sop" class="btn btn-outline">Mở SOP vận hành</a>
+ <a href="#applications" class="btn btn-primary btn-arrow" data-i18n="ds.hero.cta1">Xem ứng dụng</a>
+ <a href="/deron-scout/sop" class="btn btn-outline" data-i18n="ds.hero.cta2">Mở SOP vận hành</a>
  </div>
  <div class="scout-meta">
- <div><b>24</b><span>Tháng R&D</span></div>
- <div><b>8+</b><span>Lĩnh vực</span></div>
- <div><b>Dock</b><span>Chu kỳ sạc</span></div>
- <div><b>SOP</b><span>Đặt con người lên hàng đầu</span></div>
+ <div><b>24</b><span data-i18n="ds.meta.l1">Tháng R&D</span></div>
+ <div><b>8+</b><span data-i18n="ds.meta.l2">Lĩnh vực</span></div>
+ <div><b data-i18n="ds.meta.v3">Trạm sạc</b><span data-i18n="ds.meta.l3">Chu kỳ sạc</span></div>
+ <div><b data-i18n="ds.meta.v4">SOP</b><span data-i18n="ds.meta.l4">Đặt con người lên hàng đầu</span></div>
  </div>
  </div>
 <aside class="scout-panel" aria-label="Chu kỳ hoạt động Deron Scout">
-<div class="scout-panel-title">Chu kỳ Deron Scout</div>
+<div class="scout-panel-title" data-i18n="ds.cycle.title">Chu kỳ Deron Scout</div>
  <div class="cycle-list">
  <div class="cycle-item"><span class="cycle-num">01</span><span data-i18n-html="ds.cycle1"><strong>Lập lịch tuyến bay</strong>Tuyến tuần tra được duyệt theo khu vực, thời gian, ranh giới vùng bay và điều kiện an toàn.</span></div>
  <div class="cycle-item"><span class="cycle-num">02</span><span data-i18n-html="ds.cycle2"><strong>Cất cánh & tuần tra</strong>UAV bay theo lộ trình đã lập trình, giảm phụ thuộc vào người vận hành liên tục.</span></div>
  <div class="cycle-item"><span class="cycle-num">03</span><span data-i18n-html="ds.cycle3"><strong>Ghi dữ liệu & cảnh báo</strong>Hệ thống ghi hình, lưu dữ liệu bay và hỗ trợ phát hiện dấu hiệu bất thường.</span></div>
- <div class="cycle-item"><span class="cycle-num">04</span><span data-i18n-html="ds.cycle4"><strong>Quay về Dock</strong>Khi hết tuyến hoặc pin thấp, UAV quay về trạm sạc/điểm hạ cánh được xác minh.</span></div>
+ <div class="cycle-item"><span class="cycle-num">04</span><span data-i18n-html="ds.cycle4"><strong>Quay về trạm sạc</strong>Khi hết tuyến hoặc pin thấp, UAV quay về trạm sạc hoặc điểm hạ cánh đã xác minh.</span></div>
  <div class="cycle-item"><span class="cycle-num">05</span><span data-i18n-html="ds.cycle5"><strong>Sạc & chuẩn bị lại</strong>Nhật ký được lưu, pin được sạc, hệ thống chờ chu kỳ tuần tra tiếp theo.</span></div>
  </div>
  </aside>
@@ -229,8 +243,8 @@
  <section class="scout-section">
  <div class="container">
  <div class="geo-answer">
- <span class="q">Deron Scout là gì?</span>
- <p data-i18n-html="ds.geo.p"><strong>Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động do Deron phát triển tại Việt Nam.</strong> Ở giai đoạn hiện tại, Deron Scout không phải drone giao hàng; hệ thống hoạt động như camera bay thông minh kết hợp robot tuần tra tự động ngoài thực địa, có phần mềm giám sát, Dock/trạm sạc và SOP an toàn đặt con người lên trước nhiệm vụ.</p>
+ <span class="q" data-i18n="ds.geo.q">Deron Scout là gì?</span>
+ <p data-i18n-html="ds.geo.p"><strong>Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động do Deron phát triển tại Việt Nam.</strong> Ở giai đoạn hiện tại, Deron Scout không phải drone giao hàng; hệ thống hoạt động như camera bay thông minh kết hợp robot tuần tra tự động ngoài thực địa, có phần mềm giám sát, trạm sạc và quy trình an toàn đặt con người lên trước nhiệm vụ.</p>
  </div>
  </div>
  </section>
@@ -238,14 +252,14 @@
  <section class="scout-section alt">
  <div class="container">
  <div class="scout-section-head">
- <div class="label label-red mb-16">Bài toán</div>
- <h2>Giám sát diện rộng không thể chỉ dựa vào tuần tra thủ công.</h2>
- <p>Nông trại, rừng, bến cảng, nhà máy, khu công nghiệp và hạ tầng ngoài trời đều có điểm chung: khu vực rộng, nhiệm vụ lặp lại, dữ liệu cần lưu lại, và nhiều vị trí khó hoặc nguy hiểm cho con người tiếp cận thường xuyên.</p>
+ <div class="label label-red mb-16" data-i18n="ds.prob.label">Bài toán</div>
+ <h2 data-i18n="ds.prob.h2">Giám sát diện rộng không thể chỉ dựa vào tuần tra thủ công.</h2>
+ <p data-i18n="ds.prob.p">Nông trại, rừng, bến cảng, nhà máy, khu công nghiệp và hạ tầng ngoài trời đều có điểm chung: khu vực rộng, nhiệm vụ lặp lại, dữ liệu cần lưu lại, và nhiều vị trí khó hoặc nguy hiểm cho con người tiếp cận thường xuyên.</p>
  </div>
  <div class="scout-grid">
- <article class="scout-card"><h3>Quan sát không liên tục</h3><p>Tuần tra thủ công thường rời rạc. Khi sự cố xảy ra, dữ liệu trước đó có thể không đủ để truy vết.</p></article>
- <article class="scout-card"><h3>Rủi ro hiện trường</h3><p>Con người phải vào vùng xa, cao, nóng, ngập, nguy hiểm hoặc thiếu tầm nhìn để kiểm tra.</p></article>
- <article class="scout-card"><h3>Khó mở rộng</h3><p>Khi diện tích tăng, chi phí và nhân lực tuần tra tăng nhanh, trong khi độ phủ dữ liệu không tăng tương ứng.</p></article>
+ <article class="scout-card"><h3 data-i18n="ds.prob.c1t">Quan sát không liên tục</h3><p data-i18n="ds.prob.c1d">Tuần tra thủ công thường rời rạc. Khi sự cố xảy ra, dữ liệu trước đó có thể không đủ để truy vết.</p></article>
+ <article class="scout-card"><h3 data-i18n="ds.prob.c2t">Rủi ro hiện trường</h3><p data-i18n="ds.prob.c2d">Con người phải vào vùng xa, cao, nóng, ngập, nguy hiểm hoặc thiếu tầm nhìn để kiểm tra.</p></article>
+ <article class="scout-card"><h3 data-i18n="ds.prob.c3t">Khó mở rộng</h3><p data-i18n="ds.prob.c3d">Khi diện tích tăng, chi phí và nhân lực tuần tra tăng nhanh, trong khi độ phủ dữ liệu không tăng tương ứng.</p></article>
  </div>
  </div>
  </section>
@@ -253,17 +267,35 @@
  <section class="scout-section" id="applications">
  <div class="container">
  <div class="scout-section-head">
- <div class="label label-red mb-16">Ứng dụng</div>
- <h2>Deron Scout dùng cho lĩnh vực nào?</h2>
- <p>Deron Scout phù hợp với các nhiệm vụ cần giám sát lặp lại, có log dữ liệu, cần giảm rủi ro cho người vận hành và có khu vực bay được kiểm soát.</p>
+ <div class="label label-red mb-16" data-i18n="ds.app.label">Ứng dụng</div>
+ <h2 data-i18n="ds.app.h2">Deron Scout dùng cho lĩnh vực nào?</h2>
+ <p data-i18n="ds.app.p">Deron Scout phù hợp với các nhiệm vụ cần giám sát lặp lại, có nhật ký dữ liệu, cần giảm rủi ro cho người vận hành và có khu vực bay được kiểm soát.</p>
  </div>
- <div class="scout-grid">
- <a class="scout-card scout-link-card" href="/#usecases"><h3>Nông nghiệp</h3><p>Quan sát cây trồng, nhà màng, kênh tưới, vùng ngập úng, sâu bệnh hoặc khu vực cần kiểm tra định kỳ.</p></a>
- <a class="scout-card scout-link-card" href="/#usecases"><h3>Lâm nghiệp & kiểm lâm</h3><p>Hỗ trợ quan sát rừng, đường rừng, điểm nóng cháy rừng hoặc dấu hiệu bất thường trước khi lực lượng mặt đất tiếp cận.</p></a>
- <a class="scout-card scout-link-card" href="/#usecases"><h3>Bến cảng</h3><p>Giám sát bãi, tuyến nội bộ, hàng rào, mặt nước và các khu vực rộng khó bao quát bằng camera cố định.</p></a>
- <a class="scout-card scout-link-card" href="/#usecases"><h3>Nhà máy & KCN</h3><p>Tuần tra chu vi, mái, kho, tuyến đường nội bộ và khu vực hạn chế theo lịch định kỳ.</p></a>
- <a class="scout-card scout-link-card" href="/#usecases"><h3>Môi trường</h3><p>Theo dõi mặt nước, khu vực nhạy cảm, biến đổi địa hình và dấu hiệu ô nhiễm nhìn thấy từ trên cao.</p></a>
- <a class="scout-card scout-link-card" href="/#usecases"><h3>Hạ tầng</h3><p>Quan sát đường dây, công trình ngoài trời, tuyến kỹ thuật và khu vực khó tiếp cận bằng kiểm tra thủ công.</p></a>
+ <div class="scout-grid scout-application-grid">
+ <a class="scout-card scout-link-card scout-app-card" href="/#usecases">
+ <div class="scout-app-media scout-app-placeholder" aria-hidden="true"><span data-i18n="ds.app.placeholder">Ảnh minh họa sẽ cập nhật</span></div>
+ <div class="scout-app-body"><h3 data-i18n="ds.app.c1t">Nông nghiệp</h3><p data-i18n="ds.app.c1d">Nông trại, nhà màng, kênh tưới và vùng trồng lớn thường có nhiều điểm mù mà người vận hành khó đi kiểm tra liên tục. Deron Scout có thể bay theo tuyến định kỳ để ghi hình từ trên cao, đối chiếu tình trạng cây trồng, vùng ngập úng, kênh mương, sâu bệnh nhìn thấy và các khu vực cần xử lý sớm.</p><div class="scout-app-evidence"><span data-i18n="ds.app.evidence.label">Dẫn chứng vận hành</span><p data-i18n="ds.app.c1e">Phù hợp với nhiệm vụ lặp lại theo ngày hoặc theo tuần, cần ảnh, video, tọa độ và nhật ký để so sánh trước/sau thay vì chỉ dựa vào ghi nhận thủ công.</p></div></div>
+ </a>
+ <a class="scout-card scout-link-card scout-app-card" href="/#usecases">
+ <div class="scout-app-media scout-app-placeholder" aria-hidden="true"><span data-i18n="ds.app.placeholder">Ảnh minh họa sẽ cập nhật</span></div>
+ <div class="scout-app-body"><h3 data-i18n="ds.app.c2t">Lâm nghiệp & kiểm lâm</h3><p data-i18n="ds.app.c2d">Khu vực rừng thường rộng, địa hình phức tạp, đường vào khó và nhiều điểm không thể bao quát từ mặt đất. Scout có thể hỗ trợ quan sát đường rừng, bìa rừng, điểm nóng cháy rừng, dấu hiệu xâm nhập hoặc khu vực bất thường trước khi lực lượng kiểm lâm quyết định tiếp cận.</p><div class="scout-app-evidence"><span data-i18n="ds.app.evidence.label">Dẫn chứng vận hành</span><p data-i18n="ds.app.c2e">Giá trị nằm ở bước trinh sát trước: có hình ảnh, thời điểm, hướng bay và vị trí nghi vấn để giảm rủi ro cho người đi hiện trường.</p></div></div>
+ </a>
+ <a class="scout-card scout-link-card scout-app-card" href="/#usecases">
+ <div class="scout-app-media scout-app-placeholder" aria-hidden="true"><span data-i18n="ds.app.placeholder">Ảnh minh họa sẽ cập nhật</span></div>
+ <div class="scout-app-body"><h3 data-i18n="ds.app.c3t">Bến cảng</h3><p data-i18n="ds.app.c3d">Bến cảng, bãi container, hàng rào, tuyến nội bộ và mặt nước có diện tích lớn, nhiều góc chết so với camera cố định. Scout có thể bay tuyến kiểm tra theo lịch, ghi lại tình trạng bãi, luồng di chuyển, khu vực sát hàng rào, cầu cảng và các điểm cần xác minh bằng dữ liệu hình ảnh.</p><div class="scout-app-evidence"><span data-i18n="ds.app.evidence.label">Dẫn chứng vận hành</span><p data-i18n="ds.app.c3e">Phù hợp cho các ca kiểm tra cần nhật ký thời gian, bằng chứng hình ảnh và tuyến bay nhất quán để truy vết khi có sự cố an ninh hoặc vận hành.</p></div></div>
+ </a>
+ <a class="scout-card scout-link-card scout-app-card" href="/#usecases">
+ <div class="scout-app-media"><img src="/public/DanOnFactory.jpg" alt="Khu nhà máy và khu công nghiệp nhìn từ trên cao" loading="lazy" decoding="async"></div>
+ <div class="scout-app-body"><h3 data-i18n="ds.app.c4t">Nhà máy & KCN</h3><p data-i18n="ds.app.c4d">Nhà máy và khu công nghiệp có chu vi dài, mái nhà xưởng, kho, sân bãi, tuyến đường nội bộ và khu vực hạn chế cần được kiểm tra đều đặn. Scout có thể tuần tra theo tuyến đã duyệt để ghi hình mái, hàng rào, cổng phụ, khu vực tập kết, điểm giao nhận và những thay đổi bất thường ngoài giờ vận hành.</p><div class="scout-app-evidence"><span data-i18n="ds.app.evidence.label">Dẫn chứng vận hành</span><p data-i18n="ds.app.c4e">Ảnh minh họa hiện tại dùng khu nhà máy nhìn từ trên cao. Khi triển khai thật, mỗi vòng tuần tra cần có tuyến, thời gian, nhật ký, video và người chịu trách nhiệm xác minh.</p></div></div>
+ </a>
+ <a class="scout-card scout-link-card scout-app-card" href="/#usecases">
+ <div class="scout-app-media scout-app-placeholder" aria-hidden="true"><span data-i18n="ds.app.placeholder">Ảnh minh họa sẽ cập nhật</span></div>
+ <div class="scout-app-body"><h3 data-i18n="ds.app.c5t">Môi trường</h3><p data-i18n="ds.app.c5d">Các khu vực mặt nước, bờ kênh, hồ chứa, bãi thải, khu vực nhạy cảm hoặc địa hình biến đổi cần được quan sát theo thời gian. Scout có thể tạo tuyến bay lặp lại để ghi nhận thay đổi màu nước, điểm xả bất thường, sạt lở, ngập cục bộ hoặc dấu hiệu ô nhiễm nhìn thấy từ trên cao.</p><div class="scout-app-evidence"><span data-i18n="ds.app.evidence.label">Dẫn chứng vận hành</span><p data-i18n="ds.app.c5e">Giá trị đến từ dữ liệu lặp lại cùng góc nhìn: hình ảnh định kỳ giúp tạo đường cơ sở, sau đó phát hiện thay đổi thay vì chỉ kiểm tra khi đã có phản ánh.</p></div></div>
+ </a>
+ <a class="scout-card scout-link-card scout-app-card" href="/#usecases">
+ <div class="scout-app-media scout-app-placeholder" aria-hidden="true"><span data-i18n="ds.app.placeholder">Ảnh minh họa sẽ cập nhật</span></div>
+ <div class="scout-app-body"><h3 data-i18n="ds.app.c6t">Hạ tầng</h3><p data-i18n="ds.app.c6d">Đường dây, trạm kỹ thuật, công trình ngoài trời, tuyến ống, cầu, mái, cột cao và khu vực khó tiếp cận thường tốn nhiều thời gian kiểm tra thủ công. Scout có thể hỗ trợ quan sát từ xa, ghi nhận tình trạng bề mặt, vật cản, xâm lấn hành lang kỹ thuật hoặc dấu hiệu hư hỏng cần ưu tiên bảo trì.</p><div class="scout-app-evidence"><span data-i18n="ds.app.evidence.label">Dẫn chứng vận hành</span><p data-i18n="ds.app.c6e">Phù hợp với kiểm tra định kỳ có phạm vi rõ: mỗi nhiệm vụ tạo dữ liệu ảnh, nhật ký và danh sách điểm cần đội kỹ thuật mặt đất xác minh tiếp.</p></div></div>
+ </a>
  </div>
  </div>
  </section>
@@ -271,17 +303,17 @@
  <section class="scout-section dark" id="technology">
  <div class="container">
  <div class="scout-section-head">
- <div class="label label-inv mb-16">Công nghệ</div>
- <h2>Kiến trúc hệ thống Deron Scout.</h2>
- <p>Scout không phải một chiếc drone đơn lẻ. Nó là một hệ thống gồm nền tảng bay, trạm sạc, phần mềm giám sát, lớp avionics, dữ liệu vận hành và SOP an toàn.</p>
+ <div class="label label-inv mb-16" data-i18n="ds.tech.label">Công nghệ</div>
+ <h2 data-i18n="ds.tech.h2">Kiến trúc hệ thống Deron Scout.</h2>
+ <p data-i18n="ds.tech.p">Scout không phải một chiếc drone đơn lẻ. Nó là một hệ thống gồm nền tảng bay, trạm sạc, phần mềm giám sát, lớp điều khiển, dữ liệu vận hành và quy trình an toàn.</p>
  </div>
  <div class="scout-grid">
- <article class="scout-card"><h3>Nền tảng UAV tuần tra</h3><p>Khung bay, hệ động lực, cảm biến và module truyền thông phục vụ tuyến bay ổn định, lặp lại và có kiểm soát.</p></article>
- <article class="scout-card"><h3>Dock / trạm sạc</h3><p>Điểm hạ cánh, sạc, upload log và lockout khi phát hiện lỗi contact, pin, nước, nhiệt hoặc trạng thái không an toàn.</p></article>
- <article class="scout-card"><h3>DATCS</h3><p>Phần mềm quản lý nhiệm vụ, telemetry, đội bay và dữ liệu vận hành. DATCS hỗ trợ giám sát, không thay thế quy trình an toàn.</p></article>
- <article class="scout-card"><h3>DMA</h3><p>Nền tảng avionics của Deron cho flight control, cảm biến, an toàn và tích hợp với hệ sinh thái phần mềm.</p></article>
- <article class="scout-card"><h3>AI advisory</h3><p>AI hỗ trợ nhận diện/cảnh báo ở mức tư vấn. Quyền điều khiển và quyền dừng khẩn thuộc lớp an toàn chuyên trách.</p></article>
- <article class="scout-card"><h3>SOP đặt con người lên hàng đầu</h3><p>Mọi nhiệm vụ bắt đầu bằng GO hoặc NO GO, preflight, vùng bay, người giám sát, log và quy trình khẩn cấp.</p></article>
+ <article class="scout-card"><h3 data-i18n="ds.tech.c1t">Nền tảng UAV tuần tra</h3><p data-i18n="ds.tech.c1d">Khung bay, hệ động lực, cảm biến và module truyền thông phục vụ tuyến bay ổn định, lặp lại và có kiểm soát.</p></article>
+ <article class="scout-card"><h3 data-i18n="ds.tech.c2t">Trạm sạc</h3><p data-i18n="ds.tech.c2d">Điểm hạ cánh, sạc, tải dữ liệu bay lên hệ thống và tự khóa khi phát hiện lỗi ở điểm tiếp xúc sạc, pin, nước, nhiệt hoặc trạng thái không an toàn.</p></article>
+ <article class="scout-card"><h3>DATCS</h3><p data-i18n="ds.tech.c3d">Phần mềm quản lý nhiệm vụ, dữ liệu bay, đội bay và dữ liệu vận hành. DATCS hỗ trợ giám sát, không thay thế quy trình an toàn.</p></article>
+ <article class="scout-card"><h3>DMA</h3><p data-i18n="ds.tech.c4d">Nền tảng điều khiển bay của Deron cho cảm biến, an toàn và tích hợp với hệ sinh thái phần mềm.</p></article>
+ <article class="scout-card"><h3 data-i18n="ds.tech.c5t">AI advisory</h3><p data-i18n="ds.tech.c5d">AI hỗ trợ nhận diện/cảnh báo ở mức tư vấn. Quyền điều khiển và quyền dừng khẩn thuộc lớp an toàn chuyên trách.</p></article>
+ <article class="scout-card"><h3 data-i18n="ds.tech.c6t">Quy trình đặt con người lên hàng đầu</h3><p data-i18n="ds.tech.c6d">Mọi nhiệm vụ bắt đầu bằng quyết định bay hoặc không bay, kiểm tra trước khi bay, xác minh vùng bay, người giám sát, nhật ký và quy trình khẩn cấp.</p></article>
  </div>
  <div class="sop-callout" style="margin-top:28px" data-i18n-html="ds.tech.callout"><strong>Nguyên tắc:</strong> An toàn con người &gt; an toàn hệ thống &gt; an toàn nhiệm vụ &gt; bảo vệ tài sản &gt; hiệu năng. Deron Scout hỗ trợ con người quan sát tốt hơn, không thay thế trách nhiệm vận hành của con người.</div>
  </div>
@@ -290,16 +322,16 @@
  <section class="scout-section">
  <div class="container">
  <div class="scout-section-head">
- <div class="label label-red mb-16">Quy trình</div>
- <h2>Vòng vận hành chuẩn theo SOP.</h2>
- <p>Chu kỳ Scout được thiết kế để tạo dữ liệu có thể kiểm chứng và giảm rủi ro trước khi đưa UAV vào tình huống thực địa.</p>
+ <div class="label label-red mb-16" data-i18n="ds.proc.label">Quy trình</div>
+ <h2 data-i18n="ds.proc.h2">Vòng vận hành chuẩn theo SOP.</h2>
+ <p data-i18n="ds.proc.p">Chu kỳ Scout được thiết kế để tạo dữ liệu có thể kiểm chứng và giảm rủi ro trước khi đưa UAV vào tình huống thực địa.</p>
  </div>
  <div class="scout-flow">
- <div class="flow-step"><span class="idx">01</span><h3>GO hoặc NO GO</h3><p>Xác minh pháp lý, vùng bay, thời tiết, hiện trường, người vận hành và phương án khẩn cấp.</p></div>
- <div class="flow-step"><span class="idx">02</span><h3>Preflight</h3><p>Kiểm tra tình trạng drone, pin, cảm biến, kết nối, trạm sạc và an toàn khu vực bay.</p></div>
- <div class="flow-step"><span class="idx">03</span><h3>Mission</h3><p>Bay theo tuyến được duyệt, ghi log, cảnh báo bất thường, không tự ý mở rộng vùng bay.</p></div>
- <div class="flow-step"><span class="idx">04</span><h3>Return/Dock</h3><p>Hạ cánh chỉ khi vùng đáp sạch, Dock an toàn và người giám sát xác nhận điều kiện.</p></div>
- <div class="flow-step"><span class="idx">05</span><h3>Postflight</h3><p>Lưu lại dữ liệu bay, video, sự cố và thao tác vận hành trước khi cho bay lại.</p></div>
+ <div class="flow-step"><span class="idx">01</span><h3 data-i18n="ds.proc.s1t">Quyết định bay</h3><p data-i18n="ds.proc.s1d">Xác minh pháp lý, vùng bay, thời tiết, hiện trường, người vận hành và phương án khẩn cấp.</p></div>
+ <div class="flow-step"><span class="idx">02</span><h3 data-i18n="ds.proc.s2t">Kiểm tra trước bay</h3><p data-i18n="ds.proc.s2d">Kiểm tra tình trạng drone, pin, cảm biến, kết nối, trạm sạc và an toàn khu vực bay.</p></div>
+ <div class="flow-step"><span class="idx">03</span><h3 data-i18n="ds.proc.s3t">Bay tuần tra</h3><p data-i18n="ds.proc.s3d">Bay theo tuyến được duyệt, ghi nhật ký, cảnh báo bất thường, không tự ý mở rộng vùng bay.</p></div>
+ <div class="flow-step"><span class="idx">04</span><h3 data-i18n="ds.proc.s4t">Quay về trạm</h3><p data-i18n="ds.proc.s4d">Hạ cánh chỉ khi vùng đáp sạch, trạm sạc an toàn và người giám sát xác nhận điều kiện.</p></div>
+ <div class="flow-step"><span class="idx">05</span><h3 data-i18n="ds.proc.s5t">Ghi nhận sau bay</h3><p data-i18n="ds.proc.s5d">Lưu lại dữ liệu bay, video, sự cố và thao tác vận hành trước khi cho bay lại.</p></div>
  </div>
  </div>
  </section>
@@ -307,17 +339,17 @@
  <section class="scout-section alt">
  <div class="container">
  <div class="scout-section-head">
- <div class="label label-red mb-16">Hệ sinh thái</div>
- <h2>Scout là mũi nhọn hiện tại của Deron.</h2>
- <p>Deron Scout tạo giá trị sớm bằng tuần tra và giám sát có kiểm soát. Các lớp còn lại của Deron bổ trợ cho lộ trình dài hạn.</p>
+ <div class="label label-red mb-16" data-i18n="ds.eco.label">Hệ sinh thái</div>
+ <h2 data-i18n="ds.eco.h2">Scout là mũi nhọn hiện tại của Deron.</h2>
+ <p data-i18n="ds.eco.p">Deron Scout tạo giá trị sớm bằng tuần tra và giám sát có kiểm soát. Các lớp còn lại của Deron bổ trợ cho lộ trình dài hạn.</p>
  </div>
  <div class="scout-grid">
- <article class="scout-card"><h3>Deron Scout</h3><p>Sản phẩm đang triển khai: UAV tuần tra, giám sát và theo dõi tự động.</p></article>
- <article class="scout-card"><h3>Deron Delivery</h3><p>Hướng tương lai: drone giao hàng tự hành cho logistics, y tế khẩn cấp và vùng khó khăn khi đủ điều kiện.</p></article>
- <article class="scout-card"><h3>DMA</h3><p>Nền tảng avionics của Deron cho các hệ UAV trong hệ sinh thái.</p></article>
- <article class="scout-card"><h3>DATCS</h3><p>Hệ điều khiển và quản lý UAV/GCS/UTM phục vụ giám sát nhiệm vụ và đội bay.</p></article>
- <article class="scout-card"><h3>Deron Academy</h3><p>Nền tảng học UAV, drone và FPV, giúp xây tri thức vận hành an toàn từ nền tảng.</p></article>
- <article class="scout-card"><h3>SOP</h3><p>Tài liệu vận hành chuẩn cho thử nghiệm có kiểm soát, nguyên tắc đặt con người lên hàng đầu và log minh bạch.</p></article>
+ <article class="scout-card"><h3>Deron Scout</h3><p data-i18n="ds.eco.c1d">Sản phẩm đang triển khai: UAV tuần tra, giám sát và theo dõi tự động.</p></article>
+ <article class="scout-card"><h3>Deron Delivery</h3><p data-i18n="ds.eco.c2d">Hướng tương lai: drone giao hàng tự hành cho logistics, y tế khẩn cấp và vùng khó khăn khi đủ điều kiện.</p></article>
+ <article class="scout-card"><h3>DMA</h3><p data-i18n="ds.eco.c3d">Nền tảng điều khiển bay của Deron cho các hệ UAV trong hệ sinh thái.</p></article>
+ <article class="scout-card"><h3>DATCS</h3><p data-i18n="ds.eco.c4d">Hệ điều khiển và quản lý UAV/GCS/UTM phục vụ giám sát nhiệm vụ và đội bay.</p></article>
+ <article class="scout-card"><h3>Deron Academy</h3><p data-i18n="ds.eco.c5d">Nền tảng học UAV, drone và FPV, giúp xây tri thức vận hành an toàn từ nền tảng.</p></article>
+ <article class="scout-card"><h3>SOP</h3><p data-i18n="ds.eco.c6d">Tài liệu vận hành chuẩn cho thử nghiệm có kiểm soát, nguyên tắc đặt con người lên hàng đầu và nhật ký minh bạch.</p></article>
 </div>
 </div>
 </section>
@@ -325,61 +357,61 @@
 <section class="scout-section" id="lo-trinh-von">
 <div class="container">
 <div class="scout-section-head">
-<div class="label label-red mb-16">Dự toán kinh phí</div>
-<h2>Lộ trình vốn 24 tháng cho Deron Scout.</h2>
-<p>Cập nhật theo hồ sơ dự toán đề nghị hỗ trợ hoạt động nâng cao năng lực khoa học và công nghệ cho hệ UAV tuần tra, giám sát và theo dõi tự động Deron Scout.</p>
+<div class="label label-red mb-16" data-i18n="ds.bud.label">Dự toán kinh phí</div>
+<h2 data-i18n="ds.bud.h2">Lộ trình vốn 24 tháng cho Deron Scout.</h2>
+<p data-i18n="ds.bud.p">Cập nhật theo hồ sơ dự toán đề nghị hỗ trợ hoạt động nâng cao năng lực khoa học và công nghệ cho hệ UAV tuần tra, giám sát và theo dõi tự động Deron Scout.</p>
 </div>
 
 <div class="scout-grid scout-budget-grid">
- <article class="scout-card"><span class="budget-amount">4.800.000.000 đồng</span><h3>Tổng kinh phí thực hiện</h3><p>Đồng thời là mức kinh phí đề nghị Quỹ hỗ trợ, dùng cho nghiên cứu, tích hợp, thử nghiệm, quy trình chuẩn, dữ liệu và đào tạo đội ngũ.</p></article>
-<article class="scout-card"><span class="budget-amount">24 tháng</span><h3>01/06/2026 đến 01/06/2028</h3><p>Lộ trình được chia thành 5 giai đoạn rõ ràng, từ chuẩn hóa kiến trúc tới báo cáo tổng kết và phương án thí điểm.</p></article>
- <article class="scout-card"><span class="budget-amount">9 nhóm</span><h3>Chi phí trọng tâm</h3><p>Nhân sự kỹ thuật, phần cứng UAV, Dock, phần mềm dữ liệu, thiết bị kiểm thử, field test, checklist an toàn, đào tạo và dự phòng kỹ thuật.</p></article>
+ <article class="scout-card"><span class="budget-amount" data-i18n="ds.amt.total">4.800.000.000 đồng</span><h3 data-i18n="ds.bud.c1t">Tổng kinh phí thực hiện</h3><p data-i18n="ds.bud.c1d">Đồng thời là mức kinh phí đề nghị Quỹ hỗ trợ, dùng cho nghiên cứu, tích hợp, thử nghiệm, quy trình chuẩn, dữ liệu và đào tạo đội ngũ.</p></article>
+<article class="scout-card"><span class="budget-amount" data-i18n="ds.amt.24m">24 tháng</span><h3 data-i18n="ds.bud.c2t">01/06/2026 đến 01/06/2028</h3><p data-i18n="ds.bud.c2d">Lộ trình được chia thành 5 giai đoạn rõ ràng, từ chuẩn hóa kiến trúc tới báo cáo tổng kết và phương án thí điểm.</p></article>
+ <article class="scout-card"><span class="budget-amount" data-i18n="ds.amt.9g">9 nhóm</span><h3 data-i18n="ds.bud.c3t">Chi phí trọng tâm</h3><p data-i18n="ds.bud.c3d">Nhân sự kỹ thuật, phần cứng UAV, trạm sạc, phần mềm dữ liệu, thiết bị kiểm thử, thử nghiệm thực địa, danh sách kiểm tra an toàn, đào tạo và dự phòng kỹ thuật.</p></article>
 </div>
 
 <div class="scout-section-head" style="margin-top:56px;">
-<div class="label label-red mb-16">Phân bổ theo giai đoạn</div>
-<h2>Kế hoạch sử dụng vốn.</h2>
+<div class="label label-red mb-16" data-i18n="ds.alloc.label">Phân bổ theo giai đoạn</div>
+<h2 data-i18n="ds.alloc.h2">Kế hoạch sử dụng vốn.</h2>
 </div>
 <div class="scout-flow">
- <div class="flow-step"><span class="idx">01</span><h3>Tháng 1 đến 3</h3><p>Chuẩn hóa kiến trúc, yêu cầu kỹ thuật, kế hoạch kiểm thử, danh mục linh kiện và tài liệu vận hành sơ bộ.</p><strong>600.000.000 đồng</strong></div>
-<div class="flow-step"><span class="idx">02</span><h3>Tháng 4 đến 6</h3><p>Tích hợp UAV thử nghiệm, bench test nguồn, pin, động cơ, cảm biến và phần mềm ghi log ban đầu.</p><strong>1.100.000.000 đồng</strong></div>
-<div class="flow-step"><span class="idx">03</span><h3>Tháng 7 đến 12</h3><p>Phát triển chu kỳ tuần tra tự động, quay về trạm, sạc, đồng bộ dữ liệu và thử nghiệm lặp lại.</p><strong>1.450.000.000 đồng</strong></div>
- <div class="flow-step"><span class="idx">04</span><h3>Tháng 13 tới 18</h3><p>Thử nghiệm thực địa có kiểm soát, thu thập dữ liệu, đánh giá ứng dụng và cập nhật quy trình chuẩn.</p><strong>950.000.000 đồng</strong></div>
-<div class="flow-step"><span class="idx">05</span><h3>Tháng 19 tới 24</h3><p>Hoàn thiện hồ sơ kỹ thuật, báo cáo tổng kết, tài liệu đào tạo và phương án triển khai thí điểm.</p><strong>700.000.000 đồng</strong></div>
+ <div class="flow-step"><span class="idx">01</span><h3 data-i18n="ds.alloc.s1t">Tháng 1 đến 3</h3><p data-i18n="ds.alloc.s1d">Chuẩn hóa kiến trúc, yêu cầu kỹ thuật, kế hoạch kiểm thử, danh mục linh kiện và tài liệu vận hành sơ bộ.</p><strong data-i18n="ds.amt.600">600.000.000 đồng</strong></div>
+<div class="flow-step"><span class="idx">02</span><h3 data-i18n="ds.alloc.s2t">Tháng 4 đến 6</h3><p data-i18n="ds.alloc.s2d">Tích hợp UAV thử nghiệm, kiểm thử bàn nguồn, pin, động cơ, cảm biến và phần mềm ghi nhật ký ban đầu.</p><strong data-i18n="ds.amt.1100">1.100.000.000 đồng</strong></div>
+<div class="flow-step"><span class="idx">03</span><h3 data-i18n="ds.alloc.s3t">Tháng 7 đến 12</h3><p data-i18n="ds.alloc.s3d">Phát triển chu kỳ tuần tra tự động, quay về trạm, sạc, đồng bộ dữ liệu và thử nghiệm lặp lại.</p><strong data-i18n="ds.amt.1450">1.450.000.000 đồng</strong></div>
+ <div class="flow-step"><span class="idx">04</span><h3 data-i18n="ds.alloc.s4t">Tháng 13 tới 18</h3><p data-i18n="ds.alloc.s4d">Thử nghiệm thực địa có kiểm soát, thu thập dữ liệu, đánh giá ứng dụng và cập nhật quy trình chuẩn.</p><strong data-i18n="ds.amt.950">950.000.000 đồng</strong></div>
+<div class="flow-step"><span class="idx">05</span><h3 data-i18n="ds.alloc.s5t">Tháng 19 tới 24</h3><p data-i18n="ds.alloc.s5d">Hoàn thiện hồ sơ kỹ thuật, báo cáo tổng kết, tài liệu đào tạo và phương án triển khai thí điểm.</p><strong data-i18n="ds.amt.700">700.000.000 đồng</strong></div>
 </div>
 
 <div class="scout-section-head" style="margin-top:56px;">
-<div class="label label-red mb-16">Chi tiết chi phí</div>
-<h2>9 nhóm chi phí trong dự toán.</h2>
+<div class="label label-red mb-16" data-i18n="ds.cost.label">Chi tiết chi phí</div>
+<h2 data-i18n="ds.cost.h2">9 nhóm chi phí trong dự toán.</h2>
 </div>
 <div class="scout-grid scout-budget-grid">
-<article class="scout-card"><span class="budget-card-code">01</span><h3>Nhân sự nghiên cứu, kỹ thuật và vận hành</h3><p>Hỗ trợ công lao động cho nhóm nghiên cứu, kỹ thuật UAV, tích hợp phần cứng, phần mềm dữ liệu, vận hành thử nghiệm, xử lý dữ liệu và quản lý hồ sơ.</p><strong>1.440.000.000 đồng</strong></article>
-<article class="scout-card"><span class="budget-card-code">02</span><h3>Phần cứng UAV</h3><p>Khung UAV, hệ động lực, cánh quạt, module điều khiển, cảm biến, truyền dữ liệu, dây dẫn, đầu nối, phụ kiện cơ khí và linh kiện thay thế.</p><strong>900.000.000 đồng</strong></article>
-<article class="scout-card"><span class="budget-card-code">03</span><h3>Dock và chu kỳ tự động</h3><p>Mô hình trạm sạc, module sạc, nguồn điện, tiếp điểm, cơ cấu căn chỉnh, cảm biến an toàn, vỏ bảo vệ và vật tư chống ẩm.</p><strong>700.000.000 đồng</strong></article>
-<article class="scout-card"><span class="budget-card-code">04</span><h3>Phần mềm, dữ liệu và AI ứng dụng</h3><p>Giám sát nhiệm vụ, pin, tuyến tuần tra, dữ liệu hình ảnh, cảnh báo lỗi, báo cáo sau nhiệm vụ, lưu trữ log và xử lý dữ liệu. AI chỉ hỗ trợ quan sát, cảnh báo và đề xuất.</p><strong>480.000.000 đồng</strong></article>
-<article class="scout-card"><span class="budget-card-code">05</span><h3>Kiểm thử, đo lường và an toàn</h3><p>Thiết bị đo điện, kiểm tra nguồn, pin, nhiệt, dụng cụ cơ khí, bộ gá thử nghiệm, vật tư bảo hộ, dụng cụ sửa chữa và vật tư bench test.</p><strong>360.000.000 đồng</strong></article>
-<article class="scout-card"><span class="budget-card-code">06</span><h3>Thử nghiệm thực địa có kiểm soát</h3><p>Chuẩn bị địa điểm, di chuyển, hậu cần, ghi hình, thu thập dữ liệu, nhân sự giám sát, vật tư thử nghiệm và báo cáo field test.</p><strong>360.000.000 đồng</strong></article>
- <article class="scout-card"><span class="budget-card-code">07</span><h3>Hồ sơ an toàn, FMEA và tài liệu kỹ thuật</h3><p>Checklist trước và sau nhiệm vụ, tài liệu vận hành, vùng bay thử, xử lý mất kết nối, pin yếu, lỗi trạm sạc, risk register, FMEA và báo cáo thử nghiệm.</p><strong>240.000.000 đồng</strong></article>
-<article class="scout-card"><span class="budget-card-code">08</span><h3>Đào tạo đội ngũ</h3><p>Đào tạo nội bộ về UAV, tích hợp phần cứng, dữ liệu, phần mềm giám sát, phân tích log, an toàn bay, vận hành thực địa và quản lý rủi ro.</p><strong>200.000.000 đồng</strong></article>
-<article class="scout-card"><span class="budget-card-code">09</span><h3>Dự phòng kỹ thuật</h3><p>Thay thế linh kiện hỏng, sửa chữa lỗi kỹ thuật, hiệu chỉnh nguyên mẫu, bổ sung vật tư nhỏ và xử lý phát sinh hợp lý trong phạm vi được phê duyệt.</p><strong>120.000.000 đồng</strong></article>
+<article class="scout-card"><span class="budget-card-code">01</span><h3 data-i18n="ds.cost.c1t">Nhân sự nghiên cứu, kỹ thuật và vận hành</h3><p data-i18n="ds.cost.c1d">Hỗ trợ công lao động cho nhóm nghiên cứu, kỹ thuật UAV, tích hợp phần cứng, phần mềm dữ liệu, vận hành thử nghiệm, xử lý dữ liệu và quản lý hồ sơ.</p><strong data-i18n="ds.amt.1440">1.440.000.000 đồng</strong></article>
+<article class="scout-card"><span class="budget-card-code">02</span><h3 data-i18n="ds.cost.c2t">Phần cứng UAV</h3><p data-i18n="ds.cost.c2d">Khung UAV, hệ động lực, cánh quạt, module điều khiển, cảm biến, truyền dữ liệu, dây dẫn, đầu nối, phụ kiện cơ khí và linh kiện thay thế.</p><strong data-i18n="ds.amt.900">900.000.000 đồng</strong></article>
+<article class="scout-card"><span class="budget-card-code">03</span><h3 data-i18n="ds.cost.c3t">Trạm sạc và chu kỳ tự động</h3><p data-i18n="ds.cost.c3d">Mô hình trạm sạc, module sạc, nguồn điện, tiếp điểm, cơ cấu căn chỉnh, cảm biến an toàn, vỏ bảo vệ và vật tư chống ẩm.</p><strong data-i18n="ds.amt.700">700.000.000 đồng</strong></article>
+<article class="scout-card"><span class="budget-card-code">04</span><h3 data-i18n="ds.cost.c4t">Phần mềm, dữ liệu và AI ứng dụng</h3><p data-i18n="ds.cost.c4d">Giám sát nhiệm vụ, pin, tuyến tuần tra, dữ liệu hình ảnh, cảnh báo lỗi, báo cáo sau nhiệm vụ, lưu trữ nhật ký và xử lý dữ liệu. AI chỉ hỗ trợ quan sát, cảnh báo và đề xuất.</p><strong data-i18n="ds.amt.480">480.000.000 đồng</strong></article>
+<article class="scout-card"><span class="budget-card-code">05</span><h3 data-i18n="ds.cost.c5t">Kiểm thử, đo lường và an toàn</h3><p data-i18n="ds.cost.c5d">Thiết bị đo điện, kiểm tra nguồn, pin, nhiệt, dụng cụ cơ khí, bộ gá thử nghiệm, vật tư bảo hộ, dụng cụ sửa chữa và vật tư kiểm thử bàn.</p><strong data-i18n="ds.amt.360">360.000.000 đồng</strong></article>
+<article class="scout-card"><span class="budget-card-code">06</span><h3 data-i18n="ds.cost.c6t">Thử nghiệm thực địa có kiểm soát</h3><p data-i18n="ds.cost.c6d">Chuẩn bị địa điểm, di chuyển, hậu cần, ghi hình, thu thập dữ liệu, nhân sự giám sát, vật tư thử nghiệm và báo cáo thực địa.</p><strong data-i18n="ds.amt.360">360.000.000 đồng</strong></article>
+ <article class="scout-card"><span class="budget-card-code">07</span><h3 data-i18n="ds.cost.c7t">Hồ sơ an toàn, FMEA và tài liệu kỹ thuật</h3><p data-i18n="ds.cost.c7d">Danh sách kiểm tra trước và sau nhiệm vụ, tài liệu vận hành, vùng bay thử, xử lý mất kết nối, pin yếu, lỗi trạm sạc, sổ rủi ro, FMEA và báo cáo thử nghiệm.</p><strong data-i18n="ds.amt.240">240.000.000 đồng</strong></article>
+<article class="scout-card"><span class="budget-card-code">08</span><h3 data-i18n="ds.cost.c8t">Đào tạo đội ngũ</h3><p data-i18n="ds.cost.c8d">Đào tạo nội bộ về UAV, tích hợp phần cứng, dữ liệu, phần mềm giám sát, phân tích nhật ký, an toàn bay, vận hành thực địa và quản lý rủi ro.</p><strong data-i18n="ds.amt.200">200.000.000 đồng</strong></article>
+<article class="scout-card"><span class="budget-card-code">09</span><h3 data-i18n="ds.cost.c9t">Dự phòng kỹ thuật</h3><p data-i18n="ds.cost.c9d">Thay thế linh kiện hỏng, sửa chữa lỗi kỹ thuật, hiệu chỉnh nguyên mẫu, bổ sung vật tư nhỏ và xử lý phát sinh hợp lý trong phạm vi được phê duyệt.</p><strong data-i18n="ds.amt.120">120.000.000 đồng</strong></article>
 </div>
 
- <p class="budget-note" data-i18n-html="ds.bud.note">Sản phẩm đầu ra gồm một đến hai hệ UAV Deron Scout thử nghiệm, mô hình Dock, phần mềm giám sát, bộ dữ liệu thử nghiệm, log kỹ thuật, tài liệu kiến trúc, checklist an toàn, risk register, FMEA, báo cáo bench test, flight test, field test và đề xuất mô hình triển khai thí điểm với đối tác.</p>
+ <p class="budget-note" data-i18n-html="ds.bud.note">Sản phẩm đầu ra gồm một đến hai hệ UAV Deron Scout thử nghiệm, mô hình trạm sạc, phần mềm giám sát, bộ dữ liệu thử nghiệm, nhật ký kỹ thuật, tài liệu kiến trúc, danh sách kiểm tra an toàn, sổ rủi ro, FMEA, báo cáo kiểm thử bàn, kiểm thử bay, thử nghiệm thực địa và đề xuất mô hình triển khai thí điểm với đối tác.</p>
 </div>
 </section>
 
 <section class="scout-section" id="faq">
 <div class="container">
 <div class="scout-section-head">
- <div class="label label-red mb-16">FAQ</div>
- <h2>Câu hỏi thường gặp về Deron Scout.</h2>
+ <div class="label label-red mb-16" data-i18n="ds.faq.label">FAQ</div>
+ <h2 data-i18n="ds.faq.h2">Câu hỏi thường gặp về Deron Scout.</h2>
  </div>
  <div class="faq-list">
- <details open><summary>Deron Scout là gì? </summary><p>Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động do Deron phát triển tại Việt Nam. Hệ thống bay theo tuyến lập lịch, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự về trạm sạc và tiếp tục chu kỳ.</p></details>
- <details><summary>Deron Scout có phải drone giao hàng không? </summary><p>Không ở giai đoạn hiện tại. Deron Scout là hệ tuần tra và giám sát tự động. Deron Delivery vẫn là hướng mở rộng trong hệ sinh thái Deron khi đủ điều kiện kỹ thuật, pháp lý và vận hành.</p></details>
- <details><summary>Deron Scout khác gì so với drone tuần tra thông thường, </summary><p>Scout được định hướng như một chu kỳ tự động khép kín gồm tuyến bay, dữ liệu, cảnh báo, Dock/trạm sạc, log vận hành và SOP đặt con người lên hàng đầu, thay vì chỉ là một thiết bị bay thủ công.</p></details>
- <details><summary>Scout có thay thế kiểm lâm, bảo vệ hoặc kỹ sư hiện trường không? </summary><p>Không. Scout hỗ trợ quan sát từ xa, cung cấp dữ liệu trực quan và giúp con người ra quyết định an toàn hơn trước khi tiếp cận vùng khó hoặc nguy hiểm.</p></details>
- <details><summary>Deron Scout liên quan thế nào tới DMA và DATCS, </summary><p>DMA là lớp avionics/flight control nền tảng, còn DATCS là phần mềm quản lý nhiệm vụ, telemetry và đội bay. Scout là sản phẩm ứng dụng cụ thể kết nối các lớp này.</p></details>
+ <details open><summary data-i18n="ds.geo.q">Deron Scout là gì? </summary><p data-i18n="ds.faq.a1">Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động do Deron phát triển tại Việt Nam. Hệ thống bay theo tuyến lập lịch, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự về trạm sạc và tiếp tục chu kỳ.</p></details>
+ <details><summary data-i18n="ds.faq.q2">Deron Scout có phải drone giao hàng không? </summary><p data-i18n="ds.faq.a2">Không ở giai đoạn hiện tại. Deron Scout là hệ tuần tra và giám sát tự động. Deron Delivery vẫn là hướng mở rộng trong hệ sinh thái Deron khi đủ điều kiện kỹ thuật, pháp lý và vận hành.</p></details>
+ <details><summary data-i18n="ds.faq.q3">Deron Scout khác gì so với drone tuần tra thông thường, </summary><p data-i18n="ds.faq.a3">Scout được định hướng như một chu kỳ tự động khép kín gồm tuyến bay, dữ liệu, cảnh báo, trạm sạc, nhật ký vận hành và quy trình đặt con người lên hàng đầu, thay vì chỉ là một thiết bị bay thủ công.</p></details>
+ <details><summary data-i18n="ds.faq.q4">Scout có thay thế kiểm lâm, bảo vệ hoặc kỹ sư hiện trường không? </summary><p data-i18n="ds.faq.a4">Không. Scout hỗ trợ quan sát từ xa, cung cấp dữ liệu trực quan và giúp con người ra quyết định an toàn hơn trước khi tiếp cận vùng khó hoặc nguy hiểm.</p></details>
+ <details><summary data-i18n="ds.faq.q5">Deron Scout liên quan thế nào tới DMA và DATCS, </summary><p data-i18n="ds.faq.a5">DMA là lớp điều khiển nền tảng của thiết bị bay, còn DATCS là phần mềm quản lý nhiệm vụ, dữ liệu bay và đội bay. Scout là sản phẩm ứng dụng cụ thể kết nối các lớp này.</p></details>
  </div>
  </div>
  </section>
@@ -387,10 +419,10 @@
  <section class="cta-section">
  <div class="container">
  <div class="reveal" style="text-align:center;">
- <div class="label label-inv" style="margin-bottom:20px;">SOP Deron Scout</div>
- <h2 class="text-inv" style="margin:0 auto 20px;max-width:760px;">Vận hành đúng quy trình trước khi bay thật.</h2>
- <p style="color:var(--text-inv-muted);margin:0 auto 38px;font-size:17px;max-width:680px;">Xem SOP v0.1 cho Deron Scout U1 Pro: nguyên tắc đặt con người lên hàng đầu, GO hoặc NO GO, preflight, mission, return to Dock, charging, emergency và postflight log.</p>
- <a class="btn btn-primary btn-arrow" href="/deron-scout/sop">Mở SOP vận hành</a>
+ <div class="label label-inv" style="margin-bottom:20px;" data-i18n="ds.cta.label">SOP Deron Scout</div>
+ <h2 class="text-inv" style="margin:0 auto 20px;max-width:760px;" data-i18n="ds.cta.h2">Vận hành đúng quy trình trước khi bay thật.</h2>
+ <p style="color:var(--text-inv-muted);margin:0 auto 38px;font-size:17px;max-width:680px;" data-i18n="ds.cta.p">Xem SOP v0.1 cho Deron Scout U1 Pro: nguyên tắc đặt con người lên hàng đầu, quyết định bay hoặc không bay, kiểm tra trước khi bay, bay tuần tra, quay về trạm sạc, xử lý khẩn cấp và ghi nhận sau bay.</p>
+ <a class="btn btn-primary btn-arrow" href="/deron-scout/sop" data-i18n="ds.hero.cta2">Mở SOP vận hành</a>
  </div>
  </div>
  </section>
@@ -399,7 +431,7 @@
 <div data-deron-footer data-back-home="true"></div>
 <script src="/public/translations.js?v=20260607scout"></script>
 <script src="/assets/js/main.js"></script>
-<script src="/assets/js/footer.js?v=20260607e" defer></script>
+<script src="/assets/js/footer.js?v=20260608b" defer></script>
 <script>
  function toggleLangDrop() {
  const dd = document.getElementById('langDropdown');

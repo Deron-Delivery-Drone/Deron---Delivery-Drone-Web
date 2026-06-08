@@ -200,6 +200,8 @@
 
  p {
  max-width: 60ch;
+ text-align: justify;
+ text-justify: inter-word;
  }
 
  .text-inv {
@@ -633,6 +635,7 @@ color: var(--red);
  width: 800px;
  height: auto;
  opacity: 1;
+ z-index: 1;
  pointer-events: none;
  }
 
@@ -986,6 +989,84 @@ font-size: 16px;
 line-height: 1.75;
 color: var(--text-muted);
 max-width: 980px;
+}
+
+/* ============================================================ CARD IMAGE FRAMES */
+.card-image-frame {
+position: relative;
+isolation: isolate;
+width: 100%;
+aspect-ratio: 16 / 10;
+border: 1px dashed rgba(14, 26, 43, 0.22);
+border-radius: var(--radius);
+background:
+linear-gradient(135deg, rgba(196, 30, 58, 0.06), transparent 46%),
+linear-gradient(180deg, rgba(14, 26, 43, 0.04), rgba(14, 26, 43, 0.01));
+overflow: hidden;
+display: grid;
+place-items: center;
+margin-bottom: 26px;
+}
+
+.card-image-frame::before {
+content: "";
+position: absolute;
+inset: 0;
+background-image:
+linear-gradient(rgba(14, 26, 43, 0.06) 1px, transparent 1px),
+linear-gradient(90deg, rgba(14, 26, 43, 0.06) 1px, transparent 1px);
+background-size: 22px 22px;
+opacity: 0.55;
+z-index: -1;
+}
+
+.card-image-frame::after {
+content: "";
+position: absolute;
+inset: 10px;
+border: 1px solid rgba(196, 30, 58, 0.18);
+border-radius: calc(var(--radius) - 2px);
+pointer-events: none;
+}
+
+.card-image-frame span {
+font-family: var(--font-label);
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: rgba(14, 26, 43, 0.42);
+}
+
+.card-image-frame img {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: 1;
+}
+
+.card-image-frame:has(img) span {
+display: none;
+}
+
+.card-image-frame-dark {
+border-color: rgba(255, 255, 255, 0.18);
+background:
+linear-gradient(135deg, rgba(196, 30, 58, 0.16), transparent 48%),
+linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.card-image-frame-dark::before {
+background-image:
+linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+opacity: 0.45;
+}
+
+.card-image-frame-dark span {
+color: rgba(255, 255, 255, 0.54);
 }
 
 /* ============================================================ SOLUTION */
@@ -2254,8 +2335,8 @@ grid-template-columns: repeat(3, 1fr);
 
  .strip-inner {
  display: flex;
- gap: 64px;
- animation: marquee 30s linear infinite;
+ gap: 44px;
+ animation: marquee 46s linear infinite;
  white-space: nowrap;
  }
 
@@ -2589,8 +2670,25 @@ grid-template-columns: repeat(3, 1fr);
  .footer-top > .footer-brand .footer-brand-desc,
  .footer-top > div:first-child .footer-brand-desc { max-width: 520px; }
 
+ .hero-content {
+ padding-right: 42vw;
+ }
+
+ .hero-title {
+ max-width: 620px;
+ }
+
+ .hero-sub {
+ max-width: 480px;
+ }
+
  .hero-drone-svg {
- display: none;
+ display: block;
+ width: min(58vw, 620px);
+ right: -12vw;
+ top: 47%;
+ opacity: .62;
+ transform: translateY(-50%);
  }
 
  .product-categories {
@@ -3115,13 +3213,34 @@ padding: 56px 0;
  min-height: auto !important;
  }
 
+ #hero {
+ flex-direction: column;
+ align-items: stretch;
+ justify-content: flex-start;
+ }
+
  .hero-content {
- padding: 112px 20px 64px;
+ padding: 112px 20px 28px;
+ padding-right: 20px;
+ }
+
+ .hero-drone-svg {
+ position: relative;
+ display: block;
+ order: 2;
+ right: auto;
+ top: auto;
+ transform: none;
+ width: min(92vw, 430px);
+ margin: -12px auto 34px;
+ opacity: .96;
+ z-index: 2;
  }
 
  .hero-title {
  font-size: 42px;
  line-height: 1.03;
+ max-width: 100%;
  }
 
  .hero-sub {
@@ -3130,7 +3249,7 @@ padding: 56px 0;
  }
 
  .hero-ctas {
- margin-bottom: 46px;
+ margin-bottom: 34px;
  }
 
  .grid-2,
@@ -3297,6 +3416,43 @@ padding: 56px 0;
  }
  }
 
+ @media (min-width: 641px) and (max-width: 860px) {
+ #hero {
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ min-height: 760px !important;
+ padding-top: 96px !important;
+ padding-bottom: 56px !important;
+ }
+
+ .hero-content {
+ order: initial;
+ padding: 112px 42vw 64px 20px;
+ }
+
+ .hero-title {
+ max-width: 430px;
+ }
+
+ .hero-sub {
+ max-width: 420px;
+ }
+
+ .hero-drone-svg {
+ position: absolute;
+ display: block;
+ order: initial;
+ right: -28vw;
+ top: 58%;
+ transform: translateY(-50%);
+ width: min(62vw, 540px);
+ margin: 0;
+ opacity: .82;
+ z-index: 1;
+ }
+ }
+
  @media (max-width: 480px) {
  .container,
  .container-narrow {
@@ -3317,6 +3473,12 @@ padding: 56px 0;
 
  .hero-title {
  font-size: 38px;
+ }
+
+ .hero-drone-svg {
+ width: min(96vw, 380px);
+ margin-top: -6px;
+ margin-bottom: 28px;
  }
 
  .hero-stats,
@@ -3498,18 +3660,44 @@ padding: 56px 0;
  <!-- HIGHLIGHT STRIP -->
  <div class="highlight-strip">
  <div class="strip-inner" id="strip">
- <div class="strip-item" data-i18n="strip.1">Y tế khẩn cấp</div>
- <div class="strip-item" data-i18n="strip.2">Cứu trợ thiên tai</div>
- <div class="strip-item" data-i18n="strip.3">Logistics vùng xa</div>
- <div class="strip-item" data-i18n="strip.4">Tự cường công nghệ Việt</div>
- <div class="strip-item">Nghị quyết 57 NQ/TW</div>
- <div class="strip-item">Deep Tech · Made in Vietnam</div>
- <div class="strip-item" data-i18n="strip.1">Y tế khẩn cấp</div>
- <div class="strip-item" data-i18n="strip.2">Cứu trợ thiên tai</div>
- <div class="strip-item" data-i18n="strip.3">Logistics vùng xa</div>
- <div class="strip-item" data-i18n="strip.4">Tự cường công nghệ Việt</div>
- <div class="strip-item">Nghị quyết 57 NQ/TW</div>
- <div class="strip-item">Deep Tech · Made in Vietnam</div>
+ <div class="strip-item">DRONE</div>
+ <div class="strip-item">UAV</div>
+ <div class="strip-item">DERON</div>
+ <div class="strip-item">DELIVERY DRONE</div>
+ <div class="strip-item">DERON SCOUT</div>
+ <div class="strip-item">2026</div>
+ <div class="strip-item">PHÁP LÝ</div>
+ <div class="strip-item">ACADEMY</div>
+ <div class="strip-item">AUTHENTICITY</div>
+ <div class="strip-item">COMPASSION</div>
+ <div class="strip-item">IMPROVEMENT</div>
+ <div class="strip-item">HOSPITALITY</div>
+ <div class="strip-item">UNIKORN</div>
+ <div class="strip-item">VIET NAM</div>
+ <div class="strip-item">VƯƠN MÌNH</div>
+ <div class="strip-item">TỰ CHỦ</div>
+ <div class="strip-item">ĐỘC LẬP</div>
+ <div class="strip-item">TỰ DO</div>
+ <div class="strip-item">HẠNH PHÚC</div>
+ <div class="strip-item">DRONE</div>
+ <div class="strip-item">UAV</div>
+ <div class="strip-item">DERON</div>
+ <div class="strip-item">DELIVERY DRONE</div>
+ <div class="strip-item">DERON SCOUT</div>
+ <div class="strip-item">2026</div>
+ <div class="strip-item">PHÁP LÝ</div>
+ <div class="strip-item">ACADEMY</div>
+ <div class="strip-item">AUTHENTICITY</div>
+ <div class="strip-item">COMPASSION</div>
+ <div class="strip-item">IMPROVEMENT</div>
+ <div class="strip-item">HOSPITALITY</div>
+ <div class="strip-item">UNIKORN</div>
+ <div class="strip-item">VIET NAM</div>
+ <div class="strip-item">VƯƠN MÌNH</div>
+ <div class="strip-item">TỰ CHỦ</div>
+ <div class="strip-item">ĐỘC LẬP</div>
+ <div class="strip-item">TỰ DO</div>
+ <div class="strip-item">HẠNH PHÚC</div>
  </div>
  </div>
 
@@ -3607,18 +3795,21 @@ padding: 56px 0;
  </div>
  <div class="solution-pillars">
  <div class="pillar reveal reveal-delay-1">
+ <div class="card-image-frame" aria-label="Khung ảnh Bay tự hành"><span>Khung ảnh</span></div>
  <div class="pillar-num">01</div>
  <h4 data-i18n="solution.p1t">Bay tự hành</h4>
  <p data-i18n="solution.p1d">Không cần pilot, không cần đường bộ, không bị địa hình cản trở. Hệ thống điều
  hành từ trung tâm.</p>
  </div>
  <div class="pillar reveal reveal-delay-2">
+ <div class="card-image-frame" aria-label="Khung ảnh Thiết kế cho Việt Nam"><span>Khung ảnh</span></div>
  <div class="pillar-num">02</div>
  <h4 data-i18n="solution.p2t">Thiết kế cho Việt Nam</h4>
  <p data-i18n="solution.p2d">Địa hình nhiệt đới, quy định pháp lý, ngôn ngữ, cộng đồng, không adapt, chúng
  tôi là native.</p>
  </div>
  <div class="pillar reveal reveal-delay-3">
+ <div class="card-image-frame" aria-label="Khung ảnh Đa nhiệm vụ"><span>Khung ảnh</span></div>
  <div class="pillar-num">03</div>
  <h4 data-i18n="solution.p3t">Đa nhiệm vụ</h4>
  <p data-i18n="solution.p3d">Y tế, cứu trợ, thương mại, cùng một nền tảng, khác container. Một đội drone,
@@ -3719,6 +3910,7 @@ padding: 56px 0;
  </div>
  <div class="value-grid">
  <div class="value-card reveal reveal-delay-1">
+ <div class="card-image-frame" aria-label="Khung ảnh Authenticity"><span>Khung ảnh</span></div>
  <div class="value-icon">🎯</div>
  <div class="value-name">Authenticity</div>
  <div class="value-vn" data-i18n="values.v1vn">Chân thực</div>
@@ -3726,6 +3918,7 @@ padding: 56px 0;
  thực tế.</p>
  </div>
  <div class="value-card reveal reveal-delay-2">
+ <div class="card-image-frame" aria-label="Khung ảnh Compassion"><span>Khung ảnh</span></div>
  <div class="value-icon">❤️</div>
  <div class="value-name">Compassion</div>
  <div class="value-vn" data-i18n="values.v2vn">Lòng trắc ẩn</div>
@@ -3733,6 +3926,7 @@ padding: 56px 0;
  gì nhất, </p>
  </div>
  <div class="value-card reveal reveal-delay-3">
+ <div class="card-image-frame" aria-label="Khung ảnh Improvement"><span>Khung ảnh</span></div>
  <div class="value-icon">⚙️</div>
  <div class="value-name">Improvement</div>
  <div class="value-vn" data-i18n="values.v3vn">Cải tiến liên tục</div>
@@ -3740,6 +3934,7 @@ padding: 56px 0;
  cách tốt hơn.</p>
  </div>
  <div class="value-card reveal reveal-delay-4">
+ <div class="card-image-frame" aria-label="Khung ảnh Hospitality"><span>Khung ảnh</span></div>
  <div class="value-icon">🤝</div>
  <div class="value-name">Hospitality</div>
  <div class="value-vn" data-i18n="values.v4vn">Tinh thần phụng sự</div>
@@ -4076,34 +4271,40 @@ padding: 56px 0;
  <div class="container">
  <div class="app-overview-grid">
  <div class="app-overview-card reveal">
+ <div class="card-image-frame card-image-frame-dark" aria-label="Khung ảnh Y tế khẩn cấp"><span>Khung ảnh</span></div>
  <div class="app-overview-icon">🏥</div>
  <h4 data-i18n="uc.ov1.title">Y tế khẩn cấp</h4>
  <p data-i18n="uc.ov1.p">Vận chuyển thuốc, máu, vaccine đến trạm y tế vùng xa, nơi xe cứu thương không thể
  đến kịp.</p>
  </div>
  <div class="app-overview-card reveal reveal-delay-1">
+ <div class="card-image-frame card-image-frame-dark" aria-label="Khung ảnh Cứu trợ thiên tai"><span>Khung ảnh</span></div>
  <div class="app-overview-icon">🌊</div>
  <h4 data-i18n="uc.ov2.title">Cứu trợ thiên tai</h4>
  <p data-i18n="uc.ov2.p">Đưa hàng cứu trợ vào vùng bị cô lập sau bão, lũ, khi đường bộ và cầu đã bị phá hủy.
  </p>
  </div>
  <div class="app-overview-card reveal reveal-delay-2">
+ <div class="card-image-frame card-image-frame-dark" aria-label="Khung ảnh Logistics vùng xa"><span>Khung ảnh</span></div>
  <div class="app-overview-icon">🏔️</div>
  <h4 data-i18n="uc.ov3.title">Logistics vùng xa</h4>
  <p data-i18n="uc.ov3.p">Kết nối kho trung chuyển huyện với điểm giao cuối tại các xã vùng cao, vùng sâu.</p>
  </div>
  <div class="app-overview-card reveal reveal-delay-1">
+ <div class="card-image-frame card-image-frame-dark" aria-label="Khung ảnh Giao vận khu công nghiệp"><span>Khung ảnh</span></div>
  <div class="app-overview-icon">🏭</div>
  <h4 data-i18n="uc.ov4.title">Giao vận khu công nghiệp</h4>
  <p data-i18n="uc.ov4.p">Vận chuyển linh kiện, mẫu thử, tài liệu giữa các tòa nhà và nhà máy trong khu vực
  khép kín.</p>
  </div>
  <div class="app-overview-card reveal reveal-delay-2">
+ <div class="card-image-frame card-image-frame-dark" aria-label="Khung ảnh Hậu cần đảo và ven biển"><span>Khung ảnh</span></div>
  <div class="app-overview-icon">🏝️</div>
  <h4 data-i18n="uc.ov5.title">Hậu cần đảo & ven biển</h4>
  <p data-i18n="uc.ov5.p">Giao hàng ra đảo bằng VTOL hybrid, không phụ thuộc phà, giảm thời gian chờ.</p>
  </div>
  <div class="app-overview-card reveal reveal-delay-3">
+ <div class="card-image-frame card-image-frame-dark" aria-label="Khung ảnh Nhiệm vụ đặc thù"><span>Khung ảnh</span></div>
  <div class="app-overview-icon">🎯</div>
  <h4 data-i18n="uc.ov6.title">Nhiệm vụ đặc thù</h4>
  <p data-i18n="uc.ov6.p">Giám sát, khảo sát, đo đạc, nền tảng UAV đa nhiệm, thay đổi payload theo yêu cầu.
@@ -4964,6 +5165,7 @@ padding: 56px 0;
  <div class="container">
  <div class="contact-flows">
  <div class="contact-flow reveal">
+ <div class="card-image-frame" aria-label="Khung ảnh Nhà đầu tư và Đối tác chiến lược"><span>Khung ảnh</span></div>
  <div class="contact-flow-icon">💼</div>
  <h4 data-i18n="con.f1.title">Nhà đầu tư & Đối tác chiến lược</h4>
  <p class="desc" data-i18n="con.f1.desc">Thảo luận về cơ hội đầu tư Pre Seed, hợp tác chiến lược, hoặc tham
@@ -4972,6 +5174,7 @@ padding: 56px 0;
  class="contact-link">ceo.deron@gmail.com →</a>
  </div>
  <div class="contact-flow reveal reveal-delay-1">
+ <div class="card-image-frame" aria-label="Khung ảnh Hợp tác kỹ thuật và R&D"><span>Khung ảnh</span></div>
  <div class="contact-flow-icon">⚙️</div>
  <h4 data-i18n="con.f2.title">Hợp tác kỹ thuật & R&D</h4>
  <p class="desc" data-i18n="con.f2.desc">Muốn cộng tác về avionics, AI routing, embedded systems, hoặc test &
@@ -4980,6 +5183,7 @@ padding: 56px 0;
  class="contact-link">ceo.deron@gmail.com →</a>
  </div>
  <div class="contact-flow reveal">
+ <div class="card-image-frame" aria-label="Khung ảnh Báo chí và Truyền thông"><span>Khung ảnh</span></div>
  <div class="contact-flow-icon">📰</div>
  <h4 data-i18n="con.f3.title">Báo chí & Truyền thông</h4>
  <p class="desc" data-i18n="con.f3.desc">Tải press kit, đặt lịch phỏng vấn, hoặc nhận thông tin về các
@@ -4987,6 +5191,7 @@ padding: 56px 0;
  <a href="mailto:ceo.deron@gmail.com?subject=Press Inquiry" class="contact-link">ceo.deron@gmail.com →</a>
  </div>
  <div class="contact-flow reveal reveal-delay-1">
+ <div class="card-image-frame" aria-label="Khung ảnh Tuyển dụng và Cộng đồng"><span>Khung ảnh</span></div>
  <div class="contact-flow-icon">🎓</div>
  <h4 data-i18n="con.f4.title">Tuyển dụng & Cộng đồng</h4>
  <p class="desc" data-i18n="con.f4.desc">Kỹ sư, researcher, hoặc người trẻ muốn tham gia xây dựng hạ tầng
@@ -5569,7 +5774,7 @@ padding: 56px 0;
 </script>
  <script src="runtime-env.js"></script>
  <script src="public/translations.js?v=20260604a"></script>
- <script src="/assets/js/footer.js?v=20260607e" defer></script>
+ <script src="/assets/js/footer.js?v=20260608b" defer></script>
 
  <!-- ============================================================ JAVASCRIPT -->
  <script>

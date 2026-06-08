@@ -68,7 +68,22 @@ h4 {
   font-weight: 700; font-size: 18px;
   letter-spacing: -0.01em;
 }
-p { max-width: 60ch; }
+p {
+  max-width: 60ch;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.label,
+.btn,
+.nav,
+.nav-mobile-drawer,
+.footer-heading,
+.footer-bottom,
+.cta-section,
+.lang-dropdown {
+  text-align: initial;
+}
 
 .text-inv { color: var(--text-inv); }
 .text-inv p, .text-inv h1, .text-inv h2, .text-inv h3, .text-inv h4 { color: var(--text-inv); }
@@ -539,9 +554,11 @@ a.footer-link:hover,
 a.footer-link:focus { color: #fff !important; }
 .footer-social {
   display: flex; flex-direction: row; flex-wrap: nowrap;
-  align-items: center; justify-content: flex-end; gap: 18px;
-  margin: -44px 0 34px;
+  align-items: center; justify-content: flex-end; gap: clamp(10px, 1.2vw, 18px);
+  margin: clamp(-44px, -3.5vw, -12px) 0 clamp(22px, 3vw, 34px);
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 .footer-social-link {
   display: inline-flex; align-items: center; justify-content: center;
@@ -550,14 +567,14 @@ a.footer-link:focus { color: #fff !important; }
   transition: transform var(--transition), opacity var(--transition);
 }
 .footer-social-link img {
-  height: 64px; width: auto; max-width: 300px; display: block;
+  height: clamp(34px, 3.2vw, 64px); width: auto; max-width: clamp(150px, 16vw, 300px); display: block;
   border-radius: 8px;
   object-fit: contain;
 }
 .footer-social-link .footer-zalo-logo {
-  width: 64px;
-  height: 64px;
-  padding: 7px;
+  width: clamp(34px, 3.2vw, 64px);
+  height: clamp(34px, 3.2vw, 64px);
+  padding: clamp(4px, .45vw, 7px);
   background: #fff;
   border-radius: 12px;
   box-sizing: border-box;

@@ -50,13 +50,16 @@
   }
 
   function socialMarkup() {
-    var rowStyle = 'display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-end;gap:18px;margin:-44px 0 34px;width:100%;';
+    var rowStyle = 'display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-end;gap:clamp(10px,1.2vw,18px);margin:clamp(-44px,-3.5vw,-12px) 0 clamp(22px,3vw,34px);width:100%;max-width:100%;overflow:hidden;';
     var linkStyle = 'display:inline-flex;align-items:center;justify-content:center;line-height:0;flex:0 0 auto;';
-    var imgStyle = 'height:64px;width:auto;max-width:300px;display:block;border-radius:8px;object-fit:contain;';
-    var iconImgStyle = 'height:64px;width:64px;display:block;border-radius:10px;object-fit:contain;';
-    var zaloStyle = 'height:64px;width:64px;display:block;border-radius:12px;object-fit:contain;background:#fff;padding:7px;box-sizing:border-box;';
+    var imgStyle = 'height:clamp(34px,3.2vw,64px);width:auto;max-width:clamp(150px,16vw,300px);display:block;border-radius:8px;object-fit:contain;';
+    var iconImgStyle = 'height:clamp(34px,3.2vw,64px);width:clamp(34px,3.2vw,64px);display:block;border-radius:10px;object-fit:contain;';
+    var zaloStyle = 'height:clamp(34px,3.2vw,64px);width:clamp(34px,3.2vw,64px);display:block;border-radius:12px;object-fit:contain;background:#fff;padding:clamp(4px,.45vw,7px);box-sizing:border-box;';
     return '' +
       '<div class="footer-social" aria-label="Kết nối với Deron" style="' + rowStyle + '">' +
+        '<a class="footer-social-link" style="' + linkStyle + '" href="https://unikorn.vn/p/deron" target="_blank" rel="noopener" aria-label="Unikorn">' +
+          '<img src="/public/Unikorn.webp" alt="Unikorn" loading="lazy" decoding="async" style="' + iconImgStyle + '">' +
+        '</a>' +
         '<a class="footer-social-link" style="' + linkStyle + '" href="https://www.facebook.com/profile.php?id=61583590713232" target="_blank" rel="noopener" aria-label="Facebook">' +
           '<img src="/public/find-us-on-facebook.svg" alt="Find us on Facebook" loading="lazy" decoding="async" style="' + imgStyle + '">' +
         '</a>' +
