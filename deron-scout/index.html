@@ -55,7 +55,8 @@
  .scout-hero p { color: var(--text-inv-muted); font-size: 19px; line-height: 1.7; max-width: 660px; margin-top: 28px; text-align: justify; text-justify: inter-word; }
  .scout-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
  .scout-panel { position: relative; background: linear-gradient(90deg, rgba(11, 14, 19, .9) 0%, rgba(11, 14, 19, .72) 52%, rgba(11, 14, 19, .34) 100%), url('/public/DJIDoc.png') center / cover no-repeat; border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 34px; min-height: 520px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 28px 80px rgba(0, 0, 0, .26); }
- .scout-panel::after { content: "Hình ảnh chỉ mang tính chất minh họa"; position: absolute; right: 16px; bottom: 12px; font-size: 10px; font-style: italic; letter-spacing: .02em; color: rgba(237, 233, 227, .62); pointer-events: none; }
+ .scout-panel::after { content: none; }
+ .scout-panel-note { position: absolute; right: 16px; bottom: 12px; font-size: 10px; font-style: italic; letter-spacing: .02em; color: rgba(237, 233, 227, .62); pointer-events: none; }
  .scout-panel-drone { display: none; }
  .scout-panel-title { color: #fff; font-family: var(--font-display); font-weight: 800; margin-bottom: 18px; }
  .cycle-list { display: grid; gap: 12px; }
@@ -235,6 +236,7 @@
  <div class="cycle-item"><span class="cycle-num">04</span><span data-i18n-html="ds.cycle4"><strong>Quay về trạm sạc</strong>Khi hết tuyến hoặc pin thấp, UAV quay về trạm sạc hoặc điểm hạ cánh đã xác minh.</span></div>
  <div class="cycle-item"><span class="cycle-num">05</span><span data-i18n-html="ds.cycle5"><strong>Sạc & chuẩn bị lại</strong>Nhật ký được lưu, pin được sạc, hệ thống chờ chu kỳ tuần tra tiếp theo.</span></div>
  </div>
+ <span class="scout-panel-note" data-i18n="scout.home.imageNote">Hình ảnh chỉ mang tính chất minh họa</span>
  </aside>
  </div>
  </div>

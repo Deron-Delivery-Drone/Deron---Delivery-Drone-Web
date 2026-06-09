@@ -8,6 +8,17 @@ Public-facing website for Deron.
 - `npm run build`
 - `npm test -- --watchAll=false`
 
+## Project Structure
+
+- `index.html`: public home page and root SEO entry.
+- `gioi-thieu/`, `cong-nghe/`, `san-pham/`, `ung-dung/`, `lien-he/`: folder-based public routes.
+- `deron-scout/`, `datcs/`, `acedemy/`, `blog/`: product, install, academy, and blog sections.
+- `assets/`: shared CSS, JavaScript, chatbot UI, and frontend helpers.
+- `public/`: shared images, PDFs, icons, manifest, and translation/runtime assets.
+- `admin/` and `content/`: CMS configuration and editable content/media source.
+- `scripts/`: static generation scripts for blog and academy pages.
+- `src/`, `supabase/`, `ai-knowledge/`: app/backend/chatbot scaffolds kept separate from static public routes.
+
 ## Deron Web Chatbot Foundation
 
 The repository includes a foundation-only public chatbot widget for the Deron website.

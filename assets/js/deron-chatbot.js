@@ -32,29 +32,29 @@
  loading: 'Đang trả lời',
  empty: 'Vui lòng nhập câu hỏi.',
  tooLong: 'Tin nhắn quá dài. Vui lòng rút gọn dưới 1500 ký tự.',
- backendUnavailable: 'Hiện chatbot chưa kết nối backend AI. Tôi vẫn có thể hỗ trợ bằng thông tin công khai cơ bản hoặc dẫn bạn đến trang phù hợp.',
- unknown: 'Tôi chưa có thông tin đã xác nhận cho câu hỏi này. Bạn có thể hỏi về Deron, DATCS, tải DATCS, hướng dẫn sử dụng, khắc phục lỗi hoặc liên hệ chính thức.',
- securityRefusal: 'Tôi không thể hỗ trợ truy cập trái phép, tiết lộ khóa hệ thống hoặc bỏ qua quy trình bảo mật. Nếu bạn cần tải DATCS, tôi có thể hướng dẫn bạn đến trang tải chính thức của Deron.',
- welcome: 'Xin chào, tôi là trợ lý công khai của Deron. Tôi có thể hỗ trợ thông tin tổng quan, DATCS, tải DATCS và liên hệ chính thức.',
+ backendUnavailable: 'Hiện chatbot chưa kết nối backend AI. Trợ lý Deron vẫn có thể hỗ trợ bằng thông tin công khai cơ bản hoặc dẫn bạn đến trang phù hợp.',
+ unknown: 'Trợ lý Deron chưa có thông tin đã xác nhận cho câu hỏi này. Bạn có thể hỏi về Deron, DATCS, tải DATCS, hướng dẫn sử dụng, khắc phục lỗi hoặc liên hệ chính thức.',
+ securityRefusal: 'Trợ lý Deron không thể hỗ trợ truy cập trái phép, tiết lộ khóa hệ thống hoặc bỏ qua quy trình bảo mật. Nếu bạn cần tải DATCS, trợ lý có thể dẫn bạn đến trang tải chính thức của Deron.',
+ welcome: 'Xin chào, đây là trợ lý công khai của Deron. Trợ lý có thể hỗ trợ thông tin tổng quan, DATCS, tải DATCS và liên hệ chính thức.',
  quickActions: ['Deron là gì?', 'DATCS là gì?', 'Tải DATCS', 'Hướng dẫn sử dụng', 'Khắc phục lỗi', 'Liên hệ'],
  cta: {
  home: 'Mở trang chủ',
  deronScout: 'Xem Deron Scout',
- deronScoutSop: 'Xem SOP Deron Scout',
+ deronScoutSop: 'Xem quy trình Deron Scout',
  datcs: 'Xem DATCS',
  datcsInstall: 'Tới trang tải DATCS',
  contact: 'Liên hệ Deron'
  },
  answers: {
- deron_overview: 'Deron là website công khai giới thiệu hệ sinh thái UAV Việt Nam của Deron. Sản phẩm đang triển khai là Deron Scout cho tuần tra và giám sát tự động; các lớp mở rộng gồm Deron Delivery, DMA và DATCS.',
- deron_scout: 'Deron Scout là hệ UAV tuần tra, giám sát và theo dõi tự động: bay theo tuyến lập lịch, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự quay về Dock/trạm sạc và lặp chu kỳ. Đây là sản phẩm đang triển khai hiện tại của Deron.',
- deron_scout_sop: 'SOP Deron Scout là quy trình vận hành chuẩn cho U1 Pro: nguyên tắc đặt con người lên hàng đầu, GO hoặc NO GO, preflight, mission/patrol, return to Dock, charging, emergency và postflight log.',
+ deron_overview: 'Deron là website công khai giới thiệu hệ sinh thái drone Việt Nam của Deron. Sản phẩm đang triển khai là Deron Scout cho tuần tra và giám sát tự động; các lớp mở rộng gồm Deron Delivery, DMA và DATCS.',
+ deron_scout: 'Deron Scout là hệ drone tuần tra, giám sát và theo dõi tự động: bay theo tuyến lập lịch, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự quay về trạm sạc và lặp chu kỳ. Đây là sản phẩm đang triển khai hiện tại của Deron.',
+ deron_scout_sop: 'Quy trình Deron Scout là tài liệu vận hành chuẩn cho U1 Pro: đặt con người lên hàng đầu, quyết định bay hoặc không bay, kiểm tra trước khi bay, tuần tra, quay về trạm sạc, sạc, xử lý khẩn cấp và ghi nhận sau bay.',
  datcs_overview: 'DATCS là lớp phần mềm được mô tả công khai của Deron để giám sát, theo dõi, xác thực, ghi log và hỗ trợ ra quyết định. DATCS không trực tiếp điều khiển motor drone; các quyền điều khiển phần cứng thuộc những lớp hệ thống được phê duyệt riêng.',
  datcs_download: 'DATCS không phải phần mềm tải công khai. Bạn có thể gửi yêu cầu quyền tải tại trang DATCS install chính thức của Deron.',
- datcs_usage: 'Hướng dẫn sử dụng chi tiết của DATCS sẽ chỉ được cung cấp qua kênh hỗ trợ dành cho người dùng đã được duyệt. Tôi có thể dẫn bạn đến trang DATCS hoặc trang tải chính thức.',
- troubleshooting: 'Để bắt đầu xử lý lỗi DATCS, hãy dùng trang tải/yêu cầu quyền chính thức hoặc liên hệ Deron. Tôi không hỗ trợ bỏ qua bước bảo mật, chia sẻ token, hoặc truy cập không được cấp quyền.',
+ datcs_usage: 'Hướng dẫn sử dụng chi tiết của DATCS sẽ chỉ được cung cấp qua kênh hỗ trợ dành cho người dùng đã được duyệt. Trợ lý Deron có thể dẫn bạn đến trang DATCS hoặc trang tải chính thức.',
+ troubleshooting: 'Để bắt đầu xử lý lỗi DATCS, hãy dùng trang tải/yêu cầu quyền chính thức hoặc liên hệ Deron. Trợ lý Deron không hỗ trợ bỏ qua bước bảo mật, chia sẻ token, hoặc truy cập không được cấp quyền.',
  contact: 'Bạn có thể liên hệ Deron qua khu vực liên hệ chính thức trên website. Với DATCS hoặc hợp tác, hãy nêu rõ tổ chức, vai trò và mục đích sử dụng.',
- navigation: 'Tôi có thể dẫn bạn đến các trang công khai chính: trang chủ, DATCS, tải DATCS hoặc liên hệ.'
+ navigation: 'Trợ lý Deron có thể dẫn bạn đến các trang công khai chính: trang chủ, DATCS, tải DATCS hoặc liên hệ.'
  }
  },
  en: {
@@ -67,30 +67,30 @@
  send: 'Send',
  loading: 'Answering',
  empty: 'Please enter a question.',
- tooLong: 'Your message is too long. Please keep it under 1500 characters.',
- backendUnavailable: 'The AI backend is not connected yet. I can still help with basic public information or guide you to the right page.',
- unknown: 'I do not have confirmed public information for that question yet. You can ask about Deron, DATCS, DATCS download, user guidance, troubleshooting, or official contact.',
- securityRefusal: 'I can\'t help with unauthorized access, secret disclosure, or bypassing security flows. If you need DATCS, I can guide you to Deron\'s official download page.',
- welcome: 'Hello, I am Deron\'s public assistant. I can help with Deron overview, DATCS, DATCS download, and official contact routes.',
+ tooLong: 'The message is too long. Please keep it under 1500 characters.',
+ backendUnavailable: 'The AI backend is not connected yet. Deron Assistant can still help with basic public information or guide readers to the right page.',
+ unknown: 'Deron Assistant does not have confirmed public information for that question yet. Readers can ask about Deron, DATCS, DATCS download, user guidance, troubleshooting, or official contact.',
+ securityRefusal: 'Deron Assistant cannot help with unauthorized access, secret disclosure, or bypassing security flows. DATCS access should go through Deron\'s official download page.',
+ welcome: 'Hello, this is Deron\'s public assistant. It can help with Deron overview, DATCS, DATCS download, and official contact routes.',
  quickActions: ['What is Deron, ', 'What is DATCS, ', 'Download DATCS', 'User Guide', 'Troubleshooting', 'Contact'],
  cta: {
  home: 'Open home',
  deronScout: 'View Deron Scout',
- deronScoutSop: 'View Deron Scout SOP',
+ deronScoutSop: 'View Deron Scout procedure',
  datcs: 'View DATCS',
  datcsInstall: 'Go to DATCS download',
  contact: 'Contact Deron'
  },
  answers: {
- deron_overview: 'Deron\'s public website presents its Vietnamese UAV ecosystem. The current product in deployment is Deron Scout for autonomous patrol and surveillance; extension layers include Deron Delivery, DMA, and DATCS.',
- deron_scout: 'Deron Scout is an autonomous UAV patrol, surveillance, and monitoring system: it flies scheduled routes, records data, supports anomaly detection, returns to its Dock/charging station, and repeats the patrol cycle.',
- deron_scout_sop: 'The Deron Scout SOP is the standard operating procedure for U1 Pro: a safety principle that puts people first, GO hoặc NO GO, preflight, mission/patrol, return to Dock, charging, emergency, and postflight logs.',
+ deron_overview: 'Deron\'s public website presents a Vietnamese drone ecosystem built for the Vietnamese people. The current product in deployment is Deron Scout for autonomous patrol and surveillance; extension layers include Deron Delivery, DMA, and DATCS.',
+ deron_scout: 'Deron Scout is an autonomous drone patrol, surveillance, and monitoring system: it flies scheduled routes, records data, supports anomaly detection, returns to its charging station, and repeats the patrol cycle.',
+ deron_scout_sop: 'The Deron Scout operating procedure is the standard way to operate U1 Pro: people first, a decision to fly or not fly, before-flight checks, patrol, return to charging station, charging, emergency handling, and after-flight records.',
  datcs_overview: 'DATCS is Deron\'s publicly described software layer for supervision, monitoring, validation, logging, and decision support. DATCS does not directly control drone motors; hardware control authority belongs to separately approved system layers.',
- datcs_download: 'DATCS is not a public direct-download product. You can request download access through Deron’s official DATCS install page.',
- datcs_usage: 'Detailed DATCS user guidance will be provided only through approved support channels. I can point you to the DATCS page or the official download request page.',
- troubleshooting: 'To start DATCS troubleshooting, use the official download/request page or contact Deron. I cannot help bypass security, share tokens, or access unapproved systems.',
- contact: 'You can contact Deron through the official website contact area. For DATCS or partnership requests, include your organization, role, and intended use.',
- navigation: 'I can guide you to the main public pages: home, DATCS, DATCS download, or contact.'
+ datcs_download: 'DATCS is not a public direct-download product. Download access is requested through Deron’s official DATCS install page.',
+ datcs_usage: 'Detailed DATCS user guidance will be provided only through approved support channels. Deron Assistant can point readers to the DATCS page or the official download request page.',
+ troubleshooting: 'To start DATCS troubleshooting, use the official download/request page or contact Deron. Deron Assistant cannot help bypass security, share tokens, or access unapproved systems.',
+ contact: 'Deron can be contacted through the official website contact area. For DATCS or partnership requests, the message should include organization, role, and intended use.',
+ navigation: 'Deron Assistant can guide readers to the main public pages: home, DATCS, DATCS download, or contact.'
  }
  },
  zh: {
@@ -104,29 +104,29 @@
  loading: '正在回复',
  empty: '请输入问题。',
  tooLong: '消息过长。请将内容控制在 1500 个字符以内。',
- backendUnavailable: 'AI 后端尚未连接。我仍可以提供基础公开信息，或引导你前往合适页面。',
- unknown: '我还没有该问题的已确认公开信息。你可以询问 Deron、DATCS、下载 DATCS、使用指南、故障排查或官方联系渠道。',
- securityRefusal: '我不能协助未经授权的访问、泄露系统密钥或绕过安全流程。如果你需要 DATCS，我可以引导你前往 Deron 官方下载页面。',
- welcome: '你好，我是 Deron 的公开网站助手。我可以帮助了解 Deron、DATCS、DATCS 下载和官方联系渠道。',
+ backendUnavailable: '人工智能后端尚未连接。Deron（德荣）助手仍可提供基础公开信息，或引导读者前往合适页面。',
+ unknown: 'Deron（德荣）助手尚无该问题的已确认公开信息。读者可询问 Deron（德荣）、DATCS（空中交通管理系统）、DATCS 下载、使用指南、故障排查或官方联系渠道。',
+ securityRefusal: 'Deron（德荣）助手不能协助未经授权的访问、泄露系统密钥或绕过安全流程。DATCS（空中交通管理系统）访问应通过 Deron（德荣）官方下载页面申请。',
+ welcome: '这里是 Deron（德荣）公开网站助手，可帮助读者了解 Deron（德荣）、DATCS（空中交通管理系统）、DATCS 下载和官方联系渠道。',
  quickActions: ['Deron 是什么？', 'DATCS 是什么？', '下载 DATCS', '使用指南', '故障排查', '联系'],
  cta: {
  home: '打开首页',
  deronScout: '查看 Deron Scout',
- deronScoutSop: '查看 Deron Scout SOP',
+ deronScoutSop: '查看 Deron Scout（德荣侦察）运行流程',
  datcs: '查看 DATCS',
  datcsInstall: '前往 DATCS 下载页',
  contact: '联系 Deron'
  },
  answers: {
- deron_overview: 'Deron 官网公开介绍其越南 UAV 生态。当前正在部署的产品是 Deron Scout，用于自主巡逻与监控；扩展层包括 Deron Delivery、DMA 和 DATCS。',
- deron_scout: 'Deron Scout 是自主 UAV 巡逻、监控与跟踪系统：按计划航线飞行、记录数据、辅助发现异常、返回 Dock/充电站并重复巡逻周期。',
- deron_scout_sop: 'Deron Scout SOP 是 U1 Pro 的标准运行流程，包括以人为本的安全原则、GO hoặc NO GO、飞前检查、巡逻任务、返回 Dock、充电、应急与飞后日志。',
+ deron_overview: 'Deron（德荣）官网公开介绍其为越南人民建设的越南本土无人机生态。当前正在部署的产品是 Deron Scout（德荣侦察），用于自主巡逻与监控；扩展层包括 Deron Delivery（德荣配送）、DMA（主航电平台）和 DATCS（空中交通管理系统）。',
+ deron_scout: 'Deron Scout（德荣侦察）是自主无人机巡逻、监控与跟踪系统：按计划航线飞行、记录数据、辅助发现异常、返回充电站并重复巡逻周期。',
+ deron_scout_sop: 'Deron Scout（德荣侦察）运行流程是 U1 Pro 的标准运行方式，包括以人为本的安全原则、决定飞行或不飞行、飞前检查、巡逻任务、返回充电站、充电、应急处理与飞后记录。',
  datcs_overview: 'DATCS 是 Deron 公开描述的软件层，用于监督、监测、验证、记录日志并支持决策。DATCS 不直接控制无人机电机；硬件控制权限属于另行批准的系统层。',
- datcs_download: 'DATCS 不是公开直接下载的软件。你可以通过 Deron 官方 DATCS 安装页面申请下载权限。',
- datcs_usage: 'DATCS 的详细使用指南只会通过面向获批用户的支持渠道提供。我可以引导你前往 DATCS 页面或官方下载申请页面。',
- troubleshooting: '如需开始 DATCS 故障排查，请使用官方下载/申请页面或联系 Deron。我不能协助绕过安全流程、分享 token 或访问未授权系统。',
- contact: '你可以通过官网的官方联系区域联系 Deron。关于 DATCS 或合作请求，请说明组织、角色和使用目的。',
- navigation: '我可以引导你前往主要公开页面：首页、DATCS、DATCS 下载或联系。'
+ datcs_download: 'DATCS（空中交通管理系统）不是公开直接下载的软件。下载权限应通过 Deron（德荣）官方 DATCS 安装页面申请。',
+ datcs_usage: 'DATCS（空中交通管理系统）的详细使用指南只会通过面向获批用户的支持渠道提供。Deron（德荣）助手可引导读者前往 DATCS 页面或官方下载申请页面。',
+ troubleshooting: '如需开始 DATCS（空中交通管理系统）故障排查，请使用官方下载/申请页面或联系 Deron（德荣）。Deron（德荣）助手不能协助绕过安全流程、分享令牌或访问未授权系统。',
+ contact: '读者可以通过官网的官方联系区域联系 Deron（德荣）。关于 DATCS（空中交通管理系统）或合作请求，请说明组织、角色和使用目的。',
+ navigation: 'Deron（德荣）助手可引导读者前往主要公开页面：首页、DATCS、DATCS 下载或联系。'
  }
  }
  };

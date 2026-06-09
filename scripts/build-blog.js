@@ -160,7 +160,7 @@ function renderPostHtml(template, post) {
         name: 'Deron',
         logo: {
           '@type': 'ImageObject',
-          url: `${SITE_ORIGIN}/Deron-logo.png`,
+          url: `${SITE_ORIGIN}/public/Deron-logo.png`,
         },
       },
       mainEntityOfPage: {

@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="icon" type="image/png" href="public/Deron-logo-dark.png">
- <link rel="shortcut icon" href="public/Deron-logo-dark.png">
- <link rel="manifest" href="public/manifest.json">
+ <link rel="icon" type="image/png" href="/public/Deron-logo-dark.png">
+ <link rel="shortcut icon" href="/public/Deron-logo-dark.png">
+ <link rel="manifest" href="/public/manifest.json">
  <title>Deron, Deron Scout & Hệ Sinh Thái UAV Việt Nam</title>
  <meta name="description"
  content="Deron xây dựng hệ sinh thái UAV của người Việt: Deron Scout cho tuần tra & giám sát tự động, Deron Delivery, DMA và DATCS cho hạ tầng bay an toàn tại Việt Nam.">
@@ -683,7 +683,7 @@ color: var(--red);
 .scout-home-panel {
 background:
 linear-gradient(90deg, rgba(11, 14, 19, .9) 0%, rgba(11, 14, 19, .74) 48%, rgba(11, 14, 19, .42) 100%),
-url('public/DJIDoc.png') center / cover no-repeat;
+url('/public/DJIDoc.png') center / cover no-repeat;
 color: var(--text-inv-muted);
 padding: 44px 40px;
 border-left: 1px solid var(--border-dark);
@@ -695,7 +695,18 @@ position: relative;
 }
 
 .scout-home-panel::after {
-content: "Hình ảnh chỉ mang tính chất minh họa";
+content: none;
+position: absolute;
+right: 16px;
+bottom: 12px;
+font-size: 10px;
+font-style: italic;
+letter-spacing: .02em;
+color: rgba(237, 233, 227, .62);
+pointer-events: none;
+}
+
+.scout-home-image-note {
 position: absolute;
 right: 16px;
 bottom: 12px;
@@ -1958,7 +1969,7 @@ grid-template-columns: repeat(3, 1fr);
  }
 
  .about-bg-image {
- background-image: url('public/Anh_Dai_Tuong.jpg');
+ background-image: url('/public/Anh_Dai_Tuong.jpg');
  background-position: calc(50% - 60px) -18px;
  background-repeat: no-repeat;
  background-size: min(1760px, calc(100% + 320px)) auto;
@@ -3539,8 +3550,8 @@ padding: 56px 0;
  <!-- ============================================================ NAVIGATION -->
  <nav id="nav">
  <div class="nav-logo" onclick="navigate('home')">
- <img src="public/Deron-logo-dark.png" class="logo-dark" alt="Deron logo">
- <img src="public/Deron-logo-light.png" class="logo-light" alt="Deron logo">
+ <img src="/public/Deron-logo-dark.png" class="logo-dark" alt="Deron logo">
+ <img src="/public/Deron-logo-light.png" class="logo-light" alt="Deron logo">
  <span>DERON</span>
  </div>
  <div class="nav-links">
@@ -3619,7 +3630,7 @@ padding: 56px 0;
  <div class="hero-grid-bg"></div>
  <div class="hero-glow"></div>
  <div class="hero-glow-2"></div>
- <img src="public/UAV_Design.svg" class="hero-drone-svg" alt="UAV Design">
+ <img src="/public/UAV_Design.svg" class="hero-drone-svg" alt="UAV Design">
  <div class="hero-content">
  <div class="hero-badge">
  <div class="hero-badge-dot"></div>
@@ -3639,12 +3650,12 @@ padding: 56px 0;
  </div>
  <div class="hero-stats">
  <div>
- <div class="hero-stat-value"><span>16%</span> đến <span>20%</span></div>
+ <div class="hero-stat-value" data-i18n-html="hero.stat1.value"><span>16%</span> đến <span>20%</span></div>
  <div class="hero-stat-label" data-i18n-html="hero.stat1">% GDP, Chi phí logistics VN<br><span
  style="font-size:9px;opacity:0.6">Nguồn: Thanh Niên</span></div>
  </div>
  <div>
- <div class="hero-stat-value">2 đến 8<span>°C</span></div>
+ <div class="hero-stat-value" data-i18n-html="hero.stat2.value">2 đến 8<span>°C</span></div>
  <div class="hero-stat-label" data-i18n-html="hero.stat2">Drone cold chain delivery<br><span
  style="font-size:9px;opacity:0.6">Nguồn: FMIT</span></div>
  </div>
@@ -3711,7 +3722,7 @@ padding: 56px 0;
  <p data-i18n="scout.home.desc">Deron Scout là bước triển khai hiện tại của Deron: hệ UAV bay theo tuyến lập lịch, ghi dữ liệu, hỗ trợ phát hiện bất thường, tự về trạm sạc và lặp chu kỳ. Đây là cách Deron tạo giá trị thực tế trước khi mở rộng sang logistics, y tế khẩn cấp và các lớp hạ tầng bay lớn hơn.</p>
  <div class="scout-home-actions">
  <a href="/deron-scout" class="btn btn-primary btn-arrow" data-i18n="scout.home.btn1">Trang Deron Scout</a>
- <a href="/deron-scout/sop" class="btn btn-outline-dark" data-i18n="scout.home.btn2">Xem SOP vận hành</a>
+ <a href="/deron-scout/sop" class="btn btn-outline-dark" data-i18n="scout.home.btn2">Xem quy trình vận hành</a>
  </div>
  </div>
  <div class="scout-home-panel">
@@ -3720,9 +3731,10 @@ padding: 56px 0;
  <div><span>01</span><strong data-i18n="scout.home.step1">Lập lịch tuyến bay</strong></div>
  <div><span>02</span><strong data-i18n="scout.home.step2">Tuần tra & ghi dữ liệu</strong></div>
  <div><span>03</span><strong data-i18n="scout.home.step3">Hỗ trợ phát hiện bất thường</strong></div>
- <div><span>04</span><strong data-i18n="scout.home.step4">Tự quay về Dock/trạm sạc</strong></div>
+ <div><span>04</span><strong data-i18n="scout.home.step4">Tự quay về trạm sạc</strong></div>
  <div><span>05</span><strong data-i18n="scout.home.step5">Sạc, lưu log và chuẩn bị vòng tiếp theo</strong></div>
  </div>
+ <span class="scout-home-image-note" data-i18n="scout.home.imageNote">Hình ảnh chỉ mang tính chất minh họa</span>
  </div>
  </div>
  </div>
@@ -3743,39 +3755,39 @@ padding: 56px 0;
  </div>
  <div class="problem-proof reveal reveal-delay-2">
  <article class="problem-metric-card">
- <div class="stat-num"><span>16%</span> đến <span>20%</span></div>
- <div class="stat-desc">Chi phí logistics đang là điểm nghẽn lớn của năng lực cạnh tranh và chuỗi cung ứng Việt Nam.</div>
- <div class="stat-source">Nguồn: Báo Thanh Niên</div>
- <a href="https://thanhnien.vn/chi-phi-logistics-rat-khung-khiep-doanh-nghiep-viet-kho-canh-tranh-185250915191158026.htm" target="_blank" rel="noopener noreferrer">Xem dẫn chứng báo chí</a>
+ <div class="stat-num" data-i18n-html="problem.statValue"><span>16%</span> đến <span>20%</span></div>
+ <div class="stat-desc" data-i18n="problem.stat1">Chi phí logistics đang là điểm nghẽn lớn của năng lực cạnh tranh và chuỗi cung ứng Việt Nam.</div>
+ <div class="stat-source" data-i18n="problem.src1">Nguồn: Báo Thanh Niên</div>
+ <a href="https://thanhnien.vn/chi-phi-logistics-rat-khung-khiep-doanh-nghiep-viet-kho-canh-tranh-185250915191158026.htm" target="_blank" rel="noopener noreferrer" data-i18n="problem.linkPress">Xem dẫn chứng báo chí</a>
  </article>
  <figure class="problem-source-card">
  <a href="https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2025/9/15/base64-1757937077331278332832.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Mở ảnh nguồn Thanh Niên">
  <img src="https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2025/9/15/base64-1757937077331278332832.jpeg" alt="Diễn đàn kinh tế tư nhân Việt Nam 2025, nguồn Báo Thanh Niên" loading="lazy" decoding="async">
  </a>
- <figcaption>Nguồn ảnh: Báo Thanh Niên, ảnh Việt Linh.</figcaption>
+ <figcaption data-i18n="problem.photoSource">Nguồn ảnh: Báo Thanh Niên, ảnh Việt Linh.</figcaption>
  <div class="problem-source-body">
- <h3><a href="https://thanhnien.vn/chi-phi-logistics-rat-khung-khiep-doanh-nghiep-viet-kho-canh-tranh-185250915191158026.htm" target="_blank" rel="noopener noreferrer">Chi phí logistics rất khủng khiếp</a></h3>
- <p>Bài viết ghi nhận chi phí logistics Việt Nam khoảng 16,5% GDP năm 2025 và trong nông nghiệp có thể chiếm khoảng 20% giá thành, tạo áp lực trực tiếp lên năng lực cạnh tranh.</p>
+ <h3><a href="https://thanhnien.vn/chi-phi-logistics-rat-khung-khiep-doanh-nghiep-viet-kho-canh-tranh-185250915191158026.htm" target="_blank" rel="noopener noreferrer" data-i18n="problem.articleTitle">Chi phí logistics rất khủng khiếp</a></h3>
+ <p data-i18n="problem.articleBody">Bài viết ghi nhận chi phí logistics Việt Nam khoảng 16,5% GDP năm 2025 và trong nông nghiệp có thể chiếm khoảng 20% giá thành, tạo áp lực trực tiếp lên năng lực cạnh tranh.</p>
  </div>
  </figure>
  </div>
  <div class="problem-cold-chain reveal reveal-delay-3">
  <div>
- <div class="label label-red">Cold chain delivery</div>
- <h3>Drone cold chain delivery là một bài toán riêng.</h3>
- <p>FMIT mô tả giao hàng chuỗi lạnh bằng drone là hướng vận chuyển hàng nhạy cảm như vaccine, máu, dược phẩm hoặc thực phẩm tươi bằng thiết bị bay có kiểm soát nhiệt độ. Đây là nhóm nhu cầu khác với chỉ số chi phí logistics, nhưng liên quan trực tiếp tới định hướng Deron Delivery trong tương lai.</p>
- <a href="https://fmit.vn/tu-dien-quan-ly/drone-cold-chain-delivery-la-gi" target="_blank" rel="noopener noreferrer">Xem nguồn FMIT</a>
+ <div class="label label-red" data-i18n="problem.cold.label">Cold chain delivery</div>
+ <h3 data-i18n="problem.cold.title">Drone cold chain delivery là một bài toán riêng.</h3>
+ <p data-i18n="problem.cold.body">FMIT mô tả giao hàng chuỗi lạnh bằng drone là hướng vận chuyển hàng nhạy cảm như vaccine, máu, dược phẩm hoặc thực phẩm tươi bằng thiết bị bay có kiểm soát nhiệt độ. Đây là nhóm nhu cầu khác với chỉ số chi phí logistics, nhưng liên quan trực tiếp tới định hướng Deron Delivery trong tương lai.</p>
+ <a href="https://fmit.vn/tu-dien-quan-ly/drone-cold-chain-delivery-la-gi" target="_blank" rel="noopener noreferrer" data-i18n="problem.cold.link">Xem nguồn FMIT</a>
  </div>
  <aside class="cold-chain-facts" aria-label="Nguồn tham khảo cold chain delivery">
  <img class="cold-chain-logo" src="/public/logo-20250412100901-thumb(360x135-crop).png" alt="Logo Viện FMIT" loading="lazy" decoding="async">
- <span>Nguồn tham khảo riêng</span>
- <strong>Viện FMIT, Từ điển quản lý</strong>
- <p>Nội dung này dùng để giải thích khái niệm cold chain delivery bằng drone cho các nhóm hàng nhạy cảm nhiệt độ.</p>
+ <span data-i18n="problem.cold.sourceLabel">Nguồn tham khảo riêng</span>
+ <strong data-i18n="problem.cold.sourceTitle">Viện FMIT, Từ điển quản lý</strong>
+ <p data-i18n="problem.cold.sourceBody">Nội dung này dùng để giải thích khái niệm cold chain delivery bằng drone cho các nhóm hàng nhạy cảm nhiệt độ.</p>
  </aside>
  </div>
  <div class="problem-deron-note reveal reveal-delay-3">
- <h3>Góc nhìn Deron.</h3>
- <p>Vấn đề không chỉ là chi phí cao. Với các nhiệm vụ y tế, cứu trợ và hàng nhạy cảm nhiệt độ, rào cản thật nằm ở tốc độ tiếp cận, khả năng giữ điều kiện bảo quản, dữ liệu hành trình và mức độ an toàn. Deron xây Deron Scout, DATCS, DMA và lộ trình Deron Delivery để tạo một lớp logistics tầm thấp có kiểm soát, nơi mỗi chuyến bay đều có tuyến, log, quy trình chuẩn và trách nhiệm vận hành rõ ràng.</p>
+ <h3 data-i18n="problem.deron.title">Góc nhìn Deron.</h3>
+ <p data-i18n="problem.deron.body">Vấn đề không chỉ là chi phí cao. Với các nhiệm vụ y tế, cứu trợ và hàng nhạy cảm nhiệt độ, rào cản thật nằm ở tốc độ tiếp cận, khả năng giữ điều kiện bảo quản, dữ liệu hành trình và mức độ an toàn. Deron xây Deron Scout, DATCS, DMA và lộ trình Deron Delivery để tạo một lớp logistics tầm thấp có kiểm soát, nơi mỗi chuyến bay đều có tuyến, log, quy trình chuẩn và trách nhiệm vận hành rõ ràng.</p>
  </div>
  </div>
  </section>
@@ -4026,7 +4038,7 @@ padding: 56px 0;
 
  <!-- Founder -->
  <div class="founder-card reveal">
- <div class="founder-avatar"><img src="public/Nguyenphuchuy.JPG" alt="Nguyễn Phúc Huy"
+ <div class="founder-avatar"><img src="/public/Nguyenphuchuy.JPG" alt="Nguyễn Phúc Huy"
  style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:var(--radius-lg); display:block;">
  </div>
  <div>
@@ -4160,7 +4172,7 @@ padding: 56px 0;
  <p class="tech-layer-line" data-i18n="tech.card.dma.value">Giá trị mang lại: tự chủ công nghệ, kiểm soát an toàn tốt hơn, và nền tảng phần cứng có thể mở rộng.</p>
  </div>
  <div class="tech-visual-placeholder tech-card-visual tech-card-image-frame">
- <img src="public/image.png" alt="DMA avionics board preview" loading="lazy" decoding="async">
+ <img src="/public/image.png" alt="DMA avionics board preview" loading="lazy" decoding="async">
  </div>
  </article>
 
@@ -4172,7 +4184,7 @@ padding: 56px 0;
  <p class="tech-layer-line" data-i18n="tech.card.datcs.value">DATCS giám sát và hỗ trợ ra quyết định; DATCS không trực tiếp điều khiển motor.</p>
  </div>
  <div class="tech-visual-placeholder tech-card-visual tech-card-image-frame">
- <img src="public/datcs_review.png" alt="DATCS interface preview" loading="lazy" decoding="async">
+ <img src="/public/datcs_review.png" alt="DATCS interface preview" loading="lazy" decoding="async">
  </div>
  </article>
 
@@ -5773,7 +5785,7 @@ padding: 56px 0;
 }
 </script>
  <script src="runtime-env.js"></script>
- <script src="public/translations.js?v=20260604a"></script>
+ <script src="/public/translations.js?v=20260604a"></script>
  <script src="/assets/js/footer.js?v=20260608b" defer></script>
 
  <!-- ============================================================ JAVASCRIPT -->

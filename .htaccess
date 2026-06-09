@@ -1,0 +1,14 @@
+Options -MultiViews
+
+Redirect 301 /gioi-thieu.html /gioi-thieu/
+Redirect 301 /cong-nghe.html /cong-nghe/
+Redirect 301 /san-pham.html /san-pham/
+Redirect 301 /ung-dung.html /ung-dung/
+Redirect 301 /lien-he.html /lien-he/
+Redirect 301 /datcs.html /datcs/
+Redirect 301 /press.html /blog/
+Redirect 301 /thong-tin.html /blog/
+Redirect 301 /deron-scout-landing-sop.html /deron-scout/sop/
+Redirect 301 /ung-dung/y-te-khan-cap.html /ung-dung/y-te-khan-cap/
+Redirect 301 /ung-dung/cuu-tro-thien-tai.html /ung-dung/cuu-tro-thien-tai/
+Redirect 301 /ung-dung/ung-dung/y-te-khan-cap.html /ung-dung/y-te-khan-cap/

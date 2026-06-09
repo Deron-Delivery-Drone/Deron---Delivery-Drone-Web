@@ -23,6 +23,9 @@ yarn-error.log*
 # IDE
 .vs/
 
+# Local static server runtime files
+/.local-server/
+
 # Hosting artifacts
 .ftp-deploy-sync-state.json
 .ftpquota
