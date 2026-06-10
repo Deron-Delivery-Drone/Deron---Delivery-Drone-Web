@@ -2,10 +2,10 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const outRoot = path.join(root, "acedemy", "paths");
+const outRoot = path.join(root, "academy", "paths");
 const logoPath = "/public/Deronlogocolor_0E1A2B-removebg-preview.png";
 const siteUrl = "https://deron.vn";
-const academyPath = "/acedemy";
+const academyPath = "/academy";
 
 const courses = [
   {

@@ -16,7 +16,7 @@
  deron_scout_sop: { path: '/deron-scout/sop', labelKey: 'deronScoutSop' },
  datcs: { path: '/datcs', labelKey: 'datcs' },
  datcs_install: { path: '/datcs/install', labelKey: 'datcsInstall' },
- academy: { path: '/acedemy/', labelKey: 'academy' },
+ academy: { path: '/academy/', labelKey: 'academy' },
  contact: { path: '/#contact', labelKey: 'contact' }
  };
 

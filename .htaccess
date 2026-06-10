@@ -1,5 +1,6 @@
 Options -MultiViews
 
+RedirectMatch 301 ^/acedemy/?(.*)$ /academy/$1
 Redirect 301 /gioi-thieu.html /gioi-thieu/
 Redirect 301 /cong-nghe.html /cong-nghe/
 Redirect 301 /san-pham.html /san-pham/

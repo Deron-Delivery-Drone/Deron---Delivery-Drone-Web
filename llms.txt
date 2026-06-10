@@ -16,7 +16,7 @@ Primary Vietnamese terms: Deron Scout, UAV tuần tra, drone giám sát tự đ�
 - Technology: https://deron.vn/cong-nghe
 - Applications: https://deron.vn/ung-dung
 - DATCS: https://deron.vn/datcs
-- Academy: https://deron.vn/acedemy
+- Academy: https://deron.vn/academy
 - Blog: https://deron.vn/blog
 - Contact: https://deron.vn/lien-he
 

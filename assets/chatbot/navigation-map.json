@@ -24,31 +24,31 @@
  "labelKey": "blog"
  },
  "academy": {
- "path": "/acedemy/",
+ "path": "/academy/",
  "labelKey": "academy"
  },
  "academy_drone_beginner_foundation": {
- "path": "/acedemy/paths/drone-beginner-foundation/",
+ "path": "/academy/paths/drone-beginner-foundation/",
  "labelKey": "academyDroneBeginnerFoundation"
  },
  "academy_build_your_first_uav": {
- "path": "/acedemy/paths/build-your-first-uav/",
+ "path": "/academy/paths/build-your-first-uav/",
  "labelKey": "academyBuildYourFirstUav"
  },
  "academy_fpv_pilot_starter": {
- "path": "/acedemy/paths/fpv-pilot-starter/",
+ "path": "/academy/paths/fpv-pilot-starter/",
  "labelKey": "academyFpvPilotStarter"
  },
  "academy_firmware_basics": {
- "path": "/acedemy/paths/firmware-basics/",
+ "path": "/academy/paths/firmware-basics/",
  "labelKey": "academyFirmwareBasics"
  },
  "academy_uav_engineering_foundation": {
- "path": "/acedemy/paths/uav-engineering-foundation/",
+ "path": "/academy/paths/uav-engineering-foundation/",
  "labelKey": "academyUavEngineeringFoundation"
  },
  "academy_startup_product_lab": {
- "path": "/acedemy/paths/startup-product-lab/",
+ "path": "/academy/paths/startup-product-lab/",
  "labelKey": "academyStartupProductLab"
  },
  "press": {

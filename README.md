@@ -12,7 +12,7 @@ Public-facing website for Deron.
 
 - `index.html`: public home page and root SEO entry.
 - `gioi-thieu/`, `cong-nghe/`, `san-pham/`, `ung-dung/`, `lien-he/`: folder-based public routes.
-- `deron-scout/`, `datcs/`, `acedemy/`, `blog/`: product, install, academy, and blog sections.
+- `deron-scout/`, `datcs/`, `academy/`, `blog/`: product, install, academy, and blog sections.
 - `assets/`: shared CSS, JavaScript, chatbot UI, and frontend helpers.
 - `public/`: shared images, PDFs, icons, manifest, and translation/runtime assets.
 - `admin/` and `content/`: CMS configuration and editable content/media source.

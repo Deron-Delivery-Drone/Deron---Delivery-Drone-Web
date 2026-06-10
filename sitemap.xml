@@ -53,37 +53,37 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://deron.vn/acedemy</loc>
+    <loc>https://deron.vn/academy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://deron.vn/acedemy/paths/drone-beginner-foundation</loc>
+    <loc>https://deron.vn/academy/paths/drone-beginner-foundation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://deron.vn/acedemy/paths/build-your-first-uav</loc>
+    <loc>https://deron.vn/academy/paths/build-your-first-uav</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://deron.vn/acedemy/paths/fpv-pilot-starter</loc>
+    <loc>https://deron.vn/academy/paths/fpv-pilot-starter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://deron.vn/acedemy/paths/firmware-basics</loc>
+    <loc>https://deron.vn/academy/paths/firmware-basics</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://deron.vn/acedemy/paths/uav-engineering-foundation</loc>
+    <loc>https://deron.vn/academy/paths/uav-engineering-foundation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://deron.vn/acedemy/paths/startup-product-lab</loc>
+    <loc>https://deron.vn/academy/paths/startup-product-lab</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
